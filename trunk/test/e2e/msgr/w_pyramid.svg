@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg:svg xmlns:svg="http://www.w3.org/2000/svg" viewBox="0 0 465.2 450">
+   <svg:desc>Production</svg:desc>
+   <svg:g>
+      <svg:text x="232.6" y="28" text-anchor="middle" font-family="Verdana" font-size="18"
+                fill="black">Production</svg:text>
+   </svg:g>
+   <svg:g stroke-width="0.4" fill="#d82914" stroke="black" stroke-linejoin="round">
+      <svg:g transform="translate(62.2, 422)">
+         <svg:path d="M-10,-0 h20 l-10,-210 h00 z"/>
+      </svg:g>
+      <svg:g transform="translate(130.2, 422)">
+         <svg:path d="M-10,-0 h20 l-10,-220 h00 z"/>
+      </svg:g>
+      <svg:g transform="translate(198.2, 422)">
+         <svg:path d="M-10,-0 h20 l-10,-180 h00 z"/>
+      </svg:g>
+      <svg:g transform="translate(266.2, 422)">
+         <svg:path d="M-10,-0 h20 l-10,-180 h00 z"/>
+      </svg:g>
+      <svg:g transform="translate(334.2, 422)">
+         <svg:path d="M-10,-0 h20 l-10,-160 h00 z"/>
+      </svg:g>
+      <svg:g transform="translate(402.2, 422)">
+         <svg:path d="M-10,-0 h20 l-10,-140 h00 z"/>
+      </svg:g>
+      <svg:g transform="translate(92.25,        75)">
+         <svg:path d="M-5,00 h10 l-5,-20 h00 z"/>
+      </svg:g>
+   </svg:g>
+   <svg:g stroke-width="0.4" fill="#f2ee15" stroke="black" stroke-linejoin="round">
+      <svg:g transform="translate(76.2, 422)">
+         <svg:path d="M-10,-0 h20 l-10,-100 h00 z"/>
+      </svg:g>
+      <svg:g transform="translate(144.2, 422)">
+         <svg:path d="M-10,-0 h20 l-10,-120 h00 z"/>
+      </svg:g>
+      <svg:g transform="translate(212.2, 422)">
+         <svg:path d="M-10,-0 h20 l-10,-90 h00 z"/>
+      </svg:g>
+      <svg:g transform="translate(280.2, 422)">
+         <svg:path d="M-10,-0 h20 l-10,-110 h00 z"/>
+      </svg:g>
+      <svg:g transform="translate(348.2, 422)">
+         <svg:path d="M-10,-0 h20 l-10,-150 h00 z"/>
+      </svg:g>
+      <svg:g transform="translate(416.2, 422)">
+         <svg:path d="M-10,-0 h20 l-10,-180 h00 z"/>
+      </svg:g>
+      <svg:g transform="translate(195.15,        75)">
+         <svg:path d="M-5,00 h10 l-5,-20 h00 z"/>
+      </svg:g>
+   </svg:g>
+   <svg:g stroke-width="0.4" fill="#21ab03" stroke="black" stroke-linejoin="round">
+      <svg:g transform="translate(90.2, 422)">
+         <svg:path d="M-10,-0 h20 l-10,-280 h00 z"/>
+      </svg:g>
+      <svg:g transform="translate(158.2, 422)">
+         <svg:path d="M-10,-0 h20 l-10,-290 h00 z"/>
+      </svg:g>
+      <svg:g transform="translate(226.2, 422)">
+         <svg:path d="M-10,-0 h20 l-10,-220 h00 z"/>
+      </svg:g>
+      <svg:g transform="translate(294.2, 422)">
+         <svg:path d="M-10,-0 h20 l-10,-250 h00 z"/>
+      </svg:g>
+      <svg:g transform="translate(362.2, 422)">
+         <svg:path d="M-10,-0 h20 l-10,-300 h00 z"/>
+      </svg:g>
+      <svg:g transform="translate(430.2, 422)">
+         <svg:path d="M-10,-0 h20 l-10,-250 h00 z"/>
+      </svg:g>
+      <svg:g transform="translate(298.05,        75)">
+         <svg:path d="M-5,00 h10 l-5,-20 h00 z"/>
+      </svg:g>
+   </svg:g>
+   <svg:g stroke="black">
+      <svg:path d="M62.2,420 l0,2 m14,-2 l0,2 m14,-2 l0,2 m40,-2 l0,2 m14,-2 l0,2 m14,-2 l0,2 m40,-2 l0,2 m14,-2 l0,2 m14,-2 l0,2 m40,-2 l0,2 m14,-2 l0,2 m14,-2 l0,2 m40,-2 l0,2 m14,-2 l0,2 m14,-2 l0,2 m40,-2 l0,2 m14,-2 l0,2 m14,-2 l0,2 m40,-2"
+                stroke-width="0.5"/>
+      <svg:path d="M39.2,422 l6,0  m-6,-25 l6,0  m-6,-25 l6,0  m-6,-25 l6,0  m-6,-25 l6,0  m-6,-25 l6,0  m-6,-25 l6,0  m-6,-25 l6,0  m-6,-25 l6,0  m-6,-25 l6,0  m-6,-25 l6,0  m-6,-25 l6,0  m-6,-25 l6,0  m-6,-25 l6,0 "
+                stroke-width="1"/>
+   </svg:g>
+   <svg:line x1="42.2" y1="422" x2="450.2" y2="422" stroke="black" stroke-width="1"/>
+   <svg:g text-anchor="middle" font-family="Verdana" font-size="10" fill="black">
+      <svg:text x="76.2" y="435">Jan</svg:text>
+      <svg:text x="144.2" y="435">Feb</svg:text>
+      <svg:text x="212.2" y="435">Mar</svg:text>
+      <svg:text x="280.2" y="435">Apr</svg:text>
+      <svg:text x="348.2" y="435">May</svg:text>
+      <svg:text x="416.2" y="435">Jun</svg:text>
+   </svg:g>
+   <svg:g stroke="black" stroke-width="1">
+      <svg:line x1="42.2" y1="422" x2="42.2" y2="97"/>
+   </svg:g>
+   <svg:g text-anchor="end" font-family="Verdana" font-size="10" fill="black">
+      <svg:text x="36.2" y="425.5">0</svg:text>
+      <svg:text x="36.2" y="400.5">2.5</svg:text>
+      <svg:text x="36.2" y="375.5">5</svg:text>
+      <svg:text x="36.2" y="350.5">7.5</svg:text>
+      <svg:text x="36.2" y="325.5">10</svg:text>
+      <svg:text x="36.2" y="300.5">12.5</svg:text>
+      <svg:text x="36.2" y="275.5">15</svg:text>
+      <svg:text x="36.2" y="250.5">17.5</svg:text>
+      <svg:text x="36.2" y="225.5">20</svg:text>
+      <svg:text x="36.2" y="200.5">22.5</svg:text>
+      <svg:text x="36.2" y="175.5">25</svg:text>
+      <svg:text x="36.2" y="150.5">27.5</svg:text>
+      <svg:text x="36.2" y="125.5">30</svg:text>
+      <svg:text x="36.2" y="100.5">32.5</svg:text>
+   </svg:g>
+   <svg:g stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"
+          stroke-dasharray="none">
+      <svg:path d="M90.2,142 L158.2,132 L226.2,202 L294.2,172 L362.2,122 L430.2,172"
+                stroke="#21ab03"
+                stroke-dasharray="0.2,3"/>
+      <svg:path stroke="white" stroke-width="4.5" d="M284.05,65 l28,0"/>
+      <svg:path stroke="#21ab03" d="M284.05,65 l28,0" stroke-dasharray="0.2,3"/>
+   </svg:g>
+   <svg:g text-anchor="start" font-family="Verdana" font-size="10" fill="black">
+      <svg:text x="111.25" y="68.5" fill="#d82914">product A</svg:text>
+      <svg:text x="214.15" y="68.5" fill="#f2ee15">product B</svg:text>
+      <svg:text x="317.05" y="68.5" fill="#21ab03">product C</svg:text>
+   </svg:g>
+   <svg:rect x="0.5" y="0.5" width="464.2" height="449" stroke="black" fill="none"
+             stroke-width="1"/>
+   <svg:text x="42.2" y="444" font-family="Verdana" font-size="10"/>
+   <svg:text x="42.2" y="407" font-family="Verdana" font-size="10"/>
+</svg:svg>

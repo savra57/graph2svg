@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg:svg xmlns:svg="http://www.w3.org/2000/svg" viewBox="0 0 308.4 139">
+<svg:desc>Pokusný graf číslo 4 - sloupce</svg:desc>
+
+<svg:g>
+	<svg:text x="154.2" y="28" text-anchor="middle" font-family="Verdana" font-size="18" fill="black">Pokusný graf číslo 4 - sloupce</svg:text>
+</svg:g>
+
+
+<svg:g stroke-width="0.4" stroke="black" stroke-linejoin="round">
+	<svg:g transform="translate(60.4, 111)" fill="#d82914"><svg:path d="M-15,-0 h30 v-26.97953115119062 h-30 z"/><svg:path d="M15,-0 l8,-8 v-26.97953115119062 l-8,8 z"/><svg:path d="M-15,-26.97953115119062 h30 l8,-8 h-30 z"/></svg:g>
+	<svg:g transform="translate(110.4, 111)" fill="#f2ee15"><svg:path d="M-15,-0 h30 v-19.45378125959109 h-30 z"/><svg:path d="M15,-0 l8,-8 v-19.45378125959109 l-8,8 z"/><svg:path d="M-15,-19.45378125959109 h30 l8,-8 h-30 z"/></svg:g>
+	<svg:g transform="translate(160.4, 111)" fill="#21ab03"><svg:path d="M-15,-0 h30 v-11.92803136799156 h-30 z"/><svg:path d="M15,-0 l8,-8 v-11.92803136799156 l-8,8 z"/><svg:path d="M-15,-11.92803136799156 h30 l8,-8 h-30 z"/></svg:g>
+	<svg:g transform="translate(210.4, 111)" fill="#c5a712"><svg:path d="M-15,-0 h30 v-26.97953115119062 h-30 z"/><svg:path d="M15,-0 l8,-8 v-26.97953115119062 l-8,8 z"/><svg:path d="M-15,-26.97953115119062 h30 l8,-8 h-30 z"/></svg:g>
+	<svg:g transform="translate(260.4, 111)" fill="#a4005a"><svg:path d="M-15,-0 h30 v-34.50528104279015 h-30 z"/><svg:path d="M15,-0 l8,-8 v-34.50528104279015 l-8,8 z"/><svg:path d="M-15,-34.50528104279015 h30 l8,-8 h-30 z"/></svg:g>
+</svg:g>
+<svg:g stroke="black">
+	<svg:path d="M33.4,111 l4,0  m-4,-7.53 l4,0  m-4,-4.4 l4,0  m-4,-3.13 l4,0  m-4,-2.43 l4,0  m-4,-1.98 l4,0  m-4,-1.68 l4,0  m-4,-1.45 l4,0  m-4,-1.28 l4,0  m-4,-1.15 l4,0  m-4,-7.53 l4,0  m-4,-4.4 l4,0  m-4,-3.13 l4,0  m-4,-2.43 l4,0  m-4,-1.98 l4,0  m-4,-1.68 l4,0  m-4,-1.45 l4,0  m-4,-1.28 l4,0  m-4,-1.15 l4,0 " stroke-width="0.5"/>
+	<svg:path d="M32.4,111 l6,0  m-6,-25 l6,0  m-6,-25 l6,0 " stroke-width="1"/>
+</svg:g>
+<svg:line x1="35.4" y1="111" x2="285.4" y2="111" stroke="black" stroke-width="1"/>
+<svg:g text-anchor="middle" font-family="Verdana" font-size="10" fill="black">
+	<svg:text x="60.4" y="124">Leden</svg:text>
+	<svg:text x="110.4" y="124">Únor</svg:text>
+	<svg:text x="160.4" y="124">Březen</svg:text>
+	<svg:text x="210.4" y="124">Duben</svg:text>
+	<svg:text x="260.4" y="124">Květen</svg:text>
+</svg:g>
+<svg:g stroke="black" stroke-width="1">
+	<svg:line x1="35.4" y1="111" x2="35.4" y2="61"/>
+</svg:g>
+<svg:g text-anchor="end" font-family="Verdana" font-size="10" fill="black">
+	<svg:text x="29.4" y="114.5">10<svg:tspan font-size="7.5" dy="-4">0</svg:tspan></svg:text>
+	<svg:text x="29.4" y="89.5">10<svg:tspan font-size="7.5" dy="-4">1</svg:tspan></svg:text>
+	<svg:text x="29.4" y="64.5">10<svg:tspan font-size="7.5" dy="-4">2</svg:tspan></svg:text>
+</svg:g>
+<svg:g stroke-width="1.5" fill="none" stroke-linecap="round">
+	<svg:circle cx="60.4" cy="84.02" r="4" stroke="#d82914"/>
+	<svg:circle cx="110.4" cy="91.55" r="4" stroke="#f2ee15"/>
+	<svg:circle cx="160.4" cy="99.07" r="4" stroke="#21ab03"/>
+	<svg:circle cx="210.4" cy="84.02" r="4" stroke="#c5a712"/>
+	<svg:circle cx="260.4" cy="76.49" r="4" stroke="#a4005a"/>
+</svg:g><svg:g text-anchor="middle" font-family="Verdana" font-size="10" fill="black">
+	<svg:text x="60.4" y="97.51">23%</svg:text>
+	<svg:text x="110.4" y="101.27">16%</svg:text>
+	<svg:text x="160.4" y="105.04">10%</svg:text>
+	<svg:text x="210.4" y="97.51">23%</svg:text>
+	<svg:text x="260.4" y="93.75">29%</svg:text></svg:g><svg:g text-anchor="middle" font-family="Verdana" font-size="10" fill="black">
+	<svg:text x="60.4" y="79.02">Leden</svg:text>
+	<svg:text x="110.4" y="86.55">Únor</svg:text>
+	<svg:text x="160.4" y="94.07">Březen</svg:text>
+	<svg:text x="210.4" y="79.02">Duben</svg:text>
+	<svg:text x="260.4" y="71.49">Květen</svg:text></svg:g><svg:rect x="0.5" y="0.5" width="307.4" height="138" stroke="black" fill="none" stroke-width="1"/>
+<svg:text x="35.4" y="133" font-family="Verdana" font-size="10"/><svg:text x="35.4" y="96" font-family="Verdana" font-size="10"/></svg:svg>

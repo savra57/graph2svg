@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg:svg xmlns:svg="http://www.w3.org/2000/svg" viewBox="0 0 386.5 411">
+   <svg:desc>Produkce v 1. pololetí (ks.)</svg:desc>
+   <svg:g>
+      <svg:text x="193.25" y="28" text-anchor="middle" font-family="Verdana" font-size="18"
+                fill="black">Produkce v 1. pololetí (ks.)</svg:text>
+   </svg:g>
+   <svg:g stroke-width="0.2" stroke="black" stroke-linejoin="round">
+      <svg:path d="M48.6,278 L88.6,273 L128.6,293 L168.6,293 L208.6,303 L248.6,313 L248.6,383 L48.6,383 z"
+                fill="#07bbbb"/>
+      <svg:rect x="283.6" y="190.5" width="28" height="20" fill="#07bbbb"/>
+      <svg:g stroke-width="4.5" fill="white" color="white" stroke="white"
+             stroke-linecap="round"/>
+      <svg:path d="M48.6,228 L88.6,218 L128.6,233 L168.6,223 L208.6,203 L248.6,188 L248.6,313 L208.6,303 L168.6,293 L128.6,293 L88.6,273 L48.6,278"
+                fill="#09a317"/>
+      <svg:rect x="283.6" y="214.5" width="28" height="20" fill="#09a317"/>
+      <svg:g stroke-width="4.5" fill="white" color="white" stroke="white"
+             stroke-linecap="round"/>
+      <svg:path d="M48.6,88 L88.6,83 L128.6,118 L168.6,103 L208.6,78 L248.6,103 L248.6,188 L208.6,203 L168.6,223 L128.6,233 L88.6,218 L48.6,228"
+                fill="#19009f"/>
+      <svg:rect x="283.6" y="238.5" width="28" height="20" fill="#19009f"/>
+      <svg:g stroke-width="4.5" fill="white" color="white" stroke="white"
+             stroke-linecap="round"/>
+   </svg:g>
+   <svg:g stroke="black">
+      <svg:path d="M48.6,381 l0,2 m0,-2 l0,2 m0,-2 l0,2 m40,-2 l0,2 m0,-2 l0,2 m0,-2 l0,2 m40,-2 l0,2 m0,-2 l0,2 m0,-2 l0,2 m40,-2 l0,2 m0,-2 l0,2 m0,-2 l0,2 m40,-2 l0,2 m0,-2 l0,2 m0,-2 l0,2 m40,-2 l0,2 m0,-2 l0,2 m0,-2 l0,2 m40,-2"
+                stroke-width="0.5"/>
+      <svg:path d="M25.6,383 l6,0  m-6,-25 l6,0  m-6,-25 l6,0  m-6,-25 l6,0  m-6,-25 l6,0  m-6,-25 l6,0  m-6,-25 l6,0  m-6,-25 l6,0  m-6,-25 l6,0  m-6,-25 l6,0  m-6,-25 l6,0  m-6,-25 l6,0  m-6,-25 l6,0  m-6,-25 l6,0 "
+                stroke-width="1"/>
+   </svg:g>
+   <svg:line x1="28.6" y1="383" x2="268.6" y2="383" stroke="black" stroke-width="1"/>
+   <svg:g text-anchor="middle" font-family="Verdana" font-size="10" fill="black">
+      <svg:text x="48.6" y="396">Leden</svg:text>
+      <svg:text x="88.6" y="396">Únor</svg:text>
+      <svg:text x="128.6" y="396">Březen</svg:text>
+      <svg:text x="168.6" y="396">Duben</svg:text>
+      <svg:text x="208.6" y="396">Květen</svg:text>
+      <svg:text x="248.6" y="396">Červen</svg:text>
+   </svg:g>
+   <svg:g stroke="black" stroke-width="1">
+      <svg:line x1="28.6" y1="383" x2="28.6" y2="58"/>
+   </svg:g>
+   <svg:g text-anchor="end" font-family="Verdana" font-size="10" fill="black">
+      <svg:text x="22.6" y="386.5">0</svg:text>
+      <svg:text x="22.6" y="361.5">5</svg:text>
+      <svg:text x="22.6" y="336.5">10</svg:text>
+      <svg:text x="22.6" y="311.5">15</svg:text>
+      <svg:text x="22.6" y="286.5">20</svg:text>
+      <svg:text x="22.6" y="261.5">25</svg:text>
+      <svg:text x="22.6" y="236.5">30</svg:text>
+      <svg:text x="22.6" y="211.5">35</svg:text>
+      <svg:text x="22.6" y="186.5">40</svg:text>
+      <svg:text x="22.6" y="161.5">45</svg:text>
+      <svg:text x="22.6" y="136.5">50</svg:text>
+      <svg:text x="22.6" y="111.5">55</svg:text>
+      <svg:text x="22.6" y="86.5">60</svg:text>
+      <svg:text x="22.6" y="61.5">65</svg:text>
+   </svg:g>
+   <svg:g text-anchor="start" font-family="Verdana" font-size="10" fill="black">
+      <svg:text x="316.6" y="204" fill="#07bbbb">výrobek A</svg:text>
+      <svg:text x="316.6" y="228" fill="#09a317">výrobek B</svg:text>
+      <svg:text x="316.6" y="252" fill="#19009f">výrobek C</svg:text>
+   </svg:g>
+   <svg:rect x="0.5" y="0.5" width="385.5" height="410" stroke="black" fill="none"
+             stroke-width="1"/>
+   <svg:text x="28.6" y="405" font-family="Verdana" font-size="10"/>
+   <svg:text x="28.6" y="368" font-family="Verdana" font-size="10"/>
+</svg:svg>

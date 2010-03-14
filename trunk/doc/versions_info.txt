@@ -1,0 +1,20 @@
+version 01
+    * first published version
+
+version 02
+    * added name spaces
+    * removed LFT entities
+    * preprocesing in all scripts was changed
+    * fixed printing of values, when yAxisType=shifted
+    * improved printing of values labelIn/labelOut in osgr
+    * add new values "line" and "minus" into DTDs
+
+TODO
+    * gradients in 3Dpie
+    * better lay out when long names
+    * new attributes in msgr: name of axes, labelIn/Out...
+	
+    * consider next attributes: ColWd, CatGap
+    * improve columns: shadows, correct cylinders, cone
+    * try and upgrade combination with elements from other name spaces (e.g. MathML)
+	* consider colors like: title color, background color, axis colors

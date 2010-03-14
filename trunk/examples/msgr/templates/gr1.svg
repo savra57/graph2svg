@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg:svg xmlns:svg="http://www.w3.org/2000/svg" viewBox="0 0 671.8 431">
+<svg:desc>Pokusný graf číslo 1</svg:desc>
+
+<svg:g>
+	<svg:text x="335.9" y="28" text-anchor="middle" font-family="Verdana" font-size="18" fill="black">Pokusný graf číslo 1</svg:text>
+</svg:g>
+
+<svg:g stroke-width="0.2" stroke="black" stroke-linejoin="round">
+	<svg:path d="M63.4,183 L103.4,163 L143.4,378 L143.4,253 L63.4,253 z" fill="#14f"/>
+	<svg:rect x="538.4" y="200.5" width="28" height="20" fill="#14f"/>
+	<svg:g stroke-width="4.5" fill="white" color="white" stroke="white" stroke-linecap="round">
+		<svg:circle cx="552.4" cy="210.5" r="4"/>
+	</svg:g>
+	<svg:path d="M63.4,178 L103.4,173 L143.4,153 L183.4,138 L223.4,148 L263.4,178 L303.4,183 L343.4,163 L383.4,158 L423.4,138 L463.4,113 L503.4,108 L143.4,378 L103.4,163 L63.4,183" fill="#ff1"/>
+	<svg:path d="M63.4,163 L103.4,163 L143.4,148 L183.4,143 L223.4,138 L263.4,173 L303.4,163 L343.4,153 L383.4,138 L423.4,118 L463.4,98 L503.4,108 L463.4,113 L423.4,138 L383.4,158 L343.4,163 L303.4,183 L263.4,178 L223.4,148 L183.4,138 L143.4,153 L103.4,173 L63.4,178" fill="#f0d"/>
+	<svg:rect x="538.4" y="224.5" width="28" height="20" fill="#f0d"/>
+	<svg:g stroke-width="4.5" fill="white" color="white" stroke="white" stroke-linecap="round">
+		<svg:path d="M 552.4,234.5 m 0,-4 l 0,8 m -3.48,-6 l 6.92,4      m -6.92,0 l 6.92,-4"/>
+	</svg:g>
+	<svg:path d="M63.4,113 L103.4,113 L143.4,103 L183.4,103 L223.4,153 L263.4,153 L303.4,153 L343.4,128 L383.4,108 L423.4,98 L463.4,78 L503.4,88 L463.4,98 L423.4,118 L383.4,138 L343.4,153 L303.4,163 L263.4,173 L223.4,138 L183.4,143 L143.4,148 L103.4,163 L63.4,163" fill="#3f1"/>
+	<svg:rect x="538.4" y="248.5" width="28" height="20" fill="#3f1"/>
+	<svg:g stroke-width="4.5" fill="white" color="white" stroke="white" stroke-linecap="round">
+		<svg:path d="M 552.4,258.5 m -3,-3 l 6,6 m 0,-6 l -6,6"/>
+	</svg:g>
+</svg:g>
+
+	<svg:path d="M23.4,403  m40,-350l0,350  m0,-350l0,350  m0,-350l0,350  m0,-350l0,350  m40,-350l0,350  m0,-350l0,350  m0,-350l0,350  m0,-350l0,350  m40,-350l0,350  m0,-350l0,350  m0,-350l0,350  m0,-350l0,350  m40,-350l0,350  m0,-350l0,350  m0,-350l0,350  m0,-350l0,350  m40,-350l0,350  m0,-350l0,350  m0,-350l0,350  m0,-350l0,350  m40,-350l0,350  m0,-350l0,350  m0,-350l0,350  m0,-350l0,350  m40,-350l0,350  m0,-350l0,350  m0,-350l0,350  m0,-350l0,350  m40,-350l0,350  m0,-350l0,350  m0,-350l0,350  m0,-350l0,350  m40,-350l0,350  m0,-350l0,350  m0,-350l0,350  m0,-350l0,350  m40,-350l0,350  m0,-350l0,350  m0,-350l0,350  m0,-350l0,350  m40,-350l0,350  m0,-350l0,350  m0,-350l0,350  m0,-350l0,350  m40,-350l0,350  m0,-350l0,350  m0,-350l0,350  m0,-350l0,350 M55.4,261 l8,-8 m-8,8 l8,-8 m-8,8 l8,-8 m-8,8 l8,-8 m32,8 l8,-8 m-8,8 l8,-8 m-8,8 l8,-8 m-8,8 l8,-8 m32,8 l8,-8 m-8,8 l8,-8 m-8,8 l8,-8 m-8,8 l8,-8 m32,8 l8,-8 m-8,8 l8,-8 m-8,8 l8,-8 m-8,8 l8,-8 m32,8 l8,-8 m-8,8 l8,-8 m-8,8 l8,-8 m-8,8 l8,-8 m32,8 l8,-8 m-8,8 l8,-8 m-8,8 l8,-8 m-8,8 l8,-8 m32,8 l8,-8 m-8,8 l8,-8 m-8,8 l8,-8 m-8,8 l8,-8 m32,8 l8,-8 m-8,8 l8,-8 m-8,8 l8,-8 m-8,8 l8,-8 m32,8 l8,-8 m-8,8 l8,-8 m-8,8 l8,-8 m-8,8 l8,-8 m32,8 l8,-8 m-8,8 l8,-8 m-8,8 l8,-8 m-8,8 l8,-8 m32,8 l8,-8 m-8,8 l8,-8 m-8,8 l8,-8 m-8,8 l8,-8 m32,8 l8,-8 m-8,8 l8,-8 m-8,8 l8,-8 m-8,8 l8,-8 m32,8" stroke="#111" stroke-width="0.2" fill="none"/>
+	<svg:path d="M43.4,53 l0,350 m40,-350 l0,350 m40,-350 l0,350 m40,-350 l0,350 m40,-350 l0,350 m40,-350 l0,350 m40,-350 l0,350 m40,-350 l0,350 m40,-350 l0,350 m40,-350 l0,350 m40,-350 l0,350 m40,-350 l0,350 m40,-350 l0,350 M35.4,261 l8,-8 m32,8 l8,-8 m32,8 l8,-8 m32,8 l8,-8 m32,8 l8,-8 m32,8 l8,-8 m32,8 l8,-8 m32,8 l8,-8 m32,8 l8,-8 m32,8 l8,-8 m32,8 l8,-8 m32,8 l8,-8 m32,8 l8,-8" stroke="#222" stroke-width="0.4" fill="none"/><svg:path d="M35.4,411 l8,-8  l480,0  m-488,3l8,-8 l480,0  m-488,3l8,-8 l480,0  m-488,3l8,-8 l480,0  m-488,3l8,-8 l480,0  m-488,3l8,-8 l480,0  m-488,3l8,-8 l480,0  m-488,3l8,-8 l480,0  m-488,3l8,-8 l480,0  m-488,3l8,-8 l480,0  m-488,3l8,-8 l480,0  m-488,3l8,-8 l480,0  m-488,3l8,-8 l480,0  m-488,3l8,-8 l480,0  m-488,3l8,-8 l480,0  m-488,3l8,-8 l480,0  m-488,3l8,-8 l480,0  m-488,3l8,-8 l480,0  m-488,3l8,-8 l480,0  m-488,3l8,-8 l480,0  m-488,3l8,-8 l480,0  m-488,3l8,-8 l480,0  m-488,3l8,-8 l480,0  m-488,3l8,-8 l480,0  m-488,3l8,-8 l480,0  m-488,3l8,-8 l480,0  m-488,3l8,-8 l480,0  m-488,3l8,-8 l480,0  m-488,3l8,-8 l480,0  m-488,3l8,-8 l480,0  m-488,3l8,-8 l480,0  m-488,3l8,-8 l480,0  m-488,3l8,-8 l480,0  m-488,3l8,-8 l480,0  m-488,3l8,-8 l480,0  m-488,3l8,-8 l480,0  m-488,3l8,-8 l480,0  m-488,3l8,-8 l480,0  m-488,3l8,-8 l480,0  m-488,3l8,-8 l480,0  m-488,3l8,-8 l480,0  m-488,3l8,-8 l480,0  m-488,3l8,-8 l480,0  m-488,3l8,-8 l480,0  m-488,3l8,-8 l480,0  m-488,3l8,-8 l480,0  m-488,3l8,-8 l480,0  m-488,3l8,-8 l480,0  m-488,3l8,-8 l480,0  m-488,3l8,-8 l480,0  m-488,3l8,-8 l480,0  m-488,3l8,-8 l480,0  m-488,3l8,-8 l480,0  m-488,3l8,-8 l480,0  m-488,3l8,-8 l480,0  m-488,3l8,-8 l480,0  m-488,3l8,-8 l480,0  m-488,3l8,-8 l480,0  m-488,3l8,-8 l480,0  m-488,3l8,-8 l480,0  m-488,3l8,-8 l480,0  m-488,3l8,-8 l480,0  m-488,3l8,-8 l480,0  m-488,3l8,-8 l480,0  m-488,3l8,-8 l480,0  m-488,3l8,-8 l480,0  m-488,3l8,-8 l480,0  m-488,3l8,-8 l480,0  m-488,3l8,-8 l480,0  m-488,3l8,-8 l480,0  m-488,3l8,-8 l480,0 " stroke="#111" stroke-width="0.2" fill="none"/>
+<svg:path d="M35.4,411 l8,-8  l480,0  m-488,-17l8,-8 l480,0  m-488,-17l8,-8 l480,0  m-488,-17l8,-8 l480,0  m-488,-17l8,-8 l480,0  m-488,-17l8,-8 l480,0  m-488,-17l8,-8 l480,0  m-488,-17l8,-8 l480,0  m-488,-17l8,-8 l480,0  m-488,-17l8,-8 l480,0  m-488,-17l8,-8 l480,0  m-488,-17l8,-8 l480,0  m-488,-17l8,-8 l480,0  m-488,-17l8,-8 l480,0  m-488,-17l8,-8 l480,0 " stroke="#222" stroke-width="0.4" fill="none"/>
+
+<svg:g stroke="black">
+	<svg:path d="M55.4,259 l0,2 m0,-2 l0,2 m0,-2 l0,2 m0,-2 l0,2 m40,-2 l0,2 m0,-2 l0,2 m0,-2 l0,2 m0,-2 l0,2 m40,-2 l0,2 m0,-2 l0,2 m0,-2 l0,2 m0,-2 l0,2 m40,-2 l0,2 m0,-2 l0,2 m0,-2 l0,2 m0,-2 l0,2 m40,-2 l0,2 m0,-2 l0,2 m0,-2 l0,2 m0,-2 l0,2 m40,-2 l0,2 m0,-2 l0,2 m0,-2 l0,2 m0,-2 l0,2 m40,-2 l0,2 m0,-2 l0,2 m0,-2 l0,2 m0,-2 l0,2 m40,-2 l0,2 m0,-2 l0,2 m0,-2 l0,2 m0,-2 l0,2 m40,-2 l0,2 m0,-2 l0,2 m0,-2 l0,2 m0,-2 l0,2 m40,-2 l0,2 m0,-2 l0,2 m0,-2 l0,2 m0,-2 l0,2 m40,-2 l0,2 m0,-2 l0,2 m0,-2 l0,2 m0,-2 l0,2 m40,-2 l0,2 m0,-2 l0,2 m0,-2 l0,2 m0,-2 l0,2 m40,-2" stroke-width="0.5"/>
+	<svg:path d="M35.4,261 l0,3 m40,-3 l0,3 m40,-3 l0,3 m40,-3 l0,3 m40,-3 l0,3 m40,-3 l0,3 m40,-3 l0,3 m40,-3 l0,3 m40,-3 l0,3 m40,-3 l0,3 m40,-3 l0,3 m40,-3 l0,3" stroke-width="1"/>
+	<svg:path d="M33.4,411 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0 " stroke-width="0.5"/>
+	<svg:path d="M32.4,411 l6,0  m-6,-25 l6,0  m-6,-25 l6,0  m-6,-25 l6,0  m-6,-25 l6,0  m-6,-25 l6,0  m-6,-25 l6,0  m-6,-25 l6,0  m-6,-25 l6,0  m-6,-25 l6,0  m-6,-25 l6,0  m-6,-25 l6,0  m-6,-25 l6,0  m-6,-25 l6,0  m-6,-25 l6,0 " stroke-width="1"/>
+</svg:g>
+<svg:g stroke="black" stroke-width="1"><svg:line x1="35.4" y1="261" x2="515.4" y2="261"/>
+</svg:g><svg:g text-anchor="middle" font-family="Verdana" font-size="10" fill="black"><svg:text x="55.4" y="274">Leden</svg:text><svg:text x="95.4" y="274">Únor</svg:text><svg:text x="135.4" y="274">Březen</svg:text><svg:text x="175.4" y="274">Duben</svg:text><svg:text x="215.4" y="274">Květen</svg:text><svg:text x="255.4" y="274">Červen</svg:text><svg:text x="295.4" y="274">Červenec</svg:text><svg:text x="335.4" y="274">Srpen</svg:text><svg:text x="375.4" y="274">Září</svg:text><svg:text x="415.4" y="274">Říjen</svg:text><svg:text x="455.4" y="274">Listopad</svg:text><svg:text x="495.4" y="274">Prosinec</svg:text></svg:g>
+<svg:g stroke="black" stroke-width="1">
+	<svg:line x1="35.4" y1="411" x2="35.4" y2="61"/>
+	</svg:g>
+<svg:g text-anchor="end" font-family="Verdana" font-size="10" fill="black">
+	<svg:text x="29.4" y="414.5">-30</svg:text>
+	<svg:text x="29.4" y="389.5">-25</svg:text>
+	<svg:text x="29.4" y="364.5">-20</svg:text>
+	<svg:text x="29.4" y="339.5">-15</svg:text>
+	<svg:text x="29.4" y="314.5">-10</svg:text>
+	<svg:text x="29.4" y="289.5">-5</svg:text>
+	<svg:text x="29.4" y="264.5">0</svg:text>
+	<svg:text x="29.4" y="239.5">5</svg:text>
+	<svg:text x="29.4" y="214.5">10</svg:text>
+	<svg:text x="29.4" y="189.5">15</svg:text>
+	<svg:text x="29.4" y="164.5">20</svg:text>
+	<svg:text x="29.4" y="139.5">25</svg:text>
+	<svg:text x="29.4" y="114.5">30</svg:text>
+	<svg:text x="29.4" y="89.5">35</svg:text>
+	<svg:text x="29.4" y="64.5">40</svg:text>
+</svg:g>
+<svg:g stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="6,0">
+	<svg:path d="M63.4,163 L103.4,163 L143.4,148 L183.4,143 L223.4,138 L263.4,173 L303.4,163 L343.4,153 L383.4,138 L423.4,118 L463.4,98" stroke="#f0d" stroke-dasharray="6,3,0.2,3"/><svg:path stroke="white" stroke-width="4.5" d="M538.4,234.5 l28,0"/><svg:path stroke="#f0d" d="M538.4,234.5 l28,0" stroke-dasharray="6,3,0.2,3"/>
+</svg:g>
+<svg:g stroke-width="1.5" fill="none" color="#14f" stroke="#14f" stroke-linecap="round">
+	<svg:circle cx="63.4" cy="183" r="4"/>
+	<svg:circle cx="103.4" cy="163" r="4"/>
+	<svg:circle cx="143.4" cy="378" r="4"/>
+		<svg:circle cx="552.4" cy="210.5" r="4"/>
+</svg:g>
+<svg:g stroke-width="1.5" fill="none" color="#ff1" stroke="#ff1" stroke-linecap="round">
+	<svg:path d="M 63.4,178 m 0,-4 l 0,8 m -3.48,-6 l 6.92,4      m -6.92,0 l 6.92,-4"/>
+	<svg:path d="M 103.4,173 m 0,-4 l 0,8 m -3.48,-6 l 6.92,4      m -6.92,0 l 6.92,-4"/>
+	<svg:path d="M 143.4,153 m 0,-4 l 0,8 m -3.48,-6 l 6.92,4      m -6.92,0 l 6.92,-4"/>
+	<svg:path d="M 183.4,138 m 0,-4 l 0,8 m -3.48,-6 l 6.92,4      m -6.92,0 l 6.92,-4"/>
+	<svg:path d="M 223.4,148 m 0,-4 l 0,8 m -3.48,-6 l 6.92,4      m -6.92,0 l 6.92,-4"/>
+	<svg:path d="M 263.4,178 m 0,-4 l 0,8 m -3.48,-6 l 6.92,4      m -6.92,0 l 6.92,-4"/>
+	<svg:path d="M 303.4,183 m 0,-4 l 0,8 m -3.48,-6 l 6.92,4      m -6.92,0 l 6.92,-4"/>
+	<svg:path d="M 343.4,163 m 0,-4 l 0,8 m -3.48,-6 l 6.92,4      m -6.92,0 l 6.92,-4"/>
+	<svg:path d="M 383.4,158 m 0,-4 l 0,8 m -3.48,-6 l 6.92,4      m -6.92,0 l 6.92,-4"/>
+	<svg:path d="M 423.4,138 m 0,-4 l 0,8 m -3.48,-6 l 6.92,4      m -6.92,0 l 6.92,-4"/>
+	<svg:path d="M 463.4,113 m 0,-4 l 0,8 m -3.48,-6 l 6.92,4      m -6.92,0 l 6.92,-4"/>
+	<svg:path d="M 503.4,108 m 0,-4 l 0,8 m -3.48,-6 l 6.92,4      m -6.92,0 l 6.92,-4"/>
+</svg:g>
+<svg:g stroke-width="1.5" fill="none" color="#f0d" stroke="#f0d" stroke-linecap="round">
+	<svg:path d="M 63.4,163 m 0,-4 l 0,8 m -3.48,-6 l 6.92,4      m -6.92,0 l 6.92,-4"/>
+	<svg:path d="M 103.4,163 m 0,-4 l 0,8 m -3.48,-6 l 6.92,4      m -6.92,0 l 6.92,-4"/>
+	<svg:path d="M 143.4,148 m 0,-4 l 0,8 m -3.48,-6 l 6.92,4      m -6.92,0 l 6.92,-4"/>
+	<svg:path d="M 183.4,143 m 0,-4 l 0,8 m -3.48,-6 l 6.92,4      m -6.92,0 l 6.92,-4"/>
+	<svg:path d="M 223.4,138 m 0,-4 l 0,8 m -3.48,-6 l 6.92,4      m -6.92,0 l 6.92,-4"/>
+	<svg:path d="M 263.4,173 m 0,-4 l 0,8 m -3.48,-6 l 6.92,4      m -6.92,0 l 6.92,-4"/>
+	<svg:path d="M 303.4,163 m 0,-4 l 0,8 m -3.48,-6 l 6.92,4      m -6.92,0 l 6.92,-4"/>
+	<svg:path d="M 343.4,153 m 0,-4 l 0,8 m -3.48,-6 l 6.92,4      m -6.92,0 l 6.92,-4"/>
+	<svg:path d="M 383.4,138 m 0,-4 l 0,8 m -3.48,-6 l 6.92,4      m -6.92,0 l 6.92,-4"/>
+	<svg:path d="M 423.4,118 m 0,-4 l 0,8 m -3.48,-6 l 6.92,4      m -6.92,0 l 6.92,-4"/>
+	<svg:path d="M 463.4,98 m 0,-4 l 0,8 m -3.48,-6 l 6.92,4      m -6.92,0 l 6.92,-4"/>
+		<svg:path d="M 552.4,234.5 m 0,-4 l 0,8 m -3.48,-6 l 6.92,4      m -6.92,0 l 6.92,-4"/>
+</svg:g>
+<svg:g stroke-width="1.5" fill="none" color="#3f1" stroke="#3f1" stroke-linecap="round">
+	<svg:path d="M 63.4,113 m -3,-3 l 6,6 m 0,-6 l -6,6"/>
+	<svg:path d="M 103.4,113 m -3,-3 l 6,6 m 0,-6 l -6,6"/>
+	<svg:path d="M 143.4,103 m -3,-3 l 6,6 m 0,-6 l -6,6"/>
+	<svg:path d="M 183.4,103 m -3,-3 l 6,6 m 0,-6 l -6,6"/>
+	<svg:path d="M 223.4,153 m -3,-3 l 6,6 m 0,-6 l -6,6"/>
+	<svg:path d="M 263.4,153 m -3,-3 l 6,6 m 0,-6 l -6,6"/>
+	<svg:path d="M 303.4,153 m -3,-3 l 6,6 m 0,-6 l -6,6"/>
+	<svg:path d="M 343.4,128 m -3,-3 l 6,6 m 0,-6 l -6,6"/>
+	<svg:path d="M 383.4,108 m -3,-3 l 6,6 m 0,-6 l -6,6"/>
+	<svg:path d="M 423.4,98 m -3,-3 l 6,6 m 0,-6 l -6,6"/>
+	<svg:path d="M 463.4,78 m -3,-3 l 6,6 m 0,-6 l -6,6"/>
+	<svg:path d="M 503.4,88 m -3,-3 l 6,6 m 0,-6 l -6,6"/>
+		<svg:path d="M 552.4,258.5 m -3,-3 l 6,6 m 0,-6 l -6,6"/>
+</svg:g>
+<svg:g text-anchor="start" font-family="Verdana" font-size="10" fill="black">
+	<svg:text x="571.4" y="214" fill="#14f">náklady jinačí</svg:text>
+	<svg:text x="571.4" y="238" fill="#f0d">tržby</svg:text>
+	<svg:text x="571.4" y="262" fill="#3f1">tržby</svg:text></svg:g>
+
+<svg:rect x="0.5" y="0.5" width="670.8" height="430" stroke="black" fill="none" stroke-width="1"/>
+</svg:svg>

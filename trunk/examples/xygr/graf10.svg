@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg:svg xmlns:svg="http://www.w3.org/2000/svg" viewBox="0 0 584.8000000000001 503">
+<svg:desc>Legenda a jmena krivek</svg:desc>
+
+<svg:g>
+	<svg:text x="292.40000000000003" y="28" text-anchor="middle" font-family="Verdana" font-size="18" fill="red">Legenda a jmena krivek</svg:text>
+</svg:g>
+
+
+<svg:g stroke="black">
+	<svg:path d="M351,483 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0 " stroke-width="0.5"/>
+	<svg:path d="M143,330 l0,6 m35,-6 l0,6 m35,-6 l0,6 m35,-6 l0,6 m35,-6 l0,6 m35,-6 l0,6 m35,-6 l0,6 m35,-6 l0,6 m35,-6 l0,6 m35,-6 l0,6 m35,-6 l0,6 m35,-6 l0,6 m35,-6 l0,6" stroke-width="1"/>
+	<svg:path d="M350,483 l6,0  m-6,-25 l6,0  m-6,-25 l6,0  m-6,-25 l6,0  m-6,-25 l6,0  m-6,-25 l6,0  m-6,-25 l6,0  m-6,-25 l6,0  m-6,-25 l6,0  m-6,-25 l6,0  m-6,-25 l6,0  m-6,-25 l6,0  m-6,-25 l6,0  m-6,-25 l6,0  m-6,-25 l6,0  m-6,-25 l6,0  m-6,-25 l6,0  m-6,-25 l6,0 " stroke-width="1"/>
+</svg:g>
+<svg:g stroke="black" stroke-width="1">
+	<svg:line x1="143" y1="333" x2="563" y2="333"/>
+</svg:g><svg:g text-anchor="middle" font-family="Verdana" font-size="10" fill="black">
+	<svg:text x="143" y="346">-6</svg:text>
+	<svg:text x="178" y="346">-5</svg:text>
+	<svg:text x="213" y="346">-4</svg:text>
+	<svg:text x="248" y="346">-3</svg:text>
+	<svg:text x="283" y="346">-2</svg:text>
+	<svg:text x="318" y="346">-1</svg:text>
+	<svg:text x="388" y="346">1</svg:text>
+	<svg:text x="423" y="346">2</svg:text>
+	<svg:text x="458" y="346">3</svg:text>
+	<svg:text x="493" y="346">4</svg:text>
+	<svg:text x="528" y="346">5</svg:text>
+	<svg:text x="563" y="346">6</svg:text>
+</svg:g>
+<svg:text text-anchor="end" font-family="Verdana" font-size="10" x="350" y="346">0</svg:text><svg:g stroke="black" stroke-width="1">
+	<svg:line x1="353" y1="483" x2="353" y2="58"/>
+	</svg:g>
+<svg:g text-anchor="end" font-family="Verdana" font-size="10" fill="black">
+	<svg:text x="347" y="486.5">-6</svg:text>
+	<svg:text x="347" y="461.5">-5</svg:text>
+	<svg:text x="347" y="436.5">-4</svg:text>
+	<svg:text x="347" y="411.5">-3</svg:text>
+	<svg:text x="347" y="386.5">-2</svg:text>
+	<svg:text x="347" y="361.5">-1</svg:text>
+	<svg:text x="347" y="311.5">1</svg:text>
+	<svg:text x="347" y="286.5">2</svg:text>
+	<svg:text x="347" y="261.5">3</svg:text>
+	<svg:text x="347" y="236.5">4</svg:text>
+	<svg:text x="347" y="211.5">5</svg:text>
+	<svg:text x="347" y="186.5">6</svg:text>
+	<svg:text x="347" y="161.5">7</svg:text>
+	<svg:text x="347" y="136.5">8</svg:text>
+	<svg:text x="347" y="111.5">9</svg:text>
+	<svg:text x="347" y="86.5">10</svg:text>
+	<svg:text x="347" y="61.5">11</svg:text>
+</svg:g>
+<svg:g text-anchor="start" font-family="Verdana" font-size="10" fill="black">
+	<svg:text x="48" y="267.5" fill="#14f">čestný pokus</svg:text>
+	<svg:text x="48" y="283.5" fill="#f0d">třetí křivka</svg:text></svg:g>
+<svg:g stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="8,3">
+	<svg:path d="M388,283 L528,83" stroke="#14f"/>
+		<svg:path stroke="#14f" d="M15,263.7         l28,0"/>
+	<svg:path d="M388,433 L493,458" stroke="#ff1" stroke-dasharray="8,3"/>
+	<svg:path d="M423,258 L528,233" stroke="#f0d" stroke-dasharray="6,3,0.2,3"/>
+		<svg:path stroke="#f0d" d="M15,279.7         l28,0" stroke-dasharray="6,3,0.2,3"/>
+	<svg:path d="M283,408 L178,433" stroke="#3f1" stroke-dasharray="0.2,3"/>
+	<svg:path d="M423,408 L528,433" stroke="#f33" stroke-dasharray="6,3,0.2,3,0.2,3"/>
+</svg:g>
+<svg:g stroke-width="1.5" fill="none" color="#14f" stroke="#14f" stroke-linecap="round">
+	<svg:path d="M 388,283 m -3,-3 l 6,0 l 0,6 l -6,0 z"/>
+	<svg:path d="M 528,83 m -3,-3 l 6,0 l 0,6 l -6,0 z"/>
+
+		<svg:path d="M 29,263.7 m -3,-3 l 6,0 l 0,6 l -6,0 z"/></svg:g>
+<svg:g stroke-width="1.5" fill="none" color="#ff1" stroke="#ff1" stroke-linecap="round">
+	<svg:path d="M 388,433 m -3,-3 l 6,0 l 0,6 l -6,0 z"/>
+	<svg:path d="M 493,458 m -3,-3 l 6,0 l 0,6 l -6,0 z"/>
+</svg:g>
+<svg:g stroke-width="1.5" fill="none" color="#f0d" stroke="#f0d" stroke-linecap="round">
+	<svg:path d="M 423,258 m -3,-3 l 6,0 l 0,6 l -6,0 z"/>
+	<svg:path d="M 528,233 m -3,-3 l 6,0 l 0,6 l -6,0 z"/>
+
+		<svg:path d="M 29,279.7 m -3,-3 l 6,0 l 0,6 l -6,0 z"/></svg:g>
+<svg:g stroke-width="1.5" fill="none" color="#3f1" stroke="#3f1" stroke-linecap="round">
+	<svg:path d="M 283,408 m -3,-3 l 6,0 l 0,6 l -6,0 z"/>
+	<svg:path d="M 178,433 m -3,-3 l 6,0 l 0,6 l -6,0 z"/>
+</svg:g>
+<svg:g stroke-width="1.5" fill="none" color="#f33" stroke="#f33" stroke-linecap="round">
+	<svg:path d="M 423,408 m -3,-3 l 6,0 l 0,6 l -6,0 z"/>
+	<svg:path d="M 528,433 m -3,-3 l 6,0 l 0,6 l -6,0 z"/>
+</svg:g>
+<svg:g text-anchor="start" font-family="Verdana" font-size="10" fill="black">
+	<svg:text x="528" y="230" fill="#f0d">třetí křivka</svg:text>
+	<svg:text x="423" y="380" fill="#f33">posledni</svg:text></svg:g>
+
+<svg:rect x="0.5" y="0.5" width="583.8000000000001" height="502" stroke="black" fill="none" stroke-width="1"/>
+</svg:svg>

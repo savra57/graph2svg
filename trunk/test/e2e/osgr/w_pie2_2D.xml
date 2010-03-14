@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE osgr SYSTEM "osgr.dtd">
+<osgr xmlns="http://graph2svg.googlecode.com"
+graphType="pie" colorScheme="warm" 
+labelOut="name" labelIn="value">
+  <title>Revenues (in thousnds &#x20ac;)</title>
+  <names>
+    <name>Mon</name>
+    <name>Tue</name>
+    <name>Wed</name>
+    <name>Thu</name>
+    <name>Fri</name>
+  </names>
+  <values>
+    <value>12.5</value>
+    <value>10.1</value>
+    <value>5.8</value>
+    <value>9.7</value>
+    <value>16</value>
+  </values>
+</osgr>

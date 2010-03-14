@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg:svg xmlns:svg="http://www.w3.org/2000/svg" viewBox="0 0 249.77820307621533 298">
+   <svg:desc>Revenues (in thousnds €)</svg:desc>
+   <svg:g>
+      <svg:text x="124.88910153810767" y="28" text-anchor="middle" font-family="Verdana"
+                font-size="18"
+                fill="black">Revenues (in thousnds €)</svg:text>
+   </svg:g>
+   <svg:g stroke-width="1" stroke="black" stroke-linejoin="round">
+      <svg:path d="M119.91875731234435,168 l0,-100 a100,100 0 0,1 99.29226609637057,88.12372560743313 z"
+                fill="#d82914"/>
+      <svg:path d="M119.91875731234435,168 l99.29226609637057,-11.876274392566865 a100,100 0 0,1 -49.880127900211406,98.81556699886582 z"
+                fill="#f2ee15"/>
+      <svg:path d="M119.91875731234435,168 l49.41213819615917,86.93929260629896 a100,100 0 0,1 -65.02690645863144,11.834079372738437 z"
+                fill="#21ab03"/>
+      <svg:path d="M119.91875731234435,168 l-15.614768262472225,98.77337197903739 a100,100 0 0,1 -80.28231004009557,-70.42288039544786 z"
+                fill="#c5a712"/>
+      <svg:path d="M119.91875731234435,168 l-95.89707830256782,28.35049158358945 a100,100 0 0,1 95.89707830260919,-128.35049158358945 z"
+                fill="#a4005a"/>
+   </svg:g>
+   <svg:g text-anchor="middle" font-family="Verdana" font-size="10" fill="black">
+      <svg:text x="169.7030900156061" y="115.40614813287517">12.5</svg:text>
+      <svg:text x="186.87229125050402" y="205.2968089202472">10.1</svg:text>
+      <svg:text x="133.34725362226354" y="245.28804433547813">5.8</svg:text>
+      <svg:text x="70.46099975794412" y="227.88200260446737">9.7</svg:text>
+      <svg:text x="59.836667004272215" y="126.60966223993559">16</svg:text>
+   </svg:g>
+   <svg:g font-family="Verdana" font-size="10" fill="black">
+      <svg:text x="191.94009195639634" y="90.35089429889275" text-anchor="start">Mon</svg:text>
+      <svg:text x="216.77820307621533" y="220.39271690462428" text-anchor="start">Tue</svg:text>
+      <svg:text x="139.3453153073608" y="278.2467041386584" text-anchor="start">Wed</svg:text>
+      <svg:text x="48.36986805031202" y="253.06596376779615" text-anchor="end">Thu</svg:text>
+      <svg:text x="33" y="106.55864470710682" text-anchor="end">Fri</svg:text>
+   </svg:g>
+   <svg:rect x="0.5" y="0.5" width="248.77820307621533" height="297" stroke="black"
+             fill="none"
+             stroke-width="1"/>
+</svg:svg>

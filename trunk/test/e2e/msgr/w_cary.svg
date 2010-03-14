@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg:svg xmlns:svg="http://www.w3.org/2000/svg" viewBox="0 0 400.1 411">
+   <svg:desc>Production</svg:desc>
+   <svg:g>
+      <svg:text x="200.05" y="28" text-anchor="middle" font-family="Verdana" font-size="18"
+                fill="black">Production</svg:text>
+   </svg:g>
+   <svg:g stroke="black">
+      <svg:path d="M62.2,381 l0,2 m0,-2 l0,2 m0,-2 l0,2 m40,-2 l0,2 m0,-2 l0,2 m0,-2 l0,2 m40,-2 l0,2 m0,-2 l0,2 m0,-2 l0,2 m40,-2 l0,2 m0,-2 l0,2 m0,-2 l0,2 m40,-2 l0,2 m0,-2 l0,2 m0,-2 l0,2 m40,-2 l0,2 m0,-2 l0,2 m0,-2 l0,2 m40,-2"
+                stroke-width="0.5"/>
+      <svg:path d="M39.2,383 l6,0  m-6,-25 l6,0  m-6,-25 l6,0  m-6,-25 l6,0  m-6,-25 l6,0  m-6,-25 l6,0  m-6,-25 l6,0  m-6,-25 l6,0  m-6,-25 l6,0  m-6,-25 l6,0  m-6,-25 l6,0  m-6,-25 l6,0  m-6,-25 l6,0  m-6,-25 l6,0 "
+                stroke-width="1"/>
+   </svg:g>
+   <svg:line x1="42.2" y1="383" x2="282.2" y2="383" stroke="black" stroke-width="1"/>
+   <svg:g text-anchor="middle" font-family="Verdana" font-size="10" fill="black">
+      <svg:text x="62.2" y="396">Jan</svg:text>
+      <svg:text x="102.2" y="396">Feb</svg:text>
+      <svg:text x="142.2" y="396">Mar</svg:text>
+      <svg:text x="182.2" y="396">Apr</svg:text>
+      <svg:text x="222.2" y="396">May</svg:text>
+      <svg:text x="262.2" y="396">Jun</svg:text>
+   </svg:g>
+   <svg:g stroke="black" stroke-width="1">
+      <svg:line x1="42.2" y1="383" x2="42.2" y2="58"/>
+   </svg:g>
+   <svg:g text-anchor="end" font-family="Verdana" font-size="10" fill="black">
+      <svg:text x="36.2" y="386.5">0</svg:text>
+      <svg:text x="36.2" y="361.5">2.5</svg:text>
+      <svg:text x="36.2" y="336.5">5</svg:text>
+      <svg:text x="36.2" y="311.5">7.5</svg:text>
+      <svg:text x="36.2" y="286.5">10</svg:text>
+      <svg:text x="36.2" y="261.5">12.5</svg:text>
+      <svg:text x="36.2" y="236.5">15</svg:text>
+      <svg:text x="36.2" y="211.5">17.5</svg:text>
+      <svg:text x="36.2" y="186.5">20</svg:text>
+      <svg:text x="36.2" y="161.5">22.5</svg:text>
+      <svg:text x="36.2" y="136.5">25</svg:text>
+      <svg:text x="36.2" y="111.5">27.5</svg:text>
+      <svg:text x="36.2" y="86.5">30</svg:text>
+      <svg:text x="36.2" y="61.5">32.5</svg:text>
+   </svg:g>
+   <svg:g stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <svg:path d="M62.2,173 L102.2,163 L142.2,203 L182.2,203 L222.2,223 L262.2,243"
+                stroke="#14f"/>
+      <svg:path stroke="white" stroke-width="4.5" d="M297.2,200.5 l28,0"/>
+      <svg:path stroke="#14f" d="M297.2,200.5 l28,0"/>
+      <svg:path d="M62.2,283 L102.2,263 L142.2,293 L182.2,273 L222.2,233 L262.2,203"
+                stroke="#ff1"/>
+      <svg:path stroke="white" stroke-width="4.5" d="M297.2,224.5 l28,0"/>
+      <svg:path stroke="#ff1" d="M297.2,224.5 l28,0"/>
+      <svg:path d="M62.2,103 L102.2,93 L142.2,163 L182.2,133 L222.2,83 L262.2,133"
+                stroke="#f0d"
+                stroke-dasharray="0.2,3"/>
+      <svg:path stroke="white" stroke-width="4.5" d="M297.2,248.5 l28,0"/>
+      <svg:path stroke="#f0d" d="M297.2,248.5 l28,0" stroke-dasharray="0.2,3"/>
+   </svg:g>
+   <svg:g stroke-width="1.5" fill="none" color="#14f" stroke="#14f"
+          stroke-linecap="round">
+      <svg:circle cx="62.2" cy="173" r="4"/>
+      <svg:circle cx="102.2" cy="163" r="4"/>
+      <svg:circle cx="142.2" cy="203" r="4"/>
+      <svg:circle cx="182.2" cy="203" r="4"/>
+      <svg:circle cx="222.2" cy="223" r="4"/>
+      <svg:circle cx="262.2" cy="243" r="4"/>
+      <svg:circle cx="311.2" cy="200.5" r="4"/>
+   </svg:g>
+   <svg:g stroke-width="1.5" fill="none" color="#ff1" stroke="#ff1"
+          stroke-linecap="round">
+      <svg:circle cx="62.2" cy="283" r="4"/>
+      <svg:circle cx="102.2" cy="263" r="4"/>
+      <svg:circle cx="142.2" cy="293" r="4"/>
+      <svg:circle cx="182.2" cy="273" r="4"/>
+      <svg:circle cx="222.2" cy="233" r="4"/>
+      <svg:circle cx="262.2" cy="203" r="4"/>
+      <svg:circle cx="311.2" cy="224.5" r="4"/>
+   </svg:g>
+   <svg:g stroke-width="1.5" fill="none" color="#f0d" stroke="#f0d"
+          stroke-linecap="round">
+      <svg:circle cx="62.2" cy="103" r="4"/>
+      <svg:circle cx="102.2" cy="93" r="4"/>
+      <svg:circle cx="142.2" cy="163" r="4"/>
+      <svg:circle cx="182.2" cy="133" r="4"/>
+      <svg:circle cx="222.2" cy="83" r="4"/>
+      <svg:circle cx="262.2" cy="133" r="4"/>
+      <svg:circle cx="311.2" cy="248.5" r="4"/>
+   </svg:g>
+   <svg:g text-anchor="start" font-family="Verdana" font-size="10" fill="black">
+      <svg:text x="330.2" y="204" fill="#14f">product A</svg:text>
+      <svg:text x="330.2" y="228" fill="#ff1">product B</svg:text>
+      <svg:text x="330.2" y="252" fill="#f0d">product C</svg:text>
+   </svg:g>
+   <svg:rect x="0.5" y="0.5" width="399.1" height="410" stroke="black" fill="none"
+             stroke-width="1"/>
+   <svg:text x="42.2" y="405" font-family="Verdana" font-size="10"/>
+   <svg:text x="42.2" y="368" font-family="Verdana" font-size="10"/>
+</svg:svg>

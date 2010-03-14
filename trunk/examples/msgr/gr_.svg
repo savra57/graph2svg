@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg:svg xmlns:svg="http://www.w3.org/2000/svg" viewBox="0 0 456 533.9904334386954">
+   <svg:desc>Tržby za jednotlivé výrobky (tis. Kč)</svg:desc>
+   <svg:g>
+      <svg:text x="228" y="28" text-anchor="middle" font-family="Verdana" font-size="18"
+                fill="black">Tržby za jednotlivé výrobky (tis. Kč)</svg:text>
+   </svg:g>
+   <svg:g stroke-width="0.4" fill="#888" stroke="black" stroke-linejoin="round">
+      <svg:g transform="translate(62.2, 483)">
+         <svg:path d="M-10,-0 h20 v-75 h-20 z"/>
+      </svg:g>
+      <svg:g transform="translate(102.2, 483)">
+         <svg:path d="M-10,-0 h20 v-225 h-20 z"/>
+      </svg:g>
+      <svg:g transform="translate(142.2, 483)">
+         <svg:path d="M-10,-0 h20 v-275 h-20 z"/>
+      </svg:g>
+      <svg:g transform="translate(182.2, 483)">
+         <svg:path d="M-10,-0 h20 v-325 h-20 z"/>
+      </svg:g>
+      <svg:g transform="translate(222.2, 483)">
+         <svg:path d="M-10,-0 h20 v-225 h-20 z"/>
+      </svg:g>
+      <svg:g transform="translate(262.2, 483)">
+         <svg:path d="M-10,-0 h20 v-175 h-20 z"/>
+      </svg:g>
+      <svg:g transform="translate(330.5,        259.9952167193477)">
+         <svg:path d="M-5,00 h10 v-20 h-10 z"/>
+      </svg:g>
+   </svg:g>
+   <svg:g stroke-width="0.4" fill="black" stroke="black" stroke-linejoin="round">
+      <svg:g transform="translate(62.2, 483)">
+         <svg:path d="M0,-24.999999999999993 v-100" stroke-width="2" stroke-linecap="butt"
+                   stroke="black"/>
+      </svg:g>
+      <svg:g transform="translate(102.2, 483)">
+         <svg:path d="M0,-125.00000000000001 v-144.99999999999997" stroke-width="2"
+                   stroke-linecap="butt"
+                   stroke="black"/>
+      </svg:g>
+      <svg:g transform="translate(142.2, 483)">
+         <svg:path d="M0,-160 v-170" stroke-width="2" stroke-linecap="butt" stroke="black"/>
+      </svg:g>
+      <svg:g transform="translate(182.2, 483)">
+         <svg:path d="M0,-245 v-170" stroke-width="2" stroke-linecap="butt" stroke="black"/>
+      </svg:g>
+      <svg:g transform="translate(222.2, 483)">
+         <svg:path d="M0,-144.99999999999991 v-170.00000000000009" stroke-width="2"
+                   stroke-linecap="butt"
+                   stroke="black"/>
+      </svg:g>
+      <svg:g transform="translate(262.2, 483)">
+         <svg:path d="M0,-150 v-80" stroke-width="2" stroke-linecap="butt" stroke="black"/>
+      </svg:g>
+      <svg:g transform="translate(330.5,        307.9952167193477)">
+         <svg:path d="M0,00 v-20" stroke-width="2" stroke-linecap="butt" stroke="black"/>
+      </svg:g>
+   </svg:g>
+   <svg:g stroke="black">
+      <svg:path d="M62.2,481 l0,2 m0,-2 l0,2 m0,-2 l0,2 m0,-2 l0,2 m40,-2 l0,2 m0,-2 l0,2 m0,-2 l0,2 m0,-2 l0,2 m40,-2 l0,2 m0,-2 l0,2 m0,-2 l0,2 m0,-2 l0,2 m40,-2 l0,2 m0,-2 l0,2 m0,-2 l0,2 m0,-2 l0,2 m40,-2 l0,2 m0,-2 l0,2 m0,-2 l0,2 m0,-2 l0,2 m40,-2 l0,2 m0,-2 l0,2 m0,-2 l0,2 m0,-2 l0,2 m40,-2"
+                stroke-width="0.5"/>
+      <svg:path d="M39.2,458 l6,0  m-6,-25 l6,0  m-6,-25 l6,0  m-6,-25 l6,0  m-6,-25 l6,0  m-6,-25 l6,0  m-6,-25 l6,0  m-6,-25 l6,0  m-6,-25 l6,0  m-6,-25 l6,0  m-6,-25 l6,0  m-6,-25 l6,0  m-6,-25 l6,0  m-6,-25 l6,0  m-6,-25 l6,0  m-6,-25 l6,0  m-6,-25 l6,0 "
+                stroke-width="1"/>
+   </svg:g>
+   <svg:line x1="42.2" y1="483" x2="282.2" y2="483" stroke="black" stroke-width="1"/>
+   <svg:g font-family="Verdana" font-size="10" fill="black">
+      <svg:g transform="translate(52.2,       496) rotate(25) ">
+         <svg:text>Červenec</svg:text>
+      </svg:g>
+      <svg:g transform="translate(92.2,       496) rotate(25) ">
+         <svg:text>Srpen</svg:text>
+      </svg:g>
+      <svg:g transform="translate(132.2,       496) rotate(25) ">
+         <svg:text>Září</svg:text>
+      </svg:g>
+      <svg:g transform="translate(172.2,       496) rotate(25) ">
+         <svg:text>Říjen</svg:text>
+      </svg:g>
+      <svg:g transform="translate(212.2,       496) rotate(25) ">
+         <svg:text>Listopad</svg:text>
+      </svg:g>
+      <svg:g transform="translate(252.2,       496) rotate(25) ">
+         <svg:text>Prosinec</svg:text>
+      </svg:g>
+   </svg:g>
+   <svg:g stroke="black" stroke-width="1">
+      <svg:line stroke-dasharray="2,3" x1="42.2" y1="458" x2="42.2" y2="483"/>
+      <svg:line x1="42.2" y1="458" x2="42.2" y2="58"/>
+   </svg:g>
+   <svg:g text-anchor="end" font-family="Verdana" font-size="10" fill="black">
+      <svg:text x="36.2" y="461.5">17</svg:text>
+      <svg:text x="36.2" y="436.5">17.5</svg:text>
+      <svg:text x="36.2" y="411.5">18</svg:text>
+      <svg:text x="36.2" y="386.5">18.5</svg:text>
+      <svg:text x="36.2" y="361.5">19</svg:text>
+      <svg:text x="36.2" y="336.5">19.5</svg:text>
+      <svg:text x="36.2" y="311.5">20</svg:text>
+      <svg:text x="36.2" y="286.5">20.5</svg:text>
+      <svg:text x="36.2" y="261.5">21</svg:text>
+      <svg:text x="36.2" y="236.5">21.5</svg:text>
+      <svg:text x="36.2" y="211.5">22</svg:text>
+      <svg:text x="36.2" y="186.5">22.5</svg:text>
+      <svg:text x="36.2" y="161.5">23</svg:text>
+      <svg:text x="36.2" y="136.5">23.5</svg:text>
+      <svg:text x="36.2" y="111.5">24</svg:text>
+      <svg:text x="36.2" y="86.5">24.5</svg:text>
+      <svg:text x="36.2" y="61.5">25</svg:text>
+   </svg:g>
+   <svg:g stroke-width="1.5" fill="none" color="black" stroke="black"
+          stroke-linecap="round">
+      <svg:path d="M62.2,418 m-3,0 h6"/>
+      <svg:path d="M102.2,283 m-3,0 h6"/>
+      <svg:path d="M142.2,218 m-3,0 h6"/>
+      <svg:path d="M182.2,138 m-3,0 h6"/>
+      <svg:path d="M222.2,290.5 m-3,0 h6"/>
+      <svg:path d="M262.2,295.5 m-3,0 h6"/>
+      <svg:path d="M330.5,321.9952167193477 m-3,0 h6"/>
+   </svg:g>
+   <svg:g text-anchor="start" font-family="Verdana" font-size="10" fill="black">
+      <svg:text x="349.5" y="253.49521671934772" fill="#888">tržby</svg:text>
+      <svg:text x="349.5" y="277.4952167193477" fill="black">odchylka start</svg:text>
+      <svg:text x="349.5" y="301.4952167193477" fill="black">odchylka end</svg:text>
+      <svg:text x="349.5" y="325.4952167193477" fill="black">středni hodnota</svg:text>
+   </svg:g>
+   <svg:rect x="0.5" y="0.5" width="455" height="532.9904334386954" stroke="black"
+             fill="none"
+             stroke-width="1"/>
+   <svg:text x="42.2" y="505" font-family="Verdana" font-size="10"/>
+   <svg:text x="42.2" y="468" font-family="Verdana" font-size="10"/>
+</svg:svg>

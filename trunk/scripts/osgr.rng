@@ -1,0 +1,485 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<grammar ns="http://graph2svg.googlecode.com" 
+xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0" 
+xmlns="http://relaxng.org/ns/structure/1.0"
+xmlns:html ="http://www.w3.org/1999/xhtml"
+xmlns:s = "http://www.ascc.net/xml/schematron"
+datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+
+>
+
+ <a:documentation>
+    <html:h2>Informative Schema for osgr, XML to SVG</html:h2>
+    <html:p>Revision 1.0 </html:p>
+    <html:p>Based on http://code.google.com/p/graph2svg/ by Jakub.Vojtisek</html:p>
+    <html:p>Author. Dave Pawson. 2009-07-23T08:06:42Z</html:p>
+    <html:p>Revision 1.1 </html:p>
+    <html:p>Author: Dave Pawson. 2009-07-26T18:04:34Z.</html:p>
+    <html:p>Replaced 'botom' with 'bottom' in .rng, .rnc and .xsl </html:p>
+  </a:documentation>
+
+  <define name="osgr">
+    <a:documentation>
+      <html:p>Start (root) element </html:p>
+    </a:documentation>
+    <element name="osgr">
+      <ref name="attlist.osgr"/>
+      <optional>
+        <ref name="title"/>
+      </optional>
+      <optional>
+        <ref name="names"/>
+      </optional>
+      <oneOrMore>
+        <ref name="values"/>
+      </oneOrMore>
+    </element>
+  </define>
+
+
+  <define name="names">
+    <a:documentation>
+      <html:p>A list of names used to identify (label) the
+      columns. The number of name elements must match the number of
+      value elements</html:p>
+    </a:documentation>
+    <element name="names">
+      <oneOrMore>
+        <ref name="name"/>
+      </oneOrMore>
+    </element>
+  </define>
+
+
+ 
+ <define name="values">
+    <a:documentation>
+      <html:p>The extent of each Y value. There must be one for each
+      value in the 'name' list.</html:p>
+    </a:documentation>
+    <element name="values">
+      <oneOrMore>
+        <ref name="value"/>
+      </oneOrMore>
+    </element>
+  </define>
+
+
+  <define name="title">
+ <a:documentation>
+      <html:p>The title for the graph. Displayed at the top centre of the output SVG</html:p>
+    </a:documentation>
+    <element name="title">
+      <ref name="attlist.title"/>
+      <text/>
+    </element>
+  </define>
+
+  <define name="name">
+    <a:documentation>
+      <html:p>A single label on the X axis. The name is the X axis
+      label, the value is the Y extent.</html:p>
+    </a:documentation>
+    <element name="name">
+      <text/>
+    </element>
+  </define>
+
+
+  <define name="value">
+ <a:documentation>
+      <html:p>A single value specifiying the extent of one 'name'. The
+      name is the X axis label, the value is the Y extent.</html:p>
+    </a:documentation>
+    <element name="value">
+      <ref name="attlist.value"/>
+      <text/>
+    </element>
+  </define>
+
+  <define name="attlist.osgr" combine="interleave">
+    <a:documentation>
+      <html:p>Graph wide properties specified on the root
+      element. </html:p>
+    
+    </a:documentation>
+    <optional>
+      <attribute name="graphType" a:defaultValue="norm">
+	<a:documentation>
+	  <html:p>The type of graph. One of  <html:b>pie</html:b> or
+	  <html:b>norm</html:b>. Draws either a PIE chart or a bar chart (when
+	  <html:b>norm</html:b> is selected. </html:p>
+	  <html:p>@FIXME. What happens to the labels / values when 'pie' is
+	  selected? They aren't shown?</html:p>
+	</a:documentation>
+
+        <choice>
+          <value>pie</value>
+          <value>norm</value>
+        </choice>
+      </attribute>
+    </optional>
+
+    <optional>
+      <attribute name="effect" a:defaultValue="2D">
+	<a:documentation>
+	  <html:p>One from <html:b>2D</html:b> or <html:b>3D</html:b>. Draws either a
+	  plain area (2D) or a pseudo three dimensional bar or pie
+	  chart</html:p>
+	</a:documentation>
+        <choice>
+          <value>2D</value>
+          <value>3D</value>
+        </choice>
+      </attribute>
+    </optional>
+
+    <optional>
+      <attribute name="colType" a:defaultValue="block">
+    <a:documentation>
+      <html:p>When the graphType is set to <html:b>norm</html:b>, selects the
+      type of column to be generated. One from </html:p>
+      <html:ul>
+	<html:li>none</html:li>
+	<html:li>block</html:li>
+	<html:li>cylinder</html:li>
+	<html:li>cone</html:li>
+	<html:li>pyramid</html:li>
+	<html:li>line</html:li>
+      </html:ul>
+      <html:p>The named shape is used to draw the vertical columns of
+      the bar chart. The default value is 'block', a two or three
+      dimentional square block</html:p>
+    </a:documentation>
+        <choice>
+          <value>none</value>
+          <value>block</value>
+          <value>cylinder</value>
+          <value>cone</value>
+          <value>pyramid</value>
+          <value>line</value>
+        </choice>
+      </attribute>
+    </optional>
+
+    <optional>
+      <attribute name="lineType" a:defaultValue="none">
+    <a:documentation>
+      <html:p>If present, specifies the type of line to be used to
+      connect the peak values of the bar chart. Select, one from
+      </html:p>
+<html:ul>
+<html:li>none</html:li>
+<html:li>solid</html:li>
+<html:li>dot</html:li>
+<html:li>dash</html:li>
+<html:li>longDash</html:li>
+<html:li>dash-dot</html:li>
+<html:li>longDash-dot</html:li>
+<html:li>dash-dot-dot</html:li>
+<html:li>longDash-dash</html:li>
+<html:li>dahs-dash-dot-dot</html:li>
+</html:ul>
+
+    </a:documentation>
+        <choice>
+          <value>none</value>
+          <value>solid</value>
+          <value>dot</value>
+          <value>dash</value>
+          <value>longDash</value>
+          <value>dash-dot</value>
+          <value>longDash-dot</value>
+          <value>dash-dot-dot</value>
+          <value>longDash-dash</value>
+          <value>dash-dash-dot-dot</value>
+        </choice>
+      </attribute>
+    </optional>
+
+    <optional>
+      <attribute name="pointType" a:defaultValue="none">
+    <a:documentation>
+      <html:p>@FIXME. No visible effect? Leaves a gap in the top of
+      the bar chart line? Is this attribute applicable to a bar chart?
+      There is code to process it, though it seems not to
+      work.</html:p>
+    </a:documentation>
+        <choice>
+          <value>none</value>
+          <value>point</value>
+          <value>cross</value>
+          <value>plus</value>
+          <value>minus</value>
+          <value>star</value>
+          <value>square</value>
+          <value>circle</value>
+          <value>triangle</value>
+          <value>rhomb</value>
+          <value>pyramid</value>
+          <value>squareF</value>
+          <value>circleF</value>
+          <value>triangleF</value>
+          <value>rhombF</value>
+          <value>pyramidF</value>
+        </choice>
+      </attribute>
+    </optional>
+
+    <optional>
+      <attribute name="smooth" a:defaultValue="no">
+    <a:documentation>
+      <html:p>@FIXME. No visible effect on the bar chart? Is this
+      attribute applicable?</html:p>
+    </a:documentation>
+        <choice>
+          <value>yes</value>
+          <value>no</value>
+        </choice>
+      </attribute>
+    </optional>
+
+    <optional>
+      <attribute name="yAxisType" a:defaultValue="auto">
+    <a:documentation>
+      <html:p>If the Y values do not start at zero, use this property
+      to obtain a clearer graph. Select one from </html:p>
+      <html:ul>
+	<html:li>auto - Let the software decide</html:li>
+	<html:li>withZero - Include a zero value</html:li>
+	<html:li>shifted - start at non-zero value as appropriate</html:li>
+	<html:li>log - use a log scale</html:li>
+      </html:ul>
+    </a:documentation>
+        <choice>
+          <value>auto</value>
+          <value>withZero</value>
+          <value>shifted</value>
+          <value>log</value>
+        </choice>
+      </attribute>
+    </optional>
+
+    <optional>
+      <attribute name="yAxisDivision" a:defaultValue="1">
+    <a:documentation>
+      <html:p>Specify the major Y axis divisions. Numeric values are
+      shown with this interval. Select from [none | 1 | 2 | 3 | 4 | 5
+      | 10]. The default value is 1</html:p>
+    </a:documentation>
+        <choice>
+          <value>none</value>
+          <value>1</value>
+          <value>2</value>
+          <value>4</value>
+          <value>5</value>
+          <value>10</value>
+        </choice>
+      </attribute>
+    </optional>
+
+    <optional>
+      <attribute name="xAxisDivision" a:defaultValue="major">
+    <a:documentation>
+      <html:p>Specifies which type of division are used on the X axis. Select from</html:p>
+      <html:ul>
+	<html:li>none - no 'tics' on the X axis</html:li>
+	<html:li>major - Show the major axis 'tics'</html:li>
+	<html:li>minor - Show only minor axis 'tics'</html:li>
+	<html:li>both -  Show both major and minor 'tics'</html:li>
+      </html:ul>
+    </a:documentation>
+        <choice>
+          <value>none</value>
+          <value>major</value>
+          <value>minor</value>
+          <value>both</value>
+        </choice>
+      </attribute>
+    </optional>
+
+    <optional>
+      <a:documentation>
+	<html:p>Specifies where the X axis is placed. Default is
+	<html:b>origin</html:b>. Makes no difference on some graphs! </html:p>
+      </a:documentation>
+      <attribute name="xAxisPos" a:defaultValue="origin">
+        <choice>
+          <value>bottom</value>
+          <value>origin</value>
+        </choice>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="xGrid" a:defaultValue="none">
+    <a:documentation>
+      <html:p>Specifies which grid values are to be used on the X
+      axis. Select from [none | major | minor | both]. Causes
+      appropriately dimensioned grid lines along the X axis</html:p>
+      <html:p> </html:p>
+    </a:documentation>
+        <choice>
+          <value>none</value>
+          <value>major</value>
+          <value>minor</value>
+          <value>both</value>
+        </choice>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="yGrid" a:defaultValue="none">
+    <a:documentation>
+  <html:p>Specifies which grid values are to be used on the Y
+  axis. Select from [none | major | minor ]. Causes appropriately
+  dimensioned grid lines along the Y axis vertically</html:p>
+
+    </a:documentation>
+        <choice>
+          <value>none</value>
+          <value>major</value>
+          <value>minor</value>
+        </choice>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="colorScheme" a:defaultValue="color">
+    <a:documentation>
+      <html:p>Defines an appropriate color scheme for the
+      graph. Select from [ color| warm | cold | grey | black].
+      <html:b>grey</html:b> is very useful when printing in black and
+      white. </html:p>
+    </a:documentation>
+        <choice>
+          <value>color</value>
+          <value>warm</value>
+          <value>cold</value>
+          <value>grey</value>
+          <value>black</value>
+        </choice>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="legend" a:defaultValue="none">
+    <a:documentation>
+      <html:p>Specifies the position, on the graph, at which a repeat
+      of the values range are repeated. Produces a block of text with
+      the 'color' scheme and the appropriate 'names' used against each
+      one. Select from [none|left|right|top|bottom]</html:p>
+    </a:documentation>
+        <choice>
+          <value>none</value>
+          <value>left</value>
+          <value>right</value>
+          <value>top</value>
+          <value>bottom</value>
+        </choice>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="labelIn" a:defaultValue="none">
+    <a:documentation>
+      <html:p>Adds values, names or percentages to the bars or
+      segments of the pie chart. Useful if accurate values are to be
+      shown. Select from [none|value|percentage|name]. Names are used
+      to label the segments of a pie chart.</html:p>
+    </a:documentation>
+        <choice>
+          <value>none</value>
+          <value>value</value>
+          <value>percent</value>
+          <value>name</value>
+        </choice>
+      </attribute>
+    </optional>
+    <optional>
+      <attribute name="labelOut" a:defaultValue="none">
+	<a:documentation>
+      <html:p>Enables the placing of labels 'outside' a pie chart,
+      opposite each segment. Specifies what kind of labels are
+      needed. Select from [none|value|percent|name]. </html:p>
+	</a:documentation>
+        <choice>
+          <value>none</value>
+          <value>value</value>
+          <value>percent</value>
+          <value>name</value>
+        </choice>
+      </attribute>
+    </optional>
+  </define>
+
+  <define name="attlist.title" combine="interleave">
+    <a:documentation>
+      <html:p>The color to be applied to the title text. Use CSS color
+      names or values.</html:p>
+  <html:p>See <html:a
+    href="http://www.w3.org/TR/SVG11/types.html#DataTypeColor">W3C</html:a>
+    for more information. Use either the keywords (See <html:a
+    href="http://www.w3.org/TR/SVG11/types.html#ColorKeywords">W3C</html:a>,
+    or one of the CSS alternatives, for which see <html:a
+    href="http://www.w3.org/TR/2008/REC-CSS2-20080411/syndata.html#value-def-color"></html:a></html:p>
+    </a:documentation>
+    <optional>
+      <attribute name="color"/>
+    </optional>
+  </define>
+
+  <define name="attlist.value" combine="interleave">
+
+    <optional>
+      <a:documentation>
+      <html:p>Specify what color to use for a value. Works well with a
+      grey <html:b>colorScheme</html:b>, though be careful when mixing
+      colors, if one specific value is to stand out.</html:p>
+  <html:p>See <html:a
+    href="http://www.w3.org/TR/SVG11/types.html#DataTypeColor">W3C</html:a>
+    for more information. Use either the keywords (See <html:a
+    href="http://www.w3.org/TR/SVG11/types.html#ColorKeywords">W3C</html:a>,
+    or one of the CSS alternatives, for which see <html:a
+    href="http://www.w3.org/TR/2008/REC-CSS2-20080411/syndata.html#value-def-color"></html:a></html:p>
+
+    </a:documentation>
+      <attribute name="color"/>
+    </optional>
+
+    <optional>
+      <a:documentation>
+      <html:p>Attribute pointType. Specifies the shape to be shown for
+      a single point. This enables a single point to be shown
+      differently from the rest of the points (see <html:a
+      href="#ptype">above</html:a>). The semantics are the same as
+      previously</html:p>
+      <html:p>@FIXME. No visible effect? Leaves a gap in the top of
+      the bar chart line? Is this attribute applicable to a bar chart?
+      There is code to process it, though it seems not to
+      work.</html:p>
+    </a:documentation>
+      <attribute name="pointType">
+  
+        <choice>
+          <value>none</value>
+          <value>point</value>
+          <value>cross</value>
+          <value>plus</value>
+          <value>minus</value>
+          <value>star</value>
+          <value>square</value>
+          <value>circle</value>
+          <value>triangle</value>
+          <value>rhomb</value>
+          <value>pyramid</value>
+          <value>squareF</value>
+          <value>circleF</value>
+          <value>triangleF</value>
+          <value>rhombF</value>
+          <value>pyramidF</value>
+        </choice>
+      </attribute>
+    </optional>
+  </define>
+  <start>
+    <choice>
+      <ref name="osgr"/>
+    </choice>
+  </start>
+</grammar>
