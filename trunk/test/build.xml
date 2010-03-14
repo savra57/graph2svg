@@ -87,43 +87,34 @@
 		</foreach>  
 	</target>
 	
-	
-	
-	
-	
-
-	
-	
-
-	
-	<!-- NEW convinient task-->
+	<!-- bulk targets -->
 	
 	
 	<target name="validateAll">
 		<antcall target="validate">
-			<param name="schema" value="c:\aaa\graph2svg\graph2svg_03\scripts\osgr.rng"/>
-			<param name="file" value="c:\aaa\graph2svg\graph2svg_03\test\e2e\osgr"/>
+			<param name="schema" value="..\scripts\osgr.rng"/>
+			<param name="file" value="e2e\osgr"/>
 		</antcall>
 		<antcall target="validate">
-			<param name="schema" value="c:\aaa\graph2svg\graph2svg_03\scripts\msgr.rng"/>
-			<param name="file" value="c:\aaa\graph2svg\graph2svg_03\test\e2e\msgr"/>
+			<param name="schema" value="..\scripts\msgr.rng"/>
+			<param name="file" value="e2e\msgr"/>
 		</antcall>
 		<antcall target="validate">
-			<param name="schema" value="c:\aaa\graph2svg\graph2svg_03\scripts\xygr.rng"/>
-			<param name="file" value="c:\aaa\graph2svg\graph2svg_03\test\e2e\xygr"/>
+			<param name="schema" value="..\scripts\xygr.rng"/>
+			<param name="file" value="e2e\xygr"/>
 		</antcall>
 	</target>
 	
 	<target name="testOsgr">
 		<antcall target="transform">
-			<param name="style" value="c:\aaa\graph2svg\graph2svg_03\scripts\use_graph2svg.xsl"/>
-			<param name="xmlFileDir" value="c:\aaa\graph2svg\graph2svg_03\test\e2e\osgr"/>
+			<param name="style" value="..\scripts\use_graph2svg.xsl"/>
+			<param name="xmlFileDir" value="e2e\osgr"/>
 			<param name="outputExtension" value="svg"/>
 			<!--param name="filter" value="gr.*\.xml"/-->
 		</antcall>
 
 		<antcall target="createComparison">
-			<param name="inputDir" value="c:\aaa\graph2svg\graph2svg_03\test\e2e\osgr"/>
+			<param name="inputDir" value="e2e\osgr"/>
 			<param name="templatesSubdir" value="templates"/>
 			<param name="outputFile" value="comparison.html"/>
 			<!--param name="filter" value="gr.*\.svg"/-->
@@ -133,14 +124,14 @@
 	
 	<target name="testMsgr">
 		<antcall target="transform">
-			<param name="style" value="c:\aaa\graph2svg\graph2svg_03\scripts\use_msgr2svg.xsl"/>
-			<param name="xmlFileDir" value="c:\aaa\graph2svg\graph2svg_03\test\e2e\msgr"/>
+			<param name="style" value="..\scripts\use_msgr2svg.xsl"/>
+			<param name="xmlFileDir" value="e2e\msgr"/>
 			<param name="outputExtension" value="svg"/>
 			<!--param name="filter" value="gr.*\.xml"/-->
 		</antcall>
 
 		<antcall target="createComparison">
-			<param name="inputDir" value="c:\aaa\graph2svg\graph2svg_03\test\e2e\msgr"/>
+			<param name="inputDir" value="e2e\msgr"/>
 			<param name="templatesSubdir" value="templates"/>
 			<param name="outputFile" value="comparison.html"/>
 			<!--param name="filter" value="gr.*\.svg"/-->
@@ -149,14 +140,14 @@
 	
 	<target name="testXygr">
 		<antcall target="transform">
-			<param name="style" value="c:\aaa\graph2svg\graph2svg_03\scripts\use_xygr2svg.xsl"/>
-			<param name="xmlFileDir" value="c:\aaa\graph2svg\graph2svg_03\test\e2e\xygr"/>
+			<param name="style" value="..\scripts\use_xygr2svg.xsl"/>
+			<param name="xmlFileDir" value="e2e\xygr"/>
 			<param name="outputExtension" value="svg"/>
 			<!--param name="filter" value="gr.*\.xml"/-->
 		</antcall>
 
 		<antcall target="createComparison">
-			<param name="inputDir" value="c:\aaa\graph2svg\graph2svg_03\test\e2e\xygr"/>
+			<param name="inputDir" value="e2e\xygr"/>
 			<param name="templatesSubdir" value="templates"/>
 			<param name="outputFile" value="comparison.html"/>
 			<!--param name="filter" value="gr.*\.svg"/-->
