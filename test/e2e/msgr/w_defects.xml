@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE msgr SYSTEM "msgr.dtd">
+<msgr xmlns="http://graph2svg.googlecode.com"
+    stacked="sum" shift="1" lineType="none" colType="block" 
+  yGrid="minor" yAxisDivision="5" colorScheme="grey" legend="bottom">
+  <title>Number of defects</title>
+  <names>
+    <name>production line</name>
+  </names>
+  <values>
+    <title>A</title>
+    <value>110</value>
+  </values>
+  <values>
+    <title>B</title>
+    <value>122</value>
+  </values>
+  <values>
+    <title>C</title>
+    <value>28</value>
+  </values>
+  <values>
+    <title>D</title>
+    <value>95</value>
+  </values>
+  <values>
+    <title>E</title>
+    <value>40</value>
+  </values>
+</msgr>

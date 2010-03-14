@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg:svg xmlns:svg="http://www.w3.org/2000/svg" viewBox="0 0 612.9 386">
+   <svg:desc>Značky a jejich dědičnost, lT=solid</svg:desc>
+   <svg:g>
+      <svg:text x="306.45" y="28" text-anchor="middle" font-family="Verdana" font-size="18"
+                fill="black">Značky a jejich dědičnost, lT=solid</svg:text>
+   </svg:g>
+   <svg:g stroke="black">
+      <svg:path d="M42.2,355 l0,6 m35,-6 l0,6 m35,-6 l0,6 m35,-6 l0,6 m35,-6 l0,6 m35,-6 l0,6 m35,-6 l0,6 m35,-6 l0,6 m35,-6 l0,6 m35,-6 l0,6 m35,-6 l0,6 m35,-6 l0,6"
+                stroke-width="1"/>
+      <svg:path d="M39.2,333 l6,0  m-6,-25 l6,0  m-6,-25 l6,0  m-6,-25 l6,0  m-6,-25 l6,0  m-6,-25 l6,0  m-6,-25 l6,0  m-6,-25 l6,0  m-6,-25 l6,0  m-6,-25 l6,0  m-6,-25 l6,0  m-6,-25 l6,0 "
+                stroke-width="1"/>
+   </svg:g>
+   <svg:g stroke="black" stroke-width="1">
+      <svg:line x1="42.2" y1="358" x2="427.2" y2="358"/>
+   </svg:g>
+   <svg:g text-anchor="middle" font-family="Verdana" font-size="10" fill="black">
+      <svg:text x="42.2" y="371">0</svg:text>
+      <svg:text x="77.2" y="371">5</svg:text>
+      <svg:text x="112.2" y="371">10</svg:text>
+      <svg:text x="147.2" y="371">15</svg:text>
+      <svg:text x="182.2" y="371">20</svg:text>
+      <svg:text x="217.2" y="371">25</svg:text>
+      <svg:text x="252.2" y="371">30</svg:text>
+      <svg:text x="287.2" y="371">35</svg:text>
+      <svg:text x="322.2" y="371">40</svg:text>
+      <svg:text x="357.2" y="371">45</svg:text>
+      <svg:text x="392.2" y="371">50</svg:text>
+      <svg:text x="427.2" y="371">55</svg:text>
+   </svg:g>
+   <svg:g stroke="black" stroke-width="1">
+      <svg:line stroke-dasharray="2,3" x1="42.2" y1="333" x2="42.2" y2="358"/>
+      <svg:line x1="42.2" y1="333" x2="42.2" y2="58"/>
+   </svg:g>
+   <svg:g text-anchor="end" font-family="Verdana" font-size="10" fill="black">
+      <svg:text x="36.2" y="336.5">50</svg:text>
+      <svg:text x="36.2" y="311.5">52.5</svg:text>
+      <svg:text x="36.2" y="286.5">55</svg:text>
+      <svg:text x="36.2" y="261.5">57.5</svg:text>
+      <svg:text x="36.2" y="236.5">60</svg:text>
+      <svg:text x="36.2" y="211.5">62.5</svg:text>
+      <svg:text x="36.2" y="186.5">65</svg:text>
+      <svg:text x="36.2" y="161.5">67.5</svg:text>
+      <svg:text x="36.2" y="136.5">70</svg:text>
+      <svg:text x="36.2" y="111.5">72.5</svg:text>
+      <svg:text x="36.2" y="86.5">75</svg:text>
+      <svg:text x="36.2" y="61.5">77.5</svg:text>
+   </svg:g>
+   <svg:g text-anchor="start" font-family="Verdana" font-size="10" fill="black">
+      <svg:text x="482" y="177" fill="#14f">pT=none lT=dash</svg:text>
+      <svg:text x="482" y="193" fill="#ff1">pT=none lT=dash-dot</svg:text>
+      <svg:text x="482" y="209" fill="black">color=black</svg:text>
+      <svg:text x="482" y="225" fill="#3f1">pT=not specified</svg:text>
+      <svg:text x="482" y="241" fill="#f33">pT=circle lT=none</svg:text>
+      <svg:text x="482" y="257" fill="#1ff">pT=point</svg:text>
+   </svg:g>
+   <svg:g stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <svg:path d="M112.2,83 L147.2,83 L182.2,83 L217.2,83 L252.2,83 L287.2,83 L322.2,83 L357.2,83 L392.2,83"
+                stroke="#14f"
+                stroke-dasharray="8,3"/>
+      <svg:path stroke="#14f" d="M449,173.2         l28,0" stroke-dasharray="8,3"/>
+      <svg:path d="M112.2,133 L147.2,133 L182.2,133 L217.2,133 L252.2,133 L287.2,133 L322.2,133 L357.2,133 L392.2,133"
+                stroke="#ff1"
+                stroke-dasharray="6,3,0.2,3"/>
+      <svg:path stroke="#ff1" d="M449,189.2         l28,0" stroke-dasharray="6,3,0.2,3"/>
+      <svg:path d="M112.2,183 L147.2,183 L182.2,183 L217.2,183 L252.2,183 L287.2,183 L322.2,183 L357.2,183 L392.2,183"
+                stroke="black"/>
+      <svg:path stroke="black" d="M449,205.2         l28,0"/>
+      <svg:path d="M112.2,233 L147.2,233 L182.2,233 L217.2,233 L252.2,233 L287.2,233 L322.2,233 L357.2,233 L392.2,233"
+                stroke="#3f1"/>
+      <svg:path stroke="#3f1" d="M449,221.2         l28,0"/>
+      <svg:path d="M112.2,333 L147.2,333 L182.2,333 L217.2,333 L252.2,333 L287.2,333 L322.2,333 L357.2,333 L392.2,333"
+                stroke="#1ff"/>
+      <svg:path stroke="#1ff" d="M449,253.2         l28,0"/>
+   </svg:g>
+   <svg:g stroke-width="1.5" fill="none" color="#ff1" stroke="#ff1"
+          stroke-linecap="round">
+      <svg:circle cx="182.2" cy="133" r="1.5" fill="currentColor"/>
+      <svg:path d="M 217.2,133 m -3,-3 l 6,6 m 0,-6 l -6,6"/>
+      <svg:path d="M 252.2,133 m -4,0 l 8,0 m -4,-4 l 0,8"/>
+      <svg:path d="M 287.2,133 m 0,-4 l 0,8 m -3.48,-6 l 6.92,4      m -6.92,0 l 6.92,-4"/>
+      <svg:path d="M 322.2,133 m -3,-3 l 6,0 l 0,6 l -6,0 z"/>
+      <svg:circle cx="357.2" cy="133" r="4"/>
+      <svg:path d="M 392.2,133 m 4,-2.32 l -8,0 l 4,6.92 z"/>
+   </svg:g>
+   <svg:g stroke-width="1.5" fill="none" color="black" stroke="black"
+          stroke-linecap="round">
+      <svg:circle cx="182.2" cy="183" r="1.5" fill="currentColor"/>
+      <svg:path d="M 217.2,183 m -3,-3 l 6,6 m 0,-6 l -6,6"/>
+      <svg:path d="M 252.2,183 m -4,0 l 8,0 m -4,-4 l 0,8" stroke="black"/>
+      <svg:path d="M 287.2,183 m 0,-4 l 0,8 m -3.48,-6 l 6.92,4      m -6.92,0 l 6.92,-4"/>
+      <svg:path d="M 322.2,183 m -3,-3 l 6,0 l 0,6 l -6,0 z"/>
+      <svg:circle cx="357.2" cy="183" r="4"/>
+      <svg:path d="M 392.2,183 m 4,-2.32 l -8,0 l 4,6.92 z"/>
+   </svg:g>
+   <svg:g stroke-width="1.5" fill="none" color="#3f1" stroke="#3f1"
+          stroke-linecap="round">
+      <svg:circle cx="182.2" cy="233" r="1.5" fill="currentColor"/>
+      <svg:path d="M 217.2,233 m -3,-3 l 6,6 m 0,-6 l -6,6"/>
+      <svg:path d="M 252.2,233 m -4,0 l 8,0 m -4,-4 l 0,8" stroke="black"/>
+      <svg:path d="M 287.2,233 m 0,-4 l 0,8 m -3.48,-6 l 6.92,4      m -6.92,0 l 6.92,-4"/>
+      <svg:path d="M 322.2,233 m -3,-3 l 6,0 l 0,6 l -6,0 z"/>
+      <svg:circle cx="357.2" cy="233" r="4"/>
+      <svg:path d="M 392.2,233 m 4,-2.32 l -8,0 l 4,6.92 z"/>
+   </svg:g>
+   <svg:g stroke-width="1.5" fill="none" color="#f33" stroke="#f33"
+          stroke-linecap="round">
+      <svg:circle cx="147.2" cy="283" r="4"/>
+      <svg:circle cx="182.2" cy="283" r="1.5" fill="currentColor"/>
+      <svg:path d="M 217.2,283 m -3,-3 l 6,6 m 0,-6 l -6,6"/>
+      <svg:path d="M 252.2,283 m -4,0 l 8,0 m -4,-4 l 0,8" stroke="black"/>
+      <svg:path d="M 287.2,283 m 0,-4 l 0,8 m -3.48,-6 l 6.92,4      m -6.92,0 l 6.92,-4"/>
+      <svg:path d="M 322.2,283 m -3,-3 l 6,0 l 0,6 l -6,0 z"/>
+      <svg:circle cx="357.2" cy="283" r="4"/>
+      <svg:path d="M 392.2,283 m 4,-2.32 l -8,0 l 4,6.92 z"/>
+      <svg:circle cx="463" cy="237.2" r="4"/>
+   </svg:g>
+   <svg:g stroke-width="1.5" fill="none" color="#1ff" stroke="#1ff"
+          stroke-linecap="round">
+      <svg:circle cx="147.2" cy="333" r="1.5" fill="currentColor"/>
+      <svg:circle cx="182.2" cy="333" r="1.5" fill="currentColor"/>
+      <svg:path d="M 217.2,333 m -3,-3 l 6,6 m 0,-6 l -6,6"/>
+      <svg:path d="M 252.2,333 m -4,0 l 8,0 m -4,-4 l 0,8" stroke="black"/>
+      <svg:path d="M 287.2,333 m 0,-4 l 0,8 m -3.48,-6 l 6.92,4      m -6.92,0 l 6.92,-4"/>
+      <svg:path d="M 322.2,333 m -3,-3 l 6,0 l 0,6 l -6,0 z"/>
+      <svg:circle cx="357.2" cy="333" r="4"/>
+      <svg:path d="M 392.2,333 m 4,-2.32 l -8,0 l 4,6.92 z"/>
+      <svg:circle cx="463" cy="253.2" r="1.5" fill="currentColor"/>
+   </svg:g>
+   <svg:rect x="0.5" y="0.5" width="611.9" height="385" stroke="black" fill="none"
+             stroke-width="1"/>
+</svg:svg>

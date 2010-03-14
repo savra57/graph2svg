@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg:svg xmlns:svg="http://www.w3.org/2000/svg" viewBox="0 0 350.099445763871 228">
+   <svg:desc>Tržby (v tisících Kč)</svg:desc>
+   <svg:g>
+      <svg:text x="175.0497228819355" y="28" text-anchor="middle" font-family="Verdana"
+                font-size="18"
+                fill="black">Tržby (v tisících Kč)</svg:text>
+   </svg:g>
+   <svg:g stroke-width="1" stroke="black" stroke-linejoin="round">
+      <svg:path d="M214.24,128 l0,-60 a100,60 0 0,1 99.29226609637057,52.87423536445988 z"
+                fill="#14f"/>
+      <svg:rect x="15" y="75" width="28" height="20" fill="#14f"/>
+      <svg:path d="M214.24,128 l99.29226609637057,-7.1257646355401185 a100,60 0 0,1 -49.880127900211406,59.2893401993195 z"
+                fill="#ff1"/>
+      <svg:path d="M314.24,128.0000000000062 v10 a100,60 0 0,1 -50.58786180384083,52.16357556377317 v-10 a100,60 0 0,0 50.58786180384083,-52.16357556377317 z"
+                fill="#ff1"/>
+      <svg:rect x="15" y="99" width="28" height="20" fill="#ff1"/>
+      <svg:path d="M214.24,128 l49.41213819615917,52.163575563779375 a100,60 0 0,1 -65.02690645863144,7.1004476236430625 z"
+                fill="#f0d"/>
+      <svg:path d="M263.65213819615917,180.16357556377937 v10 a100,60 0 0,1 -65.02690645863144,7.1004476236430625 v-10 a100,60 0 0,0 65.02690645863144,-7.1004476236430625 z"
+                fill="#f0d"/>
+      <svg:rect x="15" y="123" width="28" height="20" fill="#f0d"/>
+      <svg:path d="M214.24,128 l-15.614768262472225,59.26402318742244 a100,60 0 0,1 -80.28231004009557,-42.25372823726872 z"
+                fill="#3f1"/>
+      <svg:path d="M198.62523173752777,187.26402318742242 v10 a100,60 0 0,1 -80.28231004009557,-42.25372823726872 v-10 a100,60 0 0,0 80.28231004009557,42.25372823726872 z"
+                fill="#3f1"/>
+      <svg:rect x="15" y="147" width="28" height="20" fill="#3f1"/>
+      <svg:path d="M214.24,128 l-95.89707830256782,17.010294950153668 a100,60 0 0,1 95.89707830260919,-77.01029495015366 z"
+                fill="#f33"/>
+      <svg:path d="M118.34292169743219,145.01029495015368 v10 a100,60 0 0,1 -4.1029216974321825,-17.01029495017226 v-10 a100,60 0 0,0 4.1029216974321825,17.01029495017226 z"
+                fill="#f33"/>
+      <svg:rect x="15" y="171" width="28" height="20" fill="#f33"/>
+   </svg:g>
+   <svg:defs>
+      <svg:linearGradient id="lg_pie" x1="114.24000000000001" y1="0" x2="314.24" y2="0"
+                          gradientUnits="userSpaceOnUse">
+         <svg:stop offset="0" stop-opacity="0.6"/>
+         <svg:stop offset="0.35" stop-opacity="0"/>
+         <svg:stop offset="0.5" stop-opacity="0"/>
+         <svg:stop offset="1" stop-opacity="0.8"/>
+      </svg:linearGradient>
+   </svg:defs>
+   <svg:path d="M314.24,128 v10 a100,60 0 1,1 -200,0 v-10 a100,60 0 1,0 200,0 z"
+             fill="url(#lg_pie)"
+             stroke="none"/>
+   <svg:g font-family="Verdana" font-size="10" fill="black">
+      <svg:text x="286.261334644052" y="80.26761529469266" text-anchor="start">12.5</svg:text>
+      <svg:text x="311.099445763871" y="166.8739933365254" text-anchor="start">10.1</svg:text>
+      <svg:text x="233.66655799501643" y="208.73148640446712" text-anchor="start">5.8</svg:text>
+      <svg:text x="142.69111073796768" y="190.5131627260092" text-anchor="end">9.7</svg:text>
+      <svg:text x="127.32124268765565" y="90.50015817914118" text-anchor="end">16</svg:text>
+   </svg:g>
+   <svg:g text-anchor="start" font-family="Verdana" font-size="12" fill="black">
+      <svg:text x="48" y="89.2">pondělí</svg:text>
+      <svg:text x="48" y="113.2">úterý</svg:text>
+      <svg:text x="48" y="137.2">středa</svg:text>
+      <svg:text x="48" y="161.2">čtvrtek</svg:text>
+      <svg:text x="48" y="185.2">pátek</svg:text>
+   </svg:g>
+   <svg:rect x="0.5" y="0.5" width="349.099445763871" height="227" stroke="black"
+             fill="none"
+             stroke-width="1"/>
+</svg:svg>

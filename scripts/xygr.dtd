@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!ELEMENT xygr (title?, curve+)>
+<!ELEMENT title (#PCDATA)>
+<!ELEMENT curve (name?, point+)>
+<!ELEMENT name (#PCDATA)>
+<!ELEMENT point EMPTY>
+<!ATTLIST xygr 
+			lineType (none|solid|dot|dash|longDash|dash-dot|longDash-dot|dash-dot-dot|longDash-dash|dash-dash-dot-dot) "solid"
+			pointType  (none|point|cross|plus|line|star|square|circle|triangle|rhomb|pyramid|squareF|circleF|triangleF|rhombF|pyramidF) "none"
+			axesPos (left-bottom|origin) "origin"
+			xAxisType  (auto|withZero|shifted|log) "auto"
+			yAxisType  (auto|withZero|shifted|log) "auto"
+			xAxisDivision  (none|1|2|4|5|10) "1"
+			yAxisDivision  (none|1|2|4|5|10) "1"
+			xGrid  (none|major|minor) "none"
+			yGrid  (none|major|minor) "none"
+			legend  (none|left|right|top|bottom) "none"
+			colorScheme  (color|warm|cold|grey|black) "black">
+<!ATTLIST curve 
+			lineType  (none|solid|dot|dash|longDash|dash-dot|longDash-dot|dash-dot-dot|longDash-dash|dash-dash-dot-dot) #IMPLIED
+			smooth (yes|no) "no"
+			pointType (none|point|cross|plus|line|star|square|circle|triangle|rhomb|pyramid|squareF|circleF|triangleF|rhombF|pyramidF) #IMPLIED
+			color  CDATA #IMPLIED>
+<!ATTLIST name
+			x  CDATA #IMPLIED
+			y  CDATA #IMPLIED
+			color  CDATA #IMPLIED
+			visibility (none|legend|graph|both) "both">
+<!ATTLIST point
+			x  CDATA #REQUIRED
+			y  CDATA #REQUIRED
+			pointType  (none|point|cross|plus|line|star|square|circle|triangle|rhomb|pyramid|squareF|circleF|triangleF|rhombF|pyramidF) #IMPLIED
+			color  CDATA #IMPLIED>
+
+

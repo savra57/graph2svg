@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg:svg xmlns:svg="http://www.w3.org/2000/svg" viewBox="0 0 329.24 268">
+<svg:desc>Tržby (v tisících Kč)</svg:desc>
+
+<svg:g>
+	<svg:text x="164.62" y="28" text-anchor="middle" font-family="Verdana" font-size="18" fill="black">Tržby (v tisících Kč)</svg:text>
+</svg:g>
+
+<svg:g stroke-width="1" stroke="black" stroke-linejoin="round">
+	<svg:path d="M115,153 l0,-100 a100,100 0 0,1 99.29226609637057,88.12372560743313 z" fill="#d82914"/>
+	<svg:rect x="230" y="95" width="28" height="20" fill="#d82914"/>
+	<svg:path d="M115,153 l99.29226609637057,-11.876274392566865 a100,100 0 0,1 -49.880127900211406,98.81556699886582 z" fill="blue"/>
+	<svg:rect x="230" y="119" width="28" height="20" fill="blue"/>
+	<svg:path d="M115,153 l49.41213819615917,86.93929260629896 a100,100 0 0,1 -65.02690645863144,11.834079372738437 z" fill="#21ab03"/>
+	<svg:rect x="230" y="143" width="28" height="20" fill="#21ab03"/>
+	<svg:path d="M115,153 l-15.614768262472225,98.77337197903739 a100,100 0 0,1 -80.28231004009557,-70.42288039544786 z" fill="#c5a712"/>
+	<svg:rect x="230" y="167" width="28" height="20" fill="#c5a712"/>
+	<svg:path d="M115,153 l-95.89707830256782,28.35049158358945 a100,100 0 0,1 95.89707830260919,-128.35049158358945 z" fill="#a4005a"/>
+	<svg:rect x="230" y="191" width="28" height="20" fill="#a4005a"/>
+</svg:g><svg:g text-anchor="middle" font-family="Verdana" font-size="10" fill="black">
+	<svg:text x="164.78433270326175" y="100.40614813287517">23%</svg:text>
+	<svg:text x="181.9535339381597" y="190.2968089202472">19%</svg:text>
+	<svg:text x="128.42849630991918" y="230.28804433547813">11%</svg:text>
+	<svg:text x="65.54224244559977" y="212.88200260446737">18%</svg:text>
+	<svg:text x="54.91790969192786" y="111.60966223993559">30%</svg:text></svg:g><svg:g text-anchor="start" font-family="Verdana" font-size="12" fill="black">
+	<svg:text x="263" y="109.2">pondělí</svg:text>
+	<svg:text x="263" y="133.2">úterý</svg:text>
+	<svg:text x="263" y="157.2">středa</svg:text>
+	<svg:text x="263" y="181.2">čtvrtek</svg:text>
+	<svg:text x="263" y="205.2">pátek</svg:text></svg:g>
+<svg:rect x="0.5" y="0.5" width="328.24" height="267" stroke="black" fill="none" stroke-width="1"/>
+</svg:svg>

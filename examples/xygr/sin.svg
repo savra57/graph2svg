@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg:svg xmlns:svg="http://www.w3.org/2000/svg" viewBox="0 0 630.8 328">
+   <svg:desc>Graf funkce sinus</svg:desc>
+   <svg:g>
+      <svg:text x="315.4" y="28" text-anchor="middle" font-family="Verdana" font-size="18"
+                fill="black">Graf funkce sinus</svg:text>
+   </svg:g>
+   <svg:g stroke="black">
+      <svg:path d="M77.2,181 l0,4 m7,-4 l0,4 m7,-4 l0,4 m7,-4 l0,4 m7,-4 l0,4 m7,-4 l0,4 m7,-4 l0,4 m7,-4 l0,4 m7,-4 l0,4 m7,-4 l0,4 m7,-4 l0,4 m7,-4 l0,4 m7,-4 l0,4 m7,-4 l0,4 m7,-4 l0,4 m7,-4 l0,4 m7,-4 l0,4 m7,-4 l0,4 m7,-4 l0,4 m7,-4 l0,4 m7,-4 l0,4 m7,-4 l0,4 m7,-4 l0,4 m7,-4 l0,4 m7,-4 l0,4 m7,-4 l0,4 m7,-4 l0,4 m7,-4 l0,4 m7,-4 l0,4 m7,-4 l0,4 m7,-4 l0,4 m7,-4 l0,4 m7,-4 l0,4 m7,-4 l0,4 m7,-4 l0,4 m7,-4 l0,4 m7,-4 l0,4 m7,-4 l0,4 m7,-4 l0,4 m7,-4 l0,4 m7,-4 l0,4 m7,-4 l0,4 m7,-4 l0,4 m7,-4 l0,4 m7,-4 l0,4 m7,-4 l0,4 m7,-4 l0,4 m7,-4 l0,4 m7,-4 l0,4 m7,-4 l0,4 m7,-4 l0,4 m7,-4 l0,4 m7,-4 l0,4 m7,-4 l0,4 m7,-4 l0,4 m7,-4 l0,4 m7,-4 l0,4 m7,-4 l0,4 m7,-4 l0,4 m7,-4 l0,4 m7,-4 l0,4 m7,-4 l0,4 m7,-4 l0,4 m7,-4 l0,4 m7,-4 l0,4 m7,-4 l0,4 m7,-4 l0,4 m7,-4 l0,4 m7,-4 l0,4 m7,-4 l0,4 m7,-4 l0,4 m7,-4 l0,4 m7,-4 l0,4 m7,-4 l0,4 m7,-4 l0,4 m7,-4 l0,4"
+                stroke-width="0.5"/>
+      <svg:path d="M77.2,180 l0,6 m35,-6 l0,6 m35,-6 l0,6 m35,-6 l0,6 m35,-6 l0,6 m35,-6 l0,6 m35,-6 l0,6 m35,-6 l0,6 m35,-6 l0,6 m35,-6 l0,6 m35,-6 l0,6 m35,-6 l0,6 m35,-6 l0,6 m35,-6 l0,6 m35,-6 l0,6 m35,-6 l0,6"
+                stroke-width="1"/>
+      <svg:path d="M39.2,308 l6,0  m-6,-25 l6,0  m-6,-25 l6,0  m-6,-25 l6,0  m-6,-25 l6,0  m-6,-25 l6,0  m-6,-25 l6,0  m-6,-25 l6,0  m-6,-25 l6,0  m-6,-25 l6,0  m-6,-25 l6,0 "
+                stroke-width="1"/>
+   </svg:g>
+   <svg:g stroke="black" stroke-width="1">
+      <svg:line stroke-dasharray="2,3" x1="42.2" y1="183" x2="77.2" y2="183"/>
+      <svg:line x1="77.2" y1="183" x2="602.2" y2="183"/>
+   </svg:g>
+   <svg:g text-anchor="middle" font-family="Verdana" font-size="10" fill="black">
+      <svg:text x="77.2" y="196">12</svg:text>
+      <svg:text x="112.2" y="196">12.5</svg:text>
+      <svg:text x="147.2" y="196">13</svg:text>
+      <svg:text x="182.2" y="196">13.5</svg:text>
+      <svg:text x="217.2" y="196">14</svg:text>
+      <svg:text x="252.2" y="196">14.5</svg:text>
+      <svg:text x="287.2" y="196">15</svg:text>
+      <svg:text x="322.2" y="196">15.5</svg:text>
+      <svg:text x="357.2" y="196">16</svg:text>
+      <svg:text x="392.2" y="196">16.5</svg:text>
+      <svg:text x="427.2" y="196">17</svg:text>
+      <svg:text x="462.2" y="196">17.5</svg:text>
+      <svg:text x="497.2" y="196">18</svg:text>
+      <svg:text x="532.2" y="196">18.5</svg:text>
+      <svg:text x="567.2" y="196">19</svg:text>
+      <svg:text x="602.2" y="196">19.5</svg:text>
+   </svg:g>
+   <svg:g stroke="black" stroke-width="1">
+      <svg:line x1="42.2" y1="308" x2="42.2" y2="58"/>
+   </svg:g>
+   <svg:g text-anchor="end" font-family="Verdana" font-size="10" fill="black">
+      <svg:text x="36.2" y="311.5">-1</svg:text>
+      <svg:text x="36.2" y="286.5">-0.8</svg:text>
+      <svg:text x="36.2" y="261.5">-0.6</svg:text>
+      <svg:text x="36.2" y="236.5">-0.4</svg:text>
+      <svg:text x="36.2" y="211.5">-0.2</svg:text>
+      <svg:text x="36.2" y="186.5">0</svg:text>
+      <svg:text x="36.2" y="161.5">0.2</svg:text>
+      <svg:text x="36.2" y="136.5">0.4</svg:text>
+      <svg:text x="36.2" y="111.5">0.6</svg:text>
+      <svg:text x="36.2" y="86.5">0.8</svg:text>
+      <svg:text x="36.2" y="61.5">1</svg:text>
+   </svg:g>
+   <svg:g stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <svg:path d="M77.2,250.07 L84.2,239.21 L91.2,227.78 L98.2,215.9 L105.2,203.7 L112.2,191.29 L119.2,178.8 L126.2,166.35 L133.2,154.06 L140.2,142.07 L147.2,130.48 L154.2,119.42 L161.2,108.99 L168.2,99.3 L175.2,90.45 L182.2,82.53 L189.2,75.6 L196.2,69.76 L203.2,65.04 L210.2,61.5 L217.2,59.17 L224.2,58.09 L231.2,58.25 L238.2,59.65 L245.2,62.29 L252.2,66.14 L259.2,71.15 L266.2,77.28 L273.2,84.47 L280.2,92.64 L287.2,101.71 L294.2,111.6 L301.2,122.2 L308.2,133.41 L315.2,145.11 L322.2,157.19 L329.2,169.53 L336.2,182 L343.2,194.49 L350.2,206.86 L357.2,218.99 L364.2,230.76 L371.2,242.05 L378.2,252.76 L385.2,262.76 L392.2,271.97 L399.2,280.29 L406.2,287.64 L413.2,293.95 L420.2,299.14 L427.2,303.17 L434.2,306.01 L441.2,307.61 L448.2,307.97 L455.2,307.08 L462.2,304.95 L469.2,301.61 L476.2,297.07 L483.2,291.4 L490.2,284.64 L497.2,276.87 L504.2,268.16 L511.2,258.6 L518.2,248.29 L525.2,237.32 L532.2,225.81 L539.2,213.87 L546.2,201.62 L553.2,189.19 L560.2,176.7 L567.2,164.27 L574.2,152.02 L581.2,140.09"
+                stroke="black"/>
+   </svg:g>
+   <svg:g text-anchor="start" font-family="Verdana" font-size="10" fill="black">
+      <svg:text x="574.2" y="132.5" fill="black">sin x</svg:text>
+   </svg:g>
+   <svg:rect x="0.5" y="0.5" width="629.8" height="327" stroke="black" fill="none"
+             stroke-width="1"/>
+</svg:svg>

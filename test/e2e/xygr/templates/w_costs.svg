@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg:svg xmlns:svg="http://www.w3.org/2000/svg" viewBox="0 0 435.4 486">
+   <svg:desc>Average costs</svg:desc>
+   <svg:g>
+      <svg:text x="217.7" y="28" text-anchor="middle" font-family="Verdana" font-size="18"
+                fill="black">Average costs</svg:text>
+   </svg:g>
+   <svg:g stroke="black">
+      <svg:path d="M28.6,455 l0,6 m35,-6 l0,6 m35,-6 l0,6 m35,-6 l0,6 m35,-6 l0,6 m35,-6 l0,6 m35,-6 l0,6 m35,-6 l0,6 m35,-6 l0,6 m35,-6 l0,6 m35,-6 l0,6 m35,-6 l0,6"
+                stroke-width="1"/>
+      <svg:path d="M25.6,458 l6,0  m-6,-25 l6,0  m-6,-25 l6,0  m-6,-25 l6,0  m-6,-25 l6,0  m-6,-25 l6,0  m-6,-25 l6,0  m-6,-25 l6,0  m-6,-25 l6,0  m-6,-25 l6,0  m-6,-25 l6,0  m-6,-25 l6,0  m-6,-25 l6,0  m-6,-25 l6,0  m-6,-25 l6,0  m-6,-25 l6,0  m-6,-25 l6,0 "
+                stroke-width="1"/>
+   </svg:g>
+   <svg:g stroke="black" stroke-width="1">
+      <svg:line x1="28.6" y1="458" x2="413.6" y2="458"/>
+   </svg:g>
+   <svg:g text-anchor="middle" font-family="Verdana" font-size="10" fill="black">
+      <svg:text x="28.6" y="471">0</svg:text>
+      <svg:text x="63.6" y="471">1</svg:text>
+      <svg:text x="98.6" y="471">2</svg:text>
+      <svg:text x="133.6" y="471">3</svg:text>
+      <svg:text x="168.6" y="471">4</svg:text>
+      <svg:text x="203.6" y="471">5</svg:text>
+      <svg:text x="238.6" y="471">6</svg:text>
+      <svg:text x="273.6" y="471">7</svg:text>
+      <svg:text x="308.6" y="471">8</svg:text>
+      <svg:text x="343.6" y="471">9</svg:text>
+      <svg:text x="378.6" y="471">10</svg:text>
+      <svg:text x="413.6" y="471">11</svg:text>
+   </svg:g>
+   <svg:g stroke="black" stroke-width="1">
+      <svg:line x1="28.6" y1="458" x2="28.6" y2="58"/>
+   </svg:g>
+   <svg:g text-anchor="end" font-family="Verdana" font-size="10" fill="black">
+      <svg:text x="22.6" y="461.5">0</svg:text>
+      <svg:text x="22.6" y="436.5">5</svg:text>
+      <svg:text x="22.6" y="411.5">10</svg:text>
+      <svg:text x="22.6" y="386.5">15</svg:text>
+      <svg:text x="22.6" y="361.5">20</svg:text>
+      <svg:text x="22.6" y="336.5">25</svg:text>
+      <svg:text x="22.6" y="311.5">30</svg:text>
+      <svg:text x="22.6" y="286.5">35</svg:text>
+      <svg:text x="22.6" y="261.5">40</svg:text>
+      <svg:text x="22.6" y="236.5">45</svg:text>
+      <svg:text x="22.6" y="211.5">50</svg:text>
+      <svg:text x="22.6" y="186.5">55</svg:text>
+      <svg:text x="22.6" y="161.5">60</svg:text>
+      <svg:text x="22.6" y="136.5">65</svg:text>
+      <svg:text x="22.6" y="111.5">70</svg:text>
+      <svg:text x="22.6" y="86.5">75</svg:text>
+      <svg:text x="22.6" y="61.5">80</svg:text>
+   </svg:g>
+   <svg:g stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <svg:path d="M74.1,83  S 113.79,248 168.6,248  S 378.6,83 378.6,83" stroke="black"/>
+      <svg:path d="M28.6,308  S 77.6,360.4 140.6,328  S 378.6,128 378.6,128" stroke="grey"/>
+      <svg:path d="M63.6,183  S 76.9,317.5 133.6,358  S 378.6,408 378.6,408" stroke="black"
+                stroke-dasharray="14,3"/>
+      <svg:path d="M28.6,308  S 42.11,316.3 56.6,328  S 93.98,373 109.1,373  S 129.89,350.5 140.6,328  S 154.11,292.1 168.6,248  S 221.1,83 221.1,83"
+                stroke="red"/>
+      <svg:path d="M168.6,248" stroke="red"/>
+      <svg:path d="M140.6,328" stroke="red"/>
+   </svg:g>
+   <svg:g stroke-width="1.5" fill="none" color="red" stroke="red" stroke-linecap="round">
+      <svg:circle cx="168.6" cy="248" r="4"/>
+   </svg:g>
+   <svg:g stroke-width="1.5" fill="none" color="red" stroke="red" stroke-linecap="round">
+      <svg:circle cx="140.6" cy="328" r="4"/>
+   </svg:g>
+   <svg:g text-anchor="start" font-family="Verdana" font-size="10" fill="black">
+      <svg:text x="378.6" y="80" fill="black">AC</svg:text>
+      <svg:text x="378.6" y="125" fill="black">AVC</svg:text>
+      <svg:text x="378.6" y="405" fill="black">AFC</svg:text>
+      <svg:text x="221.1" y="80" fill="black">MC</svg:text>
+      <svg:text x="172.1" y="260" fill="black">M</svg:text>
+      <svg:text x="144.1" y="340" fill="black">M'</svg:text>
+   </svg:g>
+   <svg:rect x="0.5" y="0.5" width="434.4" height="485" stroke="black" fill="none"
+             stroke-width="1"/>
+</svg:svg>

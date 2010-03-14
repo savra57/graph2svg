@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg:svg xmlns:svg="http://www.w3.org/2000/svg" viewBox="0 0 301.6 514">
+<svg:desc>Tržby (v tisících Kč)</svg:desc>
+
+<svg:g>
+	<svg:text x="150.8" y="28" text-anchor="middle" font-family="Verdana" font-size="18" fill="black">Tržby (v tisících Kč)</svg:text>
+</svg:g>
+<svg:path d="M28.6,486 l8,-8  l250,0  m-258,-17l8,-8 l250,0  m-258,-17l8,-8 l250,0  m-258,-17l8,-8 l250,0  m-258,-17l8,-8 l250,0  m-258,-17l8,-8 l250,0  m-258,-17l8,-8 l250,0  m-258,-17l8,-8 l250,0  m-258,-17l8,-8 l250,0  m-258,-17l8,-8 l250,0  m-258,-17l8,-8 l250,0  m-258,-17l8,-8 l250,0  m-258,-17l8,-8 l250,0  m-258,-17l8,-8 l250,0  m-258,-17l8,-8 l250,0  m-258,-17l8,-8 l250,0  m-258,-17l8,-8 l250,0  m-258,-17l8,-8 l250,0 " stroke="#222" stroke-width="0.4" fill="none"/>
+
+
+<svg:g stroke-width="0.4" stroke="black" stroke-linejoin="round">
+	<svg:g transform="translate(53.6, 486)" fill="#d82914"><svg:path d="M-15,-0 h30 v-312.5 h-30 z"/><svg:path d="M15,-0 l8,-8 v-312.5 l-8,8 z"/><svg:path d="M-15,-312.5 h30 l8,-8 h-30 z"/></svg:g>
+	<svg:g transform="translate(103.6, 486)" fill="#f2ee15"><svg:path d="M-15,-0 h30 v-252.5 h-30 z"/><svg:path d="M15,-0 l8,-8 v-252.5 l-8,8 z"/><svg:path d="M-15,-252.5 h30 l8,-8 h-30 z"/></svg:g>
+	<svg:g transform="translate(153.6, 486)" fill="#21ab03"><svg:path d="M-15,-0 h30 v-145 h-30 z"/><svg:path d="M15,-0 l8,-8 v-145 l-8,8 z"/><svg:path d="M-15,-145 h30 l8,-8 h-30 z"/></svg:g>
+	<svg:g transform="translate(203.6, 486)" fill="#c5a712"><svg:path d="M-15,-0 h30 v-242.49999999999997 h-30 z"/><svg:path d="M15,-0 l8,-8 v-242.49999999999997 l-8,8 z"/><svg:path d="M-15,-242.49999999999997 h30 l8,-8 h-30 z"/></svg:g>
+	<svg:g transform="translate(253.6, 486)" fill="#a4005a"><svg:path d="M-15,-0 h30 v-400 h-30 z"/><svg:path d="M15,-0 l8,-8 v-400 l-8,8 z"/><svg:path d="M-15,-400 h30 l8,-8 h-30 z"/></svg:g>
+</svg:g>
+<svg:g stroke="black">
+	<svg:path d="M53.6,484  v2 m50,-2  v2 m50,-2  v2 m50,-2  v2 m50,-2  v2 m50,-2" stroke-width="0.5"/>
+	<svg:path d="M28.6,486 v3 m50,-3 v3 m50,-3 v3 m50,-3 v3 m50,-3 v3" stroke-width="1"/>
+	<svg:path d="M26.6,486 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0  m-4,-5 l4,0 " stroke-width="0.5"/>
+	<svg:path d="M25.6,486 l6,0  m-6,-25 l6,0  m-6,-25 l6,0  m-6,-25 l6,0  m-6,-25 l6,0  m-6,-25 l6,0  m-6,-25 l6,0  m-6,-25 l6,0  m-6,-25 l6,0  m-6,-25 l6,0  m-6,-25 l6,0  m-6,-25 l6,0  m-6,-25 l6,0  m-6,-25 l6,0  m-6,-25 l6,0  m-6,-25 l6,0  m-6,-25 l6,0  m-6,-25 l6,0 " stroke-width="1"/>
+</svg:g>
+<svg:line x1="28.6" y1="486" x2="278.6" y2="486" stroke="black" stroke-width="1"/>
+<svg:g text-anchor="middle" font-family="Verdana" font-size="10" fill="black">
+	<svg:text x="53.6" y="499">pondělí</svg:text>
+	<svg:text x="103.6" y="499">úterý</svg:text>
+	<svg:text x="153.6" y="499">středa</svg:text>
+	<svg:text x="203.6" y="499">čtvrtek</svg:text>
+	<svg:text x="253.6" y="499">pátek</svg:text>
+</svg:g>
+<svg:g stroke="black" stroke-width="1">
+	<svg:line x1="28.6" y1="486" x2="28.6" y2="61"/>
+</svg:g>
+<svg:g text-anchor="end" font-family="Verdana" font-size="10" fill="black">
+	<svg:text x="22.6" y="489.5">0</svg:text>
+	<svg:text x="22.6" y="464.5">1</svg:text>
+	<svg:text x="22.6" y="439.5">2</svg:text>
+	<svg:text x="22.6" y="414.5">3</svg:text>
+	<svg:text x="22.6" y="389.5">4</svg:text>
+	<svg:text x="22.6" y="364.5">5</svg:text>
+	<svg:text x="22.6" y="339.5">6</svg:text>
+	<svg:text x="22.6" y="314.5">7</svg:text>
+	<svg:text x="22.6" y="289.5">8</svg:text>
+	<svg:text x="22.6" y="264.5">9</svg:text>
+	<svg:text x="22.6" y="239.5">10</svg:text>
+	<svg:text x="22.6" y="214.5">11</svg:text>
+	<svg:text x="22.6" y="189.5">12</svg:text>
+	<svg:text x="22.6" y="164.5">13</svg:text>
+	<svg:text x="22.6" y="139.5">14</svg:text>
+	<svg:text x="22.6" y="114.5">15</svg:text>
+	<svg:text x="22.6" y="89.5">16</svg:text>
+	<svg:text x="22.6" y="64.5">17</svg:text>
+</svg:g><svg:rect x="0.5" y="0.5" width="300.6" height="513" stroke="black" fill="none" stroke-width="1"/>
+<svg:text x="28.6" y="508" font-family="Verdana" font-size="10"/><svg:text x="28.6" y="471" font-family="Verdana" font-size="10"/></svg:svg>
