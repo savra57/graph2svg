@@ -99,7 +99,7 @@
 			if ($gra/ph/@xAxisType = 'shifted') then $dataMinX else 
 			(if ($gra/ph/@xAxisType = 'withZero') then max(($dataMinX, 0)) else 
 			(if ((0 &lt; $dataMinX) and  ($dataMinX &lt; $dataXDif * $axesAutoCoef)) then 0 else $dataMinX))"/>
-	<xsl:variable name="xAxisStep" select="m:Step($viewMaxX - $viewMinX, $xAxisMarkAutoCount, $gra/ph/@xAxisType)"/>
+	<xsl:variable name="xAxisStep" select="m:StepAT($viewMaxX - $viewMinX, $xAxisMarkAutoCount, $gra/ph/@xAxisType)"/>
 	<xsl:variable name="xAxisMax" select="m:GMax($viewMaxX, $xAxisStep)"/>
 	<xsl:variable name="xAxisMin" select="- m:GMax(- $viewMinX, $xAxisStep)"/>
 	<xsl:variable name="xAxisLen" select="$xAxisMax - $xAxisMin"/>
@@ -126,7 +126,7 @@
 			if ($gra/ph/@yAxisType = 'shifted') then $dataMinY else 
 			(if ($gra/ph/@yAxisType = 'withZero') then max(($dataMinY, 0)) else 
 			(if ((0 &lt; $dataMinY) and  ($dataMinY &lt; $dataYDif * $axesAutoCoef))	then 0 else $dataMinY))"/>
-	<xsl:variable name="yAxisStep" select="m:Step($viewMaxY - $viewMinY, $yAxisMarkAutoCount, $gra/ph/@yAxisType)"/>
+	<xsl:variable name="yAxisStep" select="m:StepAT($viewMaxY - $viewMinY, $yAxisMarkAutoCount, $gra/ph/@yAxisType)"/>
 	<xsl:variable name="yAxisMax" select="m:GMax($viewMaxY, $yAxisStep)"/>
 	<xsl:variable name="yAxisMin" select="- m:GMax(- $viewMinY, $yAxisStep)"/>
 	<xsl:variable name="yAxisLen" select="$yAxisMax - $yAxisMin"/>
@@ -639,173 +639,6 @@
 	<xsl:copy-of select="."/>
 </xsl:template>
 
-<xsl:function name="m:LineType"> <!-- return "dasharay" for given curve (line) type -->
-	<xsl:param name="t"/>
-	<xsl:value-of select="
-		if ($t='dot') then '0.2,3' else 
-		if ($t='dash') then '8,3' else 
-		if ($t='longDash') then '14,3' else 
-		if ($t='dash-dot') then '6,3,0.2,3' else 
-		if ($t='longDash-dot') then '14,3,0.2,3' else 
-		if ($t='dash-dot-dot') then '6,3,0.2,3,0.2,3' else 
-		if ($t='dash-dash-dot-dot') then '6,3,6,3,0.2,3,0.2,3' else 
-		if ($t='longDash-dash') then '14,3,6,3' else 'none'"/>
-</xsl:function>
-
-<xsl:template name="m:drawPoint">  <!--draw a point (mark) of a given type -->
-	<xsl:param name="type"/>
-	<xsl:param name="x" select="0"/>
-	<xsl:param name="y" select="0"/>
-	<xsl:param name="color" select="black"/>
-
-	<xsl:variable name="poS" select="1.5"/>
-	<xsl:variable name="crS" select="3"/>
-	<xsl:variable name="plS" select="4"/>
-	<xsl:variable name="miS" select="3"/>
-	<xsl:variable name="stS" select="4"/>
-	<xsl:variable name="sqS" select="3"/>
-	<xsl:variable name="ciS" select="4"/>
-	<xsl:variable name="trS" select="4"/>
-	<xsl:variable name="rhS" select="4"/>
-	
-	<xsl:choose>
-		<xsl:when test="$type = 'point'">
-			<svg:circle cx="{$x}" cy="{$y}" r="{$poS}" fill="currentColor">
-				<xsl:if test="($color != 'inh')">
-					<xsl:attribute name="stroke" select="$color"/>
-					<xsl:attribute name="color" select="$color"/>
-				</xsl:if>
-			</svg:circle>
-		</xsl:when>
-		<xsl:when test="$type = 'cross' ">
-			<svg:path d="M {$x},{$y} m {- $crS},{- $crS} l {2 * $crS},{2 * $crS} m 0,{- 2 * $crS} l {- 2 * $crS},{2 * $crS}">
-				<xsl:if test="($color != 'inh')">
-					<xsl:attribute name="stroke" select="$color"/>
-				</xsl:if>
-			</svg:path>
-		</xsl:when>
-		<xsl:when test="$type = 'plus' ">
-			<svg:path d="M {$x},{$y} m {- $plS},0 l {2 * $plS},0 m {- $plS},{- $plS} l 0,{2 * $plS}">
-				<xsl:if test="($color != 'inh')">
-					<xsl:attribute name="stroke" select="$color"/>
-				</xsl:if>
-			</svg:path>
-		</xsl:when>
-		<xsl:when test="$type = 'minus' ">
-			<svg:path d="M{$x},{$y} m{-$miS},0 h{2*$miS}">
-				<xsl:if test="($color != 'inh')">
-					<xsl:attribute name="stroke" select="$color"/>
-				</xsl:if>
-			</svg:path>
-		</xsl:when>
-		<xsl:when test="$type = 'star'">
-			<svg:path d="M {$x},{$y} m 0,{- $stS} l 0,{2 * $stS} m {- $stS * 0.87},{- $stS * 1.5} l {$stS * 1.73},{$stS}
-					m {- $stS * 1.73},0 l {$stS * 1.73},{-$stS}">
-				<xsl:if test="($color != 'inh')">
-					<xsl:attribute name="stroke" select="$color"/>
-				</xsl:if>
-			</svg:path>
-		</xsl:when>
-		<!--xsl:when test="$type = 'star2'">
-			<svg:path d="M {$x},{$y} m {- $stS},0 l {2 * $stS},0 m {- $stS * 1.5},{- $stS * 0.87} l {$stS},{$stS * 1.73}
-					m 0,{- $stS * 1.73} l {-$stS},{$stS * 1.73}">
-				<xsl:if test="($color != 'inh')">
-					<xsl:attribute name="stroke" select="$color"/>
-				</xsl:if>
-			</svg:path>
-		</xsl:when-->
-		<xsl:when test="$type = 'square'">
-			<svg:path d="M {$x},{$y} m {- $sqS},{- $sqS} l {2 * $sqS},0 l 0,{2 * $sqS} l {- 2 * $sqS},0 z">
-				<xsl:if test="($color != 'inh')">
-					<xsl:attribute name="stroke" select="$color"/>
-				</xsl:if>
-			</svg:path>
-		</xsl:when>
-		<xsl:when test="$type = 'circle'">
-			<svg:circle cx="{$x}" cy="{$y}" r="{$ciS}">
-				<xsl:if test="($color != 'inh')">
-					<xsl:attribute name="stroke" select="$color"/>
-				</xsl:if>
-			</svg:circle>
-		</xsl:when>
-		<xsl:when test="$type = 'triangle'">
-			<svg:path d="M {$x},{$y} m {$trS},{- $trS * 0.58} l {-2 * $trS},0 l {$trS},{$trS * 1.73} z">
-				<xsl:if test="($color != 'inh')">
-					<xsl:attribute name="stroke" select="$color"/>
-				</xsl:if>
-			</svg:path>
-		</xsl:when>
-		<xsl:when test="$type = 'rhomb'">
-			<svg:path d="M {$x},{$y} m 0,{- $rhS} l {$rhS},{$rhS} l {- $rhS},{$rhS} l {- $rhS},{- $rhS} z">
-				<xsl:if test="($color != 'inh')">
-					<xsl:attribute name="stroke" select="$color"/>
-				</xsl:if>
-			</svg:path>
-		</xsl:when>
-		<xsl:when test="$type = 'pyramid'">
-			<svg:path d="M {$x},{$y} m {$trS},{$trS * 0.58} l {-2 * $trS},0 l {$trS},{- $trS * 1.73} z">
-				<xsl:if test="($color != 'inh')">
-					<xsl:attribute name="stroke" select="$color"/>
-				</xsl:if>
-			</svg:path>
-		</xsl:when>
-		<xsl:when test="$type = 'squareF'">
-			<svg:path d="M {$x},{$y} m {- $sqS},{- $sqS} l {2 * $sqS},0 l 0,{2 * $sqS} l {- 2 * $sqS},0 z"
-					fill="currentColor">
-				<xsl:if test="($color != 'inh')">
-					<xsl:attribute name="stroke" select="$color"/>
-					<xsl:attribute name="color" select="$color"/>
-				</xsl:if>
-			</svg:path>
-		</xsl:when>
-		<xsl:when test="$type = 'circleF'">
-			<svg:circle cx="{$x}" cy="{$y}" r="{$ciS}" fill="currentColor">
-				<xsl:if test="($color != 'inh')">
-					<xsl:attribute name="stroke" select="$color"/>
-					<xsl:attribute name="color" select="$color"/>
-				</xsl:if>
-			</svg:circle>
-		</xsl:when>
-		<xsl:when test="$type = 'triangleF'">
-			<svg:path d="M {$x},{$y} m {$trS},{- $trS * 0.58} l {-2 * $trS},0 l {$trS},{$trS * 1.73} z"
-					fill="currentColor">
-				<xsl:if test="($color != 'inh')">
-					<xsl:attribute name="stroke" select="$color"/>
-					<xsl:attribute name="color" select="$color"/>
-				</xsl:if>
-			</svg:path>
-		</xsl:when>
-		<xsl:when test="$type = 'rhombF'">
-			<svg:path d="M {$x},{$y} m 0,{- $rhS} l {$rhS},{$rhS} l {- $rhS},{$rhS} l {- $rhS},{- $rhS} z"
-					fill="currentColor">
-				<xsl:if test="($color != 'inh')">
-					<xsl:attribute name="stroke" select="$color"/>
-					<xsl:attribute name="color" select="$color"/>
-				</xsl:if>
-			</svg:path>
-		</xsl:when>
-		<xsl:when test="$type = 'pyramidF'">
-			<svg:path d="M {$x},{$y} m {$trS},{$trS * 0.58} l {-2 * $trS},0 l {$trS},{- $trS * 1.73} z"
-					fill="currentColor">
-				<xsl:if test="($color != 'inh')">
-					<xsl:attribute name="stroke" select="$color"/>
-					<xsl:attribute name="color" select="$color"/>
-				</xsl:if>
-			</svg:path>
-		</xsl:when>
-		<xsl:otherwise> </xsl:otherwise>
-	</xsl:choose>
-</xsl:template>
-
-<xsl:function name="m:GMax"> <!-- truncates up the maximum (of an axis) to the whole axis steps -->
-	<xsl:param name="max"/>
-	<xsl:param name="step"/>
-
-	<xsl:variable name="pom" select="$step * ceiling($max div $step)"/>
-	<xsl:value-of select="
-			if (($pom = 0)  or (($pom > 0) and ($pom != $max))) then $pom else ($pom +$step) "/>
-</xsl:function>
-
 <xsl:function name="m:Step10Base"> 
 	<xsl:param name="dif"/>
 	<xsl:param name="count"/>
@@ -822,12 +655,10 @@
 </xsl:function>
 
 <xsl:function name="m:Step10BaseInteger">
-	<xsl:param name="dif"/>
-	<xsl:param name="count"/>
-
-	<xsl:variable name="ps" select="($dif) div $count"/>
-	<xsl:variable name="rad" select="floor(m:Log10($ps))"/>
-	<xsl:variable name="cif" select="$ps div math:power(10, $rad)"/>
+	<xsl:param name="step"/>
+	
+	<xsl:variable name="rad" select="floor(m:Log10($step))"/>
+	<xsl:variable name="cif" select="$step div math:power(10, $rad)"/>
 	<xsl:variable name="st" select="
 		if ($cif &lt; 1.33333) then 1 else
 		if ($cif &lt; 2.85714) then 2 else
@@ -835,8 +666,41 @@
 	<xsl:value-of select="$st * math:power(10, $rad)"/>
 </xsl:function>
 
+
+<xsl:function name="m:Step24Base">
+	<xsl:param name="step"/>
+	
+	<xsl:value-of select="
+		if ($step &lt; 1.33333) then 1 else
+		if ($step &lt; 2.4) then 2 else
+		if ($step &lt; 3.42857) then 3 else
+		if ($step &lt; 4.8) then 4 else
+		if ($step &lt; 6.85714) then 6 else
+		if ($step &lt; 9.6) then 8 else
+		if ($step &lt; 16) then 12 else 24"/>
+</xsl:function>
+
+
+<xsl:function name="m:Step60Base">
+	<xsl:param name="step"/>
+	
+	<xsl:value-of select="
+		if ($step &lt; 1.33333) then 1 else
+		if ($step &lt; 2.4) then 2 else
+		if ($step &lt; 3.42857) then 3 else
+		if ($step &lt; 4.44444) then 4 else
+		if ($step &lt; 5.45455) then 5 else
+		if ($step &lt; 7.5) then 6 else
+		if ($step &lt; 10.90909) then 10 else
+		if ($step &lt; 13.33333) then 12 else
+		if ($step &lt; 17.14286) then 15 else
+		if ($step &lt; 24) then 20 else
+		if ($step &lt; 40) then 30 else 60"/>
+</xsl:function>
+
+
 <!-- returns a lenght of axes step -->
-<xsl:function name="m:Step">
+<xsl:function name="m:StepAT">
 	<xsl:param name="dif"/>
 	<xsl:param name="count"/>
 	<xsl:param name="axisType"/>
@@ -845,8 +709,19 @@
 		<xsl:when test="$axisType='log'">
 			<xsl:value-of select="1"/>
 		</xsl:when>
-		<xsl:when test="starts-with($axisType,'time')">
-			<xsl:value-of select="m:Step10BaseInteger(if ($dif != 0) then $dif else 0.0000001, $count)"/>	
+		<xsl:when test="starts-with($axisType,'dateTime')">
+			<xsl:variable name="ps" select="($dif) div $count"/>
+			
+			<xsl:variable name="days" select="$ps div 86400"/>
+			<xsl:variable name="hours" select="($ps mod 86400) div 3600"/>
+			<xsl:variable name="minutes" select="($ps mod 3600) div 60"/>
+			<xsl:variable name="seconds" select="$ps mod 60"/>
+			<xsl:value-of select="
+					if ($days &gt; 1) then round($days)*86400 else
+					if ($hours &gt; 1) then m:Step24Base($hours)*3600 else
+					if ($minutes &gt; 1) then m:Step60Base($minutes)*60 else
+					m:Step60Base($seconds)
+				"/>
 		</xsl:when>
 		<xsl:otherwise>
 			<xsl:value-of select="m:Step10Base(if ($dif != 0) then $dif else 0.0000001, $count)"/>	
@@ -866,7 +741,7 @@
 		<xsl:when test="$axisType='log'">
 			<xsl:value-of select="10"/>
 		</xsl:when>
-		<xsl:when test="starts-with($axisType,'time')">
+		<xsl:when test="starts-with($axisType,'dateTime')">
 			
 			<xsl:variable name="dateTime" select="xs:dateTime('0001-01-01T00:00:00') + m:NumberToDuration($val)"/>
 			<!--
@@ -883,32 +758,7 @@
 	</xsl:choose>
 </xsl:function>
 
-
-
-<!-- rounds the value on same number of decimal places as has the step, used for printing values on axes -->
-<xsl:function name="m:Round"> 
-	<xsl:param name="val"/>
-	<xsl:param name="step"/>
-
-	<xsl:variable name="rad" select="floor(m:Log10($step))"/>
-	<xsl:variable name="pom" select="round($val * math:power(10, - $rad +1)) * math:power(10, $rad - 1)"/>
-	<xsl:value-of select="if ($pom != 0) then format-number($pom, '#.##############') else $pom"/>
-</xsl:function>
-
-<!-- rounds the value on 2 decimal places, used for coordinates -->
-<xsl:function name="m:R"> 
-	<xsl:param name="val"/>
-	<xsl:value-of select="round($val * 100) div 100"/>
-</xsl:function>
-
-<!-- calculate logarithm to the base 10 -->
-<xsl:function name="m:Log10"> 
-	<xsl:param name="val"/>
-	<xsl:variable name="const" select="0.43429448190325182765112891891661"/>     <!--log_10 (e)-->
-	<xsl:value-of select="$const*math:log($val)"/>
-</xsl:function>
-
-<xsl:function name="m:ProcessValue" as="xs:decimal" >
+<xsl:function name="m:ProcessValue">
 	<xsl:param name="axisType"/>
 	<xsl:param name="val"/>
 	
@@ -916,8 +766,9 @@
 		<xsl:when test="$axisType='log'">
 			<xsl:value-of select="m:Log10(if (($val) != 0) then math:abs($val) else 1) "/>
 		</xsl:when>
-		<xsl:when test="starts-with($axisType,'time')">
-			<xsl:variable name="timeZero" select="xs:dateTime('0001-01-01T00:00:00')"/>     <!--log_10 (e)-->
+		<xsl:when test="starts-with($axisType,'dateTime')">
+		
+			<xsl:variable name="timeZero" select="xs:dateTime('0001-01-01T00:00:00')"/>     
 			<xsl:value-of select="m:DurationToNumber(xs:dateTime($val) - $timeZero)"/>
 		</xsl:when>
 		<xsl:otherwise>

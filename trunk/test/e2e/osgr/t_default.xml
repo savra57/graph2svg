@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--DOCTYPE osgr SYSTEM "osgr.dtd"-->
+<osgr xmlns="http://graph2svg.googlecode.com"
+		>
+	<title>Default 1</title>
+	<names>
+		<name>Monday</name>
+		<name>Tuesday</name>
+	     <name>Wednesday</name>
+    </names>
+    <values>
+            <value>12</value>
+            <value>45</value>
+            <value>30</value>
+    </values>
+</osgr>

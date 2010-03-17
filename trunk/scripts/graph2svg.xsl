@@ -4,7 +4,9 @@
 	xmlns:m="http://graph2svg.googlecode.com"
 	xmlns:gr="http://graph2svg.googlecode.com"
 	>
-	
+
+<xsl:include href="graph2svg_common.xsl"/>
+
 <xsl:include href="osgr2svg.xsl"/>
 <xsl:include href="msgr2svg.xsl"/>
 <xsl:include href="xygr2svg.xsl"/>
