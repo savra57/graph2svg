@@ -107,7 +107,7 @@
 	
 	<target name="testOsgr">
 		<antcall target="transform">
-			<param name="style" value="..\scripts\use_graph2svg.xsl"/>
+			<param name="style" value="..\scripts\graph2svg.xsl"/>
 			<param name="xmlFileDir" value="e2e\osgr"/>
 			<param name="outputExtension" value="svg"/>
 			<!--param name="filter" value="gr.*\.xml"/-->
@@ -124,7 +124,7 @@
 	
 	<target name="testMsgr">
 		<antcall target="transform">
-			<param name="style" value="..\scripts\use_msgr2svg.xsl"/>
+			<param name="style" value="..\scripts\graph2svg.xsl"/>
 			<param name="xmlFileDir" value="e2e\msgr"/>
 			<param name="outputExtension" value="svg"/>
 			<!--param name="filter" value="gr.*\.xml"/-->
@@ -140,7 +140,7 @@
 	
 	<target name="testXygr">
 		<antcall target="transform">
-			<param name="style" value="..\scripts\use_xygr2svg.xsl"/>
+			<param name="style" value="..\scripts\graph2svg.xsl"/>
 			<param name="xmlFileDir" value="e2e\xygr"/>
 			<param name="outputExtension" value="svg"/>
 			<!--param name="filter" value="gr.*\.xml"/-->
