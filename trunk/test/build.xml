@@ -33,6 +33,7 @@
 			<arg value="${style}"/>
 			<arg value="${xmlFileDir}" />
 			<arg value="${outputExtension}" />
+			<arg value="generated" />  <!-- output directory, relative to input, optional -->
 			<!--arg value="${filter}"/--> <!-- optional -->
 		</java>
 	</target>
@@ -51,9 +52,9 @@
 			<pathelement location="${createComparison.classpathDir}" />
 		</path>
 		<java classname="${createComparison.Class}" classpathref="createComparison.classpath">
-			<arg value="${inputDir}"/>
-			<arg value="${templatesSubdir}"/>
 			<arg value="${outputFile}" />
+			<arg value="${generatedSubdir}"/>
+			<arg value="${templatesSubdir}"/>
 			<!--arg value="${filter}"/--> <!-- optional -->
 		</java>
 	</target>
@@ -114,9 +115,9 @@
 		</antcall>
 
 		<antcall target="createComparison">
-			<param name="inputDir" value="e2e\osgr"/>
+			<param name="outputFile" value="e2e\osgr\comparison.html"/>
+			<param name="generatedSubdir" value="generated"/>
 			<param name="templatesSubdir" value="templates"/>
-			<param name="outputFile" value="comparison.html"/>
 			<!--param name="filter" value="gr.*\.svg"/-->
 		</antcall>
 	</target>
@@ -131,9 +132,9 @@
 		</antcall>
 
 		<antcall target="createComparison">
-			<param name="inputDir" value="e2e\msgr"/>
+			<param name="outputFile" value="e2e\msgr\comparison.html"/>
+			<param name="generatedSubdir" value="generated"/>
 			<param name="templatesSubdir" value="templates"/>
-			<param name="outputFile" value="comparison.html"/>
 			<!--param name="filter" value="gr.*\.svg"/-->
 		</antcall>
 	</target>
@@ -147,9 +148,9 @@
 		</antcall>
 
 		<antcall target="createComparison">
-			<param name="inputDir" value="e2e\xygr"/>
+			<param name="outputFile" value="e2e\xygr\comparison.html"/>
+			<param name="generatedSubdir" value="generated"/>
 			<param name="templatesSubdir" value="templates"/>
-			<param name="outputFile" value="comparison.html"/>
 			<!--param name="filter" value="gr.*\.svg"/-->
 		</antcall>
 	</target>
