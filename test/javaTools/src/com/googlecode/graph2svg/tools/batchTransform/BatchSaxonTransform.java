@@ -18,7 +18,12 @@ import org.xml.sax.SAXException;
 import com.googlecode.graph2svg.tools.fileFilter.RegExpFileFilter;
 
 
-public class BatchSaxonTransform {
+
+public class BatchSaxonTransform 
+{
+	private static String outExtension = "";
+	private static File outputDir;
+	
 	public static void main(String[] args) throws  SAXException, IOException {
 
 		if (args.length < 2) {
@@ -43,25 +48,34 @@ public class BatchSaxonTransform {
 		}
 		
     	String fileName = args[1]; // single xml file to transform or directory;
-		String outExtension;
 		outExtension = args[2];
+		
+		String filterString = ".*\\.xml"; // default
+		String outputDirString = null;
+		if (args.length >= 4) {
+			outputDirString = args[3];
+			
+			if (args.length >= 5) {
+				filterString = args[4];
+			} 
+		} 
 		
 		
 		File file = new File(fileName);
+		
+		
 
 		if (file.isDirectory()) {
-			String filterString;
-			if (args.length >= 4) {
-				filterString = args[3];
-			} else {
-				filterString = ".*\\.xml"; // default
-			}
+			outputDir = getOutputDir(file, outputDirString);
 			File[] fileList = file.listFiles(new RegExpFileFilter(filterString));
 			for (File f : fileList) {
-				transformFile(templates, f, outExtension);
+				if (f.isFile()) {
+					transformFile(templates, f);
+				}
 			}
 		} else {
-			transformFile(templates, file, outExtension);
+			outputDir = getOutputDir(file.getParentFile(), outputDirString);
+			transformFile(templates, file);
 		}
 
 		// check the validity of a DOM.
@@ -72,7 +86,8 @@ public class BatchSaxonTransform {
 		// ...
 	}
 
-	private static void transformFile(Templates templates, File sourceFile, String outExtension) throws SAXException, IOException {
+
+	private static void transformFile(Templates templates, File sourceFile) throws SAXException, IOException {
 		Transformer transformer;
 		try {
 			transformer = templates.newTransformer();
@@ -91,8 +106,8 @@ public class BatchSaxonTransform {
 		System.out.print(sourceFile + ": ");
 		Source source = new StreamSource(sourceFile);
 		
-		File resultFile = new File(replaceExtension(sourceFile.getAbsolutePath(), outExtension)); 
-		Result result = new StreamResult(resultFile);
+		File outFile = getOutputFile(sourceFile); 
+		Result result = new StreamResult(outFile);
 		
 		try {
 			transformer.transform(source, result);
@@ -100,6 +115,22 @@ public class BatchSaxonTransform {
 			System.out.println(" ... TRANSFORMATION ERROR: " + e.getMessageAndLocation() );
 		}
 		System.out.println();
+	}
+	
+
+	private static File getOutputDir(File baseDir, String outputDirString) {
+		if (outputDirString == null) {
+			return baseDir;
+		} else {
+			File outDir = new File(baseDir, outputDirString);
+			outDir.mkdirs();
+			return outDir;
+		}
+	}
+	
+	private static File getOutputFile(File sourceFile) {
+		String outFileName = replaceExtension(sourceFile.getName(), outExtension);
+		return new File(outputDir, outFileName);
 	}
 
 	private static String replaceExtension(String absolutePath, String newExtension) {
@@ -112,12 +143,13 @@ public class BatchSaxonTransform {
 	}
 
 	private static void printUsage() {
-		System.out.println("Tree or four arguments are expected:");
-		System.out
-				.println("\n   style - a xslt transformation file"
+		System.out.println("3, 4 or 5 arguments expected:");
+		System.out.println("\n   style - a xslt transformation file"
 						+ "\n   xmlFileDir - xml file or directory where xml files are"
 						+ "\n   outputExtension - extension used for output files"
-						+ "\n   filter - regEx filter string - optional, defaul: '.*\\.xml'");
+						+ "\n   outputDir - output directory relative to input - optional, default '.'"
+						+ "\n   filter - regEx filter string - optional, defaul: '.*\\.xml'"
+						);
 	}
 
 }

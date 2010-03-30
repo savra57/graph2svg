@@ -3,17 +3,6 @@ package com.googlecode.graph2svg.tools.comparison;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.io.OutputStream;
-
-import javax.xml.transform.Result;
-import javax.xml.transform.Source;
-import javax.xml.transform.Templates;
-import javax.xml.transform.Transformer;
-import javax.xml.transform.TransformerConfigurationException;
-import javax.xml.transform.TransformerException;
-import javax.xml.transform.TransformerFactory;
-import javax.xml.transform.stream.StreamResult;
-import javax.xml.transform.stream.StreamSource;
 
 import org.xml.sax.SAXException;
 
@@ -33,46 +22,42 @@ public class CreateComparison {
 				return;
 			}
 
-			String inputDirStr = args[0]; // "xygr.rng";
-			//		
-			System.out.print("Processing files from: " + inputDirStr);
+			String outputFileStr = args[0];
+			String generatedSubdirStr = args[1]; 
+			String templatesSubdirStr = args[2]; 
 
-			String templatesSubdir = args[1]; // single xml file to transform
-												// or directory;
-			String outputFileStr = args[2];
-
+			File outputFile = new File(outputFileStr);
+			System.out.print("Output file: " + outputFile.getAbsolutePath());
 			
-
+			File baseDir = outputFile.getParentFile();
 			
-
-			File inputDir = new File(inputDirStr);
-			
-			File outputFile = new File(inputDir, outputFileStr);
 			outputWriter = new FileWriter(outputFile);
 
-			if (inputDir.isDirectory()) {
+			File generatedDir = new File(baseDir, generatedSubdirStr);
+			if (generatedDir.isDirectory()) {
 				String filterString;
 				if (args.length >= 4) {
 					filterString = args[3];
 				} else {
 					filterString = ".*\\.svg"; // default
 				}
-				File[] fileList = inputDir.listFiles(new RegExpFileFilter(filterString));
+				File[] fileList = generatedDir.listFiles(new RegExpFileFilter(filterString));
 				printHeader(outputWriter);
 				for (File f : fileList) {
-					String leftSVG = f.getName();
-					String rightSVG = creteTemplateFilePath(f.getName(), templatesSubdir);
+					String leftSVG = creteTemplateFilePath(f.getName(), generatedSubdirStr);
+					String rightSVG = creteTemplateFilePath(f.getName(), templatesSubdirStr);
 					printRow(outputWriter, leftSVG, rightSVG);
 				}
 				printFooter(outputWriter);
 			} else {
-				System.out.println(inputDir.getAbsolutePath() + "is not a directory");
+				System.out.println(generatedDir.getAbsolutePath() + "is not a directory");
 			}
 
 			System.out.println(" ... done \n \t" + outputFileStr + " created");
 
 		} finally {
-			outputWriter.close();
+			if (outputWriter != null)
+				outputWriter.close();
 		}
 	}
 
@@ -126,10 +111,9 @@ public class CreateComparison {
 
 	private static void printUsage() {
 		System.out.println("Tree or four arguments are expected:");
-		System.out
-				.println("\n   inputDir - a directory where new svg files are"
-						+ "\n   templatesSubdir - subdirectory of inputDir wher templates (old) svg files are"
-						+ "\n   outputFile - output file (html)"
+		System.out.println("\n   outputFile - output file (html), its parent dir used as baseDir"
+						+ "\n   generatedSubdir - a subdirectory of baseDir where new svg files are"
+						+ "\n   templatesSubdir - a subdirectory of baseDir where templates (old) svg files are"
 						+ "\n   filter - regEx filter string - optional, defaul: '.*\\.svg'");
 	}
 
