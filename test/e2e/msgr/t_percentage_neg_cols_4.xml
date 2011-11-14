@@ -5,15 +5,15 @@
 			colorScheme="cold" xGrid='both' yGrid='major' effect='3D'  lineType="none"
 			stacked="percentage"
 >
-	<title>4 - negative values in perc. columns</title>
-	<names>
-		<name>Leden</name>
-		<name>Únor</name>
-	     <name>Březen</name>
-	     <name>Duben</name>
-	     <name>Květen</name>
+    <title>Percetage, cols, neg. values</title>
+    <names>
+            <name>Leden</name>
+            <name>Únor</name>
+            <name>Březen</name>
+            <name>Duben</name>
+            <name>Květen</name>
     </names>
-	
+
     <values pointType="cross" lineType="solid">
             <title>assets</title>
             <value>20</value>
@@ -22,7 +22,7 @@
             <value>22</value>
             <value>20</value>
     </values>
-	<values lineType="dash" fillArea="yes">
+            <values lineType="dash" fillArea="yes">
             <title>profit</title>
             <value>-10</value>
             <value>18</value>
@@ -30,8 +30,8 @@
             <value>10</value>
             <value>-30</value>
     </values>
-	<values >
-		<value>15</value>
+    <values >
+            <value>15</value>
             <value>16</value>
             <value>20</value>
             <value>23</value>

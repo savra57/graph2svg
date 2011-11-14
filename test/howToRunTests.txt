@@ -1,0 +1,19 @@
+1. have java installed
+2. have ant + ant contrib installed
+3. have inscape installed
+
+4. Update relevant paths in build.properties
+
+5. run ant:
+
+to run all test:
+	c:\java\apache-ant-1.8.0\bin\ant
+to run a set of test:
+	c:\java\apache-ant-1.8.0\bin\ant testMsgr
+	
+other targets to run:
+testOsgr, testXygr
+validateAll
+
+
+6. open the comparison.html file generated to visually compare the old and new pictures

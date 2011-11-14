@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <svg:svg xmlns:svg="http://www.w3.org/2000/svg" viewBox="0 0 272 345">
-   <svg:desc>4 - negative values in perc. columns</svg:desc>
+   <svg:desc>Percetage, cols, neg. values</svg:desc>
    <svg:g>
       <svg:text x="136" y="28" text-anchor="middle" font-family="Verdana" font-size="18"
-                fill="black">4 - negative values in perc. columns</svg:text>
+                fill="black">Percetage, cols, neg. values</svg:text>
    </svg:g>
    <svg:g stroke-width="0.2" stroke="black" stroke-linejoin="round">
       <svg:path d="M77,167 L117,130.46 L157,141.02 L197,144.27 L237,300.33 L237,50.33 L197,167 L157,165.53 L117,173.73 L77,117"
