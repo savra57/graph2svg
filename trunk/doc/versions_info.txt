@@ -4,21 +4,26 @@ version 01
 version 02
     * added name spaces
     * removed LFT entities
-    * preprocesing in all scripts was changed
+    * preprocessing in all scripts was changed
     * fixed printing of values, when yAxisType=shifted
     * improved printing of values labelIn/labelOut in osgr
     * add new values "line" and "minus" into DTDs
 
 version 03
-    * new directory structure
+	* new directory structure
+	* comments in the code in English
 	* new test utils: documented in wiki ...
 	* relaxNG schemas from Dave Pawson
-	* botom renamed to bottom
-	* common functionctionality from scripts moved to graph2svg_common.xsl
+	* "botom" renamed to "bottom"
+	* common functionality from scripts moved to graph2svg_common.xsl
 	* graph2svg.xsl used for calling all three scripts (replacing use_* scripts)
+	* partially working times and dates as a values
 
 TODO - shortTerm
+    * finish partially working times and dates as a values
     * update examples, replace use_
+    * check/finish/clean up the testing tools
+    
 
 TODO
     * gradients in 3Dpie
