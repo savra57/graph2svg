@@ -9,26 +9,31 @@ version 02
     * improved printing of values labelIn/labelOut in osgr
     * add new values "line" and "minus" into DTDs
 
-version 03
+version 03 - under development
 	* new directory structure
 	* comments in the code in English
-	* new test utils: documented in wiki ...
+	* new test utils
 	* relaxNG schemas from Dave Pawson
 	* "botom" renamed to "bottom"
 	* common functionality from scripts moved to graph2svg_common.xsl
 	* graph2svg.xsl used for calling all three scripts (replacing use_* scripts)
-	* partially working times and dates as a values
+	* new axis type (xAxisType, yAxisType) allowing work with dates: 
 
 TODO - shortTerm
-    * finish partially working times and dates as a values
-    * update examples, replace use_
+    * finish times and dates 
+    	- for other graphs
+    	- document
     * check/finish/clean up the testing tools
+    * more doc:
+    	- try using the project WIKI 
+    	- improve document test utils
+    	- schema documentation
     
-
 TODO
     * gradients in 3Dpie
     * better lay out when long names
     * new attributes in msgr: name of axes, labelIn/Out...
+    * dates supporting rounding to whole months / years (?? weeks, year quarters)
 	
     * consider next attributes: ColWd, CatGap
     * improve columns: shadows, correct cylinders, cone

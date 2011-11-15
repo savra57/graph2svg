@@ -1,19 +1,39 @@
-1. have java installed
-2. have ant + ant contrib installed
-3. have inscape installed
+*** prerequisities ***
 
-4. Update relevant paths in build.properties
+# have java installed
+# have ant + ant contrib installed
+# have inscape installed
+# update relevant paths in build.properties
 
-5. run ant:
 
-to run all test:
+*** how to run ant ***
+to run all tests and validations, e.g.:
 	c:\java\apache-ant-1.8.0\bin\ant
 to run a set of test:
 	c:\java\apache-ant-1.8.0\bin\ant testMsgr
 	
-other targets to run:
-testOsgr, testXygr
+* Targets to run:
+testOsgr, testMsgr, testXygr
 validateAll
 
 
 6. open the comparison.html file generated to visually compare the old and new pictures
+
+
+The testing framework can be used also for developping.
+To calculate only one or few files (faster) change the defalut filter values in build.properties, e.g.:
+batchTransform.filter=t_time.*\.xml
+createComparison.filter=t_time.*\.svg
+
+
+*** automatic transformation of svg to png ***
+# set build.properties, e.g.:
+generatePng.inkscape=c:/Program Files/Inkscape/inkscape.exe
+generatePng.dir=c:/Temp/__testG2S/_examples/
+
+# run ant for target generatePng:
+c:\java\apache-ant-1.8.0\bin\ant genereatePng
+
+#
+the ant script will recursively go through all directories in a given file and 
+every file with .svg extension will transform to .png (to the same directory).

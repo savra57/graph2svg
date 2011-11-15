@@ -111,8 +111,7 @@
 			if ($xAxisMin &gt;= 0) then 0 else min((- $xAxisMin, $xAxisLen)) * $xKoef "/>
 	<xsl:variable name="maxXLabelWd" select="$labelFontSize * $labelFontWd *
 			max(for $a in (0 to $xAxisMarkCount) return 
-				string-length(string(m:Round($xAxisMin + $a * $xAxisStep, $xAxisStep)))
-				+ (if ($gra/ph/@xAxisType='log') then 2 else 0)  )"/>
+				string-length(string(m:RoundAT($xAxisMin + $a * $xAxisStep, $xAxisStep, $gra/ph/@xAxisType))) )"/>
 		
 		<!-- Y axis -->
 	<xsl:variable name="dataMaxY"  select="max($gra/ph/curve/point/@y)"/>	
@@ -138,8 +137,7 @@
 			if ($yAxisMin &gt;= 0) then 0 else - min((- $yAxisMin, $yAxisLen)) * $yKoef "/>
 	<xsl:variable name="maxYLabelWd" select="$labelFontSize * $labelFontWd *
 			max(for $a in (0 to $yAxisMarkCount) return 
-				string-length(string(m:Round($yAxisMin + $a * $yAxisStep, $yAxisStep)))
-				+ (if ($gra/ph/@yAxisType='log') then 2 else 0)  )"/>
+				string-length(string(m:RoundAT($yAxisMin + $a * $yAxisStep, $yAxisStep, $gra/ph/@yAxisType))) )"/>
 		
 		<!-- title and legend -->
 	<xsl:variable name="titleHg"  select="if ($gra/ph/title) then 2*$titleMargin + $titleFontSize else 0"/>
@@ -371,7 +369,7 @@
 		<svg:g text-anchor="middle" font-family="Verdana" font-size="{$labelFontSize}" fill="black"> 
 		<xsl:for-each  select="(for $a in ($tpX[. &gt; -1]) return $xAxisMin + $a * $xAxisStep)"> 
 			<svg:text x="{m:R($xShift + $xKoef * (.))}" y="{m:R($originY + $majorMarkLen + $labelFontSize)}">
-			<xsl:value-of select="m:Round(., $xAxisStep, $gra/ph/@xAxisType)"/>
+			<xsl:value-of select="m:RoundAT(., $xAxisStep, $gra/ph/@xAxisType)"/>
 			<xsl:if test="$gra/ph/@xAxisType='log'">
 				<svg:tspan font-size="{0.75*$labelFontSize}" dy="{-0.4*$labelFontSize}">
 				<xsl:value-of select="."/>
@@ -418,7 +416,7 @@
 		<svg:g text-anchor="end" font-family="Verdana" font-size="{$labelFontSize}" fill="black"> 
 		<xsl:for-each  select="(for $a in ($tpY[. &gt; -1]) return $yAxisMin + $a * $yAxisStep)"> 
 			<svg:text x="{m:R($originX - $majorMarkLen - 3)}" y="{m:R($yShift + $yKoef * (.) + 0.35 * $labelFontSize)}">
-			<xsl:value-of select="m:Round(., $yAxisStep, $gra/ph/@yAxisType)"/>
+			<xsl:value-of select="m:RoundAT(., $yAxisStep, $gra/ph/@yAxisType)"/>
 			<xsl:if test="$gra/ph/@yAxisType='log'">
 				<svg:tspan font-size="{0.75*$labelFontSize}" dy="{-0.4*$labelFontSize}">
 				<xsl:value-of select="."/>
@@ -585,7 +583,16 @@
 			stroke="black" fill="none" stroke-width="1"/> <!-- frame around the whole graph-->
 	
 	<!-- debuging prints -->
+	
 	<!--
+	<svg:text x="{$originX}" y="{$originY - 20}" font-family="Verdana" font-size="{$labelFontSize}">
+		<xsl:value-of select="$gra/ph/@yAxisType"/><xsl:text> $gra/ph/yAxisType </xsl:text>
+		<xsl:value-of select="$maxYLabelWd"/><xsl:text> $maxYLabelWd </xsl:text>
+		<xsl:value-of select="for $a in (0 to $yAxisMarkCount) return 
+				m:RoundAT($yAxisMin + $a * $yAxisStep, $yAxisStep, $gra/ph/@yAxisType)
+				 "/><xsl:text> for</xsl:text>
+		<xsl:value-of select="/graph/@xAxisType"/>
+	</svg:text>
 	<svg:text x="{$originX}" y="{$originY - 20}" font-family="Verdana" font-size="{$labelFontSize}">
 		<xsl:value-of select="m:Log10(1000)"/><xsl:text> || </xsl:text>
 		<xsl:value-of select="m:Log10(20.08554)"/><xsl:text> || </xsl:text>
@@ -638,155 +645,5 @@
 <xsl:template match="*|text()|@*" mode="m:processValues">  <!-- copy attributes, text and foreign elements -->
 	<xsl:copy-of select="."/>
 </xsl:template>
-
-<xsl:function name="m:Step10Base"> 
-	<xsl:param name="dif"/>
-	<xsl:param name="count"/>
-
-	<xsl:variable name="ps" select="($dif) div $count"/>
-	<xsl:variable name="rad" select="floor(m:Log10($ps))"/>
-	<xsl:variable name="cif" select="$ps div math:power(10, $rad)"/>
-	<xsl:variable name="st" select="
-		if ($cif &lt; 1.6) then 1 else
-		if ($cif &lt; 2.2) then 2 else
-		if ($cif &lt; 4) then 2.5 else
-		if ($cif &lt; 9) then 5 else 10"/>
-	<xsl:value-of select="$st * math:power(10, $rad)"/>
-</xsl:function>
-
-<xsl:function name="m:Step10BaseInteger">
-	<xsl:param name="step"/>
-	
-	<xsl:variable name="rad" select="floor(m:Log10($step))"/>
-	<xsl:variable name="cif" select="$step div math:power(10, $rad)"/>
-	<xsl:variable name="st" select="
-		if ($cif &lt; 1.33333) then 1 else
-		if ($cif &lt; 2.85714) then 2 else
-		if ($cif &lt; 6.66667) then 5 else 10"/>
-	<xsl:value-of select="$st * math:power(10, $rad)"/>
-</xsl:function>
-
-
-<xsl:function name="m:Step24Base">
-	<xsl:param name="step"/>
-	
-	<xsl:value-of select="
-		if ($step &lt; 1.33333) then 1 else
-		if ($step &lt; 2.4) then 2 else
-		if ($step &lt; 3.42857) then 3 else
-		if ($step &lt; 4.8) then 4 else
-		if ($step &lt; 6.85714) then 6 else
-		if ($step &lt; 9.6) then 8 else
-		if ($step &lt; 16) then 12 else 24"/>
-</xsl:function>
-
-
-<xsl:function name="m:Step60Base">
-	<xsl:param name="step"/>
-	
-	<xsl:value-of select="
-		if ($step &lt; 1.33333) then 1 else
-		if ($step &lt; 2.4) then 2 else
-		if ($step &lt; 3.42857) then 3 else
-		if ($step &lt; 4.44444) then 4 else
-		if ($step &lt; 5.45455) then 5 else
-		if ($step &lt; 7.5) then 6 else
-		if ($step &lt; 10.90909) then 10 else
-		if ($step &lt; 13.33333) then 12 else
-		if ($step &lt; 17.14286) then 15 else
-		if ($step &lt; 24) then 20 else
-		if ($step &lt; 40) then 30 else 60"/>
-</xsl:function>
-
-
-<!-- returns a lenght of axes step -->
-<xsl:function name="m:StepAT">
-	<xsl:param name="dif"/>
-	<xsl:param name="count"/>
-	<xsl:param name="axisType"/>
-
-	<xsl:choose>
-		<xsl:when test="$axisType='log'">
-			<xsl:value-of select="1"/>
-		</xsl:when>
-		<xsl:when test="starts-with($axisType,'dateTime')">
-			<xsl:variable name="ps" select="($dif) div $count"/>
-			
-			<xsl:variable name="days" select="$ps div 86400"/>
-			<xsl:variable name="hours" select="($ps mod 86400) div 3600"/>
-			<xsl:variable name="minutes" select="($ps mod 3600) div 60"/>
-			<xsl:variable name="seconds" select="$ps mod 60"/>
-			<xsl:value-of select="
-					if ($days &gt; 1) then round($days)*86400 else
-					if ($hours &gt; 1) then m:Step24Base($hours)*3600 else
-					if ($minutes &gt; 1) then m:Step60Base($minutes)*60 else
-					m:Step60Base($seconds)
-				"/>
-		</xsl:when>
-		<xsl:otherwise>
-			<xsl:value-of select="m:Step10Base(if ($dif != 0) then $dif else 0.0000001, $count)"/>	
-		</xsl:otherwise>
-	</xsl:choose>
-</xsl:function>
-
-
-<!-- rounds the value on same number of decimal places as has the step, used for printing values on axes -->
-<!-- format examples: http://www.w3.org/TR/xslt20/#date-time-examples -->
-<xsl:function name="m:Round"> 
-	<xsl:param name="val"/>
-	<xsl:param name="step"/>
-	<xsl:param name="axisType"/>
-	
-	<xsl:choose>
-		<xsl:when test="$axisType='log'">
-			<xsl:value-of select="10"/>
-		</xsl:when>
-		<xsl:when test="starts-with($axisType,'dateTime')">
-			
-			<xsl:variable name="dateTime" select="xs:dateTime('0001-01-01T00:00:00') + m:NumberToDuration($val)"/>
-			<!--
-			<xsl:variable name="dateTime" select="xs:dateTime('2010-01-29T11:05:00') + functx:dayTimeDuration(0, 0, 0, $val)"/>
-			-->
-			<xsl:variable name="tokens" select="tokenize($axisType, '~')"/>
-			<xsl:value-of select="format-dateTime($dateTime, $tokens[2], $tokens[3], $tokens[4], $tokens[5])"/>	
-		</xsl:when>
-		<xsl:otherwise>
-			<xsl:variable name="rad" select="floor(m:Log10($step))"/>
-			<xsl:variable name="pom" select="round($val * math:power(10, - $rad +1)) * math:power(10, $rad - 1)"/>
-			<xsl:value-of select="if ($pom != 0) then format-number($pom, '#.##############') else $pom"/>	
-		</xsl:otherwise>
-	</xsl:choose>
-</xsl:function>
-
-<xsl:function name="m:ProcessValue">
-	<xsl:param name="axisType"/>
-	<xsl:param name="val"/>
-	
-	<xsl:choose>
-		<xsl:when test="$axisType='log'">
-			<xsl:value-of select="m:Log10(if (($val) != 0) then math:abs($val) else 1) "/>
-		</xsl:when>
-		<xsl:when test="starts-with($axisType,'dateTime')">
-		
-			<xsl:variable name="timeZero" select="xs:dateTime('0001-01-01T00:00:00')"/>     
-			<xsl:value-of select="m:DurationToNumber(xs:dateTime($val) - $timeZero)"/>
-		</xsl:when>
-		<xsl:otherwise>
-			<xsl:value-of select="$val"/>
-		</xsl:otherwise>
-	</xsl:choose>
-	
-</xsl:function>
-
-<xsl:function name="m:NumberToDuration" as="xs:dayTimeDuration">
-	<xsl:param name="num"/>
-	<xsl:value-of select="xs:dayTimeDuration('PT1S') * $num"/>
-</xsl:function>
-
-<xsl:function name="m:DurationToNumber">
-	<xsl:param name="dur"/>
-	<xsl:value-of select="$dur div xs:dayTimeDuration('PT1S')"/>
-</xsl:function>
-
 
 </xsl:stylesheet>

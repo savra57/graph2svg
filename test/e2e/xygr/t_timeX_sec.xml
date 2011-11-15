@@ -3,11 +3,11 @@
 <xygr xmlns="http://graph2svg.googlecode.com"
 		pointType="circle" colorScheme="cold"
 		axesPos="left-bottom"
-		xAxisType="dateTime~[D]. [H01]:[m01]:[s01]"> 
-	<title>Test 15 seconds</title>
+		xAxisType="dateTime~[m01]:[s01]"> 
+	<title>Test 15 seconds on X</title>
 
 	<curve>
-		<point x="2010-01-22T11:04:00" y="15"/>
+		<point x="2010-01-22T11:04:04" y="15"/>
 		<point x="2010-01-22T11:04:10" y="12"/>
 		<point x="2010-01-22T11:04:11" y="10"/>
 		<point x="2010-01-22T11:04:12" y="13"/>
