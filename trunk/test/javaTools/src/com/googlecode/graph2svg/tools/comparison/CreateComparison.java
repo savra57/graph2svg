@@ -44,8 +44,8 @@ public class CreateComparison {
 				File[] fileList = generatedDir.listFiles(new RegExpFileFilter(filterString));
 				printHeader(outputWriter);
 				for (File f : fileList) {
-					String leftSVG = creteTemplateFilePath(f.getName(), generatedSubdirStr);
-					String rightSVG = creteTemplateFilePath(f.getName(), templatesSubdirStr);
+					String leftSVG = creteFilePath(f.getName(), generatedSubdirStr);
+					String rightSVG = creteFilePath(f.getName(), templatesSubdirStr);
 					printRow(outputWriter, leftSVG, rightSVG);
 				}
 				printFooter(outputWriter);
@@ -61,7 +61,7 @@ public class CreateComparison {
 		}
 	}
 
-	private static String creteTemplateFilePath(String path, String templatesSubdir) {
+	private static String creteFilePath(String path, String templatesSubdir) {
 		int lastIndex = path.lastIndexOf('/');
 		String dirDelim = "/";
 		if (lastIndex == -1) {

@@ -55,7 +55,7 @@ public class BatchSaxonTransform
 		if (args.length >= 4) {
 			outputDirString = args[3];
 			
-			if (args.length >= 5) {
+			if (args.length >= 5 && !"".equals(args[4])) {
 				filterString = args[4];
 			} 
 		} 

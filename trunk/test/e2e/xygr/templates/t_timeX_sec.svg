@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg:svg xmlns:svg="http://www.w3.org/2000/svg" viewBox="0 0 424.2 386">
+   <svg:desc>Test 15 seconds on X</svg:desc>
+   <svg:g>
+      <svg:text x="212.1" y="28" text-anchor="middle" font-family="Verdana" font-size="18"
+                fill="black">Test 15 seconds on X</svg:text>
+   </svg:g>
+   <svg:g stroke="black">
+      <svg:path d="M42.2,355 l0,6 m35,-6 l0,6 m35,-6 l0,6 m35,-6 l0,6 m35,-6 l0,6 m35,-6 l0,6 m35,-6 l0,6 m35,-6 l0,6 m35,-6 l0,6 m35,-6 l0,6 m35,-6 l0,6"
+                stroke-width="1"/>
+      <svg:path d="M39.2,358 l6,0  m-6,-25 l6,0  m-6,-25 l6,0  m-6,-25 l6,0  m-6,-25 l6,0  m-6,-25 l6,0  m-6,-25 l6,0  m-6,-25 l6,0  m-6,-25 l6,0  m-6,-25 l6,0  m-6,-25 l6,0  m-6,-25 l6,0  m-6,-25 l6,0 "
+                stroke-width="1"/>
+   </svg:g>
+   <svg:g stroke="black" stroke-width="1">
+      <svg:line x1="42.2" y1="358" x2="392.2" y2="358"/>
+   </svg:g>
+   <svg:g text-anchor="middle" font-family="Verdana" font-size="10" fill="black">
+      <svg:text x="42.2" y="371">04:02</svg:text>
+      <svg:text x="77.2" y="371">04:04</svg:text>
+      <svg:text x="112.2" y="371">04:06</svg:text>
+      <svg:text x="147.2" y="371">04:08</svg:text>
+      <svg:text x="182.2" y="371">04:10</svg:text>
+      <svg:text x="217.2" y="371">04:12</svg:text>
+      <svg:text x="252.2" y="371">04:14</svg:text>
+      <svg:text x="287.2" y="371">04:16</svg:text>
+      <svg:text x="322.2" y="371">04:18</svg:text>
+      <svg:text x="357.2" y="371">04:20</svg:text>
+      <svg:text x="392.2" y="371">04:22</svg:text>
+   </svg:g>
+   <svg:g stroke="black" stroke-width="1">
+      <svg:line x1="42.2" y1="358" x2="42.2" y2="58"/>
+   </svg:g>
+   <svg:g text-anchor="end" font-family="Verdana" font-size="10" fill="black">
+      <svg:text x="36.2" y="361.5">9.5</svg:text>
+      <svg:text x="36.2" y="336.5">10</svg:text>
+      <svg:text x="36.2" y="311.5">10.5</svg:text>
+      <svg:text x="36.2" y="286.5">11</svg:text>
+      <svg:text x="36.2" y="261.5">11.5</svg:text>
+      <svg:text x="36.2" y="236.5">12</svg:text>
+      <svg:text x="36.2" y="211.5">12.5</svg:text>
+      <svg:text x="36.2" y="186.5">13</svg:text>
+      <svg:text x="36.2" y="161.5">13.5</svg:text>
+      <svg:text x="36.2" y="136.5">14</svg:text>
+      <svg:text x="36.2" y="111.5">14.5</svg:text>
+      <svg:text x="36.2" y="86.5">15</svg:text>
+      <svg:text x="36.2" y="61.5">15.5</svg:text>
+   </svg:g>
+   <svg:g stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <svg:path d="M77.2,83 L182.2,233 L199.7,333 L217.2,183 L357.2,133" stroke="#07bbbb"/>
+   </svg:g>
+   <svg:g stroke-width="1.5" fill="none" color="#07bbbb" stroke="#07bbbb"
+          stroke-linecap="round">
+      <svg:circle cx="77.2" cy="83" r="4"/>
+      <svg:circle cx="182.2" cy="233" r="4"/>
+      <svg:circle cx="199.7" cy="333" r="4"/>
+      <svg:circle cx="217.2" cy="183" r="4"/>
+      <svg:circle cx="357.2" cy="133" r="4"/>
+   </svg:g>
+   <svg:rect x="0.5" y="0.5" width="423.2" height="385" stroke="black" fill="none"
+             stroke-width="1"/>
+</svg:svg>
