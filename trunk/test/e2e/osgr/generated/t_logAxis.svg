@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg:svg xmlns:svg="http://www.w3.org/2000/svg" viewBox="0 0 307.2 228">
+   <svg:desc>Logaritmic axis</svg:desc>
+   <svg:g>
+      <svg:text x="153.6" y="28" text-anchor="middle" font-family="Verdana" font-size="18"
+                fill="black">Logaritmic axis</svg:text>
+   </svg:g>
+   <svg:g stroke-width="0.4" stroke="black" stroke-linejoin="round">
+      <svg:g transform="translate(67.2, 108)" fill="#14f">
+         <svg:path d="M-15,-0 h30 v-48.856062735983116 h-30 z"/>
+      </svg:g>
+      <svg:g transform="translate(117.2, 108)" fill="#ff1">
+         <svg:path d="M-15,-0 h30 v-25 h-30 z"/>
+      </svg:g>
+      <svg:g transform="translate(167.2, 108)" fill="#f0d">
+         <svg:path d="M-15,0 h30 v25.484010813906572 h-30 z"/>
+      </svg:g>
+      <svg:g transform="translate(217.2, 108)" fill="#3f1">
+         <svg:path d="M-15,0 h30 v70.14408128190426 h-30 z"/>
+      </svg:g>
+      <svg:g transform="translate(267.2, 108)" fill="#f33">
+         <svg:path d="M-15,0 h30 v99.99999999999999 h-30 z"/>
+      </svg:g>
+   </svg:g>
+   <svg:g stroke="black">
+      <svg:path d="M67.2,106  v2 m50,-2  v2 m50,-2  v2 m50,-2  v2 m50,-2  v2 m50,-2"
+                stroke-width="0.5"/>
+      <svg:path d="M39.2,208 l6,0  m-6,-25 l6,0  m-6,-25 l6,0  m-6,-25 l6,0  m-6,-25 l6,0  m-6,-25 l6,0  m-6,-25 l6,0 "
+                stroke-width="1"/>
+   </svg:g>
+   <svg:line x1="42.2" y1="108" x2="292.2" y2="108" stroke="black" stroke-width="1"/>
+   <svg:g text-anchor="middle" font-family="Verdana" font-size="10" fill="black">
+      <svg:text x="67.2" y="121">Mon</svg:text>
+      <svg:text x="117.2" y="121">Tue</svg:text>
+      <svg:text x="167.2" y="121">Wed</svg:text>
+      <svg:text x="217.2" y="121">Thu</svg:text>
+      <svg:text x="267.2" y="121">Fri</svg:text>
+   </svg:g>
+   <svg:g stroke="black" stroke-width="1">
+      <svg:line x1="42.2" y1="208" x2="42.2" y2="58"/>
+   </svg:g>
+   <svg:g text-anchor="end" font-family="Verdana" font-size="10" fill="black">
+      <svg:text x="36.2" y="211.5">  10<svg:tspan font-size="7.5" dy="-4">-4</svg:tspan>
+      </svg:text>
+      <svg:text x="36.2" y="186.5">  10<svg:tspan font-size="7.5" dy="-4">-3</svg:tspan>
+      </svg:text>
+      <svg:text x="36.2" y="161.5">  10<svg:tspan font-size="7.5" dy="-4">-2</svg:tspan>
+      </svg:text>
+      <svg:text x="36.2" y="136.5">  10<svg:tspan font-size="7.5" dy="-4">-1</svg:tspan>
+      </svg:text>
+      <svg:text x="36.2" y="111.5"> 10<svg:tspan font-size="7.5" dy="-4">0</svg:tspan>
+      </svg:text>
+      <svg:text x="36.2" y="86.5"> 10<svg:tspan font-size="7.5" dy="-4">1</svg:tspan>
+      </svg:text>
+      <svg:text x="36.2" y="61.5"> 10<svg:tspan font-size="7.5" dy="-4">2</svg:tspan>
+      </svg:text>
+   </svg:g>
+   <svg:g text-anchor="middle" font-family="Verdana" font-size="10" fill="black">
+      <svg:text x="67.2" y="87.07"/>
+      <svg:text x="117.2" y="99"/>
+      <svg:text x="167.2" y="124.24"/>
+      <svg:text x="217.2" y="146.57"/>
+      <svg:text x="267.2" y="161.5"/>
+   </svg:g>
+   <svg:g text-anchor="middle" font-family="Verdana" font-size="10" fill="black">
+      <svg:text x="67.2" y="55.14"/>
+      <svg:text x="117.2" y="79"/>
+      <svg:text x="167.2" y="145.48"/>
+      <svg:text x="217.2" y="190.14"/>
+      <svg:text x="267.2" y="220"/>
+   </svg:g>
+   <svg:rect x="0.5" y="0.5" width="306.2" height="227" stroke="black" fill="none"
+             stroke-width="1"/>
+   <svg:text x="42.2" y="130" font-family="Verdana" font-size="10"/>
+   <svg:text x="42.2" y="93" font-family="Verdana" font-size="10"/>
+</svg:svg>

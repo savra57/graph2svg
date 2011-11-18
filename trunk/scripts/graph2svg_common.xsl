@@ -444,10 +444,10 @@ works for dateTime axeType
 	
 	<xsl:choose>
 		<xsl:when test="$axisType='log'">
-			<xsl:value-of select="10"/>
+			<!-- generate 10 preappended with number of spaces to keep the length of label -->
+			<xsl:sequence select="concat(string-join((for $a in (1 to string-length(string($val))) return ' '), ''), 10)"/>
 		</xsl:when>
 		<xsl:when test="starts-with($axisType,'dateTime')">
-			
 			<xsl:variable name="dateTime" select="xs:dateTime('0001-01-01T00:00:00') + m:NumberToDuration($val)"/>
 			<xsl:variable name="tokens" select="tokenize($axisType, '~')"/>
 			<xsl:value-of select="format-dateTime($dateTime, $tokens[2], $tokens[3], $tokens[4], $tokens[5])"/>	
@@ -469,7 +469,6 @@ works for dateTime axeType
 			<xsl:value-of select="m:Log10(if (($val) != 0) then math:abs($val) else 1) "/>
 		</xsl:when>
 		<xsl:when test="starts-with($axisType,'dateTime')">
-		
 			<xsl:variable name="timeZero" select="xs:dateTime('0001-01-01T00:00:00')"/>     
 			<xsl:value-of select="m:DurationToNumber(xs:dateTime($val) - $timeZero)"/>
 		</xsl:when>
