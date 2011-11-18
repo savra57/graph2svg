@@ -110,8 +110,6 @@
       <svg:text x="337" y="290" fill="black">top of lines: colType="line" startFrom="last"</svg:text>
       <svg:text x="337" y="314" fill="black">expected value: pointType="minus"</svg:text>
    </svg:g>
-   <svg:text x="49" y="505" font-family="Verdana" font-size="10"/>
-   <svg:text x="49" y="468" font-family="Verdana" font-size="10"/>
    <svg:rect x="0.5" y="0.5" width="625.5" height="510" stroke="black" fill="none"
              stroke-width="1"/>
 </svg:svg>

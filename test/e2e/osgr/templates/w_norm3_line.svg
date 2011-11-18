@@ -66,6 +66,4 @@
    </svg:g>
    <svg:rect x="0.5" y="0.5" width="292.6" height="410" stroke="black" fill="none"
              stroke-width="1"/>
-   <svg:text x="28.6" y="405" font-family="Verdana" font-size="10"/>
-   <svg:text x="28.6" y="368" font-family="Verdana" font-size="10"/>
 </svg:svg>

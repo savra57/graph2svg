@@ -78,6 +78,4 @@
    </svg:g>
    <svg:rect x="0.5" y="0.5" width="300.6" height="513" stroke="black" fill="none"
              stroke-width="1"/>
-   <svg:text x="28.6" y="508" font-family="Verdana" font-size="10"/>
-   <svg:text x="28.6" y="471" font-family="Verdana" font-size="10"/>
 </svg:svg>

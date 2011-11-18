@@ -112,6 +112,4 @@
    </svg:g>
    <svg:rect x="0.5" y="0.5" width="625.5" height="510" stroke="black" fill="none"
              stroke-width="1"/>
-   <svg:text x="49" y="505" font-family="Verdana" font-size="10"/>
-   <svg:text x="49" y="468" font-family="Verdana" font-size="10"/>
 </svg:svg>

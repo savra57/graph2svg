@@ -130,8 +130,6 @@
       <svg:text x="349.5" y="290.9952167193477" fill="#888">consumption of our brand</svg:text>
       <svg:text x="349.5" y="314.9952167193477" fill="#444">total import</svg:text>
    </svg:g>
-   <svg:text x="42.2" y="508" font-family="Verdana" font-size="10"/>
-   <svg:text x="42.2" y="471" font-family="Verdana" font-size="10"/>
    <svg:rect x="0.5" y="0.5" width="509.9" height="535.9904334386954" stroke="black"
              fill="none"
              stroke-width="1"/>

@@ -74,36 +74,36 @@
       <svg:line x1="42.2" y1="325" x2="42.2" y2="100"/>
    </svg:g>
    <svg:g text-anchor="end" font-family="Verdana" font-size="10" fill="black">
-      <svg:text x="36.2" y="328.5">10<svg:tspan font-size="7.5" dy="-4">-4</svg:tspan>
+      <svg:text x="36.2" y="328.5">  10<svg:tspan font-size="7.5" dy="-4">-4</svg:tspan>
       </svg:text>
-      <svg:text x="36.2" y="303.5">10<svg:tspan font-size="7.5" dy="-4">-3</svg:tspan>
+      <svg:text x="36.2" y="303.5">  10<svg:tspan font-size="7.5" dy="-4">-3</svg:tspan>
       </svg:text>
-      <svg:text x="36.2" y="278.5">10<svg:tspan font-size="7.5" dy="-4">-2</svg:tspan>
+      <svg:text x="36.2" y="278.5">  10<svg:tspan font-size="7.5" dy="-4">-2</svg:tspan>
       </svg:text>
-      <svg:text x="36.2" y="253.5">10<svg:tspan font-size="7.5" dy="-4">-1</svg:tspan>
+      <svg:text x="36.2" y="253.5">  10<svg:tspan font-size="7.5" dy="-4">-1</svg:tspan>
       </svg:text>
-      <svg:text x="36.2" y="228.5">10<svg:tspan font-size="7.5" dy="-4">0</svg:tspan>
+      <svg:text x="36.2" y="228.5"> 10<svg:tspan font-size="7.5" dy="-4">0</svg:tspan>
       </svg:text>
-      <svg:text x="36.2" y="203.5">10<svg:tspan font-size="7.5" dy="-4">1</svg:tspan>
+      <svg:text x="36.2" y="203.5"> 10<svg:tspan font-size="7.5" dy="-4">1</svg:tspan>
       </svg:text>
-      <svg:text x="36.2" y="178.5">10<svg:tspan font-size="7.5" dy="-4">2</svg:tspan>
+      <svg:text x="36.2" y="178.5"> 10<svg:tspan font-size="7.5" dy="-4">2</svg:tspan>
       </svg:text>
-      <svg:text x="36.2" y="153.5">10<svg:tspan font-size="7.5" dy="-4">3</svg:tspan>
+      <svg:text x="36.2" y="153.5"> 10<svg:tspan font-size="7.5" dy="-4">3</svg:tspan>
       </svg:text>
-      <svg:text x="36.2" y="128.5">10<svg:tspan font-size="7.5" dy="-4">4</svg:tspan>
+      <svg:text x="36.2" y="128.5"> 10<svg:tspan font-size="7.5" dy="-4">4</svg:tspan>
       </svg:text>
-      <svg:text x="36.2" y="103.5">10<svg:tspan font-size="7.5" dy="-4">5</svg:tspan>
+      <svg:text x="36.2" y="103.5"> 10<svg:tspan font-size="7.5" dy="-4">5</svg:tspan>
       </svg:text>
    </svg:g>
    <svg:g stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
       <svg:path d="M62.2,307.53 L102.2,277.42 L142.2,267.47 L182.2,238.07 L222.2,225.56 L262.2,200 L302.2,175 L342.2,132.53 L382.2,125.22 L422.2,109.95"
                 stroke="#07bbbb"/>
-      <svg:path stroke="white" stroke-width="4.5" d="M193.65,65 l28,0"/>
-      <svg:path stroke="#07bbbb" d="M193.65,65 l28,0"/>
+      <svg:path stroke="white" stroke-width="4.5" d="M163.15,65 l28,0"/>
+      <svg:path stroke="#07bbbb" d="M163.15,65 l28,0"/>
       <svg:path d="M62.2,101.14 L102.2,125 L142.2,134.95 L182.2,176.14 L222.2,225 L262.2,200 L302.2,173.02 L342.2,147.58 L382.2,127.42 L422.2,120.6"
                 stroke="#09a317"/>
-      <svg:path stroke="white" stroke-width="4.5" d="M314.85,65 l28,0"/>
-      <svg:path stroke="#09a317" d="M314.85,65 l28,0"/>
+      <svg:path stroke="white" stroke-width="4.5" d="M284.35,65 l28,0"/>
+      <svg:path stroke="#09a317" d="M284.35,65 l28,0"/>
    </svg:g>
    <svg:g stroke-width="1.5" fill="none" color="#07bbbb" stroke="#07bbbb"
           stroke-linecap="round">
@@ -117,7 +117,7 @@
       <svg:path d="M 342.2,132.53 m 0,-4 l 0,8 m -3.48,-6 l 6.92,4      m -6.92,0 l 6.92,-4"/>
       <svg:path d="M 382.2,125.22 m 0,-4 l 0,8 m -3.48,-6 l 6.92,4      m -6.92,0 l 6.92,-4"/>
       <svg:path d="M 422.2,109.95 m 0,-4 l 0,8 m -3.48,-6 l 6.92,4      m -6.92,0 l 6.92,-4"/>
-      <svg:path d="M 207.65,65 m 0,-4 l 0,8 m -3.48,-6 l 6.92,4      m -6.92,0 l 6.92,-4"/>
+      <svg:path d="M 177.15,65 m 0,-4 l 0,8 m -3.48,-6 l 6.92,4      m -6.92,0 l 6.92,-4"/>
    </svg:g>
    <svg:g stroke-width="1.5" fill="none" color="#09a317" stroke="#09a317"
           stroke-linecap="round">
@@ -131,15 +131,13 @@
       <svg:path d="M 342.2,147.58 m 0,-4 l 0,8 m -3.48,-6 l 6.92,4      m -6.92,0 l 6.92,-4"/>
       <svg:path d="M 382.2,127.42 m 0,-4 l 0,8 m -3.48,-6 l 6.92,4      m -6.92,0 l 6.92,-4"/>
       <svg:path d="M 422.2,120.6 m 0,-4 l 0,8 m -3.48,-6 l 6.92,4      m -6.92,0 l 6.92,-4"/>
-      <svg:path d="M 328.85,65 m 0,-4 l 0,8 m -3.48,-6 l 6.92,4      m -6.92,0 l 6.92,-4"/>
+      <svg:path d="M 298.35,65 m 0,-4 l 0,8 m -3.48,-6 l 6.92,4      m -6.92,0 l 6.92,-4"/>
    </svg:g>
    <svg:g text-anchor="start" font-family="Verdana" font-size="10" fill="black">
-      <svg:text x="226.65" y="68.5" fill="#07bbbb">male hodnoty</svg:text>
-      <svg:text x="347.85" y="68.5" fill="#09a317"/>
+      <svg:text x="196.15" y="68.5" fill="#07bbbb">small values</svg:text>
+      <svg:text x="317.35" y="68.5" fill="#09a317">big values</svg:text>
    </svg:g>
    <svg:rect x="0.5" y="0.5" width="555.5" height="374.99043343869545" stroke="black"
              fill="none"
              stroke-width="1"/>
-   <svg:text x="42.2" y="347" font-family="Verdana" font-size="10"/>
-   <svg:text x="42.2" y="310" font-family="Verdana" font-size="10"/>
 </svg:svg>
