@@ -20,7 +20,7 @@
 		<name>Prosinec</name>
     </names>
 	<values>
-		<title>male hodnoty</title>
+		<title>small values</title>
 		<value>0.0005</value>
 		<value>0.008</value>
 		<value>0.02</value>
@@ -33,7 +33,7 @@
 		<value>40000</value>
 	</values>
 	<values>
-		<title/>
+		<title>big values</title>
 		<value>90000</value>
 		<value>10000</value>
 		<value>4000</value>

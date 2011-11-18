@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--DOCTYPE osgr SYSTEM "osgr.dtd"-->
+<osgr xmlns="http://graph2svg.googlecode.com"
+		yAxisType="log">
+	<title>Logaritmic axis</title>
+	<names>
+		<name>Mon</name>
+		<name>Tue</name>
+		<name>Wed</name>
+		<name>Thu</name>
+		<name>Fri</name>
+	</names>
+	<values>
+		<value>90</value>
+		<value>-10</value>
+		<value>0.09564</value>
+		<value>0.001564</value>
+		<value>0.0001</value>
+	</values>
+</osgr>

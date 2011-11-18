@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--DOCTYPE osgr SYSTEM "msgr.dtd"-->
+<msgr xmlns="http://graph2svg.googlecode.com"
+		legend="top"
+		yAxisType="dateTime~[h02]:[m01]:[s01]"
+		lineType="solid"
+		pointType="point">
+			
+	<title>Marathon World Records</title>
+	
+	<names>
+		<name>1926</name>
+		<name>1970</name>
+		<name>1981</name>
+		<name>1999</name>
+		<name>2003</name>
+		<name>2011</name>
+	</names>
+	
+	<values color="violet">
+		<title>Women</title>
+		<value>2010-01-01T03:40:22</value>
+		<value>2010-01-01T03:02:53</value>
+		<value>2010-01-01T02:29:57</value>
+		<value>2010-01-01T02:20:43</value>
+		<value>2010-01-01T02:15:25</value>
+		<value>2010-01-01T02:15:25</value>
+	</values>
+	
+	<values color="blue">
+		<title>Men</title>
+		<value>2010-01-01T02:29:02</value>
+		<value>2010-01-01T02:09:29</value>
+		<value>2010-01-01T02:08:18</value>
+		<value>2010-01-01T02:05:42</value>
+		<value>2010-01-01T02:04:55</value>
+		<value>2010-01-01T02:03:38</value>
+	</values>
+	
+</msgr>

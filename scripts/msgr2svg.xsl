@@ -96,8 +96,7 @@
 			if ($gra/ph/@yAxisType = 'shifted') then $dataMinY else 
 			(if ($gra/ph/@yAxisType = 'withZero') then max(($dataMinY, 0)) else 
 			(if ((0 &lt; $dataMinY) and  ($dataMinY &lt; $dataYDif * $axesAutoCoef))	then 0 else $dataMinY))"/>
-	<xsl:variable name="yAxisStep" select="if ($gra/ph/@yAxisType='log') then 1 else
-			m:Step(if ($viewMaxY != $viewMinY) then ($viewMaxY - $viewMinY) else 0.00001, $yAxisMarkAutoCount)"/>
+	<xsl:variable name="yAxisStep" select="m:StepAT($viewMaxY - $viewMinY, $yAxisMarkAutoCount, $gra/ph/@yAxisType)"/>
 	<xsl:variable name="yAxisMax" select="if ($gra/ph/@stacked='percentage') then 1 else m:GMax($viewMaxY, $yAxisStep)"/>
 	<xsl:variable name="yAxisMin" select="- m:GMax(- $viewMinY, $yAxisStep)"/>
 	<xsl:variable name="yAxisLen" select="$yAxisMax - $yAxisMin"/>
@@ -111,11 +110,10 @@
 			max(for $a in (0 to $yAxisMarkCount) return 
 				string-length(
 					if ($gra/ph/@stacked='percentage') then 
-						concat(m:Round(($yAxisMin + $a * $yAxisStep) * 100, $yAxisStep), '% ') 
+						concat(m:RoundAT(($yAxisMin + $a * $yAxisStep) * 100, $yAxisStep, $gra/ph/@yAxisType), '% ') 
 					else
-						string(m:Round($yAxisMin + $a * $yAxisStep, $yAxisStep))
+						string(m:RoundAT($yAxisMin + $a * $yAxisStep, $yAxisStep, $gra/ph/@yAxisType))
 					)
-				+ (if ($gra/ph/@yAxisType='log') then 2 else 0)  
 			)"/>
 		
 		<!-- title and legend -->
@@ -588,15 +586,14 @@
 		<xsl:for-each  select="(for $a in ($mYpom[. &gt; -1]) return $yAxisMin + $a * $yAxisStep)"> 
 			<svg:text x="{m:R($originX - $majorMarkLen - 3)}" y="{m:R($yShift + $yKoef*(.) + 0.35*$labelFontSize)}">
 			<xsl:value-of select="
-					if ($gra/ph/@stacked='percentage') then concat(m:Round(. * 100, $yAxisStep), '%') else 
-					if ($gra/ph/@yAxisType='log') then 10 else m:Round(., $yAxisStep)"/>
+					if ($gra/ph/@stacked='percentage') then concat(m:RoundAT(. * 100, $yAxisStep, $gra/ph/@yAxisType), '%') 
+					else m:RoundAT(., $yAxisStep, $gra/ph/@yAxisType)"/>
 			<xsl:if test="$gra/ph/@yAxisType='log'">
 				<svg:tspan font-size="{0.75*$labelFontSize}" dy="{-0.4*$labelFontSize}">
 				<xsl:value-of select="."/>
 				</svg:tspan>
 			</xsl:if>
 			</svg:text>
-			<!--xsl:value-of select="(., $yAxisStep, m:Round(., 0.5))"/-->
 		</xsl:for-each> 
 		</svg:g>	
 	</xsl:if>
@@ -712,23 +709,17 @@
 			stroke="black" fill="none" stroke-width="1"/> <!-- frame around the whole graph-->
 	<!-- debuging prints -->
 
-	<svg:text x="{$originX}" y="{$originY + 22}" font-family="Verdana" font-size="{$labelFontSize}">
-		<!--xsl:value-of select="$xLabelRotation"/><xsl:text> || </xsl:text>
-		<xsl:value-of select="math:sin($labelAngle div 180) * $pi"/><xsl:text> || </xsl:text-->
-		<!--xsl:value-of select="if ($gra/ph/@pok != 'val') then 'true' else 'false' "/><xsl:text> || </xsl:text>
-		<xsl:value-of select="if (not ($gra/ph/@pok = 'val')) then 'true' else 'false' "/><xsl:text> || </xsl:text>
-		<xsl:copy-of select="(format-number(0.0000000001, '0.#######'))"/><xsl:text> || </xsl:text>
-		<xsl:copy-of select="(format-number(0.00000001,    '0.#####'))"/><xsl:text> || </xsl:text>
-		<xsl:copy-of select="(0.7000000000000001, 1, m:Round(0.7000000000000001, 1))"/><xsl:text> || </xsl:text>
-		<xsl:copy-of select="(0.7000000000000001, 8, m:Round(0.7000000000000001, 8))"/><xsl:text> || </xsl:text-->
-	</svg:text>
+	<!-- 
 	<svg:text x="{$originX}" y="{$originY - 15}" font-family="Verdana" font-size="{$labelFontSize}">
+		<xsl:text>MMM</xsl:text>
+		<xsl:sequence select="m:RoundAT(4000, 1, 'log')"/>
+		<xsl:text>MMM</xsl:text>
+		<xsl:value-of select="(for $a in (0 to string-length(string(4000))) return ' ')"/>
+		<xsl:text>MMM</xsl:text>
+		<xsl:value-of select="string-join((for $a in (0 to string-length(string(4000))) return ' '), 'x')"/>
+		<xsl:text>MMM</xsl:text>
 	</svg:text>
-
-	<!--svg:text x="{$legendX}" y="{$legendY}" font-family="Verdana" font-size="{$labelFontSize}">
-		<xsl:value-of select="m:Round(3999.99, 20)"/>
-	</svg:text-->
-	
+	 -->
 	<!-- debuging frames -->
 	<!-- 
 	<svg:rect x="1" y="1" width="{$width - 2}" height="{$titleHg - 2}"  
@@ -765,8 +756,7 @@
 				sum((../preceding-sibling::gr:values/gr:value[$pos], .)) else
 		if ($graph/@stacked='percentage') then (
 				sum((../preceding-sibling::gr:values/gr:value[$pos], .)) div sum(../../gr:values/gr:value[$pos]) ) else
-		if ($graph/@yAxisType='log') then 
-				m:Log10(if ((.) != 0) then math:abs(.) else 1) else (.)"/>
+		m:ProcessValue($graph/@yAxisType, .)"/>
 	</value>
 </xsl:template>
 <xsl:template match="gr:*"  mode="m:processValuesMs"> <!-- copy gr element -->
