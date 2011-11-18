@@ -149,13 +149,16 @@
 			<param name="templatesSubdir" value="templates"/>
 		</antcall>
 	</target>
-
-	<target name="main">
-		<antcall target="validateAll"/>
-		
+	
+	<target name="testAll">
 		<antcall target="testOsgr"/>
 		<antcall target="testMsgr"/>
 		<antcall target="testXygr"/>
+	</target>
+
+	<target name="main">
+		<antcall target="validateAll"/>
+		<antcall target="testAll"/>
 	</target>
 
 </project>

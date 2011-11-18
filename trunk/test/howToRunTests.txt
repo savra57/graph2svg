@@ -14,6 +14,7 @@ to run a set of test:
 	
 * Targets to run:
 testOsgr, testMsgr, testXygr
+testAll - run previous three
 validateAll
 
 
