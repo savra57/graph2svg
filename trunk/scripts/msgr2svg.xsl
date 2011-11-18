@@ -10,7 +10,7 @@
 	exclude-result-prefixes="m math xs gr"
 	version="2.0">
  
-<xsl:output method="xml" encoding="utf-8"  indent="yes"/>
+<xsl:output method="xml" encoding="utf-8" indent="yes"/>
 <!--doctype-public="-//W3C//DTD SVG 1.1//EN"
 "doctype-system="http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"-->
 
@@ -30,42 +30,6 @@
 		</ph>
 	</xsl:variable>
 	<!--xsl:copy-of select="$gra/ph"/-->
-	
-	<!-- constants -->
-	<xsl:variable name="titleMargin"  select="10"/>
-	<xsl:variable name="titleFontSize"  select="18"/>
-	<xsl:variable name="labelFontSize"  select="10"/>
-	<xsl:variable name="labelFontWd"  select="0.68"/>  <!-- average length of letter divided a font high -->
-	<xsl:variable name="labelAngle"  select="25"/>
-	<xsl:variable name="graphMargin"  select="15"/>
-	<xsl:variable name="yAxisMarkDist"  select="25"/>
-	<xsl:variable name="yAxisMarkAutoCount"  select="11"/> <!-- automatic choice will try to be close to this values -->
-	<xsl:variable name="axesAutoCoef"  select="0.8"/>  <!-- coeficient used for decision wheather display 0 whe automatically choosing axes range -->
-	<xsl:variable name="axesStroke-width" select="1"/>
-	<xsl:variable name="legendMargin"  select="15"/>
-	<xsl:variable name="legendPictureWd"  select="28"/>
-	<xsl:variable name="legendPictureHg"  select="20"/>    <!-- height of the pictogram in the legend, have to be less then legendLineHg-->
-	<xsl:variable name="legendGap"  select="5"/>
-	<xsl:variable name="legendFontSize"  select="10"/>
-	<xsl:variable name="legendFontWd"  select="0.61"/>
-	<xsl:variable name="legendLineHg"  select="24"/>  <!-- high of a row in legend -->
-	
-	<xsl:variable name="majorMarkLen"  select="3"/>  <!-- 1/2 of the length of major marks on axes -->
-	<xsl:variable name="majorMarkStroke-width" select="1"/>
-	<xsl:variable name="minorMarkLen" select="2"/>  <!-- 1/2 of the length of minor marks on axes-->
-	<xsl:variable name="minorMarkStroke-width" select="0.5"/>
-	<xsl:variable name="majorGridStroke-width" select="0.4"/>
-	<xsl:variable name="majorGridColor" select=" '#222' "/>
-	<xsl:variable name="minorGridStroke-width" select="0.2"/>
-	<xsl:variable name="minorGridColor" select=" '#111' "/>
-		
-		<!-- color schemas definitions -->
-	<xsl:variable name="colorSchemeColor" select="('#14f', '#ff1', '#f0d', '#3f1', '#f33', '#1ff', '#bbb', '#13b', '#909', '#a81', '#090', '#b01', '#555')"/>  
-	<xsl:variable name="colorSchemeCold" select="('#07bbbb', '#09a317', '#19009f', '#9a0084', '#6efaff', '#88f917', '#a9a7f6', '#fbbbf3', '#002dff', '#ff00bf')"/>  
-	<xsl:variable name="colorSchemeWarm" select="('#d82914', '#f2ee15', '#21ab03', '#c5a712', '#a4005a', '#f17a2e', '#c9f581', '#ffbcc5', '#ffffc4', '#f8887f')"/>
-	<xsl:variable name="colorSchemeGrey" select="('#ccc', '#888', '#444', '#eee', '#aaa', '#666', '#222')"/>  
-	<xsl:variable name="colorSchemeBlack" select="('black')"/>  
-		
 	
 	<!-- variable calculations-->
 		<!-- 2D / 3D -->

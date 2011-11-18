@@ -9,25 +9,6 @@
 	extension-element-prefixes="math"
 	exclude-result-prefixes="m math xs gr"
 	version="2.0">
-
-	<d:doc xmlns:d="http://www.dpawson.co.uk/ns#">
-		<d:revhistory>
-			<d:purpose>
-				<d:para>This stylesheet works with XML file to produce SVG</d:para>
-			</d:purpose>
-			<d:revision>
-			<d:revnumber>1.0</d:revnumber>
-			<d:date>2009-07-23T11:06:13Z</d:date>
-			<d:authorinitials>DaveP</d:authorinitials>
-			<d:revdescription>
-				<d:para>Replaced 'botom' with 'bottom'</d:para>
-			</d:revdescription>
-			<d:revremark></d:revremark>
-			</d:revision>
-		</d:revhistory>
-	</d:doc>
-
-
  
 <xsl:output method="xml" encoding="utf-8" indent="yes"/>
 <!--doctype-public="-//W3C//DTD SVG 1.1//EN"
@@ -50,41 +31,14 @@
 	</xsl:variable>
 	<!--xsl:copy-of select="$gra/ph"/-->
 	
-	<!-- constants -->
-	<xsl:variable name="titleMargin"  select="10"/>
-	<xsl:variable name="titleFontSize"  select="18"/>
-	<xsl:variable name="labelFontSize"  select="10"/>
-	<xsl:variable name="labelFontWd"  select="0.68"/>  <!-- average length of letter divided a font high -->
-	<xsl:variable name="curveFontSize"  select="10"/>
-	<xsl:variable name="graphMargin"  select="15"/>
-	<xsl:variable name="xAxisMarkDist"  select="35"/>
-	<xsl:variable name="yAxisMarkDist"  select="25"/>
-	<xsl:variable name="xAxisMarkAutoCount"  select="11"/> 
-	<xsl:variable name="yAxisMarkAutoCount"  select="11"/> <!-- automatic choice will try to be close to this values -->
-	<xsl:variable name="axesAutoCoef"  select="0.8"/>  <!-- coeficient used for decision wheather display 0 whe automatically choosing axes range -->
-	<xsl:variable name="axesStroke-width" select="1"/>
-	<xsl:variable name="legendMargin"  select="15"/>
-	<xsl:variable name="legendPictureWd"  select="28"/>
-	<xsl:variable name="legendGap"  select="5"/>
-	<xsl:variable name="legendFontSize"  select="10"/>
-	<xsl:variable name="legendFontWd"  select="0.61"/>
-	<xsl:variable name="legendSpacing"  select="16"/>  <!-- high of a row in legend-->
+	<!-- constants XYGR overwrites-->
+	<xsl:variable name="legendLineHg"  select="16"/>  <!-- high of a row in legend-->
 	
-	<xsl:variable name="majorMarkLen"  select="3"/>  <!-- 1/2 of the length of major marks on axes -->
-	<xsl:variable name="majorMarkStroke-width" select="1"/>
-	<xsl:variable name="minorMarkLen" select="2"/>  <!-- 1/2 of the length of minor marks on axes-->
-	<xsl:variable name="minorMarkStroke-width" select="0.5"/>
-	<xsl:variable name="majorGridStroke-width" select="0.4"/>
-	<xsl:variable name="majorGridColor" select=" '#222' "/>
-	<xsl:variable name="minorGridStroke-width" select="0.2"/>
-	<xsl:variable name="minorGridColor" select=" '#111' "/>
+	<!-- constants specific to XYGR-->
+	<xsl:variable name="curveFontSize"  select="10"/>
+	<xsl:variable name="xAxisMarkDist"  select="35"/>
+	<xsl:variable name="xAxisMarkAutoCount"  select="11"/> 
 		
-		<!-- color schemas definitions -->
-	<xsl:variable name="colorSchemeColor" select="('#14f', '#ff1', '#f0d', '#3f1', '#f33', '#1ff', '#bbb', '#13b', '#909', '#a81', '#090', '#b01', '#555')"/>  
-	<xsl:variable name="colorSchemeCold" select="('#07bbbb', '#09a317', '#19009f', '#9a0084', '#6efaff', '#88f917', '#a9a7f6', '#fbbbf3', '#002dff', '#ff00bf')"/>  
-	<xsl:variable name="colorSchemeWarm" select="('#d82914', '#f2ee15', '#21ab03', '#c5a712', '#a4005a', '#f17a2e', '#c9f581', '#ffbcc5', '#ffffc4', '#f8887f')"/>
-	<xsl:variable name="colorSchemeGrey" select="('#ccc', '#888', '#444', '#eee', '#aaa', '#666', '#222')"/>  
-	<xsl:variable name="colorSchemeBlack" select="('black')"/>  
 	
 	<!-- variable calculations-->
 		<!-- X axis -->
@@ -157,7 +111,7 @@
 			"/>	
 	<xsl:variable name="legendHg"  select="
 			if ($gra/ph/@legend = 'left' or $gra/ph/@legend =  'right') then (
-				$legendSpacing -$legendFontSize +2*$legendMargin +$legendSpacing * 
+				$legendLineHg -$legendFontSize +2*$legendMargin +$legendLineHg * 
 				count($gra/ph/curve[name/@visibility='both' or name/@visibility='legend'])
 			) else 
 			if ($gra/ph/@legend = 'top' or $gra/ph/@legend =  'bottom') then (
@@ -438,7 +392,7 @@
 					if (@color) then (@color) else $colorSch[$cn]"/>
 			<xsl:if test="($gra/ph/@legend = 'right') or ($gra/ph/@legend = 'left')">
 				<svg:text x="{$legendX + $legendPictureWd + $legendGap}" 	
-					y="{$legendY + $legendSpacing * ($nn + 1)}" fill="{$cc}">
+					y="{$legendY + $legendLineHg * ($nn + 1)}" fill="{$cc}">
 				<xsl:value-of select="if (./name) then (./name) else ('series', $nn +1)"/>
 				</svg:text>
 			</xsl:if>
@@ -491,7 +445,7 @@
 			<xsl:if test="($gra/ph/@legend != 'none') and (name/@visibility='both' or name/@visibility='legend')">
 				<xsl:if test="($gra/ph/@legend = 'right') or ($gra/ph/@legend = 'left')">
 					<svg:path stroke="{if (./@color) then (./@color) else $colorSch[$cn]}"
-							d="M{$legendX},{$legendY + $legendSpacing * ($nn + 1) - 0.38 * $legendFontSize}
+							d="M{$legendX},{$legendY + $legendLineHg * ($nn + 1) - 0.38 * $legendFontSize}
 								l{$legendPictureWd},{0}">
 							<xsl:if test="./@lineType">
 								<xsl:attribute name="stroke-dasharray" select="m:LineType(./@lineType)"/>
@@ -553,7 +507,7 @@
 							)"/>
 					<xsl:with-param name="y" select="$legendY  - 0.38 * $legendFontSize + (
 							if ($gra/ph/@legend = 'right' or $gra/ph/@legend = 'left') then
-								$legendSpacing *($nn +1) 
+								$legendLineHg *($nn +1) 
 							else 
 								$legendFontSize
 							)"/>
