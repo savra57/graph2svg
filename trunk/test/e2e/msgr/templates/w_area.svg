@@ -61,8 +61,6 @@
       <svg:text x="316.6" y="228" fill="#09a317">product B</svg:text>
       <svg:text x="316.6" y="252" fill="#19009f">product C</svg:text>
    </svg:g>
-   <svg:text x="28.6" y="405" font-family="Verdana" font-size="10"/>
-   <svg:text x="28.6" y="368" font-family="Verdana" font-size="10"/>
    <svg:rect x="0.5" y="0.5" width="385.5" height="410" stroke="black" fill="none"
              stroke-width="1"/>
 </svg:svg>

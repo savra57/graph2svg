@@ -114,8 +114,6 @@
       <svg:path d="M 222.2,423 m 0,-4 l 4,4 l -4,4 l -4,-4 z" fill="currentColor"/>
       <svg:path d="M 262.2,430 m 0,-4 l 4,4 l -4,4 l -4,-4 z" fill="currentColor"/>
    </svg:g>
-   <svg:text x="42.2" y="508" font-family="Verdana" font-size="10"/>
-   <svg:text x="42.2" y="471" font-family="Verdana" font-size="10"/>
    <svg:rect x="0.5" y="0.5" width="315.5" height="535.9904334386954" stroke="black"
              fill="none"
              stroke-width="1"/>

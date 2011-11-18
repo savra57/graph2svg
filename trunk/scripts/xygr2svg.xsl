@@ -579,8 +579,9 @@
 		</svg:g>
 	</xsl:if>
 	
+	<!-- frame around the whole graph -->
 	<svg:rect x="0.5" y="0.5" width="{m:R($width - 1)}" height="{m:R($height - 1)}"  
-			stroke="black" fill="none" stroke-width="1"/> <!-- frame around the whole graph-->
+			stroke="black" fill="none" stroke-width="1"/> 
 	
 	<!-- debuging prints -->
 	

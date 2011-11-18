@@ -705,10 +705,11 @@
 		</svg:g>	
 	</xsl:if>
 
+	<!-- frame around the whole graph -->
 	<svg:rect x="0.5" y="0.5" width="{$width - 1}" height="{$height - 1}"  
-			stroke="black" fill="none" stroke-width="1"/> <!-- frame around the whole graph-->
+			stroke="black" fill="none" stroke-width="1"/> 
+	
 	<!-- debuging prints -->
-
 	<!-- 
 	<svg:text x="{$originX}" y="{$originY - 15}" font-family="Verdana" font-size="{$labelFontSize}">
 		<xsl:text>MMM</xsl:text>

@@ -126,8 +126,6 @@
       <svg:path d="M 229,158 m -3,-3 l 6,6 m 0,-6 l -6,6"/>
       <svg:path d="M 269,158 m -3,-3 l 6,6 m 0,-6 l -6,6"/>
    </svg:g>
-   <svg:text x="49" y="380" font-family="Verdana" font-size="10"/>
-   <svg:text x="49" y="343" font-family="Verdana" font-size="10"/>
    <svg:rect x="0.5" y="0.5" width="303" height="385" stroke="black" fill="none"
              stroke-width="1"/>
 </svg:svg>

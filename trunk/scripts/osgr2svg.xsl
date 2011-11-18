@@ -855,9 +855,10 @@
 		</svg:g>	
 	</xsl:if>
 	
-	<!-- frame around the whole graph - norm-->
+	<!-- frame around the whole graph - norm -->
 	<svg:rect x="0.5" y="0.5" width="{$width - 1}" height="{$height - 1}"  
 			stroke="black" fill="none" stroke-width="1"/>  
+	
 	<!-- debuging frames >
 	<svg:rect x="1" y="1" width="{$width - 2}" height="{$titleHg - 2}"  
 			stroke="blue" fill="none" stroke-width="1"/> 
@@ -874,21 +875,9 @@
 					stroke="red" fill="none" stroke-width="1"/> 
 		</xsl:for-each> 		
 	</xsl:if>
-	<  ^ kontrolni ramecky v legende -->
+	-->
 	
 	<!-- debuging prints -->
-	<svg:text x="{$originX}" y="{$originY + 22}" font-family="Verdana" font-size="{$labelFontSize}">
-		<!--xsl:value-of select="$xLabelRotation"/><xsl:text> || </xsl:text>
-		<xsl:value-of select="math:sin($labelAngle div 180) * $pi"/><xsl:text> || </xsl:text-->
-		<!--xsl:value-of select="if ($gra/ph/@pok != 'val') then 'true' else 'false' "/><xsl:text> || </xsl:text>
-		<xsl:value-of select="if (not ($gra/ph/@pok = 'val')) then 'true' else 'false' "/><xsl:text> || </xsl:text>
-		<xsl:copy-of select="(format-number(0.0000000001, '0.#######'))"/><xsl:text> || </xsl:text>
-		<xsl:copy-of select="(format-number(0.00000001,    '0.#####'))"/><xsl:text> || </xsl:text>
-		<xsl:copy-of select="(0.7000000000000001, 1, m:Round(0.7000000000000001, 1))"/><xsl:text> || </xsl:text>
-		<xsl:copy-of select="(0.7000000000000001, 8, m:Round(0.7000000000000001, 8))"/><xsl:text> || </xsl:text-->
-	</svg:text>
-	<svg:text x="{$originX}" y="{$originY - 15}" font-family="Verdana" font-size="{$labelFontSize}">
-	</svg:text>
 	<!--svg:text x="{$legendX}" y="{$legendY}" font-family="Verdana" font-size="{$labelFontSize}">
 		<xsl:value-of select="m:Round(3999.99, 20)"/>
 	</svg:text-->
