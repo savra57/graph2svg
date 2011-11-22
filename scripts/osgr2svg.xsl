@@ -356,12 +356,7 @@
 			if ($yAxisMin &gt;= 0) then 0 else - min((- $yAxisMin, $yAxisLen)) * $yKoef "/>
 	<xsl:variable name="maxYLabelWd" select="$labelFontSize * $labelFontWd *
 			max(for $a in (0 to $yAxisMarkCount) return 
-				string-length(
-					if ($gra/ph/@stacked='percentage') then 
-						concat(m:RoundAT(($yAxisMin + $a * $yAxisStep) * 100, $yAxisStep, $gra/ph/@yAxisType), '% ') 
-					else
-						string(m:RoundAT($yAxisMin + $a * $yAxisStep, $yAxisStep, $gra/ph/@yAxisType))
-					)
+				string-length(string-join(m:FormatValue($yAxisMin + $a * $yAxisStep, $yAxisStep, $gra/ph/@yAxisType, $gra/ph/@yAxisLabelsFormat, $gra/ph/@stacked), ''))
 			)"/>
 
 		<!-- norm graph itselves -->
@@ -685,16 +680,8 @@
 		<svg:g text-anchor="end" font-family="Verdana" font-size="{$labelFontSize}" fill="black"> 
 		<xsl:for-each  select="(for $a in ($mYpom[. &gt; -1]) return $yAxisMin + $a * $yAxisStep)"> 
 			<svg:text x="{m:R($originX - $majorMarkLen - 3)}" y="{m:R($yShift + $yKoef * (.) + 0.35 * $labelFontSize)}">
-			<xsl:value-of select="
-					if ($gra/ph/@stacked='percentage') then concat(m:RoundAT(. * 100, $yAxisStep, $gra/ph/@yAxisType), '%') 
-					else m:RoundAT(., $yAxisStep, $gra/ph/@yAxisType)"/>
-			<xsl:if test="$gra/ph/@yAxisType='log'">
-				<svg:tspan font-size="{0.75*$labelFontSize}" dy="{-0.4*$labelFontSize}">
-				<xsl:value-of select="."/>
-				</svg:tspan>
-			</xsl:if>
+			<xsl:sequence select="m:FormatValue(., $yAxisStep, $gra/ph/@yAxisType, $gra/ph/@yAxisLabelsFormat, $gra/ph/@stacked)"/>
 			</svg:text>
-			<!--xsl:value-of select="(., $yAxisStep, m:Round(., 0.5))"/-->
 		</xsl:for-each> 
 		</svg:g>
 	</xsl:if>

@@ -31,42 +31,42 @@
       <svg:line x1="35.4" y1="183" x2="350.4" y2="183"/>
    </svg:g>
    <svg:g text-anchor="middle" font-family="Verdana" font-size="10" fill="black">
-      <svg:text x="35.4" y="196">  10<svg:tspan font-size="7.5" dy="-4">-4</svg:tspan>
+      <svg:text x="35.4" y="196">10<svg:tspan font-size="7.5" dy="-4">-4</svg:tspan>
       </svg:text>
-      <svg:text x="70.4" y="196">  10<svg:tspan font-size="7.5" dy="-4">-3</svg:tspan>
+      <svg:text x="70.4" y="196">10<svg:tspan font-size="7.5" dy="-4">-3</svg:tspan>
       </svg:text>
-      <svg:text x="105.4" y="196">  10<svg:tspan font-size="7.5" dy="-4">-2</svg:tspan>
+      <svg:text x="105.4" y="196">10<svg:tspan font-size="7.5" dy="-4">-2</svg:tspan>
       </svg:text>
-      <svg:text x="140.4" y="196">  10<svg:tspan font-size="7.5" dy="-4">-1</svg:tspan>
+      <svg:text x="140.4" y="196">10<svg:tspan font-size="7.5" dy="-4">-1</svg:tspan>
       </svg:text>
-      <svg:text x="175.4" y="196"> 10<svg:tspan font-size="7.5" dy="-4">0</svg:tspan>
+      <svg:text x="175.4" y="196">10<svg:tspan font-size="7.5" dy="-4">0</svg:tspan>
       </svg:text>
-      <svg:text x="210.4" y="196"> 10<svg:tspan font-size="7.5" dy="-4">1</svg:tspan>
+      <svg:text x="210.4" y="196">10<svg:tspan font-size="7.5" dy="-4">1</svg:tspan>
       </svg:text>
-      <svg:text x="245.4" y="196"> 10<svg:tspan font-size="7.5" dy="-4">2</svg:tspan>
+      <svg:text x="245.4" y="196">10<svg:tspan font-size="7.5" dy="-4">2</svg:tspan>
       </svg:text>
-      <svg:text x="280.4" y="196"> 10<svg:tspan font-size="7.5" dy="-4">3</svg:tspan>
+      <svg:text x="280.4" y="196">10<svg:tspan font-size="7.5" dy="-4">3</svg:tspan>
       </svg:text>
-      <svg:text x="315.4" y="196"> 10<svg:tspan font-size="7.5" dy="-4">4</svg:tspan>
+      <svg:text x="315.4" y="196">10<svg:tspan font-size="7.5" dy="-4">4</svg:tspan>
       </svg:text>
-      <svg:text x="350.4" y="196"> 10<svg:tspan font-size="7.5" dy="-4">5</svg:tspan>
+      <svg:text x="350.4" y="196">10<svg:tspan font-size="7.5" dy="-4">5</svg:tspan>
       </svg:text>
    </svg:g>
    <svg:g stroke="black" stroke-width="1">
       <svg:line x1="35.4" y1="183" x2="35.4" y2="58"/>
    </svg:g>
    <svg:g text-anchor="end" font-family="Verdana" font-size="10" fill="black">
-      <svg:text x="29.4" y="186.5"> 10<svg:tspan font-size="7.5" dy="-4">0</svg:tspan>
+      <svg:text x="29.4" y="186.5">10<svg:tspan font-size="7.5" dy="-4">0</svg:tspan>
       </svg:text>
-      <svg:text x="29.4" y="161.5"> 10<svg:tspan font-size="7.5" dy="-4">1</svg:tspan>
+      <svg:text x="29.4" y="161.5">10<svg:tspan font-size="7.5" dy="-4">1</svg:tspan>
       </svg:text>
-      <svg:text x="29.4" y="136.5"> 10<svg:tspan font-size="7.5" dy="-4">2</svg:tspan>
+      <svg:text x="29.4" y="136.5">10<svg:tspan font-size="7.5" dy="-4">2</svg:tspan>
       </svg:text>
-      <svg:text x="29.4" y="111.5"> 10<svg:tspan font-size="7.5" dy="-4">3</svg:tspan>
+      <svg:text x="29.4" y="111.5">10<svg:tspan font-size="7.5" dy="-4">3</svg:tspan>
       </svg:text>
-      <svg:text x="29.4" y="86.5"> 10<svg:tspan font-size="7.5" dy="-4">4</svg:tspan>
+      <svg:text x="29.4" y="86.5">10<svg:tspan font-size="7.5" dy="-4">4</svg:tspan>
       </svg:text>
-      <svg:text x="29.4" y="61.5"> 10<svg:tspan font-size="7.5" dy="-4">5</svg:tspan>
+      <svg:text x="29.4" y="61.5">10<svg:tspan font-size="7.5" dy="-4">5</svg:tspan>
       </svg:text>
    </svg:g>
    <svg:g stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">

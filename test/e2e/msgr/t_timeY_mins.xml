@@ -2,7 +2,8 @@
 <!--DOCTYPE osgr SYSTEM "msgr.dtd"-->
 <msgr xmlns="http://graph2svg.googlecode.com"
 		legend="top"
-		yAxisType="dateTime~[h02]:[m01]:[s01]"
+		yAxisType="dateTime"
+		yAxisLabelsFormat="[h02]:[m01]:[s01]"
 		lineType="solid"
 		pointType="point">
 			

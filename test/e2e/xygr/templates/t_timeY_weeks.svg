@@ -16,19 +16,19 @@
    </svg:g>
    <svg:g text-anchor="middle" font-family="Verdana" font-size="10" fill="black">
       <svg:text x="123.8" y="396">0</svg:text>
-      <svg:text x="158.8" y="396">50</svg:text>
-      <svg:text x="193.8" y="396">100</svg:text>
-      <svg:text x="228.8" y="396">150</svg:text>
-      <svg:text x="263.8" y="396">200</svg:text>
-      <svg:text x="298.8" y="396">250</svg:text>
-      <svg:text x="333.8" y="396">300</svg:text>
-      <svg:text x="368.8" y="396">350</svg:text>
-      <svg:text x="403.8" y="396">400</svg:text>
-      <svg:text x="438.8" y="396">450</svg:text>
-      <svg:text x="473.8" y="396">500</svg:text>
-      <svg:text x="508.8" y="396">550</svg:text>
-      <svg:text x="543.8" y="396">600</svg:text>
-      <svg:text x="578.8" y="396">650</svg:text>
+      <svg:text x="158.8" y="396">0.5</svg:text>
+      <svg:text x="193.8" y="396">1.0</svg:text>
+      <svg:text x="228.8" y="396">1.5</svg:text>
+      <svg:text x="263.8" y="396">2.0</svg:text>
+      <svg:text x="298.8" y="396">2.5</svg:text>
+      <svg:text x="333.8" y="396">3.0</svg:text>
+      <svg:text x="368.8" y="396">3.5</svg:text>
+      <svg:text x="403.8" y="396">4.0</svg:text>
+      <svg:text x="438.8" y="396">4.5</svg:text>
+      <svg:text x="473.8" y="396">5.0</svg:text>
+      <svg:text x="508.8" y="396">5.5</svg:text>
+      <svg:text x="543.8" y="396">6.0</svg:text>
+      <svg:text x="578.8" y="396">6.5</svg:text>
    </svg:g>
    <svg:g stroke="black" stroke-width="1">
       <svg:line x1="123.8" y1="383" x2="123.8" y2="58"/>
@@ -37,17 +37,17 @@
       <svg:text x="117.8" y="386.5">10 November 2009</svg:text>
       <svg:text x="117.8" y="361.5">18 November 2009</svg:text>
       <svg:text x="117.8" y="336.5">26 November 2009</svg:text>
-      <svg:text x="117.8" y="311.5">04 December 2009</svg:text>
-      <svg:text x="117.8" y="286.5">12 December 2009</svg:text>
-      <svg:text x="117.8" y="261.5">20 December 2009</svg:text>
-      <svg:text x="117.8" y="236.5">28 December 2009</svg:text>
-      <svg:text x="117.8" y="211.5">05 January 2010</svg:text>
-      <svg:text x="117.8" y="186.5">13 January 2010</svg:text>
-      <svg:text x="117.8" y="161.5">21 January 2010</svg:text>
-      <svg:text x="117.8" y="136.5">29 January 2010</svg:text>
-      <svg:text x="117.8" y="111.5">06 February 2010</svg:text>
-      <svg:text x="117.8" y="86.5">14 February 2010</svg:text>
-      <svg:text x="117.8" y="61.5">22 February 2010</svg:text>
+      <svg:text x="117.8" y="311.5">04 Dezember 2009</svg:text>
+      <svg:text x="117.8" y="286.5">12 Dezember 2009</svg:text>
+      <svg:text x="117.8" y="261.5">20 Dezember 2009</svg:text>
+      <svg:text x="117.8" y="236.5">28 Dezember 2009</svg:text>
+      <svg:text x="117.8" y="211.5">05 Januar 2010</svg:text>
+      <svg:text x="117.8" y="186.5">13 Januar 2010</svg:text>
+      <svg:text x="117.8" y="161.5">21 Januar 2010</svg:text>
+      <svg:text x="117.8" y="136.5">29 Januar 2010</svg:text>
+      <svg:text x="117.8" y="111.5">06 Februar 2010</svg:text>
+      <svg:text x="117.8" y="86.5">14 Februar 2010</svg:text>
+      <svg:text x="117.8" y="61.5">22 Februar 2010</svg:text>
    </svg:g>
    <svg:g stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
       <svg:path d="M207.8,154.88 L295.3,167.38 L263.8,111.13 L351.3,229.88 L438.8,336.13 L480.8,192.38 L543.8,64.25 L459.8,123.63"

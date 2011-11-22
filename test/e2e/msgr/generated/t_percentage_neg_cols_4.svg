@@ -137,16 +137,16 @@
       <svg:line x1="49" y1="325" x2="49" y2="100"/>
    </svg:g>
    <svg:g text-anchor="end" font-family="Verdana" font-size="10" fill="black">
-      <svg:text x="43" y="328.5">-80%</svg:text>
-      <svg:text x="43" y="303.5">-60%</svg:text>
-      <svg:text x="43" y="278.5">-40%</svg:text>
-      <svg:text x="43" y="253.5">-20%</svg:text>
-      <svg:text x="43" y="228.5">0%</svg:text>
-      <svg:text x="43" y="203.5">20%</svg:text>
-      <svg:text x="43" y="178.5">40%</svg:text>
-      <svg:text x="43" y="153.5">60%</svg:text>
-      <svg:text x="43" y="128.5">80%</svg:text>
-      <svg:text x="43" y="103.5">100%</svg:text>
+      <svg:text x="43" y="328.5">- 80%</svg:text>
+      <svg:text x="43" y="303.5">- 60%</svg:text>
+      <svg:text x="43" y="278.5">- 40%</svg:text>
+      <svg:text x="43" y="253.5">- 20%</svg:text>
+      <svg:text x="43" y="228.5"> 0%</svg:text>
+      <svg:text x="43" y="203.5"> 20%</svg:text>
+      <svg:text x="43" y="178.5"> 40%</svg:text>
+      <svg:text x="43" y="153.5"> 60%</svg:text>
+      <svg:text x="43" y="128.5"> 80%</svg:text>
+      <svg:text x="43" y="103.5"> 100%</svg:text>
    </svg:g>
    <svg:g stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"
           stroke-dasharray="none">

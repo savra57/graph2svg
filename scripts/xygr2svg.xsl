@@ -65,7 +65,7 @@
 			if ($xAxisMin &gt;= 0) then 0 else min((- $xAxisMin, $xAxisLen)) * $xKoef "/>
 	<xsl:variable name="maxXLabelWd" select="$labelFontSize * $labelFontWd *
 			max(for $a in (0 to $xAxisMarkCount) return 
-				string-length(string(m:RoundAT($xAxisMin + $a * $xAxisStep, $xAxisStep, $gra/ph/@xAxisType))) )"/>
+				string-length(string-join(m:FormatValue($xAxisMin + $a * $xAxisStep, $xAxisStep, $gra/ph/@xAxisType, $gra/ph/@xAxisLabelsFormat, ''), '')) )"/>
 		
 		<!-- Y axis -->
 	<xsl:variable name="dataMaxY"  select="max($gra/ph/curve/point/@y)"/>	
@@ -91,7 +91,7 @@
 			if ($yAxisMin &gt;= 0) then 0 else - min((- $yAxisMin, $yAxisLen)) * $yKoef "/>
 	<xsl:variable name="maxYLabelWd" select="$labelFontSize * $labelFontWd *
 			max(for $a in (0 to $yAxisMarkCount) return 
-				string-length(string(m:RoundAT($yAxisMin + $a * $yAxisStep, $yAxisStep, $gra/ph/@yAxisType))) )"/>
+				string-length(string-join(m:FormatValue($yAxisMin + $a * $yAxisStep, $yAxisStep, $gra/ph/@yAxisType, $gra/ph/@yAxisLabelsFormat, ''), '')) )"/>
 		
 		<!-- title and legend -->
 	<xsl:variable name="titleHg"  select="if ($gra/ph/title) then 2*$titleMargin + $titleFontSize else 0"/>
@@ -323,12 +323,7 @@
 		<svg:g text-anchor="middle" font-family="Verdana" font-size="{$labelFontSize}" fill="black"> 
 		<xsl:for-each  select="(for $a in ($tpX[. &gt; -1]) return $xAxisMin + $a * $xAxisStep)"> 
 			<svg:text x="{m:R($xShift + $xKoef * (.))}" y="{m:R($originY + $majorMarkLen + $labelFontSize)}">
-			<xsl:value-of select="m:RoundAT(., $xAxisStep, $gra/ph/@xAxisType)"/>
-			<xsl:if test="$gra/ph/@xAxisType='log'">
-				<svg:tspan font-size="{0.75*$labelFontSize}" dy="{-0.4*$labelFontSize}">
-				<xsl:value-of select="."/>
-				</svg:tspan>
-			</xsl:if>
+			<xsl:sequence select="m:FormatValue(., $xAxisStep, $gra/ph/@xAxisType, $gra/ph/@xAxisLabelsFormat, '')"/>
 			</svg:text>
 		</xsl:for-each> 
 		</svg:g>
@@ -370,12 +365,7 @@
 		<svg:g text-anchor="end" font-family="Verdana" font-size="{$labelFontSize}" fill="black"> 
 		<xsl:for-each  select="(for $a in ($tpY[. &gt; -1]) return $yAxisMin + $a * $yAxisStep)"> 
 			<svg:text x="{m:R($originX - $majorMarkLen - 3)}" y="{m:R($yShift + $yKoef * (.) + 0.35 * $labelFontSize)}">
-			<xsl:value-of select="m:RoundAT(., $yAxisStep, $gra/ph/@yAxisType)"/>
-			<xsl:if test="$gra/ph/@yAxisType='log'">
-				<svg:tspan font-size="{0.75*$labelFontSize}" dy="{-0.4*$labelFontSize}">
-				<xsl:value-of select="."/>
-				</svg:tspan>
-			</xsl:if>
+			<xsl:sequence select="m:FormatValue(., $yAxisStep, $gra/ph/@yAxisType, $gra/ph/@yAxisLabelsFormat, '')"/>
 			</svg:text>
 		</xsl:for-each> 		
 		</svg:g>	
@@ -544,7 +534,7 @@
 		<xsl:value-of select="$gra/ph/@yAxisType"/><xsl:text> $gra/ph/yAxisType </xsl:text>
 		<xsl:value-of select="$maxYLabelWd"/><xsl:text> $maxYLabelWd </xsl:text>
 		<xsl:value-of select="for $a in (0 to $yAxisMarkCount) return 
-				m:RoundAT($yAxisMin + $a * $yAxisStep, $yAxisStep, $gra/ph/@yAxisType)
+				m:FormatValue($yAxisMin + $a * $yAxisStep, $yAxisStep, $gra/ph/@yAxisType, $gra/ph/@yAxisLabelsFormat, '')
 				 "/><xsl:text> for</xsl:text>
 		<xsl:value-of select="/graph/@xAxisType"/>
 	</svg:text>

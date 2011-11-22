@@ -476,29 +476,53 @@
 </xsl:function>
 
 
-<!-- rounds the value on same number of decimal places as has the step, used for printing values on axes,
-works for dateTime axeType 
+<!-- Rounds the value on the same number of decimal places as has the step. Then formats the number
+accorging to format defined or a default format. 
+format examples:
+DateTime: 
+	http://www.w3.org/TR/xslt20/#date-time-examples 
+numbers:
+	http://www.w3schools.com/xsl/func_formatnumber.asp
 -->
-<!-- format examples: http://www.w3.org/TR/xslt20/#date-time-examples -->
-<xsl:function name="m:RoundAT"> 
+<xsl:function name="m:FormatValue"> 
 	<xsl:param name="val"/>
 	<xsl:param name="step"/>
 	<xsl:param name="axisType"/>
+	<xsl:param name="axisFormat"/>
+	<xsl:param name="stacked"/>
 	
 	<xsl:choose>
 		<xsl:when test="$axisType='log'">
-			<!-- generate 10 preappended with number of spaces to keep the length of label -->
-			<xsl:sequence select="concat(string-join((for $a in (1 to string-length(string($val))) return ' '), ''), 10)"/>
+			<xsl:value-of select="'10'"/>
+			<svg:tspan font-size="{0.75*$labelFontSize}" dy="{-0.4*$labelFontSize}">
+				<xsl:value-of select="$val"/>
+			</svg:tspan>
 		</xsl:when>
 		<xsl:when test="starts-with($axisType,'dateTime')">
 			<xsl:variable name="dateTime" select="xs:dateTime('0001-01-01T00:00:00') + m:NumberToDuration($val)"/>
-			<xsl:variable name="tokens" select="tokenize($axisType, '~')"/>
-			<xsl:value-of select="format-dateTime($dateTime, $tokens[2], $tokens[3], $tokens[4], $tokens[5])"/>	
+			
+			<xsl:variable name="days" select="$step div 86400"/>
+			<xsl:variable name="hours" select="($step mod 86400) div 3600"/>
+			<xsl:variable name="minutes" select="($step mod 3600) div 60"/>
+			<xsl:variable name="seconds" select="$step mod 60"/>
+			<xsl:variable name="defaultFormat" select="
+					if ($days &gt; 1) then '[Y0001]-[M01]-[D01]' else
+					if ($hours &gt; 1) then '[D01]. [H01]:[m01]' else
+					if ($minutes &gt; 1) then '[H01]:[m01]' else
+					'[m01]:[s01]'
+				"/>
+			<xsl:variable name="useFormat" select="if ($axisFormat) then $axisFormat else $defaultFormat"/>
+			<xsl:variable name="tokens" select="tokenize($useFormat, '~')"/>
+			<xsl:value-of select="format-dateTime($dateTime, $tokens[1], $tokens[2], $tokens[3], $tokens[4])"/>
 		</xsl:when>
 		<xsl:otherwise>
 			<xsl:variable name="rad" select="floor(m:Log10($step))"/>
 			<xsl:variable name="pom" select="round($val * math:power(10, - $rad +1)) * math:power(10, $rad - 1)"/>
-			<xsl:value-of select="if ($pom != 0) then format-number($pom, '#.##############') else $pom"/>	
+			<xsl:variable name="useFormat" select="
+					if ($axisFormat) then $axisFormat 
+					else if ($stacked='percentage') then ' ##%'
+					else '#.##############'"/>
+			<xsl:value-of select="if ($pom != 0 or $stacked='percentage') then format-number($pom, $useFormat) else $pom"/>	
 		</xsl:otherwise>
 	</xsl:choose>
 </xsl:function>

@@ -3,18 +3,20 @@
 <xygr xmlns="http://graph2svg.googlecode.com"
 		pointType="circle" colorScheme="cold"
 		axesPos="left-bottom"
-		yAxisType="dateTime~[D01] [MNn] [Y0001]"> 
+		yAxisType="dateTime"
+		yAxisLabelsFormat="[D01] [MNn] [Y0001]~de"
+		xAxisLabelsFormat="##.0"> 
 	<title>Test Weeks on Y</title>
 
 	<curve>
-		<point x="120" y="2010-01-22T00:00:00"/>
-		<point x="245" y="2010-01-18T00:00:00"/>
-		<point x="200" y="2010-02-05T00:00:00"/>
-		<point x="325" y="2009-12-29T00:00:00"/>
-		<point x="450" y="2009-11-25T00:00:00"/>
-		<point x="510" y="2010-01-10T00:00:00"/>
-		<point x="600" y="2010-02-20T00:00:00"/>
-		<point x="480" y="2010-02-01T00:00:00"/>
+		<point x="1.2" y="2010-01-22T00:00:00"/>
+		<point x="2.45" y="2010-01-18T00:00:00"/>
+		<point x="2.0" y="2010-02-05T00:00:00"/>
+		<point x="3.25" y="2009-12-29T00:00:00"/>
+		<point x="4.5" y="2009-11-25T00:00:00"/>
+		<point x="5.1" y="2010-01-10T00:00:00"/>
+		<point x="6" y="2010-02-20T00:00:00"/>
+		<point x="4.8" y="2010-02-01T00:00:00"/>
 	</curve>
 
 </xygr>
