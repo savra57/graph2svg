@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--DOCTYPE osgr SYSTEM "osgr.dtd"-->
 <osgr xmlns="http://graph2svg.googlecode.com"
-		yAxisType="dateTime~[MN,*-3] [D01] [h02]:[m01]"
+		yAxisType="dateTime"
+		yAxisLabelsFormat="[MN,*-3] [D01] [h02]:[m01]"
 		colorScheme="grey">
 	<names>
 		<name>1</name>

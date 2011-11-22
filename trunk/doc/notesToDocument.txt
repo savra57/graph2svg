@@ -1,0 +1,33 @@
+* new dateTime axisType
+	- works on xygr, msgr, osgr
+	- not very compatible with sum and stacked msgr graphs
+* axisType auto will decide only between shifted and with zero, no auto-detection of log nor dateTime
+
+dateTime
+
+yAxisLabelsFormat
+ - currently works only for dates and numbers
+
+when axisType=dateTime
+ - for examples see: http://www.w3.org/TR/xslt20/#date-time-examples
+ - in general the value of yAxisDateTimeFormat follows the template:
+      <picture>~<language>~<calendar>~<country>
+   where all the parts are send to the the function format-dateTime as described on the page refered above.
+   The language, calendar and country parts are optional.
+   Note that due to the fact the "~" is used as delimiter the pattern cannot contain it. 
+ - if empty an automatic pattern is used (as the picture part):
+ 	- if step is in days: [Y0001]-[M01]-[D01]
+ 	- if step is in hours: [D01]. [H01]:[m01]
+ 	- if step is in minutes: [H01]:[m01] 
+ 	- if step is in seconds: [m01]:[s01]
+ - the argument is ignored if the axisType is not dateTime
+
+when axisType is a normal number, i.e.: auto, shifted or withZero (not log)
+ - see: http://www.w3schools.com/xsl/func_formatnumber.asp
+ - default is '#.##############'
+ - for msgr graph with stacked=percentage the default pattern is ' ##%' 
+ 
+
+examples:
+yAxisLabelsFormat="###.000"
+ 

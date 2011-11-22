@@ -3,7 +3,7 @@
 <xygr xmlns="http://graph2svg.googlecode.com"
 		pointType="circle" colorScheme="cold"
 		axesPos="left-bottom"
-		xAxisType="dateTime~[m01]:[s01]"> 
+		xAxisType="dateTime"> 
 	<title>Test 15 seconds on X</title>
 
 	<curve>
