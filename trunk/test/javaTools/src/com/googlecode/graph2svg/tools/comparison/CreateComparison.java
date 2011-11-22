@@ -42,7 +42,7 @@ public class CreateComparison {
 					filterString = ".*\\.svg"; // default
 				}
 				File[] fileList = generatedDir.listFiles(new RegExpFileFilter(filterString));
-				printHeader(outputWriter);
+				printHeader(outputWriter, baseDir.getName());
 				for (File f : fileList) {
 					String leftSVG = creteFilePath(f.getName(), generatedSubdirStr);
 					String rightSVG = creteFilePath(f.getName(), templatesSubdirStr);
@@ -76,12 +76,12 @@ public class CreateComparison {
 		}
 	}
 
-	private static void printHeader(FileWriter ow) throws IOException {
+	private static void printHeader(FileWriter ow, String title) throws IOException {
 		ow.write("<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\">\n");
 		ow.write("<html>\n");
 		ow.write("<head>\n");
 		ow.write("  <meta http-equiv=\"Content-Type\" content=\"text/html; charset=windows-1250\">\n");
-		ow.write("  <title>SVG comare</title>\n");
+		ow.write("  <title>SVG compare " + title + "</title>\n");
 		ow.write("</head>\n");
 		ow.write("<body>\n");
 		ow.write("<table cellpadding=\"10\">\n");
