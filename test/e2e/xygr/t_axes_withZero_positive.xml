@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- !DOCTYPE xygr SYSTEM "xygr.dtd" -->
+<xygr xmlns="http://graph2svg.googlecode.com"
+		xAxisType="withZero" yAxisType="withZero" axesPos="origin"
+		lineType="solid" pointType="point">
+	<title>Axes - withZero - both positive</title>
+	<curve>
+		<point x="14" y="4"/>
+		<point x="5" y="18"/>
+	</curve>
+</xygr>

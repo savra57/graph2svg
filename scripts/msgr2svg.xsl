@@ -58,8 +58,8 @@
 			(if ((- $dataYDif * $axesAutoCoef &lt; $dataMaxY) and ($dataMaxY &lt; 0)) then 0 else $dataMaxY))"/>
 	<xsl:variable name="viewMinY" select="
 			if ($gra/ph/@yAxisType = 'shifted') then $dataMinY else 
-			(if ($gra/ph/@yAxisType = 'withZero') then max(($dataMinY, 0)) else 
-			(if ((0 &lt; $dataMinY) and  ($dataMinY &lt; $dataYDif * $axesAutoCoef))	then 0 else $dataMinY))"/>
+			(if ($gra/ph/@yAxisType = 'withZero') then min(($dataMinY, 0)) else 
+			(if ((0 &lt; $dataMinY) and  ($dataMinY &lt; $dataYDif * $axesAutoCoef)) then 0 else $dataMinY))"/>
 	<xsl:variable name="yAxisStep" select="m:StepAT($viewMaxY - $viewMinY, $yAxisMarkAutoCount, $gra/ph/@yAxisType)"/>
 	<xsl:variable name="yAxisMax" select="if ($gra/ph/@stacked='percentage') then 1 else m:GMax($viewMaxY, $yAxisStep)"/>
 	<xsl:variable name="yAxisMin" select="- m:GMax(- $viewMinY, $yAxisStep)"/>
@@ -102,7 +102,7 @@
 	<xsl:variable name="legendT"  select="if ($gra/ph/@legend = 'top') then $legendHg else 0"/>
 	<xsl:variable name="legendB"  select="if ($gra/ph/@legend = 'bottom') then $legendHg else 0"/>
 			
-		<!-- the graph itselves -->
+		<!-- the graph itself -->
 	<xsl:variable name="yAxisTSpace"  select="$graphMargin + max(($labelFontSize div 2, $depthY))"/>  
 	<xsl:variable name="yAxisBSpace"  select="$graphMargin + 
 			max(($labelFontSize div 2, $labelFontSize + $majorMarkLen - $originYShift
