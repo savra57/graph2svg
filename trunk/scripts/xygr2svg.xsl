@@ -51,7 +51,7 @@
 			(if ((- $dataXDif * $axesAutoCoef &lt; $dataMaxX) and ($dataMaxX &lt; 0)) then 0 else $dataMaxX))"/>
 	<xsl:variable name="viewMinX" select="
 			if ($gra/ph/@xAxisType = 'shifted') then $dataMinX else 
-			(if ($gra/ph/@xAxisType = 'withZero') then max(($dataMinX, 0)) else 
+			(if ($gra/ph/@xAxisType = 'withZero') then min(($dataMinX, 0)) else 
 			(if ((0 &lt; $dataMinX) and  ($dataMinX &lt; $dataXDif * $axesAutoCoef)) then 0 else $dataMinX))"/>
 	<xsl:variable name="xAxisStep" select="m:StepAT($viewMaxX - $viewMinX, $xAxisMarkAutoCount, $gra/ph/@xAxisType)"/>
 	<xsl:variable name="xAxisMax" select="m:GMax($viewMaxX, $xAxisStep)"/>
@@ -77,8 +77,8 @@
 			(if ((- $dataYDif * $axesAutoCoef &lt; $dataMaxY) and ($dataMaxY &lt; 0)) then 0 else $dataMaxY))"/>
 	<xsl:variable name="viewMinY" select="
 			if ($gra/ph/@yAxisType = 'shifted') then $dataMinY else 
-			(if ($gra/ph/@yAxisType = 'withZero') then max(($dataMinY, 0)) else 
-			(if ((0 &lt; $dataMinY) and  ($dataMinY &lt; $dataYDif * $axesAutoCoef))	then 0 else $dataMinY))"/>
+			(if ($gra/ph/@yAxisType = 'withZero') then min(($dataMinY, 0)) else 
+			(if ((0 &lt; $dataMinY) and  ($dataMinY &lt; $dataYDif * $axesAutoCoef)) then 0 else $dataMinY))"/>
 	<xsl:variable name="yAxisStep" select="m:StepAT($viewMaxY - $viewMinY, $yAxisMarkAutoCount, $gra/ph/@yAxisType)"/>
 	<xsl:variable name="yAxisMax" select="m:GMax($viewMaxY, $yAxisStep)"/>
 	<xsl:variable name="yAxisMin" select="- m:GMax(- $viewMinY, $yAxisStep)"/>

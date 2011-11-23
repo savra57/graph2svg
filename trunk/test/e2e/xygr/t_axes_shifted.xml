@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- !DOCTYPE xygr SYSTEM "xygr.dtd" -->
+<xygr xmlns="http://graph2svg.googlecode.com"
+		xAxisType="shifted" yAxisType="shifted" axesPos="origin"
+		lineType="solid" pointType="point">
+	<title>Axes - both shifted</title>
+	<curve>
+		<point x="14" y="-4"/>
+		<point x="43.86" y="-6"/>
+	</curve>
+</xygr>
