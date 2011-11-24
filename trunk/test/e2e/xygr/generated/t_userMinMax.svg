@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg:svg xmlns:svg="http://www.w3.org/2000/svg" viewBox="0 0 554 486">
+   <svg:desc>Axes - user maximum and minimum overwrites</svg:desc>
+   <svg:g>
+      <svg:text x="277" y="28" text-anchor="middle" font-family="Verdana" font-size="18"
+                fill="black">Axes - user maximum and minimum overwrites</svg:text>
+   </svg:g>
+   <svg:g stroke="black">
+      <svg:path d="M32,455 l0,6 m35,-6 l0,6 m35,-6 l0,6 m35,-6 l0,6 m35,-6 l0,6 m35,-6 l0,6 m35,-6 l0,6 m35,-6 l0,6 m35,-6 l0,6 m35,-6 l0,6 m35,-6 l0,6 m35,-6 l0,6 m35,-6 l0,6 m35,-6 l0,6 m35,-6 l0,6"
+                stroke-width="1"/>
+      <svg:path d="M274,458 l6,0  m-6,-25 l6,0  m-6,-25 l6,0  m-6,-25 l6,0  m-6,-25 l6,0  m-6,-25 l6,0  m-6,-25 l6,0  m-6,-25 l6,0  m-6,-25 l6,0  m-6,-25 l6,0  m-6,-25 l6,0  m-6,-25 l6,0  m-6,-25 l6,0  m-6,-25 l6,0  m-6,-25 l6,0  m-6,-25 l6,0  m-6,-25 l6,0 "
+                stroke-width="1"/>
+   </svg:g>
+   <svg:g stroke="black" stroke-width="1">
+      <svg:line x1="32" y1="458" x2="522" y2="458"/>
+   </svg:g>
+   <svg:g text-anchor="middle" font-family="Verdana" font-size="10" fill="black">
+      <svg:text x="32" y="471">-17.5</svg:text>
+      <svg:text x="67" y="471">-15</svg:text>
+      <svg:text x="102" y="471">-12.5</svg:text>
+      <svg:text x="137" y="471">-10</svg:text>
+      <svg:text x="172" y="471">-7.5</svg:text>
+      <svg:text x="207" y="471">-5</svg:text>
+      <svg:text x="242" y="471">-2.5</svg:text>
+      <svg:text x="277" y="471">0</svg:text>
+      <svg:text x="312" y="471">2.5</svg:text>
+      <svg:text x="347" y="471">5</svg:text>
+      <svg:text x="382" y="471">7.5</svg:text>
+      <svg:text x="417" y="471">10</svg:text>
+      <svg:text x="452" y="471">12.5</svg:text>
+      <svg:text x="487" y="471">15</svg:text>
+      <svg:text x="522" y="471">17.5</svg:text>
+   </svg:g>
+   <svg:g stroke="black" stroke-width="1">
+      <svg:line x1="277" y1="458" x2="277" y2="58"/>
+   </svg:g>
+   <svg:g text-anchor="end" font-family="Verdana" font-size="10" fill="black">
+      <svg:text x="271" y="436.5">1</svg:text>
+      <svg:text x="271" y="411.5">2</svg:text>
+      <svg:text x="271" y="386.5">3</svg:text>
+      <svg:text x="271" y="361.5">4</svg:text>
+      <svg:text x="271" y="336.5">5</svg:text>
+      <svg:text x="271" y="311.5">6</svg:text>
+      <svg:text x="271" y="286.5">7</svg:text>
+      <svg:text x="271" y="261.5">8</svg:text>
+      <svg:text x="271" y="236.5">9</svg:text>
+      <svg:text x="271" y="211.5">10</svg:text>
+      <svg:text x="271" y="186.5">11</svg:text>
+      <svg:text x="271" y="161.5">12</svg:text>
+      <svg:text x="271" y="136.5">13</svg:text>
+      <svg:text x="271" y="111.5">14</svg:text>
+      <svg:text x="271" y="86.5">15</svg:text>
+      <svg:text x="271" y="61.5">16</svg:text>
+   </svg:g>
+   <svg:g stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <svg:path d="M529,358 L137,308" stroke="black"/>
+   </svg:g>
+   <svg:g stroke-width="1.5" fill="none" color="black" stroke="black"
+          stroke-linecap="round">
+      <svg:circle cx="529" cy="358" r="1.5" fill="currentColor"/>
+      <svg:circle cx="137" cy="308" r="1.5" fill="currentColor"/>
+   </svg:g>
+   <svg:rect x="0.5" y="0.5" width="553" height="485" stroke="black" fill="none"
+             stroke-width="1"/>
+</svg:svg>
