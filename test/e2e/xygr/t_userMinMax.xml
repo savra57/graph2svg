@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- !DOCTYPE xygr SYSTEM "xygr.dtd" -->
+<xygr xmlns="http://graph2svg.googlecode.com"
+		axesPos="origin"
+		xAxisType="shifted" xAxisMin="-15" xAxisMax="15"
+		yAxisType="withZero" yAxisMax="15"
+		lineType="solid" pointType="point">
+	<title>Axes - user maximum and minimum overwrites</title>
+	<curve>
+		<point x="18" y="4"/>
+		<point x="-10" y="6"/>
+	</curve>
+</xygr>

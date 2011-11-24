@@ -37,25 +37,16 @@
 	<!-- constants specific to XYGR-->
 	<xsl:variable name="curveFontSize"  select="10"/>
 	<xsl:variable name="xAxisMarkDist"  select="35"/>
-	<xsl:variable name="xAxisMarkAutoCount"  select="11"/> 
-		
+	
 	
 	<!-- variable calculations-->
 		<!-- X axis -->
 	<xsl:variable name="dataMaxX"  select="max($gra/ph/curve/point/@x)"/>	
 	<xsl:variable name="dataMinX"  select="min($gra/ph/curve/point/@x)"/>	
-	<xsl:variable name="dataXDif"  select="$dataMaxX - $dataMinX"/>	
-	<xsl:variable name="viewMaxX" select="
-			if ($gra/ph/@xAxisType = 'shifted') then $dataMaxX else 
-			(if ($gra/ph/@xAxisType = 'withZero') then max(($dataMaxX, 0)) else 
-			(if ((- $dataXDif * $axesAutoCoef &lt; $dataMaxX) and ($dataMaxX &lt; 0)) then 0 else $dataMaxX))"/>
-	<xsl:variable name="viewMinX" select="
-			if ($gra/ph/@xAxisType = 'shifted') then $dataMinX else 
-			(if ($gra/ph/@xAxisType = 'withZero') then min(($dataMinX, 0)) else 
-			(if ((0 &lt; $dataMinX) and  ($dataMinX &lt; $dataXDif * $axesAutoCoef)) then 0 else $dataMinX))"/>
-	<xsl:variable name="xAxisStep" select="m:StepAT($viewMaxX - $viewMinX, $xAxisMarkAutoCount, $gra/ph/@xAxisType)"/>
-	<xsl:variable name="xAxisMax" select="m:GMax($viewMaxX, $xAxisStep)"/>
-	<xsl:variable name="xAxisMin" select="- m:GMax(- $viewMinX, $xAxisStep)"/>
+	<xsl:variable name="xAxisDim" select="m:CalculateAxisDimension($dataMinX, $dataMaxX, $gra/ph/@xAxisType, $gra/ph/@xAxisMin, $gra/ph/@xAxisMax)"/>
+	<xsl:variable name="xAxisStep" select="$xAxisDim[3]"/>
+	<xsl:variable name="xAxisMin" select="$xAxisDim[1]"/>
+	<xsl:variable name="xAxisMax" select="$xAxisDim[2]"/>
 	<xsl:variable name="xAxisLen" select="$xAxisMax - $xAxisMin"/>
 	<xsl:variable name="xAxisMarkCount" as="xs:integer" select="round($xAxisLen div $xAxisStep) cast as xs:integer"/> <!--round($xAxisLen div $xAxisStep)"/-->
 	<xsl:variable name="xAxisWd" select="$xAxisMarkCount * $xAxisMarkDist"/>
@@ -70,18 +61,10 @@
 		<!-- Y axis -->
 	<xsl:variable name="dataMaxY"  select="max($gra/ph/curve/point/@y)"/>	
 	<xsl:variable name="dataMinY"  select="min($gra/ph/curve/point/@y)"/>	
-	<xsl:variable name="dataYDif"  select="$dataMaxY - $dataMinY"/>	
-	<xsl:variable name="viewMaxY" select="
-			if ($gra/ph/@yAxisType = 'shifted') then $dataMaxY else 
-			(if ($gra/ph/@yAxisType = 'withZero') then max(($dataMaxY, 0)) else 
-			(if ((- $dataYDif * $axesAutoCoef &lt; $dataMaxY) and ($dataMaxY &lt; 0)) then 0 else $dataMaxY))"/>
-	<xsl:variable name="viewMinY" select="
-			if ($gra/ph/@yAxisType = 'shifted') then $dataMinY else 
-			(if ($gra/ph/@yAxisType = 'withZero') then min(($dataMinY, 0)) else 
-			(if ((0 &lt; $dataMinY) and  ($dataMinY &lt; $dataYDif * $axesAutoCoef)) then 0 else $dataMinY))"/>
-	<xsl:variable name="yAxisStep" select="m:StepAT($viewMaxY - $viewMinY, $yAxisMarkAutoCount, $gra/ph/@yAxisType)"/>
-	<xsl:variable name="yAxisMax" select="m:GMax($viewMaxY, $yAxisStep)"/>
-	<xsl:variable name="yAxisMin" select="- m:GMax(- $viewMinY, $yAxisStep)"/>
+	<xsl:variable name="yAxisDim" select="m:CalculateAxisDimension($dataMinY, $dataMaxY, $gra/ph/@yAxisType, $gra/ph/@yAxisMin, $gra/ph/@yAxisMax)"/>
+	<xsl:variable name="yAxisStep" select="$yAxisDim[3]"/>
+	<xsl:variable name="yAxisMin" select="$yAxisDim[1]"/>
+	<xsl:variable name="yAxisMax" select="$yAxisDim[2]"/>
 	<xsl:variable name="yAxisLen" select="$yAxisMax - $yAxisMin"/>
 	<xsl:variable name="yAxisMarkCount" select="round($yAxisLen div $yAxisStep) cast as xs:integer"/>
 	<xsl:variable name="yAxisHg" select="$yAxisMarkCount * $yAxisMarkDist"/>

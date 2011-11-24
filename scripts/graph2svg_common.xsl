@@ -27,6 +27,7 @@
 <xsl:variable name="graphMargin"  select="15"/>
 <xsl:variable name="yAxisMarkDist"  select="25"/>
 <xsl:variable name="yAxisMarkAutoCount"  select="11"/> <!-- automatic choice will try to be close to this values -->
+<xsl:variable name="xAxisMarkAutoCount"  select="11"/> <!-- automatic choice will try to be close to this values -->
 <xsl:variable name="axesAutoCoef"  select="0.8"/>  <!-- coeficient used for decision wheather display 0 whe automatically choosing axes range -->
 <xsl:variable name="axesStroke-width" select="1"/>
 <xsl:variable name="legendMargin"  select="15"/>
@@ -310,14 +311,19 @@
 <!--********************** old step calculation functions ************************-->
 <!--******************************************************************************-->
 
-<!-- truncates up the maximum (of an axis) to the whole axis steps -->
+<!-- truncates up the maximum (of an axis) to the whole axis steps, sometimes add one more -->
 <xsl:function name="m:GMax"> 
 	<xsl:param name="max"/>
 	<xsl:param name="step"/>
 
 	<xsl:variable name="pom" select="$step * ceiling($max div $step)"/>
+	
+	<!-- adds one more step if: 
+			1) the max is <0 (i.e. max is negative, so we won't be in the shifted area)
+			2) the data max is same as the axis max but not 0 
+	-->
 	<xsl:value-of select="
-			if (($pom = 0)  or (($pom > 0) and ($pom != $max))) then $pom else ($pom +$step) "/>
+			if (($pom = 0)  or (($pom > 0) and ($pom != $max))) then $pom else ($pom + $step) "/>
 </xsl:function>
 
 <!-- returns a lenght of axes step -->
@@ -368,6 +374,37 @@
 <!--***************** new step calculation functions - supports dateTime *********-->
 <!--******************************************************************************-->
 
+<!-- depending on the axis type will calculate minumum maximum and step sizes for the axis
+return a sequence: Min Max Step -->
+<xsl:function name="m:CalculateAxisDimension">
+	<xsl:param name="dataMin"/> 
+	<xsl:param name="dataMax"/>
+	<xsl:param name="axisType"/>
+	<xsl:param name="userMin"/>
+	<xsl:param name="userMax"/>
+	
+	<xsl:variable name="dataDif" select="$dataMax - $dataMin"/>
+	
+	<xsl:variable name="viewMin" select="
+			if ($userMin) then $userMin else
+			if ($axisType = 'shifted') then $dataMin else 
+			(if ($axisType = 'withZero') then min(($dataMin, 0)) else 
+			(if ((0 &lt; $dataMin) and  ($dataMin &lt; $dataDif * $axesAutoCoef)) then 0 else $dataMin))"/>
+			
+	<xsl:variable name="viewMax" select="
+			if ($userMax) then $userMax else
+			if ($axisType = 'shifted') then $dataMax else 
+			(if ($axisType = 'withZero') then max(($dataMax, 0)) else 
+			(if ((- $dataDif * $axesAutoCoef &lt; $dataMax) and ($dataMax &lt; 0)) then 0 else $dataMax))"/>
+	
+	<xsl:variable name="axisStep" select="m:StepAT($viewMax - $viewMin, $xAxisMarkAutoCount, $axisType)"/>
+	
+	<xsl:variable name="axisMax" select="m:GMax($viewMax, $axisStep)"/>
+	<xsl:variable name="axisMin" select="- m:GMax(- $viewMin, $axisStep)"/>
+	
+	<xsl:sequence select="($axisMin, $axisMax, $axisStep)"/>
+	
+</xsl:function>
 
 <xsl:function name="m:Step10Base"> 
 	<xsl:param name="dif"/>
