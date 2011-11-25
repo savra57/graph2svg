@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE msgr SYSTEM "msgr.dtd">
 <msgr xmlns="http://graph2svg.googlecode.com"
-stacked="sum" lineType="none" 
-fillArea="yes" colorScheme="cold">
+		stacked="sum" lineType="none" 
+		fillArea="yes" colorScheme="cold"
+	>
   <title>Production</title>
   <names>
     <name>Jan</name>

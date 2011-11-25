@@ -2,8 +2,8 @@
 <!DOCTYPE msgr SYSTEM "msgr.dtd">
 <msgr xmlns="http://graph2svg.googlecode.com"
 		colType="none" legend="top" xAxisDivision="both" shift="0" yAxisDivision="4"
-			colorScheme="cold" xGrid='minor' yGrid='major' effect='2D'  lineType="none" pointType="star" 
-			xAxisPos="bottom" stacked="percentage" fillArea="yes">
+		colorScheme="cold" xGrid='minor' yGrid='major' effect='2D' lineType="none" pointType="star" 
+		xAxisPos="bottom" stacked="percentage" fillArea="yes">
 	<title>Pokusný graf číslo 2 - log osa</title>
 	<names>
 		<name>Leden</name>
