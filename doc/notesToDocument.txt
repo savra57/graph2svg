@@ -3,10 +3,13 @@
 	- not very compatible with sum and stacked msgr graphs
 * axisType auto will decide only between shifted and with zero, no auto-detection of log nor dateTime
 
-dateTime
+NEW ATTRIBUTES 
 
-yAxisLabelsFormat
+*** xAxisLabelsFormat / yAxisLabelsFormat
+elements: xygr, msgr, osgr
+ - allows customise format pattern for axes labels 
  - currently works only for dates and numbers
+ - for osgr and msgr graphs applicable only on y axis
 
 when axisType=dateTime
  - for examples see: http://www.w3.org/TR/xslt20/#date-time-examples
@@ -21,13 +24,27 @@ when axisType=dateTime
  	- if step is in minutes: [H01]:[m01] 
  	- if step is in seconds: [m01]:[s01]
  - the argument is ignored if the axisType is not dateTime
+ 
 
 when axisType is a normal number, i.e.: auto, shifted or withZero (not log)
  - see: http://www.w3schools.com/xsl/func_formatnumber.asp
  - default is '#.##############'
- - for msgr graph with stacked=percentage the default pattern is ' ##%' 
+ - for msgr graph with stacked="percentage" the default pattern is ' ##%' 
  
 
 examples:
 yAxisLabelsFormat="###.000"
- 
+
+
+*** xAxisMin / xAxisMax / yAxisMin / yAxisMax
+elements: xygr, msgr, osgr
+ - allow to overwrite the automatically calculated maximum and minimum
+ - it is still rounded to the whole step (always up)
+ - if the data points will be painted regardless if they are within the dimensions specified 
+ - not specified dimensions are calculated the old way
+ - for osgr and msgr graphs applicable only on y axis
+ - combining with msgr graphs of type stacked="percentage" is not recommended
+
+*** xAxisStep / yAxisStep
+elements: xygr, msgr, osgr
+ - for osgr and msgr graphs applicable only on y axis

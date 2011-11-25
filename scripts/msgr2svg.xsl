@@ -18,13 +18,15 @@
 	<xsl:param name="graph"/>
 	<xsl:variable name="gra">
 		<ph>
-		<xsl:apply-templates select="$graph/@*" mode="m:processValuesMs"/>
+		<xsl:apply-templates select="$graph/@*" mode="m:processValues">
+			<xsl:with-param name="graph" select="$graph" tunnel="yes"/>
+		</xsl:apply-templates>
 		<xsl:attribute name="legend" select="
 			if (($graph/@legend) = 'none') then 'none' else
 			if (($graph/@legend) = 'left') then 'left' else
 			if (($graph/@legend) = 'top') then 'top' else
 			if (($graph/@legend) = 'bottom') then 'bottom' else 'right' "/>
-		<xsl:apply-templates select="$graph/(*|text())" mode="m:processValuesMs">
+		<xsl:apply-templates select="$graph/(*|text())" mode="m:processValues">
 			<xsl:with-param name="graph" select="$graph" tunnel="yes"/>
 		</xsl:apply-templates>
 		</ph>
@@ -684,33 +686,7 @@
 	</xsl:if>
 	-->
 	
-	</svg:svg> 
-</xsl:template>
-
-<!-- ****************************************************************************** -->
-<!-- ************************************ end of the main template ************************ -->
-<!-- ****************************************************************************** -->
-
-<xsl:template match="gr:value" mode="m:processValuesMs">
-	<xsl:param name="graph" tunnel="yes"/>
-	<value>
-	<xsl:apply-templates select="@*|*" mode="m:processValuesMs"/>
-	<xsl:variable name="pos" select="count(preceding-sibling::gr:value)+1"/>
-	<xsl:value-of select="
-		if ($graph/@stacked='sum') then 
-				sum((../preceding-sibling::gr:values/gr:value[$pos], .)) else
-		if ($graph/@stacked='percentage') then (
-				sum((../preceding-sibling::gr:values/gr:value[$pos], .)) div sum(../../gr:values/gr:value[$pos]) ) else
-		m:ProcessValue($graph/@yAxisType, .)"/>
-	</value>
-</xsl:template>
-<xsl:template match="gr:*"  mode="m:processValuesMs"> <!-- copy gr element -->
-	<xsl:element name="{local-name(.)}">
-		<xsl:apply-templates select="@*|*|text()" mode="m:processValuesMs"/>
-	</xsl:element>
-</xsl:template>
-<xsl:template match="*|text()|@*" mode="m:processValuesMs">  <!-- copies attributes, text and other elements -->
-	<xsl:copy-of select="."/>
+	</svg:svg>
 </xsl:template>
 
 </xsl:stylesheet>

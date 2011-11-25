@@ -606,4 +606,57 @@ numbers:
 	<xsl:value-of select="$const*math:log($val)"/>
 </xsl:function>
 
+
+
+<!--******************************************************************************-->
+<!--***************** value proprocessing for all scripts ************************-->
+<!--******************************************************************************-->
+
+<!-- process values for msgr and osgr -->
+<xsl:template match="gr:value" mode="m:processValues">
+	<xsl:param name="graph" tunnel="yes"/>
+	<value>
+	<xsl:apply-templates select="@*|*" mode="m:processValues"/>
+	<xsl:variable name="pos" select="count(preceding-sibling::gr:value)+1"/>
+	<xsl:value-of select="
+		if ($graph/@stacked='sum') then 
+				sum((../preceding-sibling::gr:values/gr:value[$pos], .)) else
+		if ($graph/@stacked='percentage') then (
+				sum((../preceding-sibling::gr:values/gr:value[$pos], .)) div sum(../../gr:values/gr:value[$pos]) ) else
+		m:ProcessValue($graph/@yAxisType, .)"/>
+	</value>
+</xsl:template>
+
+<!-- process values of x and y attributes for xygr -->
+<xsl:template match="@x" mode="m:processValues">
+	<xsl:param name="graph" tunnel="yes"/>
+	<xsl:attribute name="x" select="m:ProcessValue($graph/@xAxisType, .)"/>
+</xsl:template>
+<xsl:template match="@y" mode="m:processValues">
+	<xsl:param name="graph" tunnel="yes"/>
+	<xsl:attribute name="y" select="m:ProcessValue($graph/@yAxisType, .)"/>
+</xsl:template>
+
+
+<xsl:template match="@xAxisMin|@xAxisMax" mode="m:processValues">
+	<xsl:param name="graph" tunnel="yes"/>
+	<xsl:attribute name="{local-name(.)}" select="m:ProcessValue($graph/@xAxisType, .)"/>
+</xsl:template>
+<xsl:template match="@yAxisMin|@yAxisMax" mode="m:processValues">
+	<xsl:param name="graph" tunnel="yes"/>
+	<xsl:attribute name="{local-name(.)}" select="m:ProcessValue($graph/@yAxisType, .)"/>
+</xsl:template>
+
+<!-- copy gr element -->
+<xsl:template match="gr:*"  mode="m:processValues"> 
+	<xsl:element name="{local-name(.)}">
+		<xsl:apply-templates select="@*|*|text()" mode="m:processValues"/>
+	</xsl:element>
+</xsl:template>
+
+<!-- copies attributes, text and other elements -->
+<xsl:template match="*|text()|@*" mode="m:processValues">  
+	<xsl:copy-of select="."/>
+</xsl:template>
+
 </xsl:stylesheet>

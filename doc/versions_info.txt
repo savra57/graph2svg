@@ -28,6 +28,8 @@ TODO - shortTerm
     	- try using the project WIKI 
     	- improve document test utils
     	- schema documentation
+    * step, autoCount
+    * user axis min and max for log and dateTime axis
     
 TODO
     * gradients in 3Dpie
@@ -35,7 +37,7 @@ TODO
     * new attributes in msgr: name of axes, labelIn/Out...
     * dates supporting rounding to whole months / years (?? weeks, year quarters)
 	
-    * consider next attributes: ColWd, CatGap
+    * consider other attributes: ColWd, CatGap
     * improve columns: shadows, correct cylinders, cone
     * try and upgrade combination with elements from other name spaces (e.g. MathML)
 	* consider colors like: title color, background color, axis colors

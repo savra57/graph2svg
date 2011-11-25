@@ -18,7 +18,9 @@
 	<xsl:param name="graph"/>
 	<xsl:variable name="gra">
 		<ph>
-		<xsl:apply-templates select="$graph/@*" mode="m:processValues"/>
+		<xsl:apply-templates select="$graph/@*" mode="m:processValues">
+			<xsl:with-param name="graph" select="$graph" tunnel="yes"/>
+		</xsl:apply-templates>
 		<xsl:attribute name="legend" select="
 			if (($graph/@legend) = 'right') then 'right' else
 			if (($graph/@legend) = 'left') then 'left' else
@@ -551,27 +553,7 @@
 	<svg:rect x="0.5" y="{$titleMargin}" width="{$width - 0.5}" height="{$titleFontSize}"  
 			stroke="grey" fill="none" stroke-width="1"/>  -->
 
-	</svg:svg> 
-</xsl:template>
-
-<!--******************************************************************************-->
-<!--************************************ end of the main template ************************-->
-<!--******************************************************************************-->
-<xsl:template match="@x" mode="m:processValues">
-	<xsl:param name="graph" tunnel="yes"/>
-	<xsl:attribute name="x" select="m:ProcessValue($graph/@xAxisType, .)"/>
-</xsl:template>
-<xsl:template match="@y" mode="m:processValues">
-	<xsl:param name="graph" tunnel="yes"/>
-	<xsl:attribute name="y" select="m:ProcessValue($graph/@yAxisType, .)"/>
-</xsl:template>
-<xsl:template match="gr:*"  mode="m:processValues"> <!-- copy gr element -->
-	<xsl:element name="{local-name(.)}">	
-		<xsl:apply-templates select="@*|*|text()" mode="m:processValues"/>
-	</xsl:element>
-</xsl:template>
-<xsl:template match="*|text()|@*" mode="m:processValues">  <!-- copy attributes, text and foreign elements -->
-	<xsl:copy-of select="."/>
+	</svg:svg>
 </xsl:template>
 
 </xsl:stylesheet>
