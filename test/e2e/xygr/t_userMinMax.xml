@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- !DOCTYPE xygr SYSTEM "xygr.dtd" -->
 <xygr xmlns="http://graph2svg.googlecode.com"
-		axesPos="origin"
 		xAxisType="shifted" xAxisMin="-15" xAxisMax="15"
-		yAxisType="withZero" yAxisMax="15"
+		yAxisType="withZero" yAxisMax="10"
 		lineType="solid" pointType="point">
 	<title>Axes - user maximum and minimum overwrites</title>
 	<curve>

@@ -315,6 +315,7 @@
 <xsl:function name="m:GMax"> 
 	<xsl:param name="max"/>
 	<xsl:param name="step"/>
+	<xsl:param name="userMax"/>
 
 	<xsl:variable name="pom" select="$step * ceiling($max div $step)"/>
 	
@@ -323,7 +324,7 @@
 			2) the data max is same as the axis max but not 0 
 	-->
 	<xsl:value-of select="
-			if (($pom = 0)  or (($pom > 0) and ($pom != $max))) then $pom else ($pom + $step) "/>
+			if (($pom = 0)  or (($pom > 0) and ($pom != $max or $userMax))) then $pom else ($pom + $step) "/>
 </xsl:function>
 
 <!-- returns a lenght of axes step -->
@@ -399,8 +400,8 @@ return a sequence: Min Max Step -->
 	
 	<xsl:variable name="axisStep" select="m:StepAT($viewMax - $viewMin, $xAxisMarkAutoCount, $axisType)"/>
 	
-	<xsl:variable name="axisMax" select="m:GMax($viewMax, $axisStep)"/>
-	<xsl:variable name="axisMin" select="- m:GMax(- $viewMin, $axisStep)"/>
+	<xsl:variable name="axisMax" select="m:GMax($viewMax, $axisStep, $userMax)"/>
+	<xsl:variable name="axisMin" select="- m:GMax(- $viewMin, $axisStep, $userMin)"/>
 	
 	<xsl:sequence select="($axisMin, $axisMax, $axisStep)"/>
 	
