@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- !DOCTYPE xygr SYSTEM "xygr.dtd" -->
+<xygr xmlns="http://graph2svg.googlecode.com"
+		lineType="solid" pointType="point"
+		xAxisType="dateTime" xAxisLabelsFormat="[H01]h" 
+		xAxisMin="2010-01-22T00:00:00" xAxisMax="2010-01-22T24:00:00"
+		yAxisType="log" yAxisMax="1000"
+	>
+
+	<title>Axes - user max and min for log and time axis</title>
+	<curve>
+		<point x="2010-01-22T01:30:00" y="50"/>
+		<point x="2010-01-22T08:00:10" y="0.002"/>
+		<point x="2010-01-22T11:50:11" y="50"/>
+		<point x="2010-01-22T18:00:12" y="91"/>
+		<point x="2010-01-22T21:01:20" y="10"/>
+	</curve>
+</xygr>

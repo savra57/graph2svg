@@ -18,13 +18,15 @@
 	<xsl:param name="graph"/>
 	<xsl:variable name="gra">
 		<ph>
-		<xsl:apply-templates select="$graph/@*" mode="m:processValuesOs"/>
+		<xsl:apply-templates select="$graph/@*" mode="m:processValues">
+			<xsl:with-param name="graph" select="$graph" tunnel="yes"/>
+		</xsl:apply-templates>
 		<xsl:attribute name="legend" select="
 			if (($graph/@legend) = 'right') then 'right' else
 			if (($graph/@legend) = 'left') then 'left' else
 			if (($graph/@legend) = 'top') then 'top' else
 			if (($graph/@legend) = 'bottom') then 'bottom' else 'none' "/>
-		<xsl:apply-templates select="$graph/(*|text())" mode="m:processValuesOs">
+		<xsl:apply-templates select="$graph/(*|text())" mode="m:processValues">
 			<xsl:with-param name="graph" select="$graph" tunnel="yes"/>
 		</xsl:apply-templates>
 		</ph>
@@ -834,26 +836,6 @@
 </xsl:otherwise>
 </xsl:choose>
 
-</xsl:template>
-
-<!--******************************************************************************-->
-<!--************************************ end of the main template ************************-->
-<!--******************************************************************************-->
-
-<xsl:template match="gr:value" mode="m:processValuesOs">
-	<xsl:param name="graph" tunnel="yes"/>
-	<value>
-	<xsl:apply-templates select="@*|*" mode="m:processValuesOs" />
-	<xsl:value-of select="m:ProcessValue($graph/@yAxisType, .)"/>
-	</value>
-</xsl:template>
-<xsl:template match="gr:*"  mode="m:processValuesOs"> <!-- copy gr element -->
-	<xsl:element name="{local-name(.)}">
-		<xsl:apply-templates select="@*|*|text()" mode="m:processValuesOs"/>
-	</xsl:element>
-</xsl:template>
-<xsl:template match="*|text()|@*" mode="m:processValuesOs">  <!-- copies attributes, text and other elements -->
-	<xsl:copy-of select="."/>
 </xsl:template>
 
 </xsl:stylesheet>
