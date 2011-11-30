@@ -17,7 +17,7 @@
 <!--*********************************** common constants *************************-->
 <!--******************************************************************************-->
 
-<!-- The constants can be overwritten in some scripts -->
+<!-- Constants can be overwritten in some scripts -->
 
 <xsl:variable name="titleMargin"  select="10"/>
 <xsl:variable name="titleFontSize"  select="18"/>
@@ -308,71 +308,7 @@
 </xsl:template>
 
 <!--******************************************************************************-->
-<!--********************** old step calculation functions ************************-->
-<!--******************************************************************************-->
-
-<!-- truncates up the maximum (of an axis) to the whole axis steps, sometimes add one more -->
-<xsl:function name="m:GMax"> 
-	<xsl:param name="max"/>
-	<xsl:param name="step"/>
-	<xsl:param name="userMax"/>
-
-	<xsl:variable name="pom" select="$step * ceiling($max div $step)"/>
-	
-	<!-- adds one more step if: 
-			1) the max is <0 (i.e. max is negative, so we won't be in the shifted area)
-			2) the data max is same as the axis max but not 0 
-	-->
-	<xsl:value-of select="
-			if (($pom = 0)  or (($pom > 0) and ($pom != $max or $userMax))) then $pom else ($pom + $step) "/>
-</xsl:function>
-
-<!-- returns a lenght of axes step -->
-<xsl:function name="m:Step"> 
-	<xsl:param name="dif"/>
-	<xsl:param name="count"/>
-
-	<xsl:variable name="ps" select="($dif) div $count"/>
-	<xsl:variable name="rad" select="floor(m:Log10($ps))"/>
-	<xsl:variable name="cif" select="$ps div math:power(10, $rad)"/>
-	<xsl:variable name="st" select="
-		if ($cif &lt; 1.6) then 1 else
-		if ($cif &lt; 2.2) then 2 else
-		if ($cif &lt; 4) then 2.5 else
-		if ($cif &lt; 9) then 5 else 10"/>
-	<xsl:value-of select="$st * math:power(10, $rad)"/>
-		<!--xsl:variable name="st">
-		<xsl:choose>
-			<xsl:when test="$cif &lt; 1.6"><xsl:value-of select="1"/></xsl:when>
-			<xsl:when test="$cif &lt; 2.2"><xsl:value-of select="2"/></xsl:when>
-			<xsl:when test="$cif &lt; 4"><xsl:value-of select="2.5"/></xsl:when>
-			<xsl:when test="$cif &lt; 9"><xsl:value-of select="5"/></xsl:when>
-			<xsl:otherwise><xsl:value-of select="10"/></xsl:otherwise>
-		</xsl:choose>
-	</xsl:variable>
-	<xsl:variable name="pom" select="$st"/>
-	<xsl:value-of select="$pom * math:power(10, $rad)"/-->
-</xsl:function>
-
-<!-- rounds the value on same number of decimal places as has the step, used for printing values on axes -->
-<xsl:function name="m:Round"> 
-	<xsl:param name="val"/>
-	<xsl:param name="step"/>
-
-	<xsl:variable name="rad" select="floor(m:Log10($step))"/>
-	<xsl:variable name="pom" select="round($val * math:power(10, - $rad +1)) * math:power(10, $rad - 1)"/>
-	<xsl:value-of select="if ($pom != 0) then format-number($pom, '#.##############') else $pom"/>
-</xsl:function>
-
-<!-- rounds the value on 2 decimal places, used for coordinates -->
-<xsl:function name="m:R"> 
-	<xsl:param name="val"/>
-	<xsl:value-of select="round($val * 100) div 100"/>
-</xsl:function>
-
-
-<!--******************************************************************************-->
-<!--***************** new step calculation functions - supports dateTime *********-->
+<!--***************** step calculation functions - supports dateTime *************-->
 <!--******************************************************************************-->
 
 <!-- depending on the axis type will calculate minumum maximum and step sizes for the axis
@@ -404,7 +340,22 @@ return a sequence: Min Max Step -->
 	<xsl:variable name="axisMin" select="- m:GMax(- $viewMin, $axisStep, $userMin)"/>
 	
 	<xsl:sequence select="($axisMin, $axisMax, $axisStep)"/>
+</xsl:function>
+
+<!-- truncates up the maximum (of an axis) to the whole axis steps, sometimes add one more -->
+<xsl:function name="m:GMax"> 
+	<xsl:param name="max"/>
+	<xsl:param name="step"/>
+	<xsl:param name="userMax"/>
+
+	<xsl:variable name="pom" select="$step * ceiling($max div $step)"/>
 	
+	<!-- adds one more step if: 
+			1) the max is <0 (i.e. max is negative, so we won't be in the shifted area)
+			2) the data max is same as the axis max but not 0 
+	-->
+	<xsl:value-of select="
+			if (($pom = 0)  or (($pom > 0) and ($pom != $max or $userMax))) then $pom else ($pom + $step) "/>
 </xsl:function>
 
 <xsl:function name="m:Step10Base"> 
@@ -481,7 +432,6 @@ return a sequence: Min Max Step -->
 		if ($step &lt; 24) then 20 else
 		if ($step &lt; 40) then 30 else 60"/>
 </xsl:function>
-
 
 <!-- returns a lenght of axes step, works for dateTime axeType -->
 <xsl:function name="m:StepAT">
@@ -606,6 +556,11 @@ numbers:
 	<xsl:value-of select="$const*math:log($val)"/>
 </xsl:function>
 
+<!-- rounds the given value on 2 decimal places, used for SVG coordinates -->
+<xsl:function name="m:R"> 
+	<xsl:param name="val"/>
+	<xsl:value-of select="round($val * 100) div 100"/>
+</xsl:function>
 
 
 <!--******************************************************************************-->
