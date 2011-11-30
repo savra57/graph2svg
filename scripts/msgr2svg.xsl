@@ -53,7 +53,7 @@
 		<!-- Y axis -->
 	<xsl:variable name="dataMaxY"  select="max($gra/ph/values/value)"/>	
 	<xsl:variable name="dataMinY"  select="min($gra/ph/values/value)"/>
-	<xsl:variable name="yAxisDim" select="m:CalculateAxisDimension($dataMinY, $dataMaxY, $gra/ph/@yAxisType, $gra/ph/@yAxisMin, $gra/ph/@yAxisMax)"/>
+	<xsl:variable name="yAxisDim" select="m:CalculateAxisDimension($dataMinY, $dataMaxY, $gra/ph/@yAxisType, $gra/ph/@yAxisMin, $gra/ph/@yAxisMax, $gra/ph/@yAxisStep, $gra/ph/@yAxisMarkCount)"/>
 	<xsl:variable name="yAxisStep" select="$yAxisDim[3]"/>
 	<xsl:variable name="yAxisMin" select="$yAxisDim[1]"/>
 	<xsl:variable name="yAxisMax" select="if ($gra/ph/@stacked='percentage' and $dataMaxY = 1) then 1 else $yAxisDim[2]"/>

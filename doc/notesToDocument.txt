@@ -48,3 +48,8 @@ elements: xygr, msgr, osgr
 *** xAxisStep / yAxisStep
 elements: xygr, msgr, osgr
  - for osgr and msgr graphs applicable only on y axis
+ 
+ 
+*** xAxisMarkCount / yAxisMarkCount
+elements: xygr, msgr, osgr
+ - for osgr and msgr graphs applicable only on y axis

@@ -45,7 +45,7 @@
 		<!-- X axis -->
 	<xsl:variable name="dataMaxX"  select="max($gra/ph/curve/point/@x)"/>	
 	<xsl:variable name="dataMinX"  select="min($gra/ph/curve/point/@x)"/>	
-	<xsl:variable name="xAxisDim" select="m:CalculateAxisDimension($dataMinX, $dataMaxX, $gra/ph/@xAxisType, $gra/ph/@xAxisMin, $gra/ph/@xAxisMax)"/>
+	<xsl:variable name="xAxisDim" select="m:CalculateAxisDimension($dataMinX, $dataMaxX, $gra/ph/@xAxisType, $gra/ph/@xAxisMin, $gra/ph/@xAxisMax, $gra/ph/@xAxisStep, $gra/ph/@xAxisMarkCount)"/>
 	<xsl:variable name="xAxisStep" select="$xAxisDim[3]"/>
 	<xsl:variable name="xAxisMin" select="$xAxisDim[1]"/>
 	<xsl:variable name="xAxisMax" select="$xAxisDim[2]"/>
@@ -63,7 +63,7 @@
 		<!-- Y axis -->
 	<xsl:variable name="dataMaxY"  select="max($gra/ph/curve/point/@y)"/>	
 	<xsl:variable name="dataMinY"  select="min($gra/ph/curve/point/@y)"/>	
-	<xsl:variable name="yAxisDim" select="m:CalculateAxisDimension($dataMinY, $dataMaxY, $gra/ph/@yAxisType, $gra/ph/@yAxisMin, $gra/ph/@yAxisMax)"/>
+	<xsl:variable name="yAxisDim" select="m:CalculateAxisDimension($dataMinY, $dataMaxY, $gra/ph/@yAxisType, $gra/ph/@yAxisMin, $gra/ph/@yAxisMax, $gra/ph/@yAxisStep, $gra/ph/@yAxisMarkCount)"/>
 	<xsl:variable name="yAxisStep" select="$yAxisDim[3]"/>
 	<xsl:variable name="yAxisMin" select="$yAxisDim[1]"/>
 	<xsl:variable name="yAxisMax" select="$yAxisDim[2]"/>
