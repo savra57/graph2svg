@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- !DOCTYPE xygr SYSTEM "xygr.dtd" -->
+<xygr xmlns="http://graph2svg.googlecode.com"
+		xAxisType="shifted" xAxisStep="0.001"
+		yAxisType="withZero" yAxisStep="50"
+		lineType="solid" pointType="point">
+	<title>Axes - user step</title>
+	<curve>
+		<point x="0.016" y="40"/>
+		<point x="0.025" y="249"/>
+	</curve>
+</xygr>

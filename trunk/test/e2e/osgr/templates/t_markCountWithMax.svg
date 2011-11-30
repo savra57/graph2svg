@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg:svg xmlns:svg="http://www.w3.org/2000/svg" viewBox="0 0 293.6 236">
+   <svg:desc>User mark count and max</svg:desc>
+   <svg:g>
+      <svg:text x="146.8" y="28" text-anchor="middle" font-family="Verdana" font-size="18"
+                fill="black">User mark count and max</svg:text>
+   </svg:g>
+   <svg:g stroke-width="0.4" stroke="black" stroke-linejoin="round">
+      <svg:g transform="translate(53.6, 208)" fill="#14f">
+         <svg:path d="M-15,-0 h30 v-162.5 h-30 z"/>
+      </svg:g>
+      <svg:g transform="translate(103.6, 208)" fill="#ff1">
+         <svg:path d="M-15,-0 h30 v-125 h-30 z"/>
+      </svg:g>
+      <svg:g transform="translate(153.6, 208)" fill="#f0d">
+         <svg:path d="M-15,-0 h30 v-25 h-30 z"/>
+      </svg:g>
+      <svg:g transform="translate(203.6, 208)" fill="#3f1">
+         <svg:path d="M-15,-0 h30 v-150 h-30 z"/>
+      </svg:g>
+      <svg:g transform="translate(253.6, 208)" fill="#f33">
+         <svg:path d="M-15,-0 h30 v-50 h-30 z"/>
+      </svg:g>
+   </svg:g>
+   <svg:g stroke="black">
+      <svg:path d="M53.6,206  v2 m50,-2  v2 m50,-2  v2 m50,-2  v2 m50,-2  v2 m50,-2"
+                stroke-width="0.5"/>
+      <svg:path d="M25.6,183 l6,0  m-6,-25 l6,0  m-6,-25 l6,0  m-6,-25 l6,0  m-6,-25 l6,0  m-6,-25 l6,0 "
+                stroke-width="1"/>
+   </svg:g>
+   <svg:line x1="28.6" y1="208" x2="278.6" y2="208" stroke="black" stroke-width="1"/>
+   <svg:g text-anchor="middle" font-family="Verdana" font-size="10" fill="black">
+      <svg:text x="53.6" y="221">Mon</svg:text>
+      <svg:text x="103.6" y="221">Tue</svg:text>
+      <svg:text x="153.6" y="221">Wed</svg:text>
+      <svg:text x="203.6" y="221">Thu</svg:text>
+      <svg:text x="253.6" y="221">Fri</svg:text>
+   </svg:g>
+   <svg:g stroke="black" stroke-width="1">
+      <svg:line stroke-dasharray="2,3" x1="28.6" y1="183" x2="28.6" y2="208"/>
+      <svg:line x1="28.6" y1="183" x2="28.6" y2="58"/>
+   </svg:g>
+   <svg:g text-anchor="end" font-family="Verdana" font-size="10" fill="black">
+      <svg:text x="22.6" y="186.5">30</svg:text>
+      <svg:text x="22.6" y="161.5">32</svg:text>
+      <svg:text x="22.6" y="136.5">34</svg:text>
+      <svg:text x="22.6" y="111.5">36</svg:text>
+      <svg:text x="22.6" y="86.5">38</svg:text>
+      <svg:text x="22.6" y="61.5">40</svg:text>
+   </svg:g>
+   <svg:g text-anchor="middle" font-family="Verdana" font-size="10" fill="black">
+      <svg:text x="53.6" y="130.25"/>
+      <svg:text x="103.6" y="149"/>
+      <svg:text x="153.6" y="199"/>
+      <svg:text x="203.6" y="136.5"/>
+      <svg:text x="253.6" y="186.5"/>
+   </svg:g>
+   <svg:g text-anchor="middle" font-family="Verdana" font-size="10" fill="black">
+      <svg:text x="53.6" y="41.5"/>
+      <svg:text x="103.6" y="79"/>
+      <svg:text x="153.6" y="179"/>
+      <svg:text x="203.6" y="54"/>
+      <svg:text x="253.6" y="154"/>
+   </svg:g>
+   <svg:rect x="0.5" y="0.5" width="292.6" height="235" stroke="black" fill="none"
+             stroke-width="1"/>
+</svg:svg>

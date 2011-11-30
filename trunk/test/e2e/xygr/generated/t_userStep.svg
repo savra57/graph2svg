@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg:svg xmlns:svg="http://www.w3.org/2000/svg" viewBox="0 0 452.4 211">
+   <svg:desc>Axes - user step</svg:desc>
+   <svg:g>
+      <svg:text x="226.2" y="28" text-anchor="middle" font-family="Verdana" font-size="18"
+                fill="black">Axes - user step</svg:text>
+   </svg:g>
+   <svg:g stroke="black">
+      <svg:path d="M70.4,180 l0,6 m35,-6 l0,6 m35,-6 l0,6 m35,-6 l0,6 m35,-6 l0,6 m35,-6 l0,6 m35,-6 l0,6 m35,-6 l0,6 m35,-6 l0,6 m35,-6 l0,6 m35,-6 l0,6"
+                stroke-width="1"/>
+      <svg:path d="M32.4,183 l6,0  m-6,-25 l6,0  m-6,-25 l6,0  m-6,-25 l6,0  m-6,-25 l6,0  m-6,-25 l6,0 "
+                stroke-width="1"/>
+   </svg:g>
+   <svg:g stroke="black" stroke-width="1">
+      <svg:line stroke-dasharray="2,3" x1="35.4" y1="183" x2="70.4" y2="183"/>
+      <svg:line x1="70.4" y1="183" x2="420.4" y2="183"/>
+   </svg:g>
+   <svg:g text-anchor="middle" font-family="Verdana" font-size="10" fill="black">
+      <svg:text x="70.4" y="196">0.016</svg:text>
+      <svg:text x="105.4" y="196">0.017</svg:text>
+      <svg:text x="140.4" y="196">0.018</svg:text>
+      <svg:text x="175.4" y="196">0.019</svg:text>
+      <svg:text x="210.4" y="196">0.02</svg:text>
+      <svg:text x="245.4" y="196">0.021</svg:text>
+      <svg:text x="280.4" y="196">0.022</svg:text>
+      <svg:text x="315.4" y="196">0.023</svg:text>
+      <svg:text x="350.4" y="196">0.024</svg:text>
+      <svg:text x="385.4" y="196">0.025</svg:text>
+      <svg:text x="420.4" y="196">0.026</svg:text>
+   </svg:g>
+   <svg:g stroke="black" stroke-width="1">
+      <svg:line x1="35.4" y1="183" x2="35.4" y2="58"/>
+   </svg:g>
+   <svg:g text-anchor="end" font-family="Verdana" font-size="10" fill="black">
+      <svg:text x="29.4" y="186.5">0</svg:text>
+      <svg:text x="29.4" y="161.5">50</svg:text>
+      <svg:text x="29.4" y="136.5">100</svg:text>
+      <svg:text x="29.4" y="111.5">150</svg:text>
+      <svg:text x="29.4" y="86.5">200</svg:text>
+      <svg:text x="29.4" y="61.5">250</svg:text>
+   </svg:g>
+   <svg:g stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <svg:path d="M70.4,163 L385.4,58.5" stroke="black"/>
+   </svg:g>
+   <svg:g stroke-width="1.5" fill="none" color="black" stroke="black"
+          stroke-linecap="round">
+      <svg:circle cx="70.4" cy="163" r="1.5" fill="currentColor"/>
+      <svg:circle cx="385.4" cy="58.5" r="1.5" fill="currentColor"/>
+   </svg:g>
+   <svg:rect x="0.5" y="0.5" width="451.4" height="210" stroke="black" fill="none"
+             stroke-width="1"/>
+</svg:svg>

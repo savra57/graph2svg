@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--DOCTYPE osgr SYSTEM "osgr.dtd"-->
+<osgr xmlns="http://graph2svg.googlecode.com"
+		yAxisMarkCount="5" yAxisMax="40">
+	<title>User mark count and max</title>
+	<names>
+		<name>Mon</name>
+		<name>Tue</name>
+		<name>Wed</name>
+		<name>Thu</name>
+		<name>Fri</name>
+	</names>
+	<values>
+		<value>41</value>
+		<value>38</value>
+		<value>30</value>
+		<value>40</value>
+		<value>32</value>
+	</values>
+</osgr>

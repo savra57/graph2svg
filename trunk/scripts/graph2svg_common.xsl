@@ -26,8 +26,7 @@
 <xsl:variable name="labelAngle"  select="25"/>
 <xsl:variable name="graphMargin"  select="15"/>
 <xsl:variable name="yAxisMarkDist"  select="25"/>
-<xsl:variable name="yAxisMarkAutoCount"  select="11"/> <!-- automatic choice will try to be close to this values -->
-<xsl:variable name="xAxisMarkAutoCount"  select="11"/> <!-- automatic choice will try to be close to this values -->
+<xsl:variable name="defaultMarkAutoCount"  select="11"/> <!-- automatic choice will try to be close to this values -->
 <xsl:variable name="axesAutoCoef"  select="0.8"/>  <!-- coeficient used for decision wheather display 0 whe automatically choosing axes range -->
 <xsl:variable name="axesStroke-width" select="1"/>
 <xsl:variable name="legendMargin"  select="15"/>
@@ -319,6 +318,8 @@ return a sequence: Min Max Step -->
 	<xsl:param name="axisType"/>
 	<xsl:param name="userMin"/>
 	<xsl:param name="userMax"/>
+	<xsl:param name="userStep"/>
+	<xsl:param name="userMarkCount"/>
 	
 	<xsl:variable name="dataDif" select="$dataMax - $dataMin"/>
 	
@@ -334,7 +335,10 @@ return a sequence: Min Max Step -->
 			(if ($axisType = 'withZero') then max(($dataMax, 0)) else 
 			(if ((- $dataDif * $axesAutoCoef &lt; $dataMax) and ($dataMax &lt; 0)) then 0 else $dataMax))"/>
 	
-	<xsl:variable name="axisStep" select="m:StepAT($viewMax - $viewMin, $xAxisMarkAutoCount, $axisType)"/>
+	<xsl:variable name="useMarkCount" select="if ($userMarkCount) then $userMarkCount else $defaultMarkAutoCount"/>
+	<xsl:variable name="axisStep" select="
+			if ($userStep) then $userStep else
+				m:StepAT($viewMax - $viewMin, $useMarkCount, $axisType)"/>
 	
 	<xsl:variable name="axisMax" select="m:GMax($viewMax, $axisStep, $userMax)"/>
 	<xsl:variable name="axisMin" select="- m:GMax(- $viewMin, $axisStep, $userMin)"/>
