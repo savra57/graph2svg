@@ -526,11 +526,9 @@
 	<svg:text x="{$originX}" y="{$originY - 20}" font-family="Verdana" font-size="{$labelFontSize}">
 		<xsl:value-of select="m:Log10(1000)"/><xsl:text> || </xsl:text>
 		<xsl:value-of select="m:Log10(20.08554)"/><xsl:text> || </xsl:text>
-		<xsl:value-of select="m:Round(4321.1234, 25)"/>
 		<xsl:value-of select="/graph/@xAxisType"/>
 	</svg:text>-->
 	<!--svg:text x="{$legendX}" y="{$legendY}" font-family="Verdana" font-size="{$labelFontSize}">
-		<xsl:value-of select="m:Round(3999.99, 20)"/>
 		<xsl:variable name="tokens" select="tokenize($gra/ph/@xAxisType, '~')"/>
 		<xsl:value-of select="$tokens"/><xsl:text> || </xsl:text>
 		<xsl:value-of select="$tokens[1]"/><xsl:text> || </xsl:text>

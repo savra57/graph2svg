@@ -12,7 +12,7 @@ version 02
 version 03 - under development
 	* new directory structure
 	* comments in the code in English
-	* new test utils
+	* new test utilities
 	* relaxNG schemas from Dave Pawson
 	* "botom" renamed to "bottom"
 	* common functionality from scripts moved to graph2svg_common.xsl
@@ -21,9 +21,9 @@ version 03 - under development
 
 TODO - shortTerm
     * finish times and dates 
-    	- for other graphs
     	- document
     * check/finish/clean up the testing tools
+    	- release goal
     * more doc:
     	- try using the project WIKI 
     	- improve document test utils
