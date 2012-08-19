@@ -48,3 +48,4 @@ TODO
     * improve columns: shadows, correct cylinders, cone
     * try and upgrade combination with elements from other name spaces (e.g. MathML)
 	* consider colors like: title color, background color, axis colors
+	
