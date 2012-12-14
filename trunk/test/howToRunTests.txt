@@ -36,5 +36,5 @@ generatePng.dir=c:/Temp/__testG2S/_examples/
 c:\java\apache-ant-1.8.0\bin\ant genereatePng
 
 #
-the ant script will recursively go through all directories in a given file and 
-every file with .svg extension will transform to .png (to the same directory).
+the ant script will recursively go through all directories in a given folder and 
+transforms every file with .svg extension will to .png (to the same directory).
