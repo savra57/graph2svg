@@ -13,9 +13,9 @@ elements: xygr, msgr, osgr
 
 when axisType=dateTime
  - for examples see: http://www.w3.org/TR/xslt20/#date-time-examples
- - in general the value of yAxisDateTimeFormat follows the template:
+ - in general the value of xAxisLabelsFormat / yAxisLabelsFormat follows the template:
       <picture>~<language>~<calendar>~<country>
-   where all the parts are send to the the function format-dateTime as described on the page refered above.
+   where all the parts are send to the function format-dateTime as described on the page refered above.
    The language, calendar and country parts are optional.
    Note that due to the fact the "~" is used as delimiter the pattern cannot contain it. 
  - if empty an automatic pattern is used (as the picture part):
@@ -40,7 +40,7 @@ yAxisLabelsFormat="###.000"
 elements: xygr, msgr, osgr
  - allow to overwrite the automatically calculated maximum and minimum
  - it is still rounded to the whole step (always up)
- - if the data points will be painted regardless if they are within the dimensions specified 
+ - the data points will be painted regardless if they are within the dimensions specified 
  - not specified dimensions are calculated the old way
  - for osgr and msgr graphs applicable only on y axis
  - combining with msgr graphs of type stacked="percentage" is not recommended
