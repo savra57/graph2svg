@@ -12,10 +12,10 @@ import org.xml.sax.SAXParseException;
 
 import com.googlecode.graph2svg.tools.fileFilter.RegExpFileFilter;
 
-
 public class BatchRelaxNgValidator {
 
-	public static void main(String[] args) throws VerifierConfigurationException, SAXException, IOException {
+	public static void main(String[] args)
+			throws VerifierConfigurationException, SAXException, IOException {
 		// create a VerifierFactory
 		VerifierFactory factory = new com.sun.msv.verifier.jarv.TheFactoryImpl();
 
@@ -30,7 +30,8 @@ public class BatchRelaxNgValidator {
 
 		// obtain a verifier
 		Verifier verifier = schema.newVerifier();
-		verifier.setErrorHandler(new MyErrorHandler());
+		MyErrorHandler myErrorHandler = new MyErrorHandler("RelaxNG");
+		verifier.setErrorHandler(myErrorHandler);
 
 		String fileName = args[1]; // "gr7.xml";
 
@@ -43,12 +44,16 @@ public class BatchRelaxNgValidator {
 			} else {
 				filterString = ".*\\.xml"; // default
 			}
-			File[] fileList = file.listFiles(new RegExpFileFilter(filterString));
+			File[] fileList = file
+					.listFiles(new RegExpFileFilter(filterString));
 			for (File f : fileList) {
+				myErrorHandler.reset();
 				verifyFile(verifier, f);
+				myErrorHandler.printMessages();
 			}
 		} else {
 			verifyFile(verifier, file);
+			myErrorHandler.printMessages();
 		}
 
 		// check the validity of a DOM.
@@ -59,7 +64,8 @@ public class BatchRelaxNgValidator {
 		// ...
 	}
 
-	private static void verifyFile(Verifier verifier, File xmlFile) throws SAXException, IOException {
+	private static void verifyFile(Verifier verifier, File xmlFile)
+			throws SAXException, IOException {
 		System.out.print(xmlFile + ": ");
 		try {
 			if (verifier.verify(xmlFile)) {

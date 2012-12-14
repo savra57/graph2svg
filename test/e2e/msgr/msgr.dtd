@@ -5,6 +5,7 @@
 <!ELEMENT name (#PCDATA)>
 <!ELEMENT value (#PCDATA)>
 <!ATTLIST msgr 
+			xmlns CDATA #FIXED "http://graph2svg.googlecode.com"
 			stacked (none|sum|percentage) "none"
 			shift CDATA "0"
 			effect (2D|3D) "2D"
@@ -12,7 +13,8 @@
 			lineType (none|solid|dot|dash|longDash|dash-dot|longDash-dot|dash-dot-dot|longDash-dash|dash-dash-dot-dot) "solid"
 			pointType (none|point|cross|plus|minus|star|square|circle|triangle|rhomb|pyramid|squareF|circleF|triangleF|rhombF|pyramidF) "none"
 			fillArea  (yes|no) "no"
-			yAxisType  (auto|withZero|shifted|log) "auto"
+			yAxisType  (auto|withZero|shifted|log|dateTime) "auto"
+			yAxisLabelsFormat CDATA #IMPLIED
 			yAxisDivision  (none|1|2|4|5|10) "1"
 			xAxisDivision  (none|major|minor|both) "minor"
 			xAxisPos (bottom|origin) "origin"

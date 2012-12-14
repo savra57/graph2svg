@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--DOCTYPE osgr SYSTEM "msgr.dtd"-->
+<!DOCTYPE msgr SYSTEM "msgr.dtd">
 <msgr xmlns="http://graph2svg.googlecode.com"
 		legend="top"
 		yAxisType="dateTime"
