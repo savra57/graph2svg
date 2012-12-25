@@ -165,6 +165,7 @@ bottom left of the graph </html:p>
           <value>withZero</value>
           <value>shifted</value>
           <value>log</value>
+          <value>dateTime</value>
         </choice>
       </attribute>
     </optional>
@@ -183,11 +184,61 @@ bottom left of the graph </html:p>
           <value>withZero</value>
           <value>shifted</value>
           <value>log</value>
+          <value>dateTime</value>
         </choice>
       </attribute>
     </optional>
+    
+    <optional>
+      <attribute name="xAxisLabelsFormat" a:defaultValue="auto">
+      <a:documentation>
+	<html:p></html:p>
+      </a:documentation>
+        <text/>
+      </attribute>
+    </optional>
 
+    <optional>
+      <attribute name="yAxisLabelsFormat" a:defaultValue="auto">
+      <a:documentation>
+	<html:p></html:p>
+      </a:documentation>
+        <text/>
+      </attribute>
+    </optional>
+    
+    <optional>
+      <attribute name="xAxisMin"/>
+    </optional>
+    
+    <optional>
+      <attribute name="yAxisMin"/>
+    </optional>
+    
+    <optional>
+      <attribute name="xAxisMax"/>
+    </optional>
+    
+    <optional>
+      <attribute name="yAxisMax"/>
+    </optional>
+    
+    <optional>
+      <attribute name="xAxisStep"/>
+    </optional>
 
+    <optional>
+      <attribute name="yAxisStep"/>
+    </optional>
+    
+    <optional>
+      <attribute name="xAxisMarkCount"/>
+    </optional>
+
+    <optional>
+      <attribute name="yAxisMarkCount"/>
+    </optional>
+    
     <optional>
  <a:documentation>
     <html:p>Attribute xAxisDivision. How the X axis is divided up. Select
