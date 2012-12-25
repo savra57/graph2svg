@@ -38,7 +38,7 @@ TODO - shortTerm
     
     
 TODO
-    * rotation for x axis in xygr
+    * label rotation for x axis in xygr
     * gradients in 3Dpie
     * better lay out when long names
     * new attributes in msgr: name of axes, labelIn/Out...

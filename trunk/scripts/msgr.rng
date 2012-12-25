@@ -219,8 +219,34 @@ datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
           <value>withZero</value>
           <value>shifted</value>
           <value>log</value>
+          <value>dateTime</value>
         </choice>
       </attribute>
+    </optional>
+    
+    <optional>
+      <attribute name="yAxisLabelsFormat" a:defaultValue="auto">
+      <a:documentation>
+	<html:p></html:p>
+      </a:documentation>
+        <text/>
+      </attribute>
+    </optional>
+    
+    <optional>
+      <attribute name="yAxisMin"/>
+    </optional>
+    
+     <optional>
+      <attribute name="yAxisMax"/>
+    </optional>
+    
+    <optional>
+      <attribute name="yAxisStep"/>
+    </optional>
+    
+     <optional>
+      <attribute name="yAxisMarkCount"/>
     </optional>
 
     <optional>
