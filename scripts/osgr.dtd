@@ -5,18 +5,27 @@
 <!ELEMENT name (#PCDATA)>
 <!ELEMENT value (#PCDATA)>
 <!ATTLIST osgr 
+			xmlns CDATA #FIXED "http://graph2svg.googlecode.com"
 			graphType (pie|norm) "norm"
 			effect (2D|3D) "2D"
 			colType  (none|block|cylinder|cone|pyramid|line) "block"
 			lineType (none|solid|dot|dash|longDash|dash-dot|longDash-dot|dash-dot-dot|longDash-dash|dash-dash-dot-dot) "none"
 			pointType (none|point|cross|plus|minus|star|square|circle|triangle|rhomb|pyramid|squareF|circleF|triangleF|rhombF|pyramidF) "none"
 			smooth (yes|no) "no"
-			yAxisType  (auto|withZero|shifted|log) "auto"
-			yAxisDivision  (none|1|2|4|5|10) "1"
+			
 			xAxisDivision  (none|major|minor|both) "major"
 			xAxisPos (bottom|origin) "origin"
 			xGrid (none|major|minor|both) "none"
+			
+			yAxisType  (auto|withZero|shifted|log|dateTime) "auto"
+			yAxisDivision  (none|1|2|4|5|10) "1"
 			yGrid (none|major|minor) "none"
+			yAxisLabelsFormat CDATA #IMPLIED
+			yAxisMin CDATA #IMPLIED
+			yAxisMax CDATA #IMPLIED
+			yAxisStep CDATA #IMPLIED
+			yAxisMarkCount CDATA #IMPLIED
+			
 			colorScheme  (color|warm|cold|grey|black) "color"
 			legend  (none|left|right|top|bottom) "none"
 			labelIn (none|value|percent|name) "none"

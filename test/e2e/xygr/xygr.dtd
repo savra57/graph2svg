@@ -9,14 +9,25 @@
 			lineType (none|solid|dot|dash|longDash|dash-dot|longDash-dot|dash-dot-dot|longDash-dash|dash-dash-dot-dot) "solid"
 			pointType  (none|point|cross|plus|line|star|square|circle|triangle|rhomb|pyramid|squareF|circleF|triangleF|rhombF|pyramidF) "none"
 			axesPos (left-bottom|origin) "origin"
+			
 			xAxisType  (auto|withZero|shifted|log|dateTime) "auto"
-			yAxisType  (auto|withZero|shifted|log|dateTime) "auto"
 			xAxisDivision  (none|1|2|4|5|10) "1"
-			yAxisDivision  (none|1|2|4|5|10) "1"
-			xAxisLabelsFormat CDATA #IMPLIED
-			yAxisLabelsFormat CDATA #IMPLIED
 			xGrid  (none|major|minor) "none"
+			xAxisLabelsFormat CDATA #IMPLIED
+			xAxisMin CDATA #IMPLIED
+			xAxisMax CDATA #IMPLIED
+			xAxisStep CDATA #IMPLIED
+			xAxisMarkCount CDATA #IMPLIED
+			
+			yAxisType  (auto|withZero|shifted|log|dateTime) "auto"
+			yAxisDivision  (none|1|2|4|5|10) "1"
 			yGrid  (none|major|minor) "none"
+			yAxisLabelsFormat CDATA #IMPLIED
+			yAxisMin CDATA #IMPLIED
+			yAxisMax CDATA #IMPLIED
+			yAxisStep CDATA #IMPLIED
+			yAxisMarkCount CDATA #IMPLIED
+			
 			legend  (none|left|right|top|bottom) "none"
 			colorScheme  (color|warm|cold|grey|black) "black">
 <!ATTLIST curve 

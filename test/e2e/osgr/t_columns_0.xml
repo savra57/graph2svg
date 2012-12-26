@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--DOCTYPE osgr SYSTEM "osgr.dtd"-->
+<!DOCTYPE osgr SYSTEM "osgr.dtd">
 <osgr xmlns="http://graph2svg.googlecode.com"
 		colorScheme="warm" labelIn="percent" labelOut="name" 
 		yAxisDivision="2"  xAxisDivision="none" pointType="circle" effect="3D"
