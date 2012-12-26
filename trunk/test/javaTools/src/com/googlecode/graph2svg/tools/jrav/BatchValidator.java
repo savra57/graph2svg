@@ -11,14 +11,11 @@ import org.xml.sax.SAXException;
 import org.xml.sax.SAXParseException;
 
 import com.googlecode.graph2svg.tools.fileFilter.RegExpFileFilter;
-import com.googlecode.graph2svg.tools.jrav.BatchValidator;
 
 /**
- * Validating XML against Relax NG schema.
- * 
- * @deprecated use {@link BatchValidator} instead.
+ * Universal XML schema validator.
  */
-public class BatchRelaxNgValidator {
+public class BatchValidator {
 
 	public static void main(String[] args)
 			throws VerifierConfigurationException, SAXException, IOException {
@@ -30,16 +27,18 @@ public class BatchRelaxNgValidator {
 			return;
 		}
 
-		String rnSchemaFile = args[0]; // "xygr.rng";
+		String schemaFileName = args[0]; // "xygr.rng" or xygr.dtd;
+		
 		// compile a RELAX schema (or whatever schema you like)
-		Schema schema = factory.compileSchema(new File(rnSchemaFile));
+		File schemaFile = new File(schemaFileName);
+		Schema schema = factory.compileSchema(schemaFile);
 
 		// obtain a verifier
 		Verifier verifier = schema.newVerifier();
-		MyErrorHandler myErrorHandler = new MyErrorHandler("RelaxNG");
+		MyErrorHandler myErrorHandler = new MyErrorHandler(schemaFile.getName());
 		verifier.setErrorHandler(myErrorHandler);
 
-		String fileName = args[1]; // "gr7.xml";
+		String fileName = args[1]; // the file to validate or a directory with xml files
 
 		File file = new File(fileName);
 
@@ -53,6 +52,12 @@ public class BatchRelaxNgValidator {
 			File[] fileList = file
 					.listFiles(new RegExpFileFilter(filterString));
 			for (File f : fileList) {
+				
+				// this has to be called because of some bug in the veryfier causing that error messages of
+				// a second invalid XML file in a row are not recored
+				verifier = schema.newVerifier();
+				verifier.setErrorHandler(myErrorHandler);
+				
 				myErrorHandler.reset();
 				verifyFile(verifier, f);
 				myErrorHandler.printMessages();
@@ -80,10 +85,9 @@ public class BatchRelaxNgValidator {
 	private static void printUsage() {
 		System.out.println("Two or tree arguments are expected:");
 		System.out
-				.println("\n   schemFile - a RelaxNG validation schema"
+				.println("\n   schemaFile - validation schema"
 						+ "\n   xmlFileDir - directory where xml files are"
 						+ "\n   filter - regEx filter string - optional, defaul: '.*\\.xml'");
-
 	}
 
 }
