@@ -6,7 +6,6 @@ import java.io.FileInputStream;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
-import javax.xml.transform.OutputKeys;
 import javax.xml.transform.Transformer;
 import javax.xml.transform.TransformerConfigurationException;
 import javax.xml.transform.TransformerFactory;
@@ -15,6 +14,11 @@ import org.w3c.dom.Document;
 
 import com.googlecode.graph2svg.tools.fileFilter.RegExpFileFilter;
 
+/**
+ * Validating XML against DTD using standard SAX parser.
+ * 
+ * @deprecated use {@link BatchValidator} instead.
+ */
 public class BatchDtdValidator {
 
 	public static void main(String[] args) throws ParserConfigurationException,
@@ -36,7 +40,11 @@ public class BatchDtdValidator {
 		TransformerFactory tf = TransformerFactory.newInstance();
 		Transformer transformer = tf.newTransformer();
 
-		transformer.setOutputProperty(OutputKeys.DOCTYPE_SYSTEM, dtdSchema);
+//		transformer.setOutputProperty(OutputKeys.DOCTYPE_SYSTEM, dtdSchema);
+		
+		File currentDir = new File(".");
+		File schemaDir = new File(currentDir, dtdSchema);
+		System.setProperty("user.dir", schemaDir.getAbsolutePath());
 
 		String fileName = args[1];
 		File file = new File(fileName);
@@ -67,13 +75,12 @@ public class BatchDtdValidator {
 			Transformer transformer, MyErrorHandler myErrorHandler, File file) {
 		System.out.print(file + ": ");
 		try {
-
 			Document xmlDocument = builder.parse(new FileInputStream(file));
 			// DOMSource source = new DOMSource(xmlDocument);
 			// StreamResult result = new StreamResult(System.out);
 			//
 			// transformer.transform(source, result);
-			if (myErrorHandler.hasMessages()) {
+			if (!myErrorHandler.hasMessages()) {
 				System.out.println(" ... ok");
 			} else {
 				System.out.println(" ... NOT VALID");
@@ -87,7 +94,7 @@ public class BatchDtdValidator {
 	private static void printUsage() {
 		System.out.println("Two or tree arguments are expected:");
 		System.out
-				.println("\n   schemFile - a DTD schema"
+				.println("\n   schemasFile - a DTD schemas directory"
 						+ "\n   xmlFileDir - directory where xml files are"
 						+ "\n   filter - regEx filter string - optional, defaul: '.*\\.xml'");
 	}

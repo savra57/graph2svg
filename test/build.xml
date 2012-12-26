@@ -1,10 +1,10 @@
 <project default="main">
 	<!-- Required to use tasks from ant-contrib -->
-	<taskdef resource="net/sf/antcontrib/antcontrib.properties"/>
+	<taskdef resource="net/sf/antcontrib/antcontrib.properties" />
 
-	<property file="build.properties"/>
-	
-	<!-- runs the batch validation for specified directory -->
+	<property file="build.properties" />
+
+	<!-- runs batch validation for specified directory and schema (both Relax NG or DTD) -->
 	<target name="validate">
 		<path id="batchValidator.classpath">
 			<pathelement location="${batchValidator.classpathDir}" />
@@ -15,15 +15,15 @@
 			<pathelement location="${batchValidator.jarDir}/xmlParserAPIs.jar" />
 			<pathelement location="${batchValidator.jarDir}/xsdlib.jar" />
 		</path>
-		
-		<java  classname="${batchValidator.Class}"
-				classpathref="batchValidator.classpath" fork="true" >
-			<arg value="${schemFile}" />
+
+		<java classname="${batchValidator.Class}" classpathref="batchValidator.classpath" fork="true">
+			<arg value="${schemaFile}" />
 			<arg value="${xmlFileDir}" />
-			<!--arg value="${filter}"/--> <!-- optional -->
+			<!-- optional -->
+			<!--arg value="${filter}"/-->
 		</java>
 	</target>
-	
+
 	<!-- runs XSLT transformation on every file in the specified directory (respecting the filter give)
 	results are generated to the specified subdirectory -->
 	<target name="transform">
@@ -32,20 +32,24 @@
 			<pathelement location="${batchTransform.saxonJar}" />
 		</path>
 		<java classname="${batchTransform.Class}" classpathref="batchTransform.classpath" fork="true">
-			<arg value="${style}"/>
+			<arg value="${style}" />
 			<arg value="${xmlFileDir}" />
 			<arg value="${outputExtension}" />
-			<arg value="generated" />  <!-- output directory, relative to input, optional -->
-			<arg value="${batchTransform.filter}" /><!-- optional -->
+
+			<!-- output directory, relative to input, optional -->
+			<arg value="generated" />
+
+			<!-- optional -->
+			<arg value="${batchTransform.filter}" />
 		</java>
 	</target>
 
 	<!--transform one file - not used but keep it to know the syntax-->
 	<target name="transformFile">
 		<!-- java -jar  d:\kuba\_prog\saxon8-8j\saxon8.jar -o pic.svg gr.xml use_msgr2svg.xsl-->
-		<java  jar="${saxonJar}" fork="true" >
+		<java jar="${saxonJar}" fork="true">
 			<arg value="${inputFile}" />
-			<arg value="${style}"/>
+			<arg value="${style}" />
 		</java>
 	</target>
 
@@ -57,108 +61,129 @@
 		</path>
 		<java classname="${createComparison.Class}" classpathref="createComparison.classpath">
 			<arg value="${outputFile}" />
-			<arg value="${generatedSubdir}"/>
-			<arg value="${templatesSubdir}"/>
-			<arg value="${createComparison.filter}"/> <!-- optional -->
+			<arg value="${generatedSubdir}" />
+			<arg value="${templatesSubdir}" />
+			<!-- optional -->
+			<arg value="${createComparison.filter}" />
 		</java>
 	</target>
-	
-	
+
+
 	<target name="generatePngFromSvg">
 		<!-- TODO directory or more files -->
 		<!-- TODO size of a picture / ration -->
 		<exec executable="${generatePng.inkscape}">
-			<arg value="-f"/>
-			<arg value="${svgFile}"/>
-			<arg value="-e"/>
-			<arg value="${svgFile}${pngFileExtension}"/>
-			<arg value="-b"/>
-			<arg value="white"/>
-			<arg value="-d"/>
-			<arg value="200"/>
+			<arg value="-f" />
+			<arg value="${svgFile}" />
+			<arg value="-e" />
+			<arg value="${svgFile}${pngFileExtension}" />
+			<arg value="-b" />
+			<arg value="white" />
+			<arg value="-d" />
+			<arg value="200" />
 		</exec>
 	</target>
-	
+
 	<!-- recursively go through all directories in a given file and 
 		every file with .svg extension will transform to .png (to the same directory).-->
 	<target name="generatePng">
-		<foreach target="generatePngFromSvg" param="svgFile"> 
-			<param name="pngFileExtension" value=".png"/>
-			<path>  
-				<fileset dir="${generatePng.dir}">  
-					<include name="**/*.svg"/>  
-				</fileset>  
-			</path>  
-		</foreach>  
+		<foreach target="generatePngFromSvg" param="svgFile">
+			<param name="pngFileExtension" value=".png" />
+			<path>
+				<fileset dir="${generatePng.dir}">
+					<include name="**/*.svg" />
+				</fileset>
+			</path>
+		</foreach>
 	</target>
-	
+
 	<!-- bulk targets -->
-	<target name="validateAll">
+	<target name="validateAllRng">
 		<antcall target="validate">
-			<param name="schemFile" value="..\scripts\osgr.rng"/>
-			<param name="xmlFileDir" value="e2e\osgr"/>
+			<param name="schemaFile" value="..\scripts\osgr.rng" />
+			<param name="xmlFileDir" value="e2e\osgr" />
 		</antcall>
 		<antcall target="validate">
-			<param name="schemFile" value="..\scripts\msgr.rng"/>
-			<param name="xmlFileDir" value="e2e\msgr"/>
+			<param name="schemaFile" value="..\scripts\msgr.rng" />
+			<param name="xmlFileDir" value="e2e\msgr" />
 		</antcall>
 		<antcall target="validate">
-			<param name="schemFile" value="..\scripts\xygr.rng"/>
-			<param name="xmlFileDir" value="e2e\xygr"/>
+			<param name="schemaFile" value="..\scripts\xygr.rng" />
+			<param name="xmlFileDir" value="e2e\xygr" />
 		</antcall>
 	</target>
-	
+
+	<target name="validateAllDtd">
+		<antcall target="validate">
+			<param name="schemaFile" value="..\scripts\osgr.dtd" />
+			<param name="xmlFileDir" value="e2e\osgr" />
+		</antcall>
+		<antcall target="validate">
+			<param name="schemaFile" value="..\scripts\msgr.dtd" />
+			<param name="xmlFileDir" value="e2e\msgr" />
+		</antcall>
+		<antcall target="validate">
+			<param name="schemaFile" value="..\scripts\xygr.dtd" />
+			<param name="xmlFileDir" value="e2e\xygr" />
+		</antcall>
+	</target>
+
+	<target name="validateAll">
+		<antcall target="validateAllDtd"/>
+		<antcall target="validateAllRng"/>
+	</target>
+
 	<target name="testOsgr">
 		<antcall target="transform">
-			<param name="style" value="..\scripts\graph2svg.xsl"/>
-			<param name="xmlFileDir" value="e2e\osgr"/>
-			<param name="outputExtension" value="svg"/>
+			<param name="style" value="..\scripts\graph2svg.xsl" />
+			<param name="xmlFileDir" value="e2e\osgr" />
+			<param name="outputExtension" value="svg" />
 		</antcall>
 
 		<antcall target="createComparison">
-			<param name="outputFile" value="e2e\osgr\comparison.html"/>
-			<param name="generatedSubdir" value="generated"/>
-			<param name="templatesSubdir" value="templates"/>
+			<param name="outputFile" value="e2e\osgr\comparison.html" />
+			<param name="generatedSubdir" value="generated" />
+			<param name="templatesSubdir" value="templates" />
 		</antcall>
 	</target>
-	
+
 	<target name="testMsgr">
 		<antcall target="transform">
-			<param name="style" value="..\scripts\graph2svg.xsl"/>
-			<param name="xmlFileDir" value="e2e\msgr"/>
-			<param name="outputExtension" value="svg"/>
+			<param name="style" value="..\scripts\graph2svg.xsl" />
+			<param name="xmlFileDir" value="e2e\msgr" />
+			<param name="outputExtension" value="svg" />
 		</antcall>
 
 		<antcall target="createComparison">
-			<param name="outputFile" value="e2e\msgr\comparison.html"/>
-			<param name="generatedSubdir" value="generated"/>
-			<param name="templatesSubdir" value="templates"/>
+			<param name="outputFile" value="e2e\msgr\comparison.html" />
+			<param name="generatedSubdir" value="generated" />
+			<param name="templatesSubdir" value="templates" />
 		</antcall>
 	</target>
-	
+
 	<target name="testXygr">
 		<antcall target="transform">
-			<param name="style" value="..\scripts\graph2svg.xsl"/>
-			<param name="xmlFileDir" value="e2e\xygr"/>
-			<param name="outputExtension" value="svg"/>
+			<param name="style" value="..\scripts\graph2svg.xsl" />
+			<param name="xmlFileDir" value="e2e\xygr" />
+			<param name="outputExtension" value="svg" />
 		</antcall>
 
 		<antcall target="createComparison">
-			<param name="outputFile" value="e2e\xygr\comparison.html"/>
-			<param name="generatedSubdir" value="generated"/>
-			<param name="templatesSubdir" value="templates"/>
+			<param name="outputFile" value="e2e\xygr\comparison.html" />
+			<param name="generatedSubdir" value="generated" />
+			<param name="templatesSubdir" value="templates" />
 		</antcall>
 	</target>
-	
+
 	<target name="testAll">
-		<antcall target="testOsgr"/>
-		<antcall target="testMsgr"/>
-		<antcall target="testXygr"/>
+		<antcall target="testOsgr" />
+		<antcall target="testMsgr" />
+		<antcall target="testXygr" />
 	</target>
 
 	<target name="main">
-		<antcall target="validateAll"/>
-		<antcall target="testAll"/>
+		<antcall target="validateAll" />
+		<antcall target="testAll" />
 	</target>
 
 </project>
