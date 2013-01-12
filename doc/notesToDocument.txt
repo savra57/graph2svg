@@ -15,7 +15,7 @@ when axisType=dateTime
  - for examples see: http://www.w3.org/TR/xslt20/#date-time-examples
  - in general the value of xAxisLabelsFormat / yAxisLabelsFormat follows the template:
       <picture>~<language>~<calendar>~<country>
-   where all the parts are send to the function format-dateTime as described on the page refered above.
+   where all the parts are send to the function format-dateTime as described on the page referred above.
    The language, calendar and country parts are optional.
    Note that due to the fact the "~" is used as delimiter the pattern cannot contain it. 
  - if empty an automatic pattern is used (as the picture part):
@@ -24,13 +24,11 @@ when axisType=dateTime
  	- if step is in minutes: [H01]:[m01] 
  	- if step is in seconds: [m01]:[s01]
  - the argument is ignored if the axisType is not dateTime
- 
 
 when axisType is a normal number, i.e.: auto, shifted or withZero (not log)
  - see: http://www.w3schools.com/xsl/func_formatnumber.asp
  - default is '#.##############'
  - for msgr graph with stacked="percentage" the default pattern is ' ##%' 
- 
 
 examples:
 yAxisLabelsFormat="###.000"
@@ -53,3 +51,68 @@ elements: xygr, msgr, osgr
 *** xAxisMarkCount / yAxisMarkCount
 elements: xygr, msgr, osgr
  - for osgr and msgr graphs applicable only on y axis
+ - graph2svg schemas calculate the step length automatically (unless xAxisStep or yAxisStep is specified)
+ - it tries to find an optimal length and number of marks so the step length is a round number and 
+   the number of marks is close to a specified number
+ - the default number of marks the algorithm is trying to achieve is 11, that can be overwritten with
+   xAxisMarkCount / yAxisMarkCount properties
+ - for osgr and msgr graphs the attributes are applicable only on y axis
+
+*** graphMargin
+elements: xygr, msgr, osgr
+ - margin around the whole graph
+ - default 15
+
+*** titleMargin
+elements: xygr, msgr, osgr
+ - margin of the title
+ - default 10
+
+*** titleFontSize
+elements: xygr, msgr, osgr
+ - the title font size
+ - default 18
+ 
+*** labelAngle
+elements: xygr, msgr, osgr
+ - if the algorithm decides that the x axis labels are too long they are displayed rotated
+ - the labelAngle attribute allows to overwrite the rotation angle
+ - default 25
+
+*** labelFontSize
+elements: xygr, msgr, osgr
+ - the axis label font size
+ - for the osgr it is applied to inner or outer labels
+ - default 10, 12 for osgr
+
+*** legendMargin (15), legendPictureWd (28), legendPictureHg (20), legendLineHg (24), legendGap (5), legendFontSize (10)
+elements: xygr, msgr, osgr
+ - various sizes for the legend layout
+ - default value is in the brackets
+
+*** categoryGap
+elements: msgr, osgr
+ - size of the gap between columns of different categories
+ - default 10
+
+*** columnWd
+elements: msgr, osgr
+ - column width
+ - default 20 for msgr, 30 for osgr
+
+*** xAxisMarkDist
+elements: xygr
+ - distance between major marks on the x axis
+ - default 35
+ 
+*** yAxisMarkDist
+elements: xygr, msgr, osgr
+ - distance between major marks on the y axis
+ - default 25
+
+*** curveFontSize
+elements: xygr
+ - size of the font for curve names (curve labels)
+ - default 10
+
+ 

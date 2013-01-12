@@ -17,6 +17,8 @@
 			xAxisDivision  (none|major|minor|both) "minor"
 			xAxisPos (bottom|origin) "origin"
 			xGrid (none|major|minor|both) "none"
+			categoryGap CDATA #IMPLIED
+			columnWd CDATA #IMPLIED
 			
 			yAxisType  (auto|withZero|shifted|log|dateTime) "auto"
 			yAxisDivision  (none|1|2|4|5|10) "1"
@@ -26,8 +28,23 @@
 			yAxisMax CDATA #IMPLIED
 			yAxisStep CDATA #IMPLIED
 			yAxisMarkCount CDATA #IMPLIED
+			yAxisMarkDist CDATA #IMPLIED
 			
 			legend  (none|left|right|top|bottom) "right"
+			legendMargin CDATA #IMPLIED
+			legendPictureWd CDATA #IMPLIED
+			legendPictureHg CDATA #IMPLIED
+			legendLineHg CDATA #IMPLIED
+			legendGap CDATA #IMPLIED
+			legendFontSize CDATA #IMPLIED
+
+			graphMargin CDATA #IMPLIED
+			titleMargin CDATA #IMPLIED
+			titleFontSize CDATA #IMPLIED
+			
+			labelAngle CDATA #IMPLIED
+			labelFontSize CDATA #IMPLIED
+			
 			colorScheme  (color|warm|cold|grey|black) "color">
 <!ATTLIST title color CDATA #IMPLIED>
 <!ATTLIST values 

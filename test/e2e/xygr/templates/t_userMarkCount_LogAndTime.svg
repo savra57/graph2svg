@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg:svg xmlns:svg="http://www.w3.org/2000/svg" viewBox="0 0 879.2 278">
+   <svg:desc>Axes - user step for log and time axis</svg:desc>
+   <svg:g>
+      <svg:text x="439.6" y="28" text-anchor="middle" font-family="Verdana" font-size="18"
+                fill="black">Axes - user step for log and time axis</svg:text>
+   </svg:g>
+   <svg:g stroke="black">
+      <svg:path d="M77.2,180 l0,6 m35,-6 l0,6 m35,-6 l0,6 m35,-6 l0,6 m35,-6 l0,6 m35,-6 l0,6 m35,-6 l0,6 m35,-6 l0,6 m35,-6 l0,6 m35,-6 l0,6 m35,-6 l0,6 m35,-6 l0,6 m35,-6 l0,6 m35,-6 l0,6 m35,-6 l0,6 m35,-6 l0,6 m35,-6 l0,6 m35,-6 l0,6 m35,-6 l0,6 m35,-6 l0,6 m35,-6 l0,6 m35,-6 l0,6 m35,-6 l0,6"
+                stroke-width="1"/>
+      <svg:path d="M39.2,258 l6,0  m-6,-25 l6,0  m-6,-25 l6,0  m-6,-25 l6,0  m-6,-25 l6,0  m-6,-25 l6,0  m-6,-25 l6,0  m-6,-25 l6,0  m-6,-25 l6,0 "
+                stroke-width="1"/>
+   </svg:g>
+   <svg:g stroke="black" stroke-width="1">
+      <svg:line stroke-dasharray="2,3" x1="42.2" y1="183" x2="77.2" y2="183"/>
+      <svg:line x1="77.2" y1="183" x2="847.2" y2="183"/>
+   </svg:g>
+   <svg:g text-anchor="middle" font-family="Verdana" font-size="10" fill="black">
+      <svg:text x="77.2" y="196">09:00</svg:text>
+      <svg:text x="112.2" y="196">09:15</svg:text>
+      <svg:text x="147.2" y="196">09:30</svg:text>
+      <svg:text x="182.2" y="196">09:45</svg:text>
+      <svg:text x="217.2" y="196">10:00</svg:text>
+      <svg:text x="252.2" y="196">10:15</svg:text>
+      <svg:text x="287.2" y="196">10:30</svg:text>
+      <svg:text x="322.2" y="196">10:45</svg:text>
+      <svg:text x="357.2" y="196">11:00</svg:text>
+      <svg:text x="392.2" y="196">11:15</svg:text>
+      <svg:text x="427.2" y="196">11:30</svg:text>
+      <svg:text x="462.2" y="196">11:45</svg:text>
+      <svg:text x="497.2" y="196">12:00</svg:text>
+      <svg:text x="532.2" y="196">12:15</svg:text>
+      <svg:text x="567.2" y="196">12:30</svg:text>
+      <svg:text x="602.2" y="196">12:45</svg:text>
+      <svg:text x="637.2" y="196">13:00</svg:text>
+      <svg:text x="672.2" y="196">13:15</svg:text>
+      <svg:text x="707.2" y="196">13:30</svg:text>
+      <svg:text x="742.2" y="196">13:45</svg:text>
+      <svg:text x="777.2" y="196">14:00</svg:text>
+      <svg:text x="812.2" y="196">14:15</svg:text>
+      <svg:text x="847.2" y="196">14:30</svg:text>
+   </svg:g>
+   <svg:g stroke="black" stroke-width="1">
+      <svg:line x1="42.2" y1="258" x2="42.2" y2="58"/>
+   </svg:g>
+   <svg:g text-anchor="end" font-family="Verdana" font-size="10" fill="black">
+      <svg:text x="36.2" y="261.5">10<svg:tspan font-size="7.5" dy="-4">-3</svg:tspan>
+      </svg:text>
+      <svg:text x="36.2" y="236.5">10<svg:tspan font-size="7.5" dy="-4">-2</svg:tspan>
+      </svg:text>
+      <svg:text x="36.2" y="211.5">10<svg:tspan font-size="7.5" dy="-4">-1</svg:tspan>
+      </svg:text>
+      <svg:text x="36.2" y="186.5">10<svg:tspan font-size="7.5" dy="-4">0</svg:tspan>
+      </svg:text>
+      <svg:text x="36.2" y="161.5">10<svg:tspan font-size="7.5" dy="-4">1</svg:tspan>
+      </svg:text>
+      <svg:text x="36.2" y="136.5">10<svg:tspan font-size="7.5" dy="-4">2</svg:tspan>
+      </svg:text>
+      <svg:text x="36.2" y="111.5">10<svg:tspan font-size="7.5" dy="-4">3</svg:tspan>
+      </svg:text>
+      <svg:text x="36.2" y="86.5">10<svg:tspan font-size="7.5" dy="-4">4</svg:tspan>
+      </svg:text>
+      <svg:text x="36.2" y="61.5">10<svg:tspan font-size="7.5" dy="-4">5</svg:tspan>
+      </svg:text>
+   </svg:g>
+   <svg:g stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <svg:path d="M77.2,82.73 L287.59,89.48 L474.29,128.6 L637.67,250.47 L847.16,158"
+                stroke="black"/>
+   </svg:g>
+   <svg:g stroke-width="1.5" fill="none" color="black" stroke="black"
+          stroke-linecap="round">
+      <svg:circle cx="77.2" cy="82.73" r="1.5" fill="currentColor"/>
+      <svg:circle cx="287.59" cy="89.48" r="1.5" fill="currentColor"/>
+      <svg:circle cx="474.29" cy="128.6" r="1.5" fill="currentColor"/>
+      <svg:circle cx="637.67" cy="250.47" r="1.5" fill="currentColor"/>
+      <svg:circle cx="847.16" cy="158" r="1.5" fill="currentColor"/>
+   </svg:g>
+   <svg:rect x="0.5" y="0.5" width="878.2" height="277" stroke="black" fill="none"
+             stroke-width="1"/>
+</svg:svg>

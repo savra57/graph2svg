@@ -19,23 +19,23 @@
 
 <!-- Constants can be overwritten in some scripts -->
 
-<xsl:variable name="titleMargin"  select="10"/>
-<xsl:variable name="titleFontSize"  select="18"/>
-<xsl:variable name="labelFontSize"  select="10"/>
+<xsl:variable name="titleMargin"  select="m:Att('titleMargin', 10)"/>
+<xsl:variable name="titleFontSize"  select="m:Att('titleFontSize', 18)"/>
+<xsl:variable name="labelFontSize"  select="m:Att('labelFontSize', 10)"/>
 <xsl:variable name="labelFontWd"  select="0.68"/>  <!-- average length of letter divided a font high -->
-<xsl:variable name="labelAngle"  select="25"/>
-<xsl:variable name="graphMargin"  select="15"/>
-<xsl:variable name="yAxisMarkDist"  select="25"/>
+<xsl:variable name="labelAngle"  select="m:Att('labelAngle', 25)"/>
+<xsl:variable name="graphMargin"  select="m:Att('graphMargin', 15)"/>
+<xsl:variable name="yAxisMarkDist"  select="m:Att('yAxisMarkDist', 25)"/>
 <xsl:variable name="defaultMarkAutoCount"  select="11"/> <!-- automatic choice will try to be close to this values -->
-<xsl:variable name="axesAutoCoef"  select="0.8"/>  <!-- coeficient used for decision wheather display 0 whe automatically choosing axes range -->
+<xsl:variable name="axesAutoCoef"  select="0.8"/>  <!-- coefficient used for decision weather to display 0 when automatically choosing axes range -->
 <xsl:variable name="axesStroke-width" select="1"/>
-<xsl:variable name="legendMargin"  select="15"/>
-<xsl:variable name="legendPictureWd"  select="28"/>
-<xsl:variable name="legendPictureHg"  select="20"/>    <!-- height of the pictogram in the legend, have to be less then legendLineHg-->
-<xsl:variable name="legendGap"  select="5"/>
-<xsl:variable name="legendFontSize"  select="10"/>
+<xsl:variable name="legendMargin"  select="m:Att('legendMargin', 15)"/>
+<xsl:variable name="legendPictureWd"  select="m:Att('legendPictureWd', 28)"/>
+<xsl:variable name="legendPictureHg"  select="m:Att('legendPictureHg', 20)"/>    <!-- height of the pictogram in the legend, have to be less then legendLineHg-->
+<xsl:variable name="legendGap"  select="m:Att('legendGap', 5)"/>
+<xsl:variable name="legendFontSize"  select="m:Att('legendFontSize', 10)"/>
 <xsl:variable name="legendFontWd"  select="0.61"/>
-<xsl:variable name="legendLineHg"  select="24"/>  <!-- high of a row in legend -->
+<xsl:variable name="legendLineHg"  select="m:Att('legendLineHg', 24)"/>  <!-- high of a row in legend -->
 
 <xsl:variable name="majorMarkLen"  select="3"/>  <!-- 1/2 of the length of major marks on axes -->
 <xsl:variable name="majorMarkStroke-width" select="1"/>
@@ -59,7 +59,7 @@
 <!--*********************************** drawing functions ************************-->
 <!--******************************************************************************-->
 
-<!-- return "dasharay" for given curve (line) type -->
+<!-- return "dash-array" for given curve (line) type -->
 <xsl:function name="m:LineType">
 	<xsl:param name="t"/>
 	<xsl:value-of select="
@@ -152,7 +152,7 @@
 </xsl:template>
 
 <!-- not used in xygr -->
-<!-- return SVG path drawing an half-ellips in positive direction -->
+<!-- return SVG path drawing an half-ellipse in positive direction -->
 <xsl:function name="m:Arc">
 	<xsl:param name="dx"/>
 	<xsl:param name="hg"/>
@@ -564,6 +564,20 @@ numbers:
 <xsl:function name="m:R"> 
 	<xsl:param name="val"/>
 	<xsl:value-of select="round($val * 100) div 100"/>
+</xsl:function>
+
+<!-- returns the main node attribute value or the specified default value if the attribute is undefined -->
+<xsl:function name="m:Att">
+	<xsl:param name="attributeName"/>
+	<xsl:param name="defaultValue"/>
+	<xsl:value-of select="m:DefaultValue($graph/@*[local-name() = $attributeName], $defaultValue)"/>
+</xsl:function>
+
+<!-- returns the node value if the node exists the default value otherwise -->
+<xsl:function name="m:DefaultValue">
+	<xsl:param name="attributeNode"/>
+	<xsl:param name="defaultValue"/>
+	<xsl:value-of select="if ($attributeNode) then $attributeNode else $defaultValue"/> <!-- attribute::*[local-name() = $attributeName]"/>  -->
 </xsl:function>
 
 

@@ -15,7 +15,6 @@
 "doctype-system="http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"-->
 
 <xsl:template name="m:xygr2svg">
-	<xsl:param name="graph"/>
 	<xsl:variable name="gra">
 		<ph>
 		<xsl:apply-templates select="$graph/@*" mode="m:processValues">
@@ -37,8 +36,8 @@
 	<xsl:variable name="legendLineHg"  select="16"/>  <!-- high of a row in legend-->
 	
 	<!-- constants specific to XYGR-->
-	<xsl:variable name="curveFontSize"  select="10"/>
-	<xsl:variable name="xAxisMarkDist"  select="35"/>
+	<xsl:variable name="curveFontSize"  select="m:Att('curveFontSize', 10)"/>
+	<xsl:variable name="xAxisMarkDist"  select="m:Att('xAxisMarkDist', 35)"/>
 	
 	
 	<!-- variable calculations-->
@@ -523,11 +522,10 @@
 				 "/><xsl:text> for</xsl:text>
 		<xsl:value-of select="/graph/@xAxisType"/>
 	</svg:text>
-	<svg:text x="{$originX}" y="{$originY - 20}" font-family="Verdana" font-size="{$labelFontSize}">
-		<xsl:value-of select="m:Log10(1000)"/><xsl:text> || </xsl:text>
-		<xsl:value-of select="m:Log10(20.08554)"/><xsl:text> || </xsl:text>
-		<xsl:value-of select="/graph/@xAxisType"/>
-	</svg:text>-->
+	<svg:text x="{$originX + 5}" y="{$originY - 40}" font-family="Verdana" font-size="{$labelFontSize}">
+		<xsl:value-of select="$graphMargin"/><xsl:text> || </xsl:text>
+		<xsl:value-of select="$gra/ph/@graphMargin"/>
+	</svg:text> -->
 	<!--svg:text x="{$legendX}" y="{$legendY}" font-family="Verdana" font-size="{$labelFontSize}">
 		<xsl:variable name="tokens" select="tokenize($gra/ph/@xAxisType, '~')"/>
 		<xsl:value-of select="$tokens"/><xsl:text> || </xsl:text>

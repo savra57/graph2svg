@@ -4,6 +4,7 @@
 	xmlns:m="http://graph2svg.googlecode.com"
 	xmlns:gr="http://graph2svg.googlecode.com"
 	>
+<xsl:variable name="graph" select="./gr:*"/>
 
 <xsl:include href="graph2svg_common.xsl"/>
 
@@ -14,21 +15,15 @@
 <xsl:output method="xml" encoding="utf-8"/>
 
 <xsl:template match="gr:osgr">
-	<xsl:call-template name="m:osgr2svg">
-		<xsl:with-param name="graph" select="."/>
-	</xsl:call-template>
+	<xsl:call-template name="m:osgr2svg"/>
 </xsl:template>
 
 <xsl:template match="gr:msgr">
-	<xsl:call-template name="m:msgr2svg">
-		<xsl:with-param name="graph" select="."/>
-	</xsl:call-template>
+	<xsl:call-template name="m:msgr2svg"/>
 </xsl:template>
 
 <xsl:template match="gr:xygr">
-	<xsl:call-template name="m:xygr2svg">
-		<xsl:with-param name="graph" select="."/>
-	</xsl:call-template>
+	<xsl:call-template name="m:xygr2svg"/>
 </xsl:template>
 
 </xsl:stylesheet>

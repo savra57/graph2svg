@@ -18,6 +18,7 @@
 			xAxisMax CDATA #IMPLIED
 			xAxisStep CDATA #IMPLIED
 			xAxisMarkCount CDATA #IMPLIED
+			xAxisMarkDist CDATA #IMPLIED
 			
 			yAxisType  (auto|withZero|shifted|log|dateTime) "auto"
 			yAxisDivision  (none|1|2|4|5|10) "1"
@@ -27,8 +28,25 @@
 			yAxisMax CDATA #IMPLIED
 			yAxisStep CDATA #IMPLIED
 			yAxisMarkCount CDATA #IMPLIED
+			yAxisMarkDist CDATA #IMPLIED
 			
 			legend  (none|left|right|top|bottom) "none"
+			legendMargin CDATA #IMPLIED
+			legendPictureWd CDATA #IMPLIED
+			legendPictureHg CDATA #IMPLIED
+			legendLineHg CDATA #IMPLIED
+			legendGap CDATA #IMPLIED
+			legendFontSize CDATA #IMPLIED
+			
+			graphMargin CDATA #IMPLIED
+			titleMargin CDATA #IMPLIED
+			titleFontSize CDATA #IMPLIED
+			
+			labelAngle CDATA #IMPLIED
+			labelFontSize CDATA #IMPLIED
+			
+			curveFontSize CDATA #IMPLIED
+			
 			colorScheme  (color|warm|cold|grey|black) "black">
 <!ATTLIST curve 
 			lineType  (none|solid|dot|dash|longDash|dash-dot|longDash-dot|dash-dot-dot|longDash-dash|dash-dash-dot-dot) #IMPLIED

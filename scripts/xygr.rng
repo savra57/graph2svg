@@ -240,6 +240,14 @@ bottom left of the graph </html:p>
     </optional>
     
     <optional>
+      <attribute name="yAxisMarkDist"/>
+    </optional>
+    
+    <optional>
+      <attribute name="xAxisMarkDist"/>
+    </optional>
+    
+    <optional>
  <a:documentation>
     <html:p>Attribute xAxisDivision. How the X axis is divided up. Select
     from one of the values [none, 1 2 4 5 or 10] </html:p>
@@ -320,7 +328,46 @@ bottom left of the graph </html:p>
         </choice>
       </attribute>
     </optional>
-
+    
+    <optional>
+      <attribute name="legendMargin"/>
+    </optional>
+    <optional>
+      <attribute name="legendPictureWd"/>
+    </optional>
+    <optional>
+      <attribute name="legendPictureHg"/>
+    </optional>
+    <optional>
+      <attribute name="legendLineHg"/>
+    </optional>
+    <optional>
+      <attribute name="legendGap"/>
+    </optional>
+    <optional>
+      <attribute name="legendFontSize"/>
+    </optional>
+    
+    <optional>
+      <attribute name="graphMargin"/>
+    </optional>
+    <optional>
+      <attribute name="titleMargin"/>
+    </optional>
+    <optional>
+      <attribute name="titleFontSize"/>
+    </optional>
+    
+    <optional>
+      <attribute name="labelAngle"/>
+    </optional>
+    <optional>
+      <attribute name="labelFontSize"/>
+    </optional>
+    
+    <optional>
+      <attribute name="curveFontSize"/>
+    </optional>
 
     <optional>
  <a:documentation>

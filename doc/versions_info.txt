@@ -16,8 +16,18 @@ version 03 - under development
 	* relaxNG schemas from Dave Pawson
 	* "botom" renamed to "bottom"
 	* common functionality from scripts moved to graph2svg_common.xsl
+	* default value of xAxisDivision for osgr script and schemas changed from major to major (same as msgr)
 	* graph2svg.xsl used for calling all three scripts (replacing use_* scripts)
-	* new axis type  (xAxisType, yAxisType) allowing work with dates
+	* new axis type (xAxisType, yAxisType) allowing work with dates
+	* new max/min attributes: xAxisMin / xAxisMax / yAxisMin / yAxisMax
+	* new step and count attributes: xAxisStep / yAxisStep and xAxisMarkCount / yAxisMarkCount
+	* new sizing attributes: 
+	    graphMargin, titleMargin, titleFontSize
+	    labelFontSize, labelAngle
+	    legendMargin, legendPictureWd, legendPictureHg, legendLineHg, legendGap, legendFontSize
+	    categoryGap, columnWd
+	    xAxisMarkDist, yAxisMarkDist
+	    curveFontSize
 
 TODO - shortTerm
     * finish times and dates 
@@ -26,26 +36,24 @@ TODO - shortTerm
     	- release goal
     * more doc:
     	- try using the project WIKI 
-    	- improve document test utilities
+    	- improve documentation for test utilities
     	- schema documentation
-    * step, autoCount
-    * user axis min and max for log and dateTime axis
-    * mark distances
-    * category width and gap for MSGR
-    * ?? other sizes
-    * document all new properties
-	* update schemas 
-    
+    * fix 3D bar with negative values (e.g. t_sizes_* msgr testing files)
+
     
 TODO
     * label rotation for x axis in xygr
+    * move the label position up depending on the angle
     * gradients in 3Dpie
-    * better lay out when long names
+    * better layout when long names
     * new attributes in msgr: name of axes, labelIn/Out...
     * dates supporting rounding to whole months / years (?? weeks, year quarters)
-	
-    * consider other attributes: ColWd, CatGap
     * improve columns: shadows, correct cylinders, cone
-    * try and upgrade combination with elements from other name spaces (e.g. MathML)
-	* consider colors like: title color, background color, axis colors
+    * allow line breaks in the title
+    * try to combine with elements from other name spaces (e.g. MathML)
+	* consider colours like: title colour, background colour, axis colours
+	* consider adding version number to: 
+	     - script (check and report difference)
+	     - XMLs (optional or mandatory attribute)
+	     - schema (relax NG)
 	

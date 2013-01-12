@@ -1,0 +1,1804 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN"
+"Db_DTD_4.3/docbookx.dtd">
+<book lang="cs" xmlns:xi="http://www.w3.org/2001/XInclude">
+
+<bookinfo>
+<title>Využití XML při grafické prezentaci ekonomických informací</title>
+<subtitle>Bakalářská práce</subtitle>
+<author>
+<firstname>Jakub</firstname>
+<surname>Vojtíšek</surname>
+<affiliation>
+<orgname>Vysoká škola ekonomická v&nbsp;Praze</orgname>
+<orgdiv role="fakulta">Fakulta informatiky a statistiky</orgdiv>
+<orgdiv role="katedra">Katedra informačního a znalostního inženýrství</orgdiv>
+</affiliation>
+</author>
+<othername role="vedouci">Ing. Jiří Kosek</othername>
+<pubdate>leden 2007</pubdate>
+
+<abstract>
+<title>Anotace</title>
+<para>Práce ze zabývá možnostmi popisu ekonomických a jiných dat
+pomocí XML a jejich zobrazováním ve vektorovém grafickém formátu SVG. 
+V práci jsou navrženy tři typy XML schémat pro různé druhy grafů. Grafy jsou 
+zde systematicky rozděleny nikoliv podle jejich vzhledu, ale podle typu
+dat respektive počtu a typu datových řad, kterými jsou tvořeny, na:</para>
+<itemizedlist>
+	<listitem>
+	<para>graf s jednou měřitelnou datovou řadou a neměřitelnou řadou názvů (OSGR)</para>
+	</listitem>
+	<listitem>
+	<para>graf tvořený více měřitelnými datovými řadami a neměřitelnou řadou názvů (MSGR)</para>
+	</listitem>
+	<listitem>
+	<para>graf s několika dvojicemi měřitelných datových řad (XYGR)</para>
+	</listitem>
+</itemizedlist>
+<para>V návrhu schémat se podařilo oddělit informace o vzhledu grafů od samotných dat a tím 
+umožnit snadnou změnu vzhledu pomocí malých změn v XML souboru.</para>
+<para>Hlavním přínosem práce je sada tří skriptů, pro každé navržené XML schéma 
+jeden, které převádějí data a  informace o způsobech jejich zobrazení do grafické podoby
+ve formátu SVG. Skripty využívají vylepšených programovacích možností nové verze 2.0 jazyka
+XSLT a v něm používaného dotazovacího jazyka XPath 2.0. Jsou navrženy tak, aby automaticky
+počítaly velikost rozměrů  grafu, rozmístění jeho částí a meze datových os. Různým natavením 
+atributů lze měnit výsledný vzhled grafu. Datové řady mohou být znázorněny jako  několik druhů
+sloupců s volitelným 3D efektem,  pomocí různých značek, či  jako lomené nebo vyhlazené 
+čáry mnoha typů s možností výplně ohraničených ploch. Řady lze barevně odlišit a samostatně nastavit 
+i různý vzhled řad v jednom grafu. Tím je dosaženo velké variability zobrazovacích možností. 
+Grafy s jednou datovou řadou (OSGR) mohou být  navíc vykresleny pomocí výsečového grafu,
+víceřadové grafy přepočteny na skládaný nebo procentní skládaný graf. Grafy s dvojicemi
+měřitelných řad (XYGR) mohou být dobře použitelné při kreslení grafů funkcí, křivek nebo výsledků měření.
+</para>
+<para>Skripty jsou spolu s ukázkami jejich použití a dokumentace volně k dispozici na adrese 
+<ulink>http://code.google.com/p/graph2svg/</ulink> a tím umožněno jejich libovolné používání a další vývoj.</para>	
+</abstract>
+
+<abstract lang="en">
+<title>Annotation</title>
+<para>This thesis deals with possibilities of description of economic and other 
+data in XML and their representation in the vector graphic format SVG.
+Three types of XML schemas are defined for different types of graphs or charts.
+The graphs are divided systematically into three types not according to their visual form but
+according to the number of data series which they are formed with:</para>
+<itemizedlist>
+	<listitem>
+	<para>graphs with one measurable data series and one unmeasurable name series (OSGR)</para>
+	</listitem>
+	<listitem>
+	<para>graphs with more measurable data series and one unmeasurable name series (MSGR)</para>
+	</listitem>
+	<listitem>
+	<para>graphs with several pairs of measurable data series (XYGR)</para>
+	</listitem>
+</itemizedlist>
+<para>The aim of proposed schemas is to separate information about the graph appearance
+from their data and so to enable the easy change of appearence by means of small changes
+in a XML file.</para>
+<para>The main asset of the thesis is the set of three scripts each script for one XML schema
+which transform data and information about the ways of their representation into the graphic 
+form in the SVG format. The scripts make use of improved programing possibilities 
+of the new version of XSLT 2.0 language and XPath 2.0 query language which is used in it. 
+They are proposed to calculate the size of graphs, the layout of graph parts and 
+limits of data axes automatically. The final appearance of a graph can be changed by means 
+of the setting of several attributes. The data series can be depicted as several types of
+columns with the optional 3D effect, as various marks or as pointed or smooth lines
+of many types with the possibility of the filling of surrounded areas. The series can be 
+colour-coded and it is possible to set their individual appearance as well. It enables the great
+variability of depicting possibilities. Besides the graphs with one measurable 
+data series (OSGR) can be depicted as a pie chart. Graphs with more series (MSGR) can be 
+transformed into a stacked or 100% stacked graph. Graphs
+with pairs of measurable data series (XYGR) can be used efficiently for the drawing of
+function graphs, curves or measurement results.</para>
+<para>
+The scripts, the examples of their use and the documentation are available at 
+<ulink>http://code.google.com/p/graph2svg/</ulink>
+and allowed for any application and further development.
+</para>
+</abstract>
+
+<abstract>
+<title>Poděkování</title>
+<para>Rád bych poděkoval všem, kteří mě podporovali ve studiu a při psaní této práce.</para>
+</abstract>
+
+<abstract>
+<title>Prohlášení</title>
+
+<para>Prohlašuji, že jsem bakalářskou práci vypracoval samostatně a použil
+pouze literaturu uvedenou v&nbsp;přiloženém seznamu. Nemám námitek proti
+půjčení práce se souhlasem katedry ani proti zveřejnění práce nebo
+její části.</para>
+
+<?vskip 70pt?>
+<para>V&nbsp;Praze dne 4. ledna 2007</para>
+
+<?vskip 30pt?>
+<para><?hskip 300pt?>Jakub Vojtíšek</para>
+
+</abstract>
+
+</bookinfo>
+
+<preface> <!--***úvod*****************************************************--> 
+<title>Úvod</title>
+<para>Pro fungování každé firmy nebo společnosti je nezbytné pracovat
+s daty a informacemi. Uchovávat je, zpracovávat a na základě nich se rozhodovat
+nebo je předávat dál. Pro všechny tyto činnosti je potřeba data nějakým způsobem 
+ukládat. A to nejen samotná data, ale i informace o jejich významu. </para>
+<para>K tomu je velmi
+vhodný jazyk XML (eXtensible Markup Language), viz <xref linkend="bib.XMLKosek"/>
+nebo <xref linkend="bib.w3cXML"/>.
+	Je&nbsp;to univerzální značkovací jazyk, tedy soubor pravidel, jak tvořit značky,
+	v kterém si může každý vytvořit vlastní sadu značek, pomocí níž bude 
+	uchovávat data a přikládat k nim význam. V&nbsp;tom spočívá velká
+	variabilita jazyka XML. Kromě toho jsou v XML definovány mnohé 
+	standardní sady značek, které jsou již široce používané. Například 
+	XHTML pro tvorbu webových stránek, 
+	MathML pro zapisování vzorců nebo DocBook pro tvorbu textů a 
+	dokumentace, v kterém je psána i tato práce.
+	XML přitom není vázán na žádný komerční produkt, ale je spolu s 
+	dalšími jazyky založenými na XML, 
+	vyvíjen nezávislým W3C konsorciem a je každému volně přístupný.
+XML má spoustu výhod: je jednoduchý, rozšířený, snadno převoditelný,
+dobře podporován ve vývojových nástrojích, a proto je snadné implementovat
+jeho podporu v aplikacích a podnikových systémech.
+</para>
+<para>Například firma zabývající se vývojem software může pro psaní dokumentace
+svých produktů používat DocBook,  který je pro tyto účely navržený. Takto
+uchovaná a označkovaná data pak lze podle potřeby převést do HTML pro online
+nápovědu nebo z nich generovat PDF pro tisk uživatelské příručky. Pro tyto běžné převody
+samozřejmě existuje spousta nástrojů. Jedním z nich je XSLT (eXtensible Stylesheet
+Language Transformations, viz kniha <xref linkend="bib.XSLTKosek"/> nebo specifikace <xref linkend="bib.w3cXSLT"/>), což je
+na XML založený jazyk 
+popisující  převod XML dat do  jiných typů XML dat nebo souborů. Takovéto transformační 
+styly jsou už  pochopitelně pro běžně používané XML styly naprogramované a dokonce
+často volně přístupné.</para>
+<para>Často potřebujeme zobrazit nebo zveřejnit nějaká data graficky, aby byla snáze interpretovatelná.
+Může to být kupříkladu tabulka
+tržeb v různých odvětvích v průběhu roku. V tabulce sice přesně vidíme jak velké jsou 
+jednotlivé hodnoty, horší už to ale je s jejich porovnáním a&nbsp;nebo odhadnutím jejich vývoje.
+To  bychom lépe viděli z grafu.
+</para>
+<para> Nástrojů pro tvorbu grafů existuje celá řada. Ale pokud pracujeme s daty v 
+podobě XML a&nbsp;pokud chceme vytvářet grafy z dat automaticky, bychom potřebovali mít 
+nástroj, který umí převést data do grafické podoby, a to ve vhodném formátu. Takovým vhodným
+grafickým formátem může být SVG (Scalable Vector Graphics, viz <xref linkend="bib.w3cSVG"/>). SVG  
+je škálovatelný vektorový formát navržený
+W3C konsorciem původně  pro potřeby internetu. 
+	Absence nezávislého formátu vektorové grafiky
+	slibuje možnost rozšíření SVG nejen ve světě internetu.
+Jeho obliba a podpora
+rychle narůstá (nové internetové prohlížeče už SVG umí zobrazit), stejně tak existuje
+mnoho aplikací s podporou SVG a vznikají další. Obrázek grafu popsaný v SVG je 
+oproti rastrovým formátům malý, lze jej přizpůsobit výslednému médii, může být vložen
+přímo do jiného XML souboru (například XHTML), vygenerován z něj PDF  nebo PS soubor
+pro tisk a nebo převeden do rastrové podoby pro média, která vektorovou grafiku nepodporují.
+</para>
+<para>Jak jsme už uvedli, k transformaci XML souborů se široce používá jazyk XSLT. K samotnému
+převodu je ovšem potřeba kromě XSLT stylu i program zvaný XSLT procesor, který převod provede.
+Těchto programů existuje celá řada a to nejen profesionálních komerčních, ale i kvalitních volně přístupných. 
+V jazyce XSLT ve své původní verzi 1.0 už od počátku chyběly mnohé funkce, přesto se dobře
+uchytil a stále se používá. Tvůrci jednotlivých procesorů chybějící funkce přesto implementovali pomocí různých rozšíření.
+Tato rozšíření má sjednotit až nově vycházející verze 2.0  jazyka XSLT (viz specifikace <xref linkend="bib.w3cXSLT20"/>
+nebo tutoriál <xref linkend="bib.zvon"/>), která je ve fázi 
+<quote>Proposed Recommendations</quote>, tedy těsně před definitivním schválením. 
+Tato verze je už v některých procesorech implementována.</para>
+<para>XSLT stylů pro převod XML dokumentů je vyvinuto a používáno mnoho. Horší je to už
+s&nbsp;převodem případných grafických prvků do výsledného dokumentu. V praxi
+se  přitom často setkáváme s daty, která je lépe prezentovat v grafické podobě. Jedná se především o různé
+typy grafů.
+</para>
+<para>
+	A tento převod je právě cílem této práce. Chceme navrhnout schéma XML dokumentů pro zápis dat, která jsou
+	zobrazitelná formou grafu a transformační styly, které je převedou do formátu SVG. 
+K transformaci používáme jazyk XSLT 2.0 a procesor Saxon 8.8,
+který pracuje s&nbsp;XSLT 2.0 a v něm používaném dotazovacím jazyce XPath 2.0 
+(viz <xref linkend="bib.w3cXPath20"/>).
+	</para>
+<para>Celá práce je  rozdělena do tří kapitol. V první  kapitole
+je nejprve provedena klasifikace datových řad a podle ní navrženy typy XML souborů 
+reprezentující grafy. Každý typ je zde popsán, uvedeno jeho DTD, vysvětlen
+význam  jeho elementů a atributů a specifikován jejich vliv na vzhled grafu.
+U některých atributů je na obrázku znázorněna podoba jejich možných
+hodnot.
+</para>
+<para>Druhá kapitola obsahuje příklady použití stylů a ilustruje na nich význam různých hodnot
+atributů. Jsou zde uvedeny i komplexnější ukázky grafů. Na závěr je
+uveden příklad jednoduchého XSLT stylu, který transformuje vybranou tabulku z XHTML
+stránky do grafické podoby s použitím stylu pro MSGR graf.</para>
+<para>V poslední kapitole se zabýváme tím, jak se styly používají a
+jak jsou naprogramovány. Cílem nebylo detailně popsat celý kód, ale spíše vytvořit
+základní představu o stylech, některých jejich funkcích a významu důležitých proměnných.
+</para>
+
+<para>Při zkoumání a popisování typů grafů a jejich částí se často setkáváme s mnoha 
+různými pojmy. Vycházíme při tom z obsáhlé a vyčerpávající knihy <xref linkend="bib.Harris"/>. 
+V rychle se rozvíjejících vědách, mezi které informatika bezesporu
+    patří, bývá problémem používání, definování a správného přeložení užívaných pojmů do
+	češtiny. Pro české pojmy používané v této práci jsme vesměs vycházeli z
+    <xref linkend="bib.Francu"/>, která popisuje tvorbu grafů v kancelářském
+    balíku MS Office. Závisí sice na konkrétním softwareovém produktu, ale je u nás 
+	značně rozšířen a proto jsou používané pojmy dostatečně známé.</para>
+</preface>
+   
+<!--chapter>  <***Kap 1 - úvod do XML*****************************************--> 
+<!--
+    <title>Úvod do XML technologií</title>
+	
+	 <para>Jistě netřeba mluvit o významu informací v dnešním světě. Informace
+	je potřeba nejen mít, ale i s nimi pracovat správně je interpretovat a sdílet
+	s ostatními. K jejich záznamu a předávání je velmi vhodný jazyk XML (eXtensible
+	Markup Language).
+	Je to univerzální značkovací jazyk, tedy soubor pravidel, jak tvořit značky,
+	v kterém si může každý vytvořit vlastní sadu značek, pomocí níž bude 
+	uchovávat svá data a přikládat k nim význam. V tom spočívá velká
+	variabilita jazyka XML. Kromě toho jsou v XML definovány mnohé 
+	standardní sady značek, které jsou již široce používané. Například 
+	XHTML pro tvorbu webových stránek, 
+	MathML pro zapisování vzorců nebo DocBook pro tvorbu textů a 
+	dokumentace, v kterém je psána i tato práce.</para>
+	<para>Další výhodou jazyka XML je, že není vázán na žádnou komerční
+	firmu, ale je spolu s dalšími jazyky založenými na XML, 
+	vyvíjen nezávislým W3C konsorciem a je volně přístupný
+	každému.</para>
+	<para>K zápisu vektorové grafiky byl konsorciem W3C vytvořen na XML založený
+	jazyk SVG (Scalable Vector Graphics). Absence nezávislého formátu vektorové grafiky
+	slibuje možnost rozšíření SVG nejen ve světě internetu. Poslední verze webových prohlížečů
+	již SVG podporují a vzniká mnoho dalších grafických editorů a aplikací pracujících se SVG.</para>
+	
+	<para>
+	Cílem této práce je navrhnout schéma XML dokumentů pro zápis dat, která jsou
+	zobrazitelná formou grafu. 
+	</para>
+
+    <para>o XML, XSL, SVG tedy technologie založené na XML  použití
+    podpora </para>
+
+    <para>V rychle se rozvíjejících vědách, mezi které informatika bezesporu
+    patří, bývá problémem používání, definování a správného přeložení českých
+    pojmů. Pro české pojmy používané v této práci jsme vesměs vycházeli z
+    <xref linkend="bib.Francu"/>, která popisuje tvorbu grafů v kancelářském
+    balíku MS Office.  . . protože je u nás rozšířen a je dostatečně
+    komplexní. .. Pro srovnání uvádíme v závorce anglické ekvivalenty z knihy
+    <xref linkend="bib.Harris"/>, která je podstatně komplexnější a nezávislá
+    na jednom softwarovém produktu. ?? anglické v závorce</para>
+  </chapter-->
+
+  
+<chapter>  <!--***Kap 1 - Typy grafů a jejich parametry****************************-->
+    
+    <title>Typy grafů a jejich parametry</title>
+
+    <section>
+      <title>Rozdělení grafů podle typu dat</title>
+
+      <para>Existuje nepřeberné množství typů grafů. Jak je ale třídit tak,
+      aby bylo snadné vybrat pro daný účel nejvhodnější graf? V různých
+      publikacích a programech jsou grafy třízeny převážně podle jejich
+      vzhledu, častokrát i docela nelogicky. My konstruujeme
+      klasifikaci grafů na základě typu dat, která graf zobrazuje.</para>
+
+      <para>Základním pojmem, který používáme je datová řada. V
+      <xref linkend="bib.Harris"/> by pojmu datová řada nejlépe odpovídal
+      termín <quote>data set</quote>. <quote>Date series</quote> je již chápáno jako spojení dvou nebo více
+      <quote>data sets</quote> stejné délky, které spolu souvisí. V této práci budeme datovou
+      řadou rozumět uspořádanou množinu (posloupnost) dat nejrůznějšího typu
+      (text, číslo, datum, …). Podle charakteru dat lze rozlišit následující
+      typy datových řad:</para>
+
+      <variablelist>
+        <varlistentry>
+          <term>
+            <emphasis>neuspořádaná</emphasis>
+          </term>
+
+          <listitem>
+            <para>Jedná se o řadu dat, u kterých nemá smysl říkat, že je
+            některý prvek větší než jiný. Například: Polsko, Česko, Slovensko,
+            …</para>
+          </listitem>
+        </varlistentry>
+
+        <varlistentry>
+          <term>
+            <emphasis>uspořádaná</emphasis>
+          </term>
+
+          <listitem>
+            <para>Řada dat, kterou lze rozumně uspořádat, ale nelze říct o
+            kolik je jeden prvek větší než jiný. Například: leden, únor,
+            březen, duben, …</para>
+          </listitem>
+        </varlistentry>
+
+        <varlistentry>
+          <term>
+            <emphasis>měřitelná</emphasis>
+          </term>
+
+          <listitem>
+            <para>Typicky řada číselných (obecně reálných) hodnot. S těmito
+            daty lze provádět matematické operace, tedy například odčítat a
+            zjišťovat tak o kolik nebo kolikrát je jedna hodnota větší než druhá.</para>
+          </listitem>
+        </varlistentry>
+      </variablelist>
+
+      <para>Jednotlivé typy grafů nyní rozlišíme podle počtu a typů
+      datových řad, které graf zobrazuje. Pochopitelně vždy uvažujeme jen
+      konečné datové řady. Všechny datové řady, které udávají jeden graf musí
+      být stejné délky. <!--Přitom ale dovolujeme i případ, že některé
+      údaje nejsou zadány (například jsou ještě neznámé). Ty pak můžeme buď
+      nezobrazovat vůbec, nebo nahradit nulovou nebo implicitní hodnotou.-->
+	Dále si všimněme, že neuspořádanou datovou řadu můžeme pro naše účely
+      ztotožnit s uspořádanou. Neexistuje sice uspořádání dané povahou jejích
+      prvků, ale přesto jsou jednotlivá data v určitém pořadí zadána. V praxi
+      se můžeme setkat s následujícími typy grafů:</para>
+
+      <variablelist>
+        <varlistentry>
+          <term><emphasis>OSGR</emphasis> — jedna měřitelná datová řada, jedna
+          uspořádaná datová řada</term>
+
+          <listitem>
+            <para>Tento typ grafů zobrazuje jednu datovou řadu měřitelných
+            hodnot. Druhá datová řada uspořádaných hodnot popisuje názvy
+            kategorií (category scale) jednotlivých údajů. Nezahrnujeme jej do
+            následující obecnější skupiny grafů, protože má jistá specifika,
+		  která by obecnější případ nezachytil. Může být například zobrazen
+            jako výsečový graf (pie chart), který v obecnějším případě ztrácí
+            smysl. Označení OSGR, které budeme pro tento typ grafu používat 
+		je zkratkou anglických slov one series graph.
+		</para>
+          </listitem>
+        </varlistentry>
+
+        <varlistentry>
+          <term><emphasis>MSGR</emphasis> — N měřitelných datových řad (N &gt;
+          1), jedna uspořádaná datová řada</term>
+
+          <listitem>
+            <para>Tento typ grafů obsahuje několik stejně dlouhých datových
+            řad, které lze vzájemně srovnávat v závislosti na jednotlivých
+            kategoriích. Budeme jej označovat MSGR — multi-series graph</para>
+          </listitem>
+        </varlistentry>
+
+        <varlistentry>
+          <term><emphasis>XYGR</emphasis> — N dvojic měřitelných datových
+          řad</term>
+
+          <listitem>
+            <para>V tomto typu grafů je zadáno několik dvojic datových řad.
+            Obě datové řady v každé dvojici musí být stejně dlouhé a
+            představují souřadnice bodů roviny. Jednou dvojicí je zadána řada
+            bodů, které lze spojit v křivku. Tímto způsobem lze zobrazit grafy
+            funkcí a křivek v rovině, přičemž každá z křivek může být
+            pojmenována. Ve shodě s <xref linkend="bib.Francu"/> označujeme 
+		tento typ grafů XYGR.</para>
+          </listitem>
+        </varlistentry>
+
+        <varlistentry>
+          <term>Další speciální typy grafů</term>
+
+          <listitem>
+            <para>Pomocí datových řad můžeme klasifikovat i další typy grafů,
+            které mohou mít různé speciální použití. Například u bublinového
+            grafu (bubble graph) jsou zadány tři měřitelné řady (souřadnice
+            bublin a jejich velikosti) a jedna uspořádaná řada (názvy). Některé
+            grafy používané v statistice pro zobrazení vývoje cen akcií,
+            rozptylů časových řad a podobně jsou tvořeny čtyřmi i více
+            měřitelnými datovými řadami se speciálním významem. Generováním
+            těchto typů grafů se ovšem kvůli jejich úzkému použití v této
+            práci nezabýváme. V třetí části ukážeme, že některé z těchto typů grafů
+		lze zobrazit jako graf MSGR s vhodnými parametry.</para>
+          </listitem>
+        </varlistentry>
+      </variablelist>
+
+      <para>Je pochopitelné, že data určitého typu mohou být zobrazena mnoha
+      způsoby. Pro každý typ grafu nyní musíme navrhnout samostatné schéma
+      XML, které bude vhodně reprezentovat data i vzhled grafů. Schémata
+      budeme v následujím textu popisovat pomocí DTD  a slovního popisu 
+      jednotlivých elementů a atributů. <!--V souborech ( nebo příloze?)
+      uvádíme i popis schémat v jazyce W3C XML Schema, který umožňuje i popsat
+      datové typy atributů a elementů.--></para>
+    </section>
+
+    <section>
+      <title>Graf typu OSGR</title>
+
+      <para>Tento graf zobrazuje pouze jednu řadu hodnot. Hodnoty
+      jsou zobrazeny buď jako sloupce různých výšek, body nebo lomená čára
+      spojující jednotlivé hodnoty. Data mohou být rovněž po přepočtení na
+      procenta zobrazena pomocí výsečového grafu. Struktura XML dokumentu 
+	popisujícího graf typu OSGR je dána následujícím DTD. </para>
+
+<programlisting><![CDATA[<!ELEMENT osgr (title?, names?, values+)>
+<!ELEMENT names (name+)>
+<!ELEMENT values (value+)>
+<!ELEMENT title (#PCDATA)>
+<!ELEMENT name (#PCDATA)>
+<!ELEMENT value (#PCDATA)>
+<!ATTLIST osgr 
+  graphType (pie|norm) "norm"
+  effect (2D|3D) "2D"
+  colType (none|block|cylinder|cone|pyramid) "block"
+  lineType (none|solid|dot|dash|longDash|dash-dot|longDash-dot|
+      dash-dot-dot|longDash-dash|dash-dash-dot-dot) "none"
+  pointType (none|point|cross|plus|star|square|circle|triangle|rhomb|
+      pyramid|squareF|circleF|triangleF|rhombF|pyramidF) "none"
+  smooth (yes|no) "no"
+  yAxisType (auto|withZero|shifted|log) "auto"
+  yAxisDivision (none|1|2|4|5|10) "1"
+  xAxisDivision (none|major|minor|both) "major"
+  xAxisPos (botom|origin) "origin"
+  xGrid (none|major|minor|both) "none"
+  yGrid (none|major|minor) "none"
+  colorScheme  (color|warm|cold|grey|black) "color"
+  legend (none|left|right|top|botom) "right"
+  labelIn (none|value|percent|name) "none"
+  labelOut (none|value|percent|name) "none">
+<!ATTLIST title color CDATA #IMPLIED>
+<!ATTLIST value
+  color CDATA #IMPLIED
+  pointType (none|point|cross|plus|star|square|circle|triangle|rhomb|
+      pyramid|squareF|circleF|triangleF|rhombF|pyramidF) #IMPLIED>
+]]></programlisting>
+
+      <!--
+<inlinemediaobject><imageobject>
+   <imagedata fileref="cgr.xml" format="linespecific"/>
+</imageobject></inlinemediaobject>
+
+<textobject>
+<textdata fileref="cgr.dtd"/>
+</textobject>
+-->
+
+      <para>Nyní ještě potřebujeme popsat možné hodnoty jednotlivých parametrů a
+      jejich vliv na vzhled grafu. Všimněme si, že některé vlastnosti grafu
+      lze definovat na více místech XML souboru.V&nbsp;takovém případě má přednost hodnota
+      atributu, která je u speciálnějšího elementu (tedy v pomyslné stromové
+      struktuře XML dokumentu blíže listům). U OSGR grafu tuto vlastnost vidíme
+      na atributech <sgmltag>colorScheme</sgmltag> a <sgmltag>color</sgmltag>.
+      Atribut <sgmltag>colorScheme</sgmltag> je zadán u kořenového elementu a&nbsp;určuje
+	posloupnost barev, které se přiřazují jednotlivým hodnotám
+      (sloupcům, bodům, výsečím). Pokud je ovšem u&nbsp;některé hodnoty
+      (u elementu <sgmltag>value</sgmltag>) specifikován atribut
+      <sgmltag>color</sgmltag>, je příslušná hodnota zobrazena zadanou barvou a
+      ne barvou z vybraného barevného schématu. Podobný princip je použit i u 
+	atributu <sgmltag>pointType</sgmltag>.
+	</para>
+	<para> Následuje seznam atributů a jejich
+      popis. Výčet možných hodnot každého atributu uvádíme za názvem
+      atributu ve složených závorkách, kde je implicitní hodnota označena
+      hvězdičkou. Implicitní hodnota se použije tehdy, pokud není atribut zadán,
+	nebo je-li jeho hodnota nesmyslná. Hodnoty atributů odlišujeme od ostatního textu anglickými
+      uvozovkami.</para>
+
+      <variablelist>
+        <varlistentry>
+          <term><sgmltag>graphType</sgmltag> {"pie", *"norm"}</term>
+
+          <listitem>
+            <para>Pomocí tohoto atributu lze zvolit, jak bude celý graf
+            vypadat. Typy jsou pouze dva: "pie" pro výsečový graf a "norm" pro
+            ostatní grafy. Vzhled grafu typu "norm" je dán ostatními parametry,
+            které se mohou dokonce <quote>překrývat</quote>. V extrémním
+            případě mohou být tedy hodnoty zobrazeny pomocí sloupců v jejichž
+            vrcholech jsou body spojené lomenou čárou.</para>
+          </listitem>
+        </varlistentry>
+
+        <varlistentry>
+          <term><sgmltag>effect</sgmltag> {*"2D", "3D"}</term>
+
+          <listitem>
+            <para>Hodnotou atributu <sgmltag>effect</sgmltag> ovlivňujeme, jak
+            budou vypadat sloupce, osy a mřížka grafu. Je-li zvolena hodnota "3D",
+            jsou útvary zobrazeny prostorově (volným rovnoběžným promítáním).
+		 Prostorově lze zobrazit rovněž graf typu pie.</para>
+          </listitem>
+        </varlistentry>
+
+        <varlistentry>
+          <term><sgmltag>colType</sgmltag> {"none", *"block", "cylinder,
+          "cone", pyramid"}</term>
+          <listitem>
+            <para>Atribut ovlivňuje vzhled sloupců, případně mají-li být 
+            vůbec vykresleny. Nevykreslení značí volba "none". Ostatní
+            hodnoty způsobí vykreslení sloupců příslušného tvaru. Přestože
+            jsou názvy tvarů odvozeny od trojrozměrných útvarů, je potřeba si
+            uvědomit, že každý typ sloupce má dvě možnosti vykreslení v
+            závislosti na volbě atributu <sgmltag>effect</sgmltag>. Například
+            volba "block" se při <sgmltag>effect</sgmltag> = "3D" zobrazí jako
+            kvádr, zatímco v dvojrozměrné podobě grafu jako obdélník. Takto získáme
+		velkou variabilitu vzhledu sloupcových grafů. Viz obrázek
+		<xref linkend="pic.typySloupcu"/>.</para>
+          </listitem>
+        </varlistentry>
+	</variablelist>
+	   
+	<figure float="0"  id="pic.typySloupcu">
+		<title>Typy sloupců v závislosti na hodnotě atributu <sgmltag>effect</sgmltag></title>
+		<mediaobject><imageobject>
+			<imagedata fileref="obr/typySloupcu.pdf" format="PDF" width="9cm"/>
+		</imageobject></mediaobject>
+	</figure>
+	   
+	<variablelist>
+        <varlistentry>
+          <term><sgmltag>lineType</sgmltag> {*"none", "solid", "dot", "dash", "longDash", 
+		  "dash-dot", "longDash-dot", "dash-dot-dot", "longDash-dash", "dash-dash-dot-dot"} </term>
+          <listitem>
+            <para>Není-li tento atribut nastaven na "none", jsou hodnoty dat
+            vynesené v grafu spojeny čárou daného typu. Typy čar vidíme na 
+		obrázku <xref linkend="pic.typyCarABodu"/>.</para>
+          </listitem>
+        </varlistentry>
+		<varlistentry>
+          <term><sgmltag>smooth</sgmltag> {"yes", *"no"} </term>
+          <listitem>
+            <para>Atributem <sgmltag>smooth</sgmltag> můžeme nastavit 
+			vyhlazování čar. Datové body jsou proloženy hladkou (kubickou Bézierovou) křivkou.
+			Řídící body této křivky jsou dopočteny tak, aby byla tečna ke křivce v daném bodě 
+			rovnoběžná s přímkou spojující sousední body.</para>
+          </listitem>
+        </varlistentry>
+	
+	<!--figure>
+		<title>Typy čar</title>
+		<mediaobject><imageobject>
+			<imagedata fileref="obr/typyCar_u1.pdf" format="PDF" width="8cm" align="right"/>
+		</imageobject></mediaobject>
+	</figure-->
+
+        <varlistentry>
+          <term><sgmltag>pointType</sgmltag> {*"none", "point", "cross", "plus", "star", "square", 
+		  "circle", "triangle", "rhomb", "pyramid", "squareF", "circleF", "triangleF", "rhombF", "pyramidF"}</term>
+	     <listitem>
+            <para>Nastavení atributu <sgmltag>pointType</sgmltag> způsobí
+            zobrazení zvoleného symbolu (viz obrázek
+		<xref linkend="pic.typyCarABodu"/>) v místě hodnoty dat. Atribut lze nastavit
+		u elementu <sgmltag>osgr</sgmltag> pro všechny hodnoty grafu nebo jednotlivě u
+		elementu <sgmltag>value</sgmltag>. </para>
+          </listitem>
+        </varlistentry>
+	   </variablelist>
+	   
+	<figure float="0" id="pic.typyCarABodu">
+		<title>Typy čar a bodů</title>
+		<mediaobject><imageobject>
+			<imagedata fileref="obr/typyCarABodu.pdf" format="PDF" width="12cm"/>
+		</imageobject></mediaobject>
+	</figure>
+	   
+	   <variablelist>
+
+        <!--<varlistentry>
+		<term><sgmltag>fillArea</sgmltag> {"yes", *"no"}</term>
+		<listitem>
+		Spojí hodnoty dat lomenou čárou a oblast pod ní (v případě záporných hodnot nad ní)
+		vyplní barvou zvolenou 
+		</listitem>
+	</varlistentry>-->
+
+        <varlistentry>
+          <term><sgmltag>yAxisType</sgmltag> {*"auto", "withZero", "shifted",
+          "log"}</term>
+
+          <listitem>
+            <para>Atribut určuje typ osy y, tedy svislé osy, na kterou se
+            vynášejí hodnoty dat. Volba "withZero" znamená, že má osa vždy
+            začínat od nuly. Pokud jsou všechny hodnoty dat velké, ale rozdíly
+            mezi nimi malé, není zobrazení s nulou dostatečně názorné. V
+            takovém případě je užitečné zvolit typ osy "shifted", který vhodně
+            upraví začátek a konec osy. Implicitní volba "auto" provede automatický
+            výběr mezi těmito hodnotami. Volba "log" je užitečná při řádově
+            různých hodnotách dat. Data jsou přepočtena logaritmem o základu 10.
+		Logaritmovat lze jen kladné hodnoty, a proto je ze záporných hodnot spočtena absolutní hodnota a 
+		nula je nahrazena jedničkou.
+		</para>
+          </listitem>
+        </varlistentry>
+
+        <varlistentry>
+          <term><sgmltag>yAxisDivision</sgmltag> {"none", *"1", "2", "4", "5",
+          "10"}</term>
+
+          <listitem>
+            <para>Na ose mohou být hlavní značky, u kterých se zobrazují
+            číselné hodnoty, a dále vedlejší značky, které pomáhají v
+            přesnějším určení hodnoty a jsou zobrazeny méně výrazně. Atribut
+            <sgmltag>yAxisDivision</sgmltag> udává, na kolik úseků bude úsek
+            mezi sousedními hlavními značkami rozdělen pomocí vedlejších značek. Tedy
+            například volba "4" rozdělí úsek mezi hlavními značkami třemi
+            vedlejšími značkami na čtyři čtvrtiny. Pokud zůstane zvolena
+            implicitní hodnota "1", nebudou vedlejší značky vykreslovány
+            vůbec. Při volbě "none" nebudou vykreslovány ani hlavní
+            značky. Je-li ovšem osa logaritmického typu (<sgmltag>yAxisType</sgmltag>
+		= "log"), nemá dělení na stejné dílky smysl. Proto všechny hodnoty větší než jedna
+		mají stejný efekt. Osa je rozdělena osmi vedlejšími značkami. Ty odpovídají
+		násobkům menší hodnoty intervalu. Například v intervalu mezi hodnotami 
+		10<superscript>2</superscript> a 10<superscript>3</superscript> jsou 
+		vedlejší značky v místě celých stovek.</para>
+          </listitem>
+        </varlistentry>
+
+        <varlistentry>
+          <term><sgmltag>xAxisDivision</sgmltag> {"none", *"major", "minor", "both"}</term>
+
+          <listitem>
+            <para>Osa x v grafu typu OSGR slouží k vynášení obecně neměřitelných
+            dat — názvů kategorií, proto je způsob jejího dělení jiný. Volba
+            "major" zobrazuje značky mezi jednotlivými kategoriemi, naopak volba
+		"minor" způsobí vykreslení menších značek v místě x-ové souřadnice
+		vynášených hodnot. Volbami "none" nebo "both" můžeme buď potlačit zobrazování těchto
+            značek nebo je zobrazit zároveň.</para>
+          </listitem>
+        </varlistentry>
+		
+		<varlistentry>
+          <term><sgmltag>xAxisPos</sgmltag> {"botom", *"origin"}</term>
+
+		<listitem>
+            <para>Je-li dolní mez osy y menší než nula, připadají v úvahu dvě možnosti
+			umístění osy x. Buď v místě, kde je na ose y zobrazena 0, nebo úplně dole 
+			v místě dolní meze osy y. Která možnost se použije závisí právě na hodnotě
+			atributu <sgmltag>xAxisPos</sgmltag>.
+		  </para>
+          </listitem>
+        </varlistentry>
+		
+
+        <varlistentry>
+          <term><sgmltag>yGrid</sgmltag> {*"none", "major", "minor"}</term>
+
+          <listitem>
+            <para>Umožňuje v poli grafu zobrazit mřížku, která usnadní odečítání hodnot.
+		Volba "major" zobrazí horizontální čáry vycházející z hlavních značek osy y, volba
+            "minor" k nim přidá i&nbsp;pomocné čáry vycházející z vedlejších
+            značek. Jejich hustota je dána hodnotou atributu
+            <sgmltag>yAxisDivision</sgmltag>.</para>
+          </listitem>
+        </varlistentry>
+
+        <varlistentry>
+          <term><sgmltag>xGrid</sgmltag> {*"none", "major", "minor", "both"}</term>
+
+          <listitem>
+            <para>Zobrazuje vertikální čáry mřížky, které vychází z odpovídajících značek osy x.</para>
+          </listitem>
+        </varlistentry>
+
+        
+	<varlistentry>
+		<term><sgmltag>legend</sgmltag> {*"none", "left", "right", "top", "botom"}</term>
+		<listitem><para>Způsobí vykreslení legendy na daném místě. V legendě
+		se u OSGR grafů zobrazují názvy kategorií. V případě grafu typu "norm"
+		ale nemá příliš význam legendu vykreslovat, protože se názvy kategorií
+		zobrazují již na x-ové ose. K popisu výsečových grafů je ovšem legenda používána.
+		</para>
+		</listitem>
+	</varlistentry>
+
+	<varlistentry>
+		<term><sgmltag>labelIn</sgmltag> {*"none", "value", "percent", "name"}</term>
+		<listitem><para>U grafů typu OSGR lze nastavit, aby se uvnitř sloupců (v jejich polovině)
+		vypisovaly doplňující údaje a to buď přímo hodnoty dat, hodnoty dat přepočtené na procenta
+		nebo názvy kategorií. Atribut má větší význam u výsečového grafu,
+		kde se údaje vypisují uvnitř výsečí.
+		</para></listitem>
+	</varlistentry>
+
+	<varlistentry>
+		<term><sgmltag>labelOut</sgmltag> {*"none", "value", "percent", "name"}</term>
+		<listitem><para>Atribut <sgmltag>labelOut</sgmltag> vypisuje totéž
+		co <sgmltag>labelIn</sgmltag>, ale nad sloupce, v případě výsečového grafu 
+		vedle výsečí.</para></listitem>
+	</varlistentry>
+
+
+        <varlistentry>
+          <term><sgmltag>colorScheme</sgmltag> {"color", "warm", "cold", "grey", "black"} </term>
+
+          <listitem>
+            <para>Pomocí tohoto atributu lze vybrat barevné schéma, podle
+            kterého se obarví jednotlivé sloupce (případně výseče nebo
+            značky). Je-li sloupců více než barev, začnou se barvy cyklicky opakovat.
+		Přiřazené barvy mohou být změněny volbou atributu
+            <sgmltag>color</sgmltag> u jednotlivých hodnot. Ve stylu je
+		zabudováno pět barevných schémat: "color" pro výrazné barvy, 
+		"warm" pro barvy teplého charakteru, "cold" obsahující studené barvy,
+		"grey" značící různé stupně šedi a "black" obsahující pouze černou barvu.</para>
+          </listitem>
+        </varlistentry>
+
+        <varlistentry>
+          <term>
+            <sgmltag>color</sgmltag>
+          </term>
+
+          <listitem>
+            <para>Hodnoty atributu <sgmltag>color</sgmltag> mohou být v
+            jakémkoliv formátu podporovaném v SVG (hodnota atributu je přímo
+            vložena do SVG). Tedy buď hexadecimální číslo, které je složené ze
+            zastoupení tří barevných složek RGB (například: #FE7312, #f50), nebo
+            název příslušné barvy (například: "blue", "red"). Atribut nemá implicitní hodnotu,
+            není-li totiž uveden, je použita barva z barevného schématu
+            (atribut <sgmltag>colorScheme</sgmltag>). Pokud se jedná o atribut
+            elementu <sgmltag>title</sgmltag>, je implicitně použita černá
+            barva.</para>
+          </listitem>
+        </varlistentry>
+      </variablelist>
+    </section>
+
+    <section>
+      <title>Grafy typu MSGR</title>
+
+      <para>Jak už víme, graf typu MSGR slouží k popisu a zobrazení několika
+      datových řad. Struktura tohoto typu grafu je v podstatě podobná
+      předchozímu typu jak je vidět v následujícím DTD. Hlavní rozdíl je v tom, že element
+      <sgmltag>values</sgmltag>, v kterém jsou definovány hodnoty dat, může
+      být použit vícekrát. Od toho se pak odvíjí jiný význam některých atributů a
+      jsou přidány některé další atributy, které ovlivňují zobrazení hodnot v
+      rámci jednotlivých kategorií a jejich zpracování. Může být rovněž
+      zobrazena legenda, která narozdíl od OSGR grafů obsahuje názvy jednotlivých řad.
+	 Ty jsou pro jednotlivé datové řady zadány elementem <sgmltag>title</sgmltag> uvnitř
+      elementu <sgmltag>values</sgmltag>. Graf typu MSGR 
+      neobsahuje atribut <sgmltag>graphType</sgmltag>, protože výsečový graf
+      není pro více řad použitelný, chybí zde i atributy  <sgmltag>labelIn</sgmltag> 
+	a <sgmltag>labelOut</sgmltag>. Různý vzhled grafů je dán volbou jednotlivých
+      atributů, jejichž kombinování je omezeno pokud možno co nejméně.
+	  </para>
+
+      <programlisting><![CDATA[<!ELEMENT<!ELEMENT msgr (title?, names?, values+)>
+<!ELEMENT names (name+)>
+<!ELEMENT values (title?, value+)>
+<!ELEMENT title (#PCDATA)>
+<!ELEMENT name (#PCDATA)>
+<!ELEMENT value (#PCDATA)>
+<!ATTLIST msgr 
+  stacked (none|sum|percentage) "none"
+  shift CDATA "0"
+  effect (2D|3D) "2D"
+  colType  (none|block|cylinder|cone|pyramid) "none"
+  lineType (none|solid|dot|dash|longDash|dash-dot|longDash-dot|
+      dash-dot-dot|longDash-dash|dash-dash-dot-dot) "solid"
+  pointType  (none|point|cross|plus|star|square|circle|triangle|rhomb|
+      pyramid|squareF|circleF|triangleF|rhombF|pyramidF) "none"
+  fillArea  (yes|no) "no"
+  yAxisType  (auto|withZero|shifted|log) "auto"
+  yAxisDivision  (none|1|2|4|5|10) "1"
+  xAxisDivision  (none|major|minor|both) "minor"
+  xAxisPos (botom|origin) "origin"
+  xGrid (none|major|minor|both) "none"
+  yGrid (none|major|minor) "none"
+  legend  (none|left|right|top|botom) "right"
+  colorScheme  (color|warm|cold|grey|black) "color">
+<!ATTLIST title color CDATA #IMPLIED>
+<!ATTLIST values 
+  color CDATA #IMPLIED
+  colType  (none|block|cylinder|cone|pyramid) #IMPLIED
+  lineType (none|solid|dot|dash|longDash|dash-dot|longDash-dot|
+      dash-dot-dot|longDash-dash|dash-dash-dot-dot) #IMPLIED
+  pointType  (none|point|cross|plus|star|square|circle|triangle|rhomb|
+      pyramid|squareF|circleF|triangleF|rhombF|pyramidF) #IMPLIED
+  smooth (yes|no) "no"
+  fillArea  (yes|no) #IMPLIED
+  startFrom (axis|last) #IMPLIED>]]>
+</programlisting>
+
+
+<!--programlisting><xi:include  href="msgr.dtd"  parse="text"  
+      xmlns:xi="http://www.w3.org/2001/XInclude" />
+</programlisting-->
+
+      <para>Všechny atributy kořenového elementu <sgmltag>msgr</sgmltag> se
+      vztahují k celému grafu a definují vlastnosti všech řad. Některé z nich
+      mohou být změněny pomocí atributů elementu <sgmltag>values</sgmltag>,
+      které mají větší prioritu. Okomentujme nyní ty atributy, které se
+      nevyskytovaly v OSGR grafu, nebo mají jiný význam.</para>
+
+      <variablelist>
+        <varlistentry>
+          <term><sgmltag>stacked</sgmltag> {*"none", "sum",
+          "percentage"}</term>
+
+          <listitem>
+            <para>Tímto atributem můžeme ovlivnit, jak na hodnoty dat
+            budeme nahlížet a jakým způsobem mají být zpracovány. Volba "none"
+            znamená, že hodnoty zůstanou beze změny. Volbou "sum" říkáme, že ke každé hodnotě
+            mají být přičteny hodnoty předchozích dat v dané kategorii. Pomocí
+            této volby lze vytvářet takzvané skládané grafy 
+		(stacked). Volba "percentage" se chová podobně jako
+            volba "sum" s tím rozdílem, že součty jsou navíc vyjádřeny jako
+            procentní podíl ze součtu všech dat v dané kategorii. Využijeme ji
+            tehdy, když nepotřebujeme znázorňovat absolutní velikost údajů,
+            ale jejich podíl vůči ostatním datům. Na y-ovou osu pak nejsou zobrazeny
+		absolutní velikosti hodnot, ale procenta. Grafy tohoto typu se nazývají 
+		procentní skládané (100% stacked). Poslední
+            dvě možnosti rovněž způsobí, že sloupce (jsou-li vykreslovány)
+            nezačínají od osy kategorií, ale od místa, kde končil předešlý
+            sloupec. Podobně je tomu u plošného grafu (area chart). Toto 
+		chování lze ještě lokálně pro každou řadu změnit pomocí atributu
+		<sgmltag>startFrom</sgmltag> elementu <sgmltag>values</sgmltag>.
+		</para>
+          </listitem>
+        </varlistentry>
+
+        <varlistentry>
+          <term><sgmltag>shift</sgmltag> {*"0"}</term>
+
+          <listitem>
+            <para>Parametr udává posun datových sloupců uvnitř kategorií.
+            Pokud je nastaven na 0 (implicitně) zobrazí se všechny sloupce
+            nebo body v jedné kategorii ve stejném bodě osy x. U neskládaných sloupcových
+            grafů je proto mnohdy vhodnější nastavit tuto hodnotu větší než 0, aby se
+            sloupce nepřekrývaly. Je-li <sgmltag>shift</sgmltag> mezi 0 a 1
+            dochází k částečnému překrytí sloupců (overlap), pro
+            <sgmltag>shift</sgmltag> = "1" jsou sloupce v každé kategorii
+            těsně vedle sebe a je-li <sgmltag>shift</sgmltag> větší než 1, 
+		vykreslí se mezi sloupci mezera.</para>
+          </listitem>
+        </varlistentry>
+
+        <varlistentry>
+          <term><sgmltag>fillArea</sgmltag> {"yes", *"no"}</term>
+
+          <listitem>
+            <para>Atribut udává, jestli se má vyplňovat prostor mezi spojnicí
+            bodů dané datové řady a x-ovou osou. Možnost "yes" je použitelná zejména s
+            volbou <sgmltag>stacked</sgmltag> = "sum" nebo
+            <sgmltag>stacked</sgmltag> = "percentage". V tomto případě je
+            vyplněn prostor mezi dvěma po sobě jdoucími řadami. Rovněž je-li
+		nastaven atribut <sgmltag>startFrom</sgmltag> na hodnotu "last",
+		je vyplňován prostor mezi spojnicemi dvou po sobě jdoucích řad.
+		</para>
+          </listitem>
+        </varlistentry>
+
+        <varlistentry>
+          <term><sgmltag>legend</sgmltag> {"none", "left", *"right", "top",
+          "botom"}</term>
+          <listitem>
+            <para>Atributem <sgmltag>legend</sgmltag> můžeme určit, zda a kam
+            se má zobrazit legenda grafu. V legendě jsou zobrazeny  názvy
+            datových řad a způsob jejich vykreslení. Datové řady, u nichž není zadáno jméno, se
+		v legendě vůbec nezobrazí. Vykresluje-li se legenda vpravo ("right") nebo vlevo ("left"),
+		jsou názvy řazeny do sloupce. Zatímco u legendy zobrazované nahoře ("top")
+		nebo dole ("botom") jsou názvy zobrazovány do řádku.</para>
+          </listitem>
+        </varlistentry>
+		
+		<varlistentry>
+          <term><sgmltag>startFrom</sgmltag> {"axis", "last"}</term>
+          <listitem>
+            <para>Jak už bylo uvedeno výše, lze atributem <sgmltag>startFrom</sgmltag>
+		ovlivnit, jak budou vykreslovány sloupce, a který prostor se má vyplnit, když je  
+		atribut <sgmltag>fillArea</sgmltag> nastaven na "yes". Toto chování lze nastavit
+		pouze samostatně pro každou řadu. Atribut má svůj význam převážně v speciálních 
+		způsobech použití stylu MSGR, viz příklady.
+		</para>
+          </listitem>
+        </varlistentry>
+      </variablelist>
+
+      <para>Narozdíl od grafu OSGR, který se implicitně zobrazil jako
+      sloupcový, je graf MSGR implicitně zobrazen jako spojnicový,
+      čemuž odpovídá tato volba atributů elementu <sgmltag>msgr</sgmltag>:
+      <sgmltag>colType</sgmltag> = "none", <sgmltag>lineType</sgmltag> =
+      "solid", <sgmltag>pointType</sgmltag> = "none".</para>
+
+      <para>Protože může být vzhled grafu vytvořen kombinací různých prvků, je
+      důležité určit, v jakém pořadí se budou vykreslovat. Nejdříve budou
+      vykresleny plochy u těch řad u kterých je <sgmltag>fillArea</sgmltag> =
+      "yes". Poté se vykreslí všechny sloupce, dále čáry a nakonec body.</para>
+    </section>
+
+    <section>
+      <title>Graf typu XYGR</title>
+
+      <para>Pro tento typ grafu je typické, že zobrazuje vždy dvě stejně
+      dlouhé řady měřitelných hodnot. Hodnoty jedné řady vynášíme na x-ovou
+      osu a druhé na y-ovou osu. Tímto vznikne posloupnost bodů v rovině, které
+      mohou být spojeny lomenou čárou. Může být zadáno i více dvojic datových
+      řad, což umožňuje do jednoho grafu zadat více křivek. Protože má tento
+      graf poněkud jinou povahu než předchozí typy, zvolili jsme pro něj odlišný
+      způsob uspořádání dat, viz následující DTD. Souřadnice bodů jsou zadávány
+      jako atributy <sgmltag>x</sgmltag> a <sgmltag>y</sgmltag> elementu
+      <sgmltag>point</sgmltag>. Všechny body jedné křivky jsou pak uzavřeny do
+      elementu <sgmltag>curve</sgmltag>. Data tedy nejsou seskupena podle
+      datových řad, ale podle jednotlivých bodů (<quote>kategorií</quote>).
+     </para>
+
+      <programlisting><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<!ELEMENT xygr (title?, curve+)>
+<!ELEMENT title (#PCDATA)>
+<!ELEMENT curve (name?, point+)>
+<!ELEMENT name (#PCDATA)>
+<!ELEMENT point EMPTY>
+<!ATTLIST xygr 
+  lineType (none|solid|dot|dash|longDash|dash-dot|longDash-dot|
+      dash-dot-dot|longDash-dash|dash-dash-dot-dot) "solid"
+  pointType  (none|point|cross|plus|star|square|circle|triangle|rhomb|
+      pyramid|squareF|circleF|triangleF|rhombF|pyramidF) "none"
+  axesPos (left-botom|origin) "origin"
+  xAxisType  (auto|withZero|shifted|log) "auto"
+  yAxisType  (auto|withZero|shifted|log) "auto"
+  xAxisDivision  (none|1|2|4|5|10) "1"
+  yAxisDivision  (none|1|2|4|5|10) "1"
+  xGrid  (none|major|minor) "none"
+  yGrid  (none|major|minor) "none"
+  legend  (none|left|right|top|botom) "none"
+  colorScheme  (color|warm|cold|grey|black) "black">
+<!ATTLIST curve 
+  lineType (none|solid|dot|dash|longDash|dash-dot|longDash-dot|
+      dash-dot-dot|longDash-dash|dash-dash-dot-dot) #IMPLIED
+  pointType  (none|point|cross|plus|star|square|circle|triangle|rhomb|
+      pyramid|squareF|circleF|triangleF|rhombF|pyramidF) #IMPLIED
+  smooth (yes|no) "no"
+  color  CDATA #IMPLIED>
+<!ATTLIST name
+  x  CDATA #IMPLIED
+  y  CDATA #IMPLIED
+  color  CDATA #IMPLIED
+  visibility (none|legend|graph|both) "both">
+<!ATTLIST point
+  x  CDATA #REQUIRED
+  y  CDATA #REQUIRED
+  pointType  (none|point|cross|plus|star|square|circle|triangle|rhomb|
+      pyramid|squareF|circleF|triangleF|rhombF|pyramidF)  #IMPLIED
+  color  CDATA #IMPLIED>]]></programlisting>
+
+      <para>Většinu atributů používaných v grafu typu XYGR známe z předchozích typů grafů.
+      Nové jsou elementy <sgmltag>xAxisType</sgmltag>,
+      <sgmltag>xAxisDivision</sgmltag>, <sgmltag>xGrid</sgmltag>, týkající se
+      x-ové osy, na které nyní zobrazujeme rovněž měřitelné hodnoty. Jejich
+      chování je proto stejné jako u již uvedených ekvivalentů pro osu y. Atribut 
+	  <sgmltag>xAxisPos</sgmltag>, který v předešlých typech grafů ovlivňoval
+	  umístění x-ové osy je nahrazen atributem <sgmltag>axesPos</sgmltag>, který
+	  se týká obou os současně.
+	  </para>
+	  <para>
+	  Všimněme si, že i zde je použito dědění některých vlastností a jejich případné
+      překrytí vlastnostmi potomka. Například atributem
+      <sgmltag>pointType</sgmltag> můžeme zvolit typ bodů pro všechny body v
+      grafu, následně ho pro některou křivku změnit, nebo dokonce vykreslit
+      jiným způsobem pouze jeden bod. To může být použitelné třeba tehdy, když
+      potřebujeme v grafu zvýraznit nějaký důležitý bod.</para>
+	  <para>
+	  Každá křivka může být pojmenována pomocí elementu
+	  <sgmltag>name</sgmltag>. Jeho atributy <sgmltag>x</sgmltag>
+	  a <sgmltag>y</sgmltag> určují, kde bude označení křivky umístěno. Nejsou-li
+	  zadány, je název umístěn vpravo od posledního bodu křivky. Název lze také 
+	  vysázet v legendě, to určuje hodnota atributu <sgmltag>visibility</sgmltag>.
+	  </para>
+	  
+    </section>
+  </chapter>
+
+    
+<chapter>  <!--***Kap 2 - Použití grafů generovaných z XML*************************-->
+    <title  id="tit.priklady">Použití grafů generovaných z XML</title>
+
+<section>
+<title>Ukázka grafů typu OSGR</title>
+
+<para>XML soubor, ze kterého lze generovat graf typu OSGR, může vypadat následovně.</para>
+<programlisting><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE osgr SYSTEM "osgr.dtd">
+<osgr colorScheme="warm" labelIn="percent">
+  <title>Tržby (v tisících Kč)</title>
+  <names>
+    <name>pondělí</name>
+    <name>úterý</name>
+    <name>středa</name>
+    <name>čtvrtek</name>
+    <name>pátek</name>
+  </names>
+  <values>
+    <value>12.5</value>
+    <value color="blue">10.1</value>
+    <value>5.8</value>
+    <value>9.7</value>
+    <value>16</value>
+  </values>
+</osgr>]]></programlisting>
+<para>Atributem <sgmltag>colorScheme</sgmltag> jsme nastavili 
+sadu teplých barev ("warm"), která by úterní hodnotu zobrazila
+žlutě. Atributem <sgmltag>color</sgmltag> u elementu <sgmltag>value</sgmltag>
+jsme ji ovšem změnili na modrou. Výsledný graf je na obrázku 
+<xref linkend="pic.osgr_norm_pie"/> vlevo. Vpravo jsou stejná data zobrazena pomocí
+výsečového grafu.</para>
+
+<figure float="0"  id="pic.osgr_norm_pie">
+		<title>Normální a výsečový (navíc: <sgmltag>graphType</sgmltag> = "pie" 
+		<sgmltag>legend</sgmltag> = "right") OSGR&nbsp;graf.</title>
+		<titleabbrev>Normální a výsečový OSGR graf</titleabbrev>
+		<mediaobject><imageobject>
+			<imagedata fileref="obr/osgr_norm_pie.pdf" format="PDF" width="16cm"/>
+		</imageobject></mediaobject>
+</figure>
+
+<para>Na dalších obrázcích můžeme vidět různé jiné podoby OSGR grafů. Struktura vstupního
+XML dokumentu je podobná, proto jej už neuvádíme. Podstatné jsou atributy elementu 
+<sgmltag>osgr</sgmltag>, ty uvádíme v popisu obrázků.</para>
+
+<figure float="0"  id="pic.osgr_pie12">
+		<title>Ukázka výsečových OSGR grafů: 
+			<para> a) <sgmltag>graphType</sgmltag> = "pie" 
+			<sgmltag>effect</sgmltag> = "3D" 
+			<sgmltag>legend</sgmltag> = "left"
+			<sgmltag>labelOut</sgmltag> = "value",</para>
+			<para> b) <sgmltag>graphType</sgmltag> = "pie" 
+			<sgmltag>colorScheme</sgmltag> = "warm" 
+			<sgmltag>labelOut</sgmltag> = "name"
+			<sgmltag>labelIn</sgmltag> = "value"
+			</para>
+		</title>
+		<titleabbrev>Ukázka výsečových OSGR grafů.</titleabbrev>
+		<mediaobject><imageobject>
+			<imagedata fileref="obr/osgr_pie12.pdf" format="PDF" width="16cm"/>
+		</imageobject></mediaobject>
+</figure>
+
+<figure float="0"  id="pic.osgr_norm123">
+		<title>Různé podoby normálních OSGR grafů: 
+			<para> a) <sgmltag>colType</sgmltag> = "cylinder" 
+			<sgmltag>colorScheme</sgmltag> = "cold" 
+			<sgmltag>xAxisDivision</sgmltag> = "both"
+			<sgmltag>yAxisDivision</sgmltag>&nbsp;=&nbsp;"2"
+			<sgmltag>yGrid</sgmltag> = "minor"<sgmltag>xGrid</sgmltag> = "major",</para>
+			<para> b) <sgmltag>effect</sgmltag> = "3D" 
+			<sgmltag>colorScheme</sgmltag> = "warm" 
+			<sgmltag>xAxisDivision</sgmltag> = "both"
+			<sgmltag>yAxisDivision</sgmltag>&nbsp;=&nbsp;"5"
+			<sgmltag>yGrid</sgmltag> = "major",
+			</para>
+			<para> c) <sgmltag>colType</sgmltag> = "none" 
+			<sgmltag>lineType</sgmltag> = "solid" 
+			<sgmltag>pointType</sgmltag> ="squareF"
+			<sgmltag>xAxisDivision</sgmltag>&nbsp;=&nbsp;"both"
+			<sgmltag>xGrid</sgmltag> = "minor"
+			<sgmltag>yAxisType</sgmltag> = "shifted"
+			<sgmltag>yAxisDivision</sgmltag> = "2" </para>
+		</title>
+		
+		<titleabbrev>Různé podoby normálních OSGR grafů.</titleabbrev>
+		<mediaobject><imageobject>
+			<imagedata fileref="obr/osgr_norm123.pdf" format="PDF" width="16cm"/>
+		</imageobject></mediaobject>
+</figure>
+
+</section>
+
+<section>
+<title>Příklady použití MSGR grafů</title>
+<para>
+Grafy typu MSGR zobrazují více datových řad. Zdrojový XML soubor může vypadat například takto:
+</para>
+
+<programlisting><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE msgr SYSTEM "msgr.dtd">
+<msgr pointType="circle">
+  <title>Produkce v 1. pololetí (ks.)</title>
+  <names>
+    <name>Leden</name>
+    <name>Únor</name>
+    <name>Březen</name>
+    <name>Duben</name>
+    <name>Květen</name>
+    <name>Červen</name>
+  </names>
+  <values>
+    <title>výrobek A</title>
+    <value>21</value>
+    <value>22</value>
+    <value>18</value>
+    <value>18</value>
+    <value>16</value>
+    <value>14</value>
+  </values>
+  <values>
+    <title>výrobek B</title>
+    <value>10</value>
+    <value>12</value>
+    <value>9</value>
+    <value>11</value>
+    <value>15</value>
+    <value>18</value>
+  </values>
+  <values lineType="dot">
+    <title>výrobek C</title>
+    <value>28</value>
+    <value>29</value>
+    <value>22</value>
+    <value>25</value>
+    <value>30</value>
+    <value>25</value>
+  </values>
+</msgr>]]></programlisting>
+
+<para>
+Nejsou-li u MSGR grafů nastaveny žádné atributy, jsou všechny řady zobrazeny jako plné 
+lomené čáry spojující jednotlivé hodnoty. V našem příkladu je navíc změněn typ čáry pro
+výrobek C na tečkovanou a jsou přidány značky v hodnotách datových řad.
+Výsledný graf je v levé části obrázku <xref linkend="pic.msgr_caryApyr"/>.
+Vpravo jsou zobrazena stejná data s jiným nastavením atributů 
+elementu <sgmltag>msgr</sgmltag>. Nastavením <sgmltag>colType</sgmltag> = "triangle"
+jsme dosáhli vykreslení sloupců tvaru pyramidy. Zrušíme ještě implicitní vykreslování
+čar. Zůstane pouze tečkovaná spojnice u třetí řady nastavená lokálně. Dále musíme určit posunutí sloupců
+atributem <sgmltag>shift</sgmltag> tak, aby se sloupečky úplně nepřekrývaly.
+Protože jsme nastavili hodnotu atributu <sgmltag>shift</sgmltag> menší než 
+1, je překrytí sloupců jenom částečné. Pokud bychom chtěli sloupce úplně oddělit, 
+nastavili bychom například hodnotu 1,2. Nakonec je ještě použita jiná paleta
+barev a legenda vykreslena nad grafem.
+</para>
+
+	<figure float="0"  id="pic.msgr_caryApyr">
+		<title>Spojnicový a sloupcový MSGR graf
+		<para>a) <sgmltag>pointType</sgmltag>="circle",</para>
+		<para>b) <sgmltag>lineType</sgmltag> = "none" <sgmltag>colType</sgmltag> = "pyramid" 
+		<sgmltag>shift</sgmltag> = "0.7" 
+		<sgmltag>colorScheme</sgmltag> = "warm" <sgmltag>legend</sgmltag> = "top"</para></title>
+		<titleabbrev>Spojnicový a sloupcový MSGR graf</titleabbrev>
+		<mediaobject><imageobject>
+			<imagedata fileref="obr/msgr_caryApyr.pdf" format="PDF" width="16cm"/>
+		</imageobject></mediaobject>
+	</figure>
+	
+<para>Ukázková data zaznamenávají, kolik výrobků jednotlivých druhů bylo v prvním pololetí vyprodukováno.
+Pokud by nás zajímalo i srovnání celkové produkce, případně vývoj procentního zastoupení jednotlivých výrobků,
+použijeme skládaný nebo procentní skládaný graf. Ty nastavujeme atributem <sgmltag>stacked</sgmltag>.
+Viz obrázek <xref linkend="pic.msgr_stacked"/>.</para>
+
+	<figure float="0"  id="pic.msgr_stacked">
+		<title>Skládaný a procentní skládaný graf
+		<para>a) <sgmltag>stacked</sgmltag> = "sum" <sgmltag>lineType</sgmltag> = "none" 
+		<sgmltag>fillArea</sgmltag> = "yes" <sgmltag>colorScheme</sgmltag>&nbsp;=&nbsp;"cold",</para>
+		<para>b) <sgmltag>stacked</sgmltag> = "percentage" <sgmltag>lineType</sgmltag> = "none" 
+		<sgmltag>colType</sgmltag> = "block" <sgmltag>effect</sgmltag> = "3D" 
+		<sgmltag>yGrid</sgmltag>&nbsp;=&nbsp;"major"</para></title>
+		<titleabbrev>Skládaný a procentní skládaný graf</titleabbrev>
+		<mediaobject><imageobject>
+			<imagedata fileref="obr/msgr_stacked.pdf" format="PDF" width="16cm"/>
+		</imageobject></mediaobject>
+	</figure>
+
+<para>Pomocí MSGR grafů lze zobrazit některé speciální grafy. V levé části obrázku 
+<xref linkend="pic.msgr_vadyAkomb"/> vidíme 
+kombinaci různých nastavení pro jednotlivé řady.
+Vpravo je takzvaný Paretův graf použítý pro zobrazení počtu vad během výroby, 
+který je vytvořen tak, že každá řada má jen jednu hodnotu.</para>
+
+	<figure float="0"  id="pic.msgr_vadyAkomb">
+		<title>Kombinace různých atributů jednotlivých řad a Paretův diagram
+		<para>a) <sgmltag>lineType</sgmltag> = "none" <sgmltag>effect</sgmltag> = "3D" 
+		<sgmltag>xGrid</sgmltag> = "minor" <sgmltag>yGrid</sgmltag> = "major"
+		<sgmltag>colorScheme</sgmltag>&nbsp;=&nbsp;"grey",
+		</para>
+		<para>b) <sgmltag>stacked</sgmltag> = "sum" <sgmltag>shift</sgmltag> = "1" 
+		<sgmltag>lineType</sgmltag> = "none" <sgmltag>colType</sgmltag> = "block" 
+		<sgmltag>yGrid</sgmltag>&nbsp;=&nbsp;"minor" <sgmltag>yAxisDivision</sgmltag> = "5"
+		<sgmltag>colorScheme</sgmltag> = "grey" <sgmltag>legend</sgmltag> = "botom"
+		</para></title>
+		<titleabbrev>Kombinace různých atributů jednotlivých řad a Paretův diagram</titleabbrev>
+		<mediaobject><imageobject>
+			<imagedata fileref="obr/msgr_vadyAkomb.pdf" format="PDF" width="16cm"/>
+		</imageobject></mediaobject>
+	</figure>
+
+<para>Pomocí speciálního typu sloupce "line" můžeme zobrazit například chybové úsečky nebo krabicové 
+diagramy a další typy grafů používané v statistice, viz obrázek <xref linkend="pic.msgr_odchylkyAkrab"/>. U levého 
+grafu si všimněme, že se automaticky zvolil posunutý typ y-ové osy a příliš dlouhé názvy kategorií 
+se píší šikmo.</para>
+
+<figure float="0"  id="pic.msgr_odchylkyAkrab">
+		<title>Speciální grafy pomocí MSGR</title>
+		<titleabbrev>Speciální grafy pomocí MSGR</titleabbrev>
+		<mediaobject><imageobject>
+			<imagedata fileref="obr/msgr_odchylkyAkrab.pdf" format="PDF" width="16cm"/>
+		</imageobject></mediaobject>
+	</figure>
+</section>
+
+<section>
+<title>Tvorba grafů typu XYGR</title>
+<para>Pro znázornění výsledků měření, grafů funkcí nebo různých diagramů
+jsou vhodné grafy typu XYGR. Následující jednoduchý XSLT styl vygeneruje
+graf zadané funkce sinus. Ten je na obrázku <xref linkend="pic.fce2gr_sinn"/>.
+Na dalším obrázku <xref linkend="pic.fce2gr_sinv"/> vidíme,
+jak se graf změní, pokud použijeme vyhlazení (u elementu <sgmltag>curve</sgmltag>
+nastavíme atribut <sgmltag>smooth</sgmltag> = "yes").
+</para>
+<programlisting><![CDATA[<?xml version="1.0" encoding="windows-1250"?>
+<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+  xmlns:math="http://exslt.org/math"  
+  xmlns:xs="http://www.w3.org/2001/XMLSchema"
+  extension-element-prefixes="math"
+  exclude-result-prefixes="math xs"
+  version="2.0">
+<xsl:include href="xygr2svg.xsl"/>
+<xsl:output method="xml" encoding="utf-8"/>
+
+<xsl:param name="xMin" select="-1"/>    <!--minimalni x-->
+<xsl:param name="xMax" select="6.5"/>  <!--maximalni x-->
+<xsl:param name="xStep" select="0.3"/>  <!--krok-->
+
+<xsl:template match="/">
+  <xsl:variable name="gr">
+    <xygr yAxisDivision="5">
+    <title>graf funkce sin x - nevyhlazena</title>
+    <curve>
+    <name>sin x</name>
+    <xsl:for-each select="0 to (floor(($xMax -$xMin) div $xStep) 
+              cast as xs:integer)">
+      <xsl:variable name="x" select="$xMin + (.)*$xStep"/> <!--x-->
+      <point x="{$x}" y="{math:sin($x)}"/> <!--funkcni predpis-->
+    </xsl:for-each>
+    </curve>
+    </xygr>
+  </xsl:variable>
+  <xsl:call-template name="xygr2svg">
+    <xsl:with-param name="graph" select="$gr/xygr"/>
+  </xsl:call-template>
+</xsl:template>
+</xsl:stylesheet>]]></programlisting>
+
+<figure float="0"  id="pic.fce2gr_sinn">
+		<title>Graf funkce sinus bez vyhlazení</title>
+		<mediaobject><imageobject>
+			<imagedata fileref="obr/fce2gr_sinn.pdf" format="PDF" width="12cm"/>
+		</imageobject></mediaobject>
+	</figure>
+
+<figure float="0"  id="pic.fce2gr_sinv">
+		<title>Graf funkce sinus s&nbsp;vyhlazením</title>
+		<mediaobject><imageobject>
+			<imagedata fileref="obr/fce2gr_sinv.pdf" format="PDF" width="12cm"/>
+		</imageobject></mediaobject>
+	</figure>
+	
+<para>K vytvoření grafů na obrázku <xref linkend="pic.fce2gr_10"/> jsme 
+použili podobný skript. Můžeme na nich srovnat 
+vykreslené grafy funkce 10<superscript>2x</superscript> s použitím logaritmické osy 
+(<sgmltag>yAxisType</sgmltag> = "log")
+nebo bez ní. Další parametry jsou u obou grafů nastaveny stejně: <sgmltag>yGrid</sgmltag> = "minor" 
+<sgmltag>yAxisDivision</sgmltag> = "5" <sgmltag>axesPos</sgmltag> = "left-botom"
+<sgmltag>xGrid</sgmltag> = "major".
+</para>
+<figure float="0"  id="pic.fce2gr_10">
+		<title>Graf funkce 10<superscript>2x</superscript> s a bez použití logaritmické osy</title>
+		<mediaobject><imageobject>
+			<imagedata fileref="obr/fce2gr_10.pdf" format="PDF" width="16cm"/>
+		</imageobject></mediaobject>
+	</figure>
+
+<para>Grafy typu XYGR můžeme rovněž použít pro tvorbu různých schématických obrázků.
+Příkladem může být obrázek <xref linkend="pic.xygr_naklady"/>, který byl vygenerován 
+z&nbsp;následujícího XML souboru.
+</para>
+
+<programlisting><![CDATA[<?xml version="1.0" encoding="utf-8"?>
+<xygr lineType="solid">
+<title>Průměrné náklady v závislosti na množství</title>
+<curve smooth="yes">
+  <name>AC</name>
+  <point x="1.3" y="75"/> <point x="4" y="42"/> <point x="10" y="75"/>
+</curve>
+<curve smooth="yes" color="grey">
+  <name>AVC</name>
+  <point x="0" y="30"/> <point x="3.2" y="26"/> <point x="10" y="66"/>
+</curve>
+<curve smooth="yes" lineType="longDash">
+  <name>AFC</name>
+  <point x="1" y="55"/> <point x="3" y="20"/> <point x="10" y="10"/>
+</curve>
+<curve smooth="yes" color="red">
+  <name>MC</name>
+  <point x="0" y="30"/> <point x="0.8" y="26"/> <point x="2.3" y="17"/>
+  <point x="3.2" y="26"/> <point x="4" y="42"/> <point x="5.5" y="75"/>
+</curve>
+<curve color="red" pointType="circle">
+  <name x="4.1" y="39" >M</name>
+  <point x="4" y="42"/>
+</curve>
+<curve color="red" pointType="circle">
+  <name x="3.3" y="23">M'</name>
+  <point x="3.2" y="26"/>
+</curve>
+</xygr>
+]]></programlisting>
+
+<figure float="0"  id="pic.xygr_naklady">
+		<title>Náčrtek ekonomických vztahů</title>
+		<mediaobject><imageobject>
+			<imagedata fileref="obr/xygr_naklady.pdf" format="PDF" width="12cm"/>
+		</imageobject></mediaobject>
+	</figure>
+</section>
+
+<section id="tit.html2svg">
+<title>Automatické generování grafů z&nbsp;HTML tabulek</title>
+<para>V této podkapitole uvádíme příklad, jak lze použít vytvořené styly
+pro tvorbu grafů z XHTML tabulky. Slouží k tomu následující skript.</para>
+	<programlisting><![CDATA[<?xml version="1.0" encoding="windows-1250"?>
+<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+  xmlns:xh="http://www.w3.org/1999/xhtml" xmlns:g="x-vojt/gr2svg"
+  exclude-result-prefixes="g xh" version="2.0">
+<xsl:include href="msgr2svg.xsl"/>
+<xsl:output method="xml" encoding="utf-8"/>
+
+      <!--vyber tabulky a umisteni dat v tabulce-->
+<xsl:param name="tabNum" select="1"/>
+<xsl:param name="dataCols" select="2 to 12"/>
+<xsl:param name="dataRows" select="3 to 6"/>
+<xsl:param name="titlesCol" select="1"/>
+<xsl:param name="namesRow" select="2"/>
+<xsl:param name="grTitleRow" select="1"/> 
+<xsl:param name="grTitleCol" select="1"/>
+
+<xsl:template match="/">
+  <!xsl:variable name="graph">
+    <xsl:apply-templates select="(//xh:table)[$tabNum]"/>
+  </xsl:variable>
+  <xsl:call-template name="msgr2svg">
+    <xsl:with-param name="graph" select="$graph/msgr"/>
+  </xsl:call-template>
+</xsl:template>
+
+<xsl:template match="xh:table">
+  <xsl:variable name="rows" select="(xh:tr|xh:tbody/xh:tr|
+        xh:thead/xh:tr|xh:tfoot/xh:tr)"/> 
+  <msgr lineType="none" colType="block" shift="1.2" legend="botom">
+  <title> <xsl:value-of select="
+        (g:row2seq($rows[$grTitleRow]))[$grTitleCol]"/>
+  </title>
+  <names>
+  <xsl:for-each select="
+        (g:row2seq($rows[$namesRow]))[position() = $dataCols]">
+    <name> <xsl:value-of select="."/> </name>
+  </xsl:for-each>
+  </names>
+  <xsl:for-each select="$rows[position() = $dataRows]">
+    <values>
+    <title> <xsl:value-of select="g:row2seq(.)[$titlesCol]"/> </title>
+    <xsl:for-each select="g:row2seq(.)[position() = $dataCols]">
+      <value> <xsl:value-of select="translate(., ',+', '.')"/> </value>
+    </xsl:for-each>
+    </values>
+  </xsl:for-each>
+  </msgr>
+</xsl:template>
+
+<xsl:function name="g:row2seq"> 
+  <xsl:param name="row"/>
+  <xsl:sequence select="
+      for $a in $row/(xh:td|xh:th) return
+        if ($a/@colspan) then (
+          (for $b in (1 to $a/@colspan) return $a)
+        ) else $a"/>
+</xsl:function>]]></programlisting>
+<para>Pro ilustraci použijeme data ze stránky <ulink>http://www.finance.cz/home/hospodarstvi/prace/zivot_min/</ulink>.
+Nejprve je nutné zdrojový HTML soubor převést do XHTML, aby jej šlo zpracovat pomocí XSLT procesoru 
+(viz například <ulink>http://www.w3.org/Status.html#TIDY</ulink>).
+Dále stačí na&nbsp;převedená data spustit předešlý skript s vhodnými parametry. Parametry mohou být
+nastaveny při volání stylu, jinak se použijí implicitní hodnoty. Ty odpovídají naší tabulce. Výsledek je
+na obrázku <xref linkend="pic.html2svg_zmin"/>.
+</para>
+	<figure float="0"  id="pic.html2svg_zmin">
+		<title>Graf automaticky vytvořený z XHTML</title>
+		<mediaobject><imageobject>
+			<imagedata fileref="obr/html2svg_zmin.pdf" format="PDF" width="12cm"/>
+		</imageobject></mediaobject>
+	</figure>
+</section>
+
+
+
+</chapter>
+<chapter>  <!--***Kap 3 - Jak jsou styly naprogramovány***************************-->
+<title>Jak jsou styly naprogramovány</title>
+
+<para>Cílem této kapitoly je alespoň v hrubých rysech popsat fungování stylů a usnadnit tak
+jejich pochopení, úpravu a případně jejich další vývoj.</para>
+
+<section>
+<title>Instalace a základní použití stylů</title>
+
+<para>Styly a všechny potřebné soubory jsou ke stažení na serveru <ulink>http://code.google.com/p/graph2svg/</ulink> 
+Zde je možno stáhnout balík, ve kterém jsou adresáře s jednotlivými styly a ukázkami jejich použití
+a dále dokumentace, která obsahuje text této práce. 
+</para>
+<para>
+K používání stylů potřebujeme procesor podporující XSLT 2.0. Styly byly vyvíjeny a lazeny v procesoru
+Saxon 8.8, který je patrně nejsnáze dostupný XSLT procesor s podporou XSLT 2.0 a XPath 2.0.
+Saxon je ve své základní verzi (Saxon-B) bezplatně použitelný open-source projekt firmy 
+Saxonica (www.saxonica.com). Běží na platformách Java a .NET. </para>
+<para>Všechny tři styly jsou naprogramovány tak, aby je bylo možné volat v jiných stylech. Obsahují 
+jednu hlavní pojmenovanou šablonu, v jejímž parametru je nutno předat data příslušného grafu.
+Například pro zpracování grafu typu MSGR je hlavní šablona spolu s dalšími pomocnými 
+šablonami a funkcemi v souboru <filename>msgr2svg.xsl</filename>. Ve stylu, který uživatel
+používá k zpracování vlastních dat (například styl transformující dokumentaci v DocBooku, styl
+generující HTML stránky a podobně),
+které obsahují graf, stačí vložit soubor <filename>msgr2svg.xsl</filename> a zavolat šablonu
+pojmenovanou <sgmltag>msgr2svg</sgmltag>. To již bylo ukázáno v sekci <xref linkend="tit.html2svg"/>.
+Pro zpracování samostatného souboru lze 
+použít jednoduchý styl <filename>use_msgr2svg.xsl</filename>. Používáme-li Saxon na .NET
+platformě a je-li v souboru <filename>graph.xml</filename> uložen graf typu MSGR, provedeme 
+převod příkazem:
+</para>
+<programlisting><![CDATA[transform -o picture.svg graph.xml use_msgr2svg.xsl
+]]></programlisting>
+<para>Výsledný obrázek je pak v souboru <filename>picture.svg</filename>, který
+můžeme zobrazit v internetovém nebo jiném prohlížeči s podporou SVG nebo jej dále
+zpracovat a použít.</para>
+</section>
+
+ <section>
+ <title>Celková architektura stylů</title>
+ <para>Jak už bylo uvedeno v úvodu, rozhodli jsme se naprogramovat styly v XSLT 2.0. 
+ Programové konstrukce, které tento jazyk nabízí oproti XSLT 1.0 jsou velmi užitečné a 
+ v mnohém usnadnily tvorbu stylů. Jedná se zejména o: </para>
+<itemizedlist>
+	<listitem>
+	<para>možnost definovat vlastní funkce</para>
+	</listitem>
+	<listitem>
+	<para>přímé použití nových funkcí, které v XSLT 1.0 nebyly definovány</para>
+	</listitem>
+	<listitem>
+	<para>příkaz <command>if then else</command> definovaný v XPath 2.0</para>
+	</listitem>
+	<listitem>
+	<para>práci se sekvencemi v XPath 2.0, zejména použití cyklu <command>for return</command></para>
+	</listitem>
+</itemizedlist>
+ <para>První dvě možnosti byly v podstatě snadno použitelné i v XSLT 1.0 díky různým dobrovolným rozšířením
+ XSLT procesorů, dnes už jsou ale implementovány přímo ve standardu XSLT 2.0. Ovšem přesto 
+ používáme i rozšiřující matematické funkce (jmenný prostor <ulink>http://exslt.org/math</ulink>),
+ jelikož potřebujeme pracovat s goniometrickými funkcemi (<function>sin</function> a <function>cos</function>) a pro automatický výpočet
+ mezí os s exponenciální funkcí (<function>power</function>) a logaritmem (<function>log</function>).</para>
+ <para>Možnost psaní podmínek přímo v XPath výrazech umožňuje v mnohých případech nahradit 
+ podmíněné zpracování pomocí <sgmltag>xsl:if</sgmltag> nebo <sgmltag>xsl:choose</sgmltag>.
+ Pomocí příkazu <command>for return</command> zase častokrát snadno obejdeme cyklické zpracovávání v
+ <sgmltag>xsl:for-each</sgmltag> nebo ještě nepřehlednější implementaci cyklu pomocí rekurentního volání
+ pojmenovaných šablon.</para>
+
+<para>Volání stylu pomocí pojmenované šablony v sobě nese určitý problém. Ve stylu totiž nemůžeme 
+používat globální proměnné, jejichž hodnota by závisela na zpracovávaných datech. A&nbsp;těch, 
+jak uvidíme později, není málo.
+Všechny proměnné jsou tedy vypočítávány uvnitř hlavní šablony a při případném volání jiných 
+pojmenovaných šablon musí být předány jako parametr. Při předávání většího počtu parametrů
+se ovšem zbytečně prodlužuje a znepřehledňuje kód. Proto je většina výpočtů provedena uvnitř 
+hlavní šablony.
+</para>
+<para>Uvnitř hlavní šablony jsou nejprve definovány konstanty, pak je proveden
+výpočet <quote>globálních</quote> proměnných a následuje generování jednotlivých 
+grafických prvků SVG dokumentu: kořenový element, mřížky os, výplně ploch, sloupce,
+osy souřadnic, spojnice bodů, značky bodů a legenda. Při generování legendy jsou 
+vykreslovány pouze zadané názvy datových řad. Piktogramy, které znázorňují způsob vykreslení
+datové řady, jsou vykreslovány spolu s datovou řadou. Můžeme tak zajistit, že jsou společné
+vlastnosti piktogramů a hodnot datové řady (například barva) označeny jednotně (v jedné
+skupině) a je možno je při případné editaci společně změnit.</para>
+<para>
+Při generování výsledného SVG dokumentu bývá často několik možností, jak příslušného vzhledu
+dosáhnout. Naší snahou je v takových případech zvolit optimální řešení z hlediska délky kódu,
+snadnosti případné pozdější editace (ať už pomocí nějakého SVG editoru nebo ručně) a 
+jednoduchosti SVG kódů. Touto jednoduchostí máme na mysli snahu zamezit zbytečnému používání
+složitějších elementů, které by případně nemusely být implementovány v programech zobrazujících
+SVG.</para>
+<para>
+Například pro vygenerování červeného obdélníku můžeme použít kterýkoliv z následujících příkazů:</para>
+<programlisting><![CDATA[<svg:rect x="20" y="20" width="120" height="60" fill="red" stroke="black"/>
+<svg:path d="M20,20 h120 v60 h-120 z" fill="red" stroke="#000"/>
+]]></programlisting>
+<para>Podstatnějším problémem může být volba, jestli uvádět vlastnosti jednotlivých grafických
+elementů přímo u nich nebo je sdružit do skupiny (<sgmltag>svg:g</sgmltag>) a pomocí atributů skupiny nastavit parametry
+najednou. Zde používáme raději druhou možnost, protože kromě úspory místa lze pak snáze editovat 
+výsledné SVG. Sdružujeme samozřejmě pouze prvky logicky související, například všechny body 
+jedné datové řady. Standard SVG umožňuje každý grafický prvek vykreslit od bodu [0, 0] (ušetří
+se tak některé atributy, které jsou implicitně nastaveny na 0) a pak 
+jej pomocí atributu <sgmltag>transform</sgmltag> elementu <sgmltag>svg:g</sgmltag> přesunout
+na požadované místo. Výsledný kód ale nebývá kratší ani přehlednější. Tento princip je použit
+pouze u vykreslování sloupců, které jsou vystínované pomocí barevného přechodu (<sgmltag>svg:linearGradient</sgmltag>).
+</para>
+
+</section>
+ 
+<section>
+<title>Význam důležitých proměnných</title>
+
+<para>Pro pochopení funkce stylu a k jeho případným úpravám je užitečné vědět, co která proměnná
+znamená. Přestože bylo naší snahou pojmenovávat proměnné výstižně (a to hlavně ty, které se používají
+na více místech), nemusí být vždy jasné, co daná proměnná uchovává. Při pojmenovávání proměnných 
+používáme následující zkratky: T = Top, B = Botom, L = Left R = Right, Wd = Width, Hg = Height, 
+Cat = Category. 
+Rychlou orientaci (snad) usnadní obrázek <xref linkend="pic.promene"/>. Jsou zde znázorněny některé
+důležité proměnné.
+Pochopitelně takto můžeme zobrazit pouze ty proměnné, které označují nějakou délku. Je-li v obrázku některá dvojice
+proměnných uzavřena v hranatých závorkách, označuje souřadnice nějakého bodu vzhledem k počátku 
+(v SVG to je levý horní roh).
+Na takovýto bod vede ukazatel a je označen černým puntíkem.
+</para>
+<figure float="0" id="pic.promene">
+	<title>Význam některých proměnných</title>
+	<mediaobject><imageobject>
+		<imagedata fileref="obr/promene.pdf" format="PDF" width="15cm"/>
+	</imageobject></mediaobject>
+</figure>
+<para>
+V obrázku je vykreslen typický graf typu MSGR doplněný o popis důležitých vzdáleností. U ostatních stylů jsou proměnné
+pojmenovány analogicky. Ve stylu XYGR nejsou na x-ovou osu vynášeny kategorie řad, ale je měřitelná
+stejně jako y-ová osa na našem obrázku. Ve stylu OSGR jsou grafy typu "norm" pouze o něco jednodušší, 
+u grafů typu "pie" zůstávají stejné pouze proměnné pro základní rozvržení obrázku, ale proměnné
+uvnitř grafu jsou jiné. Základ tvoří souřadnice středu grafu a jeho poloměr. Proměnných ale není tolik a není proto 
+problém se v nich vyznat.
+</para>
+<para>Poměrně složité je zpracování měřitelných datových hodnot. Je nutno určit jejich nejmenší a největší hodnotu, 
+podle hodnoty parametru <sgmltag>xAxisType</sgmltag> nebo <sgmltag>yAxisType</sgmltag> upravit meze.
+Dále vypočítat vhodný krok pro zobrazení legendy a podle toho upravit maximální a minimální zobrazovanou hodnotu.
+Výsledkem tohoto procesu jsou pro každou měřitelnou osu dvě konstanty, které se používají pro přepočet skutečných 
+souřadnic daného bodu na obrazové souřadnice. Bod o souřadnicích <sgmltag>[x, y]</sgmltag> (u grafu typu XYGR)
+je takto převeden na bod <sgmltag>[xShift + xKoef*x, yShift + yKoef*y]</sgmltag>.
+</para>
+
+<para>Při vykreslování bodů, čar a sloupců v MSGR stylu používáme často následující proměnné:
+<sgmltag>sn</sgmltag> (series number) pro pořadí právě vykreslované datové řady (od 0),
+<sgmltag>cn</sgmltag> (color number) pro pořadí barvy právě vykreslované datové řady v barevném schématu,
+<sgmltag>vn</sgmltag> (value number) pro pořadí aktuální hodnoty v rámci datové řady.
+</para>
+<!--table>
+<title>Zkratky v jménech proměnných</title>
+<tgroup cols="2">
+	<colspec colwidth="5cm" align="center"/>
+	<colspec colwidth="10cm" align="left"/>
+	<thead>
+		<row>
+			<entry>Zkr.</entry>
+			<entry>význam</entry>
+		</row>
+	</thead>
+	<tbody>
+		<row>
+			<entry>T</entry>
+			<entry>Top</entry>
+		</row>
+		<row>
+			<entry>B</entry>
+			<entry>Botom</entry>
+		</row>
+		<row>
+			<entry>L</entry>
+			<entry>Left</entry>
+		</row>
+		<row>
+			<entry>Wd</entry>
+			<entry>Width</entry>
+		</row>
+		<row>
+			<entry>Hg</entry>
+			<entry>Height</entry>
+		</row>
+		<row>
+			<entry>Cat</entry>
+			<entry>Category</entry>
+		</row>
+	</tbody>
+</tgroup>
+</table-->
+
+</section>
+
+<section>
+<title>Popis některých funkcí a pojmenovaných šablon</title>
+<para>V této podkapitole vysvětlujeme chování a použití některých funkcí. Má význam především
+pro toho, kdo by chtěl hlouběji zkoumat fungování stylů.</para>
+<variablelist>
+	<varlistentry>
+          <term>
+			předzpracování dat pomocí speciálních šablon
+          </term>
+          <listitem>
+<para>
+Dříve, než jsou dělány jakékoliv úpravy s daty, proběhne jejich předzpracování. Jestliže má být některá
+osa zobrazována jako logaritmická (<sgmltag>yAxisType</sgmltag> = "log") nebo je u MSGR grafu zvolen 
+skládaný graf (atribut <sgmltag>stacked</sgmltag> je roven "sum" nebo "percentage"), jsou hodnoty příslušným 
+způsobem přepočteny. K tomu se používá sada šablon pracujících ve zvláštním režimu, které pro zajímavost 
+uvádíme (pochází opět ze stylu MSGR):</para>
+<programlisting><![CDATA[<xsl:template match="value" mode="processValues">
+  <xsl:param name="graph"/>
+  <value>
+  <xsl:apply-templates select="@*|*" mode="processValues"/>
+  <xsl:variable name="pos" select="count(preceding-sibling::value)+1"/>
+  <xsl:value-of select="
+    if ($graph/@stacked='sum') then 
+        sum((../preceding-sibling::values/value[$pos], .)) else
+    if ($graph/@stacked='percentage') then (
+        sum((../preceding-sibling::values/value[$pos], .)) div 
+            sum(../../values/value[$pos]) ) else
+    if ($graph/@yAxisType='log') then 
+        m:Log10(if ((.) != 0) then math:abs(.) else 1) else (.)"/>
+  </value>
+</xsl:template>
+<xsl:template match="values" mode="processValues">
+  <xsl:param name="graph"/>
+  <values>
+  <xsl:apply-templates select="@*|*|text()" mode="processValues">
+    <xsl:with-param name="graph" select="$graph"/>
+  </xsl:apply-templates>
+  </values>
+</xsl:template>
+<xsl:template match="*|@*" mode="processValues">
+  <xsl:copy-of select="."/>
+</xsl:template>]]></programlisting>
+		<para>Výsledek je uložen do proměnné <sgmltag>gra</sgmltag>, která se dále používá místo vstupních dat.</para>
+		</listitem>
+	</varlistentry>
+
+	<varlistentry>
+          <term>
+			šablona <sgmltag>drawPoint</sgmltag>
+          </term>
+          <listitem>
+			<para>Slouží k vykreslení bodu daného typu na zadané místo. Jsou v ní i konstanty ovlivňující velikosti
+			jednotlivých typů bodů.</para>
+		</listitem>
+	</varlistentry>
+	
+	<varlistentry>
+          <term>
+			šablona <sgmltag>drawCol</sgmltag>
+          </term>
+          <listitem>
+			<para>Šablona vykreslí sloupec daného tvaru a typu. Sloupec je vykreslen do počátku souřadnic a poté 
+			posunut na správné místo. To děláme proto, že v počátku je definován lineární přechod u sloupců
+			typu "cylinder" a "cone", který je společný pro všechny sloupce jedné řady.</para>
+		</listitem>
+	</varlistentry>
+	
+
+	<varlistentry>
+          <term>
+			funkce <sgmltag>m:LineType</sgmltag>
+          </term>
+          <listitem>
+			<para>Tato funkce v závislosti na požadovaném typu čáry vrací řetězec, který musí být vložen
+			do atributu <sgmltag>stroke-dasharray</sgmltag> při vykreslování čar.
+			Určuje se podle něj, jak má být čára přerušována.</para>
+		</listitem>
+	</varlistentry>
+	
+	<varlistentry>
+          <term>
+			funkce <sgmltag>m:Step</sgmltag>
+          </term>
+          <listitem>
+			<para>Funkce <sgmltag>m:Step</sgmltag> počítá vhodný krok k popsání os. Nejdříve se vypočte 
+			odhad kroku podělením délky osy a požadovaného počtu hlavních značek. Potom 
+			se krok upraví tak, aby jeho násobky byly příslušné mocniny desítky.</para>
+		</listitem>
+	</varlistentry>
+	
+	<varlistentry>
+          <term>
+			funkce <sgmltag>m:GMax</sgmltag>
+          </term>
+          <listitem>
+			<para> Zaokrouhluje horní maximum dat na celé kroky nahoru. Používá se při určování
+			největší a&nbsp;nejmenší hodnoty os.</para>
+		</listitem>
+	</varlistentry>
+	
+</variablelist>
+
+</section>
+
+</chapter>
+
+
+  
+<preface>  <!--***závěr****************************************************-->
+  <title>Závěr</title>
+   <para>Data ekonomického charakteru jsou snadněji analyzovatelná, pokud jsou
+   zobrazena graficky, tedy formou grafu. Přestože nástrojů pro tvorbu grafů existuje hodně, 
+   poněkud chybí dostatečně variabilní nástroj, který by převáděl XML data do SVG pomocí
+   XSLT.
+   V práci byla navržena sada tří typů XML souborů, které pokrývají většinu běžně používaných grafů.
+   Přitom jsme vycházeli z typu zobrazovaných dat a snažili jsme se vytvořit návrh, který reprezentuje 
+   data doplněná o atributy, které určují, jak má graf vypadat. Jádrem práce jsou ovšem transformační 
+   skripty, které vypočítávají výsledný vzhled a vykreslují grafy v SVG formátu.
+   </para>
+     <para>
+   Snažili jsme se zahrnout co nejširší spektrum grafů a tomu přizpůsobit volbu parametrů.
+   Styly by přesto mohly obsahovat mnoho dalších parametrů, které řídí vzhled grafů, barvy výplní, jednotlivé
+rozměry a podobně. Jejich používání by však potom bylo dle našeho názoru poměrně složité a nepřehledné.
+Ostatně je možné přizpůsobit grafy daným potřebám, buď pomocí dodatečné editace výsledného obrázku
+nebo přímo úpravou skriptů. 
+Stejně tak je možná i jiná koncepce takovéto transformace, například přímý popis prvků grafu. 
+   </para>
+   <para>Jelikož jsou výsledné skripty zveřejněny, může je každý používat pro tvorbu
+   grafů, které potřebuje, nebo je zakomponovat do svého informačního systému. Otevírá 
+   se tedy prostor pro další vývoj těchto stylů, jejich obohacení o nové možnosti, případně 
+   navržení nových stylů pro jiné speciální typy dat.
+   </para>
+</preface>
+
+
+<bibliography>
+    <title>Literatura</title>
+
+     <bibliomixed id="bib.Harris">Harris R.:
+	<citetitle>Information Graphics — A Comprehensive Illustrated Reference.</citetitle>
+	New York, Oxford University Press 1999, 448 s. 
+	ISBN 0-19-513532-6.
+	</bibliomixed>
+	
+	 <bibliomixed id="bib.Francu"> Franců M.: 
+	<citetitle>Office grafy a diagramy — Excel Word PowerPoint.</citetitle>
+	1. vyd. Praha, Grada 2005, 116 s. 
+	ISBN 80-247-1189-3.
+	</bibliomixed>
+    
+    <bibliomixed id="bib.XMLKosek">Kosek J.: 
+	<citetitle>XML pro každého — podrobný průvodce.</citetitle>
+	Praha, Grada Publishing 2000, 164 s.
+	ISBN 80-7169-860-1.
+	<ulink>http://www.kosek.cz/xml/</ulink>.
+	</bibliomixed>
+	
+	<bibliomixed id="bib.w3cXML">Bray T., Paoli J., Sperberg-McQueen C. M., Maler E.:
+	<citetitle>Extensible Markup Language (XML) 1.0 (Second Edition)</citetitle>
+	W3C 2000,
+	<ulink>http://www.w3.org/TR/REC-xml</ulink>.
+	</bibliomixed>
+	
+	<bibliomixed id="bib.XSLTKosek">Kosek J.: 
+	<citetitle>XSLT v příkladech.</citetitle>
+	<ulink>http://www.kosek.cz/xml/xslt/</ulink>.
+	</bibliomixed>
+	
+	<bibliomixed id="bib.w3cXSLT">Clark J.:
+	<citetitle>XSL Transformation (XSLT) Version 1.0.</citetitle>
+	W3C 1999, 
+	<ulink>http://www.w3.org/TR/xslt/</ulink>.
+	</bibliomixed>
+   
+	<bibliomixed id="bib.w3cXSLT20">Kay M. ed.:
+	<citetitle>XSL Transformations (XSLT) Version 2.0, W3C Proposed Recommendation.</citetitle>
+	W3C 2006, 
+	<ulink>http://www.w3.org/TR/xslt20/</ulink>.
+	</bibliomixed>
+	
+	<bibliomixed id="bib.zvon">Nič M.:
+	<citetitle>XSLT 2.0 Tutorial.</citetitle>
+	<ulink>http://zvon.org/xxl/XSL-Ref/Tutorials/</ulink>.
+	</bibliomixed>
+   
+	<bibliomixed id="bib.w3cXPath20">Berglund A., Boag S., Chamberlin D., Fernández M. F., 
+	Kay M., Robie J., Siméon J.:
+	<citetitle>XML Path Language (XPath) 2.0, W3C Proposed Recommendation.</citetitle>
+	W3C 2006, 
+	<ulink>http://www.w3.org/TR/xpath20/</ulink>.
+	</bibliomixed>
+
+	<bibliomixed id="bib.Saxon">
+	<citetitle>Saxon 8.8 documentation.</citetitle>
+	Saxonica 2006, 
+	<ulink>http://www.saxonica.com</ulink>.
+	</bibliomixed>
+   
+	<bibliomixed id="bib.w3cSVG"> Ferraiolo J., Fujisawa J., Jackson D. a kol.:
+	<citetitle>Scalable Vector Graphics (SVG) 1.1 Specification, W3C Recommendation.</citetitle>
+	W3C 2003, 
+	<ulink>http://www.w3.org/TR/svg11/</ulink>.
+	</bibliomixed>
+   
+</bibliography>
+</book>

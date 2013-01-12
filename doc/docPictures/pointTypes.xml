@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE graph SYSTEM "xygr.dtd">
+<graph xAxeType="auto" 
+	colorScheme="black" pointType="none" yAxisDivision="none">
+	<title>Point Types
+		point|cross|plus|star|square|circle|triangle|rhomb|pyramid|squareF|circleF|triangleF|rhombF|pyramidF</title>
+	<curve lineType="none">
+		<point x="0" y="10" />
+		<point x="17" y="15" />
+	</curve>
+	<curve pointType="point">
+		<name x="25" y="97.5">point</name>
+		<point x="22" y="100" />
+	</curve>
+	<curve pointType="cross">
+		<name x="25" y="87.5">cross</name>
+		<point x="22" y="90" />
+	</curve>
+	<curve pointType="plus">
+		<name x="25" y="77.5">plus</name>
+		<point x="22" y="80" />
+	</curve>
+	<curve pointType="star">
+		<name x="25" y="67.5">star</name>
+		<point x="22" y="70" />
+	</curve>
+	<curve pointType="square">
+		<name x="25" y="57.5">square</name>
+		<point x="22" y="60" />
+	</curve>
+	<curve pointType="circle">
+		<name x="25" y="47.5">circle</name>
+		<point x="22" y="50" />
+	</curve>
+	<curve pointType="triangle">
+		<name x="25" y="37.5">triangle</name>
+		<point x="22" y="40" />
+	</curve>
+	<curve pointType="rhomb">
+		<name x="25" y="27.5">rhomb</name>
+		<point x="22" y="30" />
+	</curve>
+	<curve pointType="pyramid">
+		<name x="25" y="17.5">pyramid</name>
+		<point x="22" y="20" />
+	</curve>
+	<curve pointType="squareF">
+		<name x="25" y="7.5">squareF</name>
+		<point x="22" y="10" />
+	</curve>
+	<curve pointType="circleF">
+		<name x="25" y="-2.5">circleF</name>
+		<point x="22" y="0" />
+	</curve>
+	<curve pointType="triangleF">
+		<name x="25" y="-12.5">triangleF</name>
+		<point x="22" y="-10" />
+	</curve>
+	<curve pointType="rhombF">
+		<name x="25" y="-22.5">rhombF</name>
+		<point x="22" y="-20" />
+	</curve>
+	<curve pointType="pyramidF">
+		<name x="25" y="-32.5">pyramidF</name>
+		<point x="22" y="-30" />
+	</curve>
+</graph>

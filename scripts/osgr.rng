@@ -282,8 +282,12 @@ datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
       <attribute name="yAxisStep"/>
     </optional>
     
-     <optional>
+    <optional>
       <attribute name="yAxisMarkCount"/>
+    </optional>
+    
+    <optional>
+      <attribute name="yAxisMarkDist"/>
     </optional>
 
     <optional>
@@ -305,7 +309,7 @@ datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
     </optional>
 
     <optional>
-      <attribute name="xAxisDivision" a:defaultValue="major">
+      <attribute name="xAxisDivision" a:defaultValue="minor">
     <a:documentation>
       <html:p>Specifies which type of division are used on the X axis. Select from</html:p>
       <html:ul>
@@ -352,6 +356,14 @@ datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
         </choice>
       </attribute>
     </optional>
+    
+    <optional>
+      <attribute name="categoryGap"/>
+    </optional>
+    <optional>
+      <attribute name="columnWd"/>
+    </optional>
+    
     <optional>
       <attribute name="yGrid" a:defaultValue="none">
     <a:documentation>
@@ -401,6 +413,43 @@ datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
         </choice>
       </attribute>
     </optional>
+    
+    <optional>
+      <attribute name="legendMargin"/>
+    </optional>
+    <optional>
+      <attribute name="legendPictureWd"/>
+    </optional>
+    <optional>
+      <attribute name="legendPictureHg"/>
+    </optional>
+    <optional>
+      <attribute name="legendLineHg"/>
+    </optional>
+    <optional>
+      <attribute name="legendGap"/>
+    </optional>
+    <optional>
+      <attribute name="legendFontSize"/>
+    </optional>
+    
+    <optional>
+      <attribute name="graphMargin"/>
+    </optional>
+    <optional>
+      <attribute name="titleMargin"/>
+    </optional>
+    <optional>
+      <attribute name="titleFontSize"/>
+    </optional>
+    
+    <optional>
+      <attribute name="labelAngle"/>
+    </optional>
+    <optional>
+      <attribute name="labelFontSize"/>
+    </optional>
+    
     <optional>
       <attribute name="labelIn" a:defaultValue="none">
     <a:documentation>

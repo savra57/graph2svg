@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE msgr SYSTEM "msgr.dtd">
+<msgr xmlns="http://graph2svg.googlecode.com" colType="block" lineType="none" legend="right" xAxisDivision="both" shift="1.5"
+	yAxisDivision="2" effect="3D" categoryGap="40" columnWd="40"
+	legendPictureWd="52" legendPictureHg="40" legendLineHg="80" legendGap="40">
+	<title>Sizes - Big Legend, Wide Columns and Gaps</title>
+	<names>
+		<name>Spring</name>
+		<name>Summer</name>
+		<name>Autumn</name>
+	</names>
+
+	<values color="#c5a712">
+		<title>Pears Net Export</title>
+		<value>5</value>
+		<value>30</value>
+		<value>-15</value>
+	</values>
+	<values color="#d82914">
+		<title>Apples Net Export</title>
+		<value>15</value>
+		<value>50</value>
+		<value>89</value>
+	</values>
+</msgr>
