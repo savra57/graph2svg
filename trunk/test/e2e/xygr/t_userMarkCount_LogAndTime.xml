@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xygr SYSTEM "xygr.dtd">
+<!-- the x step is 30 minutes in seconds 
+yAxisMarkCount should be ignored as the step is defined
+-->
+<xygr xmlns="http://graph2svg.googlecode.com"
+		lineType="solid" pointType="point"
+		xAxisType="dateTime" xAxisMarkCount="20"
+		yAxisType="log" yAxisMarkCount="10"
+	>
+
+	<title>Axes - user step for log and time axis</title>
+	<curve>
+		<point x="2010-01-22T09:00:00" y="10250"/>
+		<point x="2010-01-22T10:30:10" y="5508"/>
+		<point x="2010-01-22T11:50:11" y="150"/>
+		<point x="2010-01-22T13:00:12" y="0.002"/>
+		<point x="2010-01-22T14:29:59" y="10"/>
+	</curve>
+</xygr>

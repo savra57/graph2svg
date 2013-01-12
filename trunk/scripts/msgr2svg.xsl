@@ -15,7 +15,6 @@
 "doctype-system="http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"-->
 
 <xsl:template name="m:msgr2svg">
-	<xsl:param name="graph"/>
 	<xsl:variable name="gra">
 		<ph>
 		<xsl:apply-templates select="$graph/@*" mode="m:processValues">
@@ -39,8 +38,8 @@
 	<xsl:variable name="depthY" select="if ($gra/ph/@effect = '3D') then 8 else 0"/>
 	
 		<!-- X axis - categories -->
-	<xsl:variable name="catGap" select="10"/> 
-	<xsl:variable name="colWd" select="20"/> 
+	<xsl:variable name="catGap" select="m:Att('categoryGap', 10)"/> 
+	<xsl:variable name="colWd" select="m:Att('columnWd', 20)"/> 
 	<xsl:variable name="catCount" as="xs:integer" select="count($gra/ph/names/name) cast as xs:integer"/> 
 	<xsl:variable name="serCount" as="xs:integer" select="count($gra/ph/values) cast as xs:integer"/> 
 	<xsl:variable name="shift" select="if ($gra/ph/@shift) then $gra/ph/@shift else 0"/> 

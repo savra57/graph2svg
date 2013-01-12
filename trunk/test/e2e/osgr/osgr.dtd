@@ -13,9 +13,11 @@
 			pointType (none|point|cross|plus|minus|star|square|circle|triangle|rhomb|pyramid|squareF|circleF|triangleF|rhombF|pyramidF) "none"
 			smooth (yes|no) "no"
 			
-			xAxisDivision  (none|major|minor|both) "major"
+			xAxisDivision  (none|major|minor|both) "minor"
 			xAxisPos (bottom|origin) "origin"
 			xGrid (none|major|minor|both) "none"
+			categoryGap CDATA #IMPLIED
+			columnWd CDATA #IMPLIED
 			
 			yAxisType  (auto|withZero|shifted|log|dateTime) "auto"
 			yAxisDivision  (none|1|2|4|5|10) "1"
@@ -25,11 +27,26 @@
 			yAxisMax CDATA #IMPLIED
 			yAxisStep CDATA #IMPLIED
 			yAxisMarkCount CDATA #IMPLIED
+			yAxisMarkDist CDATA #IMPLIED
 			
-			colorScheme  (color|warm|cold|grey|black) "color"
 			legend  (none|left|right|top|bottom) "none"
+			legendMargin CDATA #IMPLIED
+			legendPictureWd CDATA #IMPLIED
+			legendPictureHg CDATA #IMPLIED
+			legendLineHg CDATA #IMPLIED
+			legendGap CDATA #IMPLIED
+			legendFontSize CDATA #IMPLIED
+			
+			graphMargin CDATA #IMPLIED
+			titleMargin CDATA #IMPLIED
+			titleFontSize CDATA #IMPLIED
+			
+			labelAngle CDATA #IMPLIED
+			labelFontSize CDATA #IMPLIED
 			labelIn (none|value|percent|name) "none"
-			labelOut (none|value|percent|name) "none">
+			labelOut (none|value|percent|name) "none"
+			
+			colorScheme  (color|warm|cold|grey|black) "color">
 <!ATTLIST title color CDATA #IMPLIED>
 <!ATTLIST value
 			color CDATA #IMPLIED

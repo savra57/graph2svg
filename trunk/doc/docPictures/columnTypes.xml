@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--DOCTYPE graph SYSTEM "msgr.dtd"-->
+<graph colType="block" legend="top" xAxisDivision="both" shift="1.5" yAxisDivision="4"
+			colorScheme="cold" xGrid='both' yGrid='major' effect='3D'  lineType="none">
+	<title>Column Types</title>
+	<names>
+		<name>A</name>
+		<name>B</name>
+
+	</names>
+
+	<values colType="block">
+		<title>effect = "2D"</title>
+		<value>15.5</value>
+		<value>18</value>
+	</values>
+	<values colType="cylinder">
+		<title>effect = "3D"</title>
+		<value>15.5</value>
+		<value>22</value>
+	</values>
+	<values colType="cone">
+		<title>block</title>
+		<value>15.5</value>
+		<value>15</value>
+	</values>
+	<values colType="pyramid">
+		<title>pyramid</title>
+		<value>15.5</value>
+		<value>25</value>
+	</values>
+</graph>

@@ -23,7 +23,13 @@
 			<!--arg value="${filter}"/-->
 		</java>
 	</target>
-
+	
+	<target name="copyDtds">
+		<copy file="../scripts/osgr.dtd" todir="e2e/osgr" overwrite="true"/>
+		<copy file="../scripts/msgr.dtd" todir="e2e/msgr" overwrite="true"/>
+		<copy file="../scripts/xygr.dtd" todir="e2e/xygr" overwrite="true"/>
+	</target>
+	
 	<!-- runs XSLT transformation on every file in the specified directory (respecting the filter give)
 	results are generated to the specified subdirectory -->
 	<target name="transform">
@@ -128,7 +134,7 @@
 		</antcall>
 	</target>
 
-	<target name="validateAll">
+	<target name="validateAll" depends="copyDtds">
 		<antcall target="validateAllDtd"/>
 		<antcall target="validateAllRng"/>
 	</target>
@@ -182,7 +188,9 @@
 	</target>
 
 	<target name="main">
+		<!--
 		<antcall target="validateAll" />
+		-->
 		<antcall target="testAll" />
 	</target>
 

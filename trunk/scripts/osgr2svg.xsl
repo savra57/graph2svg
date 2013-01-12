@@ -15,7 +15,6 @@
 "doctype-system="http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"-->
 
 <xsl:template name="m:osgr2svg">
-	<xsl:param name="graph"/>
 	<xsl:variable name="gra">
 		<ph>
 		<xsl:apply-templates select="$graph/@*" mode="m:processValues">
@@ -34,11 +33,11 @@
 	<!--xsl:copy-of select="$gra/ph"/-->
 
 	<!-- constants OSGR overwrites-->
-	<xsl:variable name="legendFontSize"  select="12"/>
+	<xsl:variable name="legendFontSize"  select="m:Att('legendFontSize', 12)"/>
 	
 	<!-- constants specific to OSGR-->
-	<xsl:variable name="labelInFontSize"  select="10"/>
-	<xsl:variable name="labelOutFontSize"  select="10"/>
+	<xsl:variable name="labelInFontSize"  select="$labelFontSize"/>
+	<xsl:variable name="labelOutFontSize"  select="$labelFontSize"/>
 	<xsl:variable name="labelOutFontWd"  select="0.60"/>
 	
 	<xsl:variable name="pieRadiusX" select="100"/>  
@@ -325,8 +324,8 @@
 <xsl:otherwise>  <!--******************************graphType = 'norm' a other types-->
 	<!-- variable calculation for norm type -->
 		<!-- X axis - categories -->
-	<xsl:variable name="catGap" select="10"/> 
-	<xsl:variable name="colWd" select="30"/> 
+	<xsl:variable name="catGap" select="m:Att('catGap', 10)"/> 
+	<xsl:variable name="colWd" select="m:Att('columnWd', 30)"/> 
 	<xsl:variable name="catCount" as="xs:integer" select="count($gra/ph/names/name) cast as xs:integer"/> 
 	<xsl:variable name="catWd" select="2*$catGap+$colWd"/> 
 	<xsl:variable name="xAxisWd" select="$catCount * $catWd"/>

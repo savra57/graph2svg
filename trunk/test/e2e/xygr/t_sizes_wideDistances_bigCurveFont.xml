@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xygr SYSTEM "xygr.dtd">
+<xygr xmlns="http://graph2svg.googlecode.com"
+		pointType="point" colorScheme="cold"
+		xAxisMarkDist="60" yAxisMarkDist="40" curveFontSize="25">
+	<title>Sizes - Wide Distances, Big Curve Font</title>
+	<curve smooth="yes">
+		<name>Long</name>
+		<point x="45" y="4"/>
+		<point x="60" y="7"/>
+		<point x="65" y="3"/>
+		<point x="81" y="6"/>
+		<point x="90" y="7"/>
+	</curve>
+	<curve>
+		<name>Short</name>
+		<point x="50" y="3"/>
+		<point x="55" y="6"/>
+		<point x="60" y="8"/>
+		<point x="65" y="10"/>
+	</curve>
+</xygr>

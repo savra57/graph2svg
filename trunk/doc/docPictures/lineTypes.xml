@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE graph SYSTEM "xygr.dtd">
+<graph xAxeType="auto" 
+	colorScheme="black" lineType="none" yAxisDivision="none">
+	<title>Line Types, colSch=color
+		(none|solid|dot|dash|longDash|dash-dot|longDash-dot|dash-dot-dot|longDash-dash|dash-dash-dot-dot)</title>
+	<curve lineType="none">
+		<point x="0" y="10" />
+		<point x="170" y="150" />
+	</curve>
+	<curve lineType="solid">
+		<name x="25" y="97.5">solid</name>
+		<point x="11" y="100" />
+		<point x="22" y="100" />
+	</curve>
+	<curve lineType="dot">
+		<name x="25" y="87.5">dot</name>
+		<point x="11" y="90" />
+		<point x="22" y="90" />
+	</curve>
+	<curve lineType="dash">
+		<name x="25" y="77.5">dash</name>
+		<point x="11" y="80" />
+		<point x="22" y="80" />
+	</curve>
+	<curve lineType="longDash">
+		<name x="25" y="67.5">longDash</name>
+		<point x="11" y="70" />
+		<point x="22" y="70" />
+	</curve>
+	<curve lineType="dash-dot">
+		<name x="25" y="57.5">dash-dot</name>
+		<point x="11" y="60" />
+		<point x="22" y="60" />
+	</curve>
+	<curve lineType="longDash-dot">
+		<name x="25" y="47.5">longDash-dot</name>
+		<point x="11" y="50" />
+		<point x="22" y="50" />
+	</curve>
+	<curve lineType="dash-dot-dot">
+		<name x="25" y="37.5">dash-dot-dot</name>
+		<point x="11" y="40" />
+		<point x="22" y="40" />
+	</curve>
+	<curve lineType="longDash-dash">
+		<name x="25" y="27.5">longDash-dash</name>
+		<point x="11" y="30" />
+		<point x="22" y="30" />
+	</curve>
+	<curve lineType="dash-dash-dot-dot">
+		<name x="25" y="17.5">dash-dash-dot-dot</name>
+		<point x="11" y="20" />
+		<point x="22" y="20" />
+	</curve>
+</graph>

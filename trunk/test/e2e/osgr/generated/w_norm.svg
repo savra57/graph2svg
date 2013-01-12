@@ -23,7 +23,8 @@
       </svg:g>
    </svg:g>
    <svg:g stroke="black">
-      <svg:path d="M28.6,483 v3 m50,-3 v3 m50,-3 v3 m50,-3 v3 m50,-3 v3" stroke-width="1"/>
+      <svg:path d="M53.6,481  v2 m50,-2  v2 m50,-2  v2 m50,-2  v2 m50,-2  v2 m50,-2"
+                stroke-width="0.5"/>
       <svg:path d="M25.6,483 l6,0  m-6,-25 l6,0  m-6,-25 l6,0  m-6,-25 l6,0  m-6,-25 l6,0  m-6,-25 l6,0  m-6,-25 l6,0  m-6,-25 l6,0  m-6,-25 l6,0  m-6,-25 l6,0  m-6,-25 l6,0  m-6,-25 l6,0  m-6,-25 l6,0  m-6,-25 l6,0  m-6,-25 l6,0  m-6,-25 l6,0  m-6,-25 l6,0  m-6,-25 l6,0 "
                 stroke-width="1"/>
    </svg:g>
