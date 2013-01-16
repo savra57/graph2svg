@@ -7,13 +7,13 @@
    </svg:g>
    <svg:g stroke-width="0.4" fill="#c5a712" stroke="black" stroke-linejoin="round">
       <svg:g transform="translate(40.4, 251)">
-         <svg:path d="M-10,-0 h20 v-12.5 h-20 z"/>
-         <svg:path d="M10,-0 l8,-8 v-12.5 l-8,8 z"/>
+         <svg:path d="M-10,0 h20 v-12.5 h-20 z"/>
+         <svg:path d="M10,0 l8,-8 v-12.5 l-8,8 z"/>
          <svg:path d="M-10,-12.5 h20 l8,-8 h-20 z"/>
       </svg:g>
       <svg:g transform="translate(110.4, 251)">
-         <svg:path d="M-10,-0 h20 v-75 h-20 z"/>
-         <svg:path d="M10,-0 l8,-8 v-75 l-8,8 z"/>
+         <svg:path d="M-10,0 h20 v-75 h-20 z"/>
+         <svg:path d="M10,0 l8,-8 v-75 l-8,8 z"/>
          <svg:path d="M-10,-75 h20 l8,-8 h-20 z"/>
       </svg:g>
       <svg:g transform="translate(180.4, 251)">
@@ -22,51 +22,50 @@
          <svg:path d="M-10,37.5 h20 l8,-8 h-20 z"/>
       </svg:g>
       <svg:g transform="translate(252.4,        160)">
-         <svg:path d="M-5,-0 h10 v-16 h-10 z"/>
-         <svg:path d="M5,-0 l4,-4 v-16 l-4,4 z"/>
+         <svg:path d="M-5,0 h10 v-16 h-10 z"/>
+         <svg:path d="M5,0 l4,-4 v-16 l-4,4 z"/>
          <svg:path d="M-5,-16 h10 l4,-4 h-10 z"/>
       </svg:g>
    </svg:g>
    <svg:g stroke-width="0.4" fill="#d82914" stroke="black" stroke-linejoin="round">
       <svg:g transform="translate(70.4, 251)">
-         <svg:path d="M-10,-0 h20 v-37.5 h-20 z"/>
-         <svg:path d="M10,-0 l8,-8 v-37.5 l-8,8 z"/>
+         <svg:path d="M-10,0 h20 v-37.5 h-20 z"/>
+         <svg:path d="M10,0 l8,-8 v-37.5 l-8,8 z"/>
          <svg:path d="M-10,-37.5 h20 l8,-8 h-20 z"/>
       </svg:g>
       <svg:g transform="translate(140.4, 251)">
-         <svg:path d="M-10,-0 h20 v-125 h-20 z"/>
-         <svg:path d="M10,-0 l8,-8 v-125 l-8,8 z"/>
+         <svg:path d="M-10,0 h20 v-125 h-20 z"/>
+         <svg:path d="M10,0 l8,-8 v-125 l-8,8 z"/>
          <svg:path d="M-10,-125 h20 l8,-8 h-20 z"/>
       </svg:g>
       <svg:g transform="translate(210.4, 251)">
-         <svg:path d="M-10,-0 h20 v-222.5 h-20 z"/>
-         <svg:path d="M10,-0 l8,-8 v-222.5 l-8,8 z"/>
+         <svg:path d="M-10,0 h20 v-222.5 h-20 z"/>
+         <svg:path d="M10,0 l8,-8 v-222.5 l-8,8 z"/>
          <svg:path d="M-10,-222.5 h20 l8,-8 h-20 z"/>
       </svg:g>
       <svg:g transform="translate(252.4,        184)">
-         <svg:path d="M-5,-0 h10 v-16 h-10 z"/>
-         <svg:path d="M5,-0 l4,-4 v-16 l-4,4 z"/>
+         <svg:path d="M-5,0 h10 v-16 h-10 z"/>
+         <svg:path d="M5,0 l4,-4 v-16 l-4,4 z"/>
          <svg:path d="M-5,-16 h10 l4,-4 h-10 z"/>
       </svg:g>
    </svg:g>
    <svg:g stroke="black">
-      <svg:path d="M40.400000000000006,249 l0,2 m30,-2 l0,2 m40,-2 l0,2 m30,-2 l0,2 m40,-2 l0,2 m30,-2 l0,2 m40,-2"
+      <svg:path d="M40.4,249 l0,2 m30,-2 l0,2 m40,-2 l0,2 m30,-2 l0,2 m40,-2 l0,2 m30,-2 l0,2 m40,-2"
                 stroke-width="0.5"/>
-      <svg:path d="M20.400000000000002,251 l0,3 m70,-3 l0,3 m70,-3 l0,3" stroke-width="1"/>
+      <svg:path d="M20.4,251 l0,3 m70,-3 l0,3 m70,-3 l0,3" stroke-width="1"/>
       <svg:path d="M18.4,301 l4,0  m-4,-12.5 l4,0  m-4,-12.5 l4,0  m-4,-12.5 l4,0  m-4,-12.5 l4,0  m-4,-12.5 l4,0  m-4,-12.5 l4,0  m-4,-12.5 l4,0  m-4,-12.5 l4,0  m-4,-12.5 l4,0  m-4,-12.5 l4,0  m-4,-12.5 l4,0  m-4,-12.5 l4,0  m-4,-12.5 l4,0  m-4,-12.5 l4,0  m-4,-12.5 l4,0  m-4,-12.5 l4,0  m-4,-12.5 l4,0  m-4,-12.5 l4,0  m-4,-12.5 l4,0  m-4,-12.5 l4,0  m-4,-12.5 l4,0  m-4,-12.5 l4,0 "
                 stroke-width="0.5"/>
       <svg:path d="M17.4,301 l6,0  m-6,-25 l6,0  m-6,-25 l6,0  m-6,-25 l6,0  m-6,-25 l6,0  m-6,-25 l6,0  m-6,-25 l6,0  m-6,-25 l6,0  m-6,-25 l6,0  m-6,-25 l6,0  m-6,-25 l6,0  m-6,-25 l6,0 "
                 stroke-width="1"/>
    </svg:g>
-   <svg:line x1="20.400000000000002" y1="251" x2="230.4" y2="251" stroke="black"
-             stroke-width="1"/>
+   <svg:line x1="20.4" y1="251" x2="230.4" y2="251" stroke="black" stroke-width="1"/>
    <svg:g text-anchor="middle" font-family="Verdana" font-size="10" fill="black">
-      <svg:text x="55.400000000000006" y="264">Spring</svg:text>
+      <svg:text x="55.4" y="264">Spring</svg:text>
       <svg:text x="125.4" y="264">Summer</svg:text>
       <svg:text x="195.4" y="264">Autumn</svg:text>
    </svg:g>
    <svg:g stroke="black" stroke-width="1">
-      <svg:line x1="20.400000000000002" y1="301" x2="20.400000000000002" y2="26"/>
+      <svg:line x1="20.4" y1="301" x2="20.4" y2="26"/>
    </svg:g>
    <svg:g text-anchor="end" font-family="Verdana" font-size="10" fill="black">
       <svg:text x="14.4" y="304.5">-20</svg:text>

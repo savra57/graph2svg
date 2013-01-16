@@ -4,56 +4,57 @@
    <svg:g/>
    <svg:g stroke-width="0.4" stroke="black" stroke-linejoin="round">
       <svg:g transform="translate(121.6, 420)" fill="#ccc">
-         <svg:path d="M-15,-0 h30 v-30.02777773141861 h-30 z"/>
+         <svg:path d="M-15,0 h30 v-30.03 h-30 z"/>
       </svg:g>
       <svg:g transform="translate(171.6, 420)" fill="#888">
-         <svg:path d="M-15,-0 h30 v-101.66666662693024 h-30 z"/>
+         <svg:path d="M-15,0 h30 v-101.67 h-30 z"/>
       </svg:g>
       <svg:g transform="translate(221.6, 420)" fill="#444">
-         <svg:path d="M-15,-0 h30 v-389.5833333134651 h-30 z"/>
+         <svg:path d="M-15,0 h30 v-389.58 h-30 z"/>
       </svg:g>
       <svg:g transform="translate(271.6, 420)" fill="#eee">
-         <svg:path d="M-15,-0 h30 v-345.8611111044884 h-30 z"/>
+         <svg:path d="M-15,0 h30 v-345.86 h-30 z"/>
       </svg:g>
       <svg:g transform="translate(321.6, 420)" fill="#aaa">
-         <svg:path d="M-15,-0 h30 v-200.20833331346512 h-30 z"/>
+         <svg:path d="M-15,0 h30 v-200.21 h-30 z"/>
       </svg:g>
       <svg:g transform="translate(371.6, 420)" fill="#666">
-         <svg:path d="M-15,-0 h30 v-166.66666662693024 h-30 z"/>
+         <svg:path d="M-15,0 h30 v-166.67 h-30 z"/>
       </svg:g>
       <svg:g transform="translate(421.6, 420)" fill="#222">
-         <svg:path d="M-15,-0 h30 v-116.66666662693024 h-30 z"/>
+         <svg:path d="M-15,0 h30 v-116.67 h-30 z"/>
       </svg:g>
       <svg:g transform="translate(471.6, 420)" fill="#ccc">
-         <svg:path d="M-15,-0 h30 v-175 h-30 z"/>
+         <svg:path d="M-15,0 h30 v-175 h-30 z"/>
       </svg:g>
       <svg:g transform="translate(521.6, 420)" fill="#888">
-         <svg:path d="M-15,-0 h30 v-150 h-30 z"/>
+         <svg:path d="M-15,0 h30 v-150 h-30 z"/>
       </svg:g>
       <svg:g transform="translate(571.6, 420)" fill="#444">
-         <svg:path d="M-15,-0 h30 v-125 h-30 z"/>
+         <svg:path d="M-15,0 h30 v-125 h-30 z"/>
       </svg:g>
       <svg:g transform="translate(621.6, 420)" fill="#eee">
-         <svg:path d="M-15,-0 h30 v-100 h-30 z"/>
+         <svg:path d="M-15,0 h30 v-100 h-30 z"/>
       </svg:g>
       <svg:g transform="translate(671.6, 420)" fill="#aaa">
-         <svg:path d="M-15,-0 h30 v-75 h-30 z"/>
+         <svg:path d="M-15,0 h30 v-75 h-30 z"/>
       </svg:g>
       <svg:g transform="translate(721.6, 420)" fill="#666">
-         <svg:path d="M-15,-0 h30 v-50 h-30 z"/>
+         <svg:path d="M-15,0 h30 v-50 h-30 z"/>
       </svg:g>
    </svg:g>
    <svg:g stroke="black">
-      <svg:path d="M121.6,418  v2 m50,-2  v2 m50,-2  v2 m50,-2  v2 m50,-2  v2 m50,-2  v2 m50,-2  v2 m50,-2  v2 m50,-2  v2 m50,-2  v2 m50,-2  v2 m50,-2  v2 m50,-2  v2 m50,-2"
+      <svg:path d="M121.60000000000001,418  v2 m50,-2  v2 m50,-2  v2 m50,-2  v2 m50,-2  v2 m50,-2  v2 m50,-2  v2 m50,-2  v2 m50,-2  v2 m50,-2  v2 m50,-2  v2 m50,-2  v2 m50,-2  v2 m50,-2"
                 stroke-width="0.5"/>
       <svg:path d="M93.6,395 l6,0  m-6,-25 l6,0  m-6,-25 l6,0  m-6,-25 l6,0  m-6,-25 l6,0  m-6,-25 l6,0  m-6,-25 l6,0  m-6,-25 l6,0  m-6,-25 l6,0  m-6,-25 l6,0  m-6,-25 l6,0  m-6,-25 l6,0  m-6,-25 l6,0  m-6,-25 l6,0  m-6,-25 l6,0  m-6,-25 l6,0 "
                 stroke-width="1"/>
    </svg:g>
-   <svg:line x1="96.6" y1="420" x2="746.6" y2="420" stroke="black" stroke-width="1"/>
+   <svg:line x1="96.60000000000001" y1="420" x2="746.6" y2="420" stroke="black"
+             stroke-width="1"/>
    <svg:g text-anchor="middle" font-family="Verdana" font-size="10" fill="black">
-      <svg:text x="121.6" y="433">1</svg:text>
-      <svg:text x="171.6" y="433">2</svg:text>
-      <svg:text x="221.6" y="433">3</svg:text>
+      <svg:text x="121.60000000000001" y="433">1</svg:text>
+      <svg:text x="171.60000000000002" y="433">2</svg:text>
+      <svg:text x="221.60000000000002" y="433">3</svg:text>
       <svg:text x="271.6" y="433">4</svg:text>
       <svg:text x="321.6" y="433">5</svg:text>
       <svg:text x="371.6" y="433">6</svg:text>
@@ -66,8 +67,9 @@
       <svg:text x="721.6" y="433">14</svg:text>
    </svg:g>
    <svg:g stroke="black" stroke-width="1">
-      <svg:line stroke-dasharray="2,3" x1="96.6" y1="395" x2="96.6" y2="420"/>
-      <svg:line x1="96.6" y1="395" x2="96.6" y2="20"/>
+      <svg:line stroke-dasharray="2,3" x1="96.60000000000001" y1="395" x2="96.60000000000001"
+                y2="420"/>
+      <svg:line x1="96.60000000000001" y1="395" x2="96.60000000000001" y2="20"/>
    </svg:g>
    <svg:g text-anchor="end" font-family="Verdana" font-size="10" fill="black">
       <svg:text x="90.6" y="398.5">JAN 21 11:00</svg:text>
@@ -86,36 +88,6 @@
       <svg:text x="90.6" y="73.5">JAN 22 12:00</svg:text>
       <svg:text x="90.6" y="48.5">JAN 22 01:00</svg:text>
       <svg:text x="90.6" y="23.5">JAN 22 02:00</svg:text>
-   </svg:g>
-   <svg:g text-anchor="middle" font-family="Verdana" font-size="10" fill="black">
-      <svg:text x="121.6" y="408.49"/>
-      <svg:text x="171.6" y="372.67"/>
-      <svg:text x="221.6" y="228.71"/>
-      <svg:text x="271.6" y="250.57"/>
-      <svg:text x="321.6" y="323.4"/>
-      <svg:text x="371.6" y="340.17"/>
-      <svg:text x="421.6" y="365.17"/>
-      <svg:text x="471.6" y="336"/>
-      <svg:text x="521.6" y="348.5"/>
-      <svg:text x="571.6" y="361"/>
-      <svg:text x="621.6" y="373.5"/>
-      <svg:text x="671.6" y="386"/>
-      <svg:text x="721.6" y="398.5"/>
-   </svg:g>
-   <svg:g text-anchor="middle" font-family="Verdana" font-size="10" fill="black">
-      <svg:text x="121.6" y="385.97"/>
-      <svg:text x="171.6" y="314.33"/>
-      <svg:text x="221.6" y="26.42"/>
-      <svg:text x="271.6" y="70.14"/>
-      <svg:text x="321.6" y="215.79"/>
-      <svg:text x="371.6" y="249.33"/>
-      <svg:text x="421.6" y="299.33"/>
-      <svg:text x="471.6" y="241"/>
-      <svg:text x="521.6" y="266"/>
-      <svg:text x="571.6" y="291"/>
-      <svg:text x="621.6" y="316"/>
-      <svg:text x="671.6" y="341"/>
-      <svg:text x="721.6" y="366"/>
    </svg:g>
    <svg:rect x="0.5" y="0.5" width="760.6" height="447" stroke="black" fill="none"
              stroke-width="1"/>

@@ -33,16 +33,13 @@
 	<!--xsl:copy-of select="$gra/ph"/-->
 	
 	<!-- variable calculations-->
-		<!-- 2D / 3D -->
-	<xsl:variable name="depthX" select="if ($gra/ph/@effect = '3D') then 8 else 0"/>
-	<xsl:variable name="depthY" select="if ($gra/ph/@effect = '3D') then 8 else 0"/>
 	
 		<!-- X axis - categories -->
 	<xsl:variable name="catGap" select="m:Att('categoryGap', 10)"/> 
 	<xsl:variable name="colWd" select="m:Att('columnWd', 20)"/> 
 	<xsl:variable name="catCount" as="xs:integer" select="count($gra/ph/names/name) cast as xs:integer"/> 
 	<xsl:variable name="serCount" as="xs:integer" select="count($gra/ph/values) cast as xs:integer"/> 
-	<xsl:variable name="shift" select="if ($gra/ph/@shift) then $gra/ph/@shift else 0"/> 
+	<xsl:variable name="shift" select="m:Att('shift', 0)"/>
 	<xsl:variable name="catWd" select="2*$catGap+$colWd + ($serCount -1)*$shift*$colWd"/> 
 	<xsl:variable name="xAxisWd" select="$catCount * $catWd"/>
 	<xsl:variable name="maxXLabelWd" select="$labelFontSize * $labelFontWd *
@@ -165,24 +162,14 @@
 			if ($gra/ph/@colorScheme = 'grey') then $colorSchemeGrey else  $colorSchemeColor "/>
 
 	<!-- start of SVG document -->
-	<svg:svg viewBox="0 0 {$width} {$height}"> 
-	<svg:desc><xsl:value-of select="$gra/ph/title"/></svg:desc>  
-
-	<!-- type the graph title -->
-	<svg:g>
-	<xsl:if test="count($gra/ph/title) &gt; 0">
-		<svg:text x="{$width div 2}" y="{$titleMargin + $titleFontSize}" 
-				text-anchor="middle"
-				font-family="Verdana" font-size="{$titleFontSize}"
-				fill="{if ($gra/ph/title/@color) then $gra/ph/title/@color else 'black'}" >
-		<xsl:value-of select="$gra/ph/title"/>
-		</svg:text> 
-	</xsl:if>
-	</svg:g>
+	<svg:svg viewBox="0 0 {m:R($width)} {m:R($height)}">
+	
+	<xsl:call-template name="m:drawDescritptionAndTitle">
+		<xsl:with-param name="width" select="$width"/>
+	</xsl:call-template>
 	
 	<!-- variables for axis and grids -->
 	<xsl:variable name="LB" select="$gra/ph/@xAxisPos = 'bottom'"/>
-	<xsl:variable name="logDiv"  select="0.301, 0.176, 0.125, 0.097, 0.079, 0.067, 0.058, 0.051, 0.046"/>     <!-- log10(i) - log10(i-1)   pro i=2,3,..,10 -->
 	<xsl:variable name="mYpom"  select="				
 			if ($LB) then 
 				(0 to $yAxisMarkCount)
@@ -214,46 +201,46 @@
 			<xsl:variable name="sk"  select="0.18"/>
 			<xsl:variable name="ySh"  select="$yShift - $depthY"/>
 			<xsl:variable name="line"  select="
-				concat('M', $pX, ',', m:R($ySh + $yKoef * value[1])), 
+				concat('M', m:R($pX), ',', m:R($ySh + $yKoef * value[1])), 
 				for $a in (1 to $lp -1)  return 
 					concat('L', m:R($pX +$a*$catWd),',', m:R($ySh + $yKoef *value[$a+1]))
 				"/>
 				<xsl:variable name="line"  select="
-				concat('M', $pX, ',', m:R($ySh + $yKoef * value[1])), 
+				concat('M', m:R($pX), ',', m:R($ySh + $yKoef * value[1])), 
 				if (./@smooth = 'yes') then (
 					(for $a in (1 to $lp -2)  return 
 						concat(' S ', m:R($pX +$a*$catWd - 2*$catWd*$sk),
 						',', m:R($ySh + $yKoef *(value[$a+1] - (value[$a+2] - value[$a])*$sk)),
-						' ',  $pX +$a*$catWd,',', m:R($ySh + $yKoef *value[$a+1]) )
+						' ',  m:R($pX +$a*$catWd),',', m:R($ySh + $yKoef *value[$a+1]) )
 					),
-					concat (' S ', $pX +($lp -1)*$catWd,',', m:R($ySh + $yKoef *value[$lp])),
-					concat ($pX +($lp -1)*$catWd,',', m:R($ySh + $yKoef *value[$lp]))
+					concat (' S ', m:R($pX +($lp -1)*$catWd),',', m:R($ySh + $yKoef *value[$lp])),
+					concat (m:R($pX +($lp -1)*$catWd),',', m:R($ySh + $yKoef *value[$lp]))
 				) else (
 					for $a in (1 to $lp -1)  return 
-						concat('L', $pX +$a*$catWd,',', m:R($ySh + $yKoef *value[$a+1]))
+						concat('L', m:R($pX +$a*$catWd),',', m:R($ySh + $yKoef *value[$a+1]))
 				),
 				if ($sn = 0 or not (@startFrom='last' or $gra/ph/@stacked = 'sum' or $gra/ph/@stacked = 'percentage'))  then
-					concat('L', $pX +($lp -1)*$catWd,',', $originY -$depthY, ' L', $pX, ',', $originY -$depthY, ' z')
+					concat('L', m:R($pX +($lp -1)*$catWd),',', m:R($originY -$depthY), ' L', m:R($pX), ',', m:R($originY -$depthY), ' z')
 				else
-					concat('L', $pX_ +($lp_ -1)*$catWd, ',', m:R($ySh + $yKoef * $v_/value[$lp_])), 
+					concat('L', m:R($pX_ +($lp_ -1)*$catWd), ',', m:R($ySh + $yKoef * $v_/value[$lp_])), 
 					if ($v_/@smooth = 'yes') then (
 						(for $a in reverse(1 to $lp_ -2)  return 
-							concat(' S ', m:R($pX_ +$a*$catWd + 2*$catWd*$sk),
+							concat(' S ', m:R(m:R($pX_ +$a*$catWd + 2*$catWd*$sk)),
 							',', m:R($ySh + $yKoef *($v_/value[$a+1] + ($v_/value[$a+2] - $v_/value[$a])*$sk)),
-							' ',  $pX_ +$a*$catWd,',', m:R($ySh + $yKoef *$v_/value[$a+1]) )
+							' ',  m:R($pX_ +$a*$catWd),',', m:R($ySh + $yKoef *$v_/value[$a+1]) )
 						),
-						concat (' S ', $pX_ ,',', m:R($ySh + $yKoef *$v_/value[1])),
-						concat ($pX_,',', m:R($ySh + $yKoef *$v_/value[1]))
+						concat (' S ', m:R($pX_) ,',', m:R($ySh + $yKoef *$v_/value[1])),
+						concat (m:R($pX_),',', m:R($ySh + $yKoef *$v_/value[1]))
 					) else (
 						for $a in reverse(0 to $lp_ -2)  return 
-							concat('L', $pX_ +$a*$catWd,',', m:R($ySh + $yKoef * $v_/value[$a+1]))
+							concat('L', m:R($pX_ +$a*$catWd),',', m:R($ySh + $yKoef * $v_/value[$a+1]))
 					)				
 				" />
 			<svg:path d="{$line}" fill="{$aColor}"/>
 					<!-- areas in legend -->
 			<xsl:if test="not ($gra/ph/@legend = 'none') and (title)">
-				<svg:rect x="{$legendSX[1+$sn]}" y="{$legendSY[1+$sn] - 0.5*$legendPictureHg}"
-							width="{$legendPictureWd}" height="{$legendPictureHg}" fill="{$aColor}"/> 
+				<svg:rect x="{m:R($legendSX[1+$sn])}" y="{m:R($legendSY[1+$sn] - 0.5*$legendPictureHg)}"
+							width="{m:R($legendPictureWd)}" height="{m:R($legendPictureHg)}" fill="{$aColor}"/> 
 				<svg:g stroke-width="4.5" fill="white" color="white" stroke="white" stroke-linecap="round"> 
 				<xsl:call-template name="m:drawPoint">  
 					<xsl:with-param name="type" select=" if (@pointType) then @pointType else
@@ -270,92 +257,26 @@
 	</xsl:if>
 	
 	<!-- major and minor grid for both axes -->
-	<xsl:if test="($gra/ph/@xGrid='minor' or $gra/ph/@xGrid='both')">    <!-- minor grid of X axis -->
-		<xsl:variable name="gXMinor"  select="	
-				concat('M', m:R($xAxisLStart -0.5*$colWd -$catGap +$depthX), ',', $yAxisTStart +$yAxisHg -$depthY),
-				for $a in (1 to $catCount) return (
-					concat(' m', 2*$catGap+$colWd, ',', -$yAxisHg, ' l0,', $yAxisHg),
-					for $b in (2 to $serCount) return 
-						concat(' m', $colWd*$shift, ',', -$yAxisHg, ' l0,', $yAxisHg) 
-				),
-				if ($gra/ph/@effect = '3D') then (
-					concat('M', $xAxisLStart +$catGap + $colWd div 2, ',', $originY),
-					for $a in (1 to $catCount) return (
-						for $b in (1 to $serCount -1) return 
-							concat('l', $depthX, ',', -$depthY, ' m', $colWd*$shift -$depthX, ',', $depthY) ,
-						concat('l', $depthX, ',', -$depthY, ' m', 2*$catGap+$colWd -$depthX, ',', $depthY)
-					)
-				) else ' '
-				"/>
-		<svg:path d="{$gXMinor}"  stroke="{$minorGridColor}" 
-				stroke-width="{$minorGridStroke-width}" fill="none" />  
-	</xsl:if>
-	<xsl:if test="($gra/ph/@xGrid !='none' and $gra/ph/@xGrid !='minor' )">    <!-- major grid of X axis -->
-		<xsl:variable name="gXMajor1"  select="
-				concat('M', $xAxisLStart +$depthX, ',', $yAxisTStart -$depthY, ' l0,', $yAxisHg),
-				for $a in (1 to $catCount) return (
-					concat('m', $catWd, ',-', $yAxisHg, ' l0,', $yAxisHg)
-				),
-				if ($gra/ph/@effect = '3D') then (
-					concat('M', $xAxisLStart, ',', $originY, ' l', $depthX, ',', -$depthY),
-					for $a in (1 to $catCount) return
-						concat('m', $catWd -$depthX, ',', $depthX, ' l', $depthX, ',', -$depthY)
-				) else ''
-				"/>
-		<svg:path d="{$gXMajor1}" stroke="{$majorGridColor}" 
-				stroke-width="{$majorGridStroke-width}" fill="none"/>  
-		<!--xsl:if test="($gra/ph/@effect = '3D')">
-			<xsl:variable name="gXMajor2"  select="
-					concat('M', $xAxisLStart, ',', $originY, ' l', $depthX, ',', -$depthY),
-					for $a in (1 to $catCount) return
-						concat('m', $catWd -$depthX, ',', $depthX, ' l', $depthX, ',', -$depthY)
-					"/>
-			<svg:path d="{$gXMajor2}" stroke="{$majorGridColor}" 
-					stroke-width="{$majorGridStroke-width}" fill="none"/>  
-		</xsl:if-->
-		
-	</xsl:if>
-	<xsl:if test="$gra/ph/@yGrid = 'minor' or $gra/ph/@yGrid = 'both' "> <!-- minor grid of Y axis -->
-		<xsl:variable name="gYMinor"  select="
-			concat('M', $xAxisLStart, ',', $yAxisTStart+$yAxisHg - $mYpom[1]*$yAxisMarkDist),
-			(if ($gra/ph/@effect = '3D') then concat('l', $depthX, ',', -$depthY) else ''),
-			concat(' l', $xAxisWd, ',0 '),
-			if ($gra/ph/@yAxisType='log') then (
-				for $a in $mYpom[. != 1], $b in $logDiv return (
-					if ($gra/ph/@effect = '3D') then
-						concat('m', -$xAxisWd -$depthX, ',', $depthY -$yAxisMarkDist * $b,
-								'l', $depthX, ',', -$depthY, ' l', $xAxisWd, ',0 ')
-					else
-						concat('m-', $xAxisWd, ',-', $yAxisMarkDist * $b, ' l', $xAxisWd, ',0 ')
-				)
-			) else (
-				for  $a in $mYpom[. != 1], $b in (1 to $yAxisDiv) return (
-					if ($gra/ph/@effect = '3D') then
-						concat('m', -$xAxisWd -$depthX, ',', $depthY -$yAxisMarkDist div $yAxisDiv,
-								'l', $depthX, ',', -$depthY, ' l', $xAxisWd, ',0 ')
-					else
-						concat('m-', $xAxisWd, ',-', $yAxisMarkDist div $yAxisDiv, ' l', $xAxisWd, ',0 ')
-				)
-			) "/>
-		<svg:path d="{$gYMinor}" stroke="{$minorGridColor}" 
-				stroke-width="{$minorGridStroke-width}" fill="none" />    
-	</xsl:if>
-	<xsl:if test="($gra/ph/@yGrid = 'major' or $gra/ph/@yGrid = 'minor') 
-			and ($yAxisDiv &gt; 0) ">    <!-- major grid of Y axis -->
-		<xsl:variable name="gYMajor"  select="
-				concat('M', $xAxisLStart, ',', $yAxisTStart + $yAxisHg - $mYpom[1] * $yAxisMarkDist),
-				(if ($gra/ph/@effect = '3D') then concat('l', $depthX, ',', -$depthY) else ''),
-				concat(' l', $xAxisWd, ',0 '),
-				for $n in $mYpom[. != 1] return (
-					if ($gra/ph/@effect = '3D') then
-						concat('m', -$xAxisWd -$depthX, ',', $depthY -$yAxisMarkDist,
-								'l', $depthX, ',', -$depthY, ' l', $xAxisWd, ',0 ')
-					else
-						concat('m-', $xAxisWd, ',-', $yAxisMarkDist, ' l', $xAxisWd, ',0 ')
-				) " />
-		<svg:path d="{$gYMajor}" stroke="{$majorGridColor}" 
-				stroke-width="{$majorGridStroke-width}" fill="none" />    
-	</xsl:if>
+	<xsl:call-template name="m:drawXGrid">  
+		<xsl:with-param name="xAxisLStart" select="$xAxisLStart"/>
+		<xsl:with-param name="yAxisTStart" select="$yAxisTStart"/>
+		<xsl:with-param name="catGap" select="$catGap"/>
+		<xsl:with-param name="colWd" select="$colWd"/>
+		<xsl:with-param name="catWd" select="$catWd"/>
+		<xsl:with-param name="catCount" select="$catCount"/>
+		<xsl:with-param name="yAxisHg" select="$yAxisHg"/>
+		<xsl:with-param name="originY" select="$originY"/>
+		<xsl:with-param name="serCount" select="$serCount"/>
+		<xsl:with-param name="shift" select="$shift"/>
+	</xsl:call-template>
+	<xsl:call-template name="m:drawYGrid">  
+		<xsl:with-param name="xAxisLStart" select="$xAxisLStart"/>
+		<xsl:with-param name="yAxisTStart" select="$yAxisTStart"/>
+		<xsl:with-param name="xAxisWd" select="$xAxisWd"/>
+		<xsl:with-param name="yAxisHg" select="$yAxisHg"/>
+		<xsl:with-param name="yAxisDiv" select="$yAxisDiv"/>
+		<xsl:with-param name="mYpom" select="$mYpom"/>
+	</xsl:call-template>
 	
 	
 	<!-- drawing of columns -->
@@ -426,8 +347,8 @@
 			</xsl:for-each>
 			<!-- column of a given type for the legend  -->
 			<xsl:if test="not ($gra/ph/@legend = 'none') and (title)">
-				<svg:g transform="translate({$legendSX[1+$sn] + 0.5*$legendPictureWd}, 
-						{$legendSY[1+$sn] +0.5*$legendPictureHg})">
+				<svg:g transform="translate({m:R($legendSX[1+$sn] + 0.5*$legendPictureWd)}, 
+						{m:R($legendSY[1+$sn] +0.5*$legendPictureHg)})">
 				<xsl:call-template name="m:drawCol"> <!-- draw a column-->
 					<xsl:with-param name="type" select="$colT"/>
 					<xsl:with-param name="effect" select="$gra/ph/@effect"/>
@@ -449,17 +370,17 @@
 	<svg:g stroke="black"> 
 	<xsl:if test="(not ($gra/ph/@xAxisDivision='none' or $gra/ph/@xAxisDivision='major'))">    <!-- minor marks for X axis  -->
 		<xsl:variable name="mXMinor"  select="	
-				concat('M', $xAxisLStart +$catGap + $colWd div 2, ',', $originY -$minorMarkLen),
+				concat('M', m:R($xAxisLStart +$catGap + $colWd div 2), ',', m:R($originY -$minorMarkLen)),
 				for $a in (1 to $catCount) return (
 					(for $b in (1 to $serCount -1) return 
-						concat('l0,', $minorMarkLen, ' m', $colWd*$shift, ',-', $minorMarkLen)), 
-					concat('l0,', $minorMarkLen, ' m', 2*$catGap+$colWd, ',-', $minorMarkLen)  )"/>
+						concat('l0,', m:R($minorMarkLen), ' m', m:R($colWd*$shift), ',-', m:R($minorMarkLen))), 
+					concat('l0,', m:R($minorMarkLen), ' m', m:R(2*$catGap+$colWd), ',-', m:R($minorMarkLen))  )"/>
 		<svg:path d="{$mXMinor}" stroke-width="{$minorMarkStroke-width}"/>  
 	</xsl:if>
 	<xsl:if test="($gra/ph/@xAxisDivision='major' or $gra/ph/@xAxisDivision='both' )">    <!--major marks for X axis-->
 		<xsl:variable name="mXMajor"  select="	
-				concat('M', $xAxisLStart, ',', $originY, ' l0,', $majorMarkLen),
-				for $n in (2 to $catCount) return concat('m', $catWd, ',-', $majorMarkLen, ' l0,', $majorMarkLen)"/>
+				concat('M', m:R($xAxisLStart), ',', m:R($originY), ' l0,', m:R($majorMarkLen)),
+				for $n in (2 to $catCount) return concat('m', m:R($catWd), ',-', m:R($majorMarkLen), ' l0,', m:R($majorMarkLen))"/>
 		<svg:path d="{$mXMajor}" stroke-width="{$majorMarkStroke-width}"/>  
 	</xsl:if>
 	<xsl:if test="($yAxisDiv &gt; 1)">    <!-- minor marks for Y axis -->
@@ -487,8 +408,8 @@
 	</svg:g>
 	
 	<!-- X axis with labels -->
-		<svg:line x1="{$xAxisLStart}" y1="{$originY}" 
-					x2="{$xAxisLStart + $xAxisWd}" y2="{$originY}"
+		<svg:line x1="{m:R($xAxisLStart)}" y1="{m:R($originY)}" 
+					x2="{m:R($xAxisLStart + $xAxisWd)}" y2="{m:R($originY)}"
 					stroke="black" stroke-width="{$axesStroke-width}"/> 
 		<!-- X axis labels -->
 	
@@ -496,7 +417,7 @@
 		<svg:g text-anchor="middle" font-family="Verdana" font-size="{$labelFontSize}" fill="black"> 
 		<xsl:for-each select="$gra/ph/names/name">
 			<xsl:variable name="nn"  select="count(preceding-sibling::name)"/>
-			<svg:text x="{$xAxisLStart + ($nn +0.5)*$catWd}" y="{$originY + $majorMarkLen + $labelFontSize}">
+			<svg:text x="{m:R($xAxisLStart + ($nn +0.5)*$catWd)}" y="{m:R($originY + $majorMarkLen + $labelFontSize)}">
 			<xsl:value-of select="."/>
 			</svg:text>
 		</xsl:for-each>
@@ -521,22 +442,22 @@
 	<svg:g stroke="black" stroke-width="{$axesStroke-width}"> 
 	<xsl:if test="$mYpom[1] != 0">
 		<svg:line stroke-dasharray="2,3"
-				x1="{$originX}" y1="{$yAxisTStart + $yAxisHg - $yAxisMarkDist}" 
-				x2="{$originX}" y2="{$yAxisTStart + $yAxisHg}" />    
+				x1="{m:R($originX)}" y1="{m:R($yAxisTStart + $yAxisHg - $yAxisMarkDist)}" 
+				x2="{m:R($originX)}" y2="{m:R($yAxisTStart + $yAxisHg)}" />    
 	</xsl:if>
-	<svg:line x1="{$originX}" y1="{$yAxisTStart + $yAxisHg - $mYpom[1] * $yAxisMarkDist}" 
-					x2="{$originX}" y2="{$yAxisTStart + $yAxisHg - $mYpom[last()]*$yAxisMarkDist}"/>   
+	<svg:line x1="{m:R($originX)}" y1="{m:R($yAxisTStart + $yAxisHg - $mYpom[1] * $yAxisMarkDist)}" 
+					x2="{m:R($originX)}" y2="{m:R($yAxisTStart + $yAxisHg - $mYpom[last()]*$yAxisMarkDist)}"/>   
 	<xsl:if test="$mYpom[last()] != $yAxisMarkCount">
 		<svg:line stroke-dasharray="2,3"
-			x1="{$originX}" y1="{$yAxisTStart}" 
-			x2="{$originX}" y2="{$yAxisTStart + $yAxisMarkDist}"/>   
+			x1="{m:R($originX)}" y1="{m:R($yAxisTStart)}" 
+			x2="{m:R($originX)}" y2="{m:R($yAxisTStart + $yAxisMarkDist)}"/>   
 	</xsl:if>
 	</svg:g>
 		<!-- Y axis labels -->
 	<xsl:if test="($yAxisDiv &gt; 0)">
 		<svg:g text-anchor="end" font-family="Verdana" font-size="{$labelFontSize}" fill="black"> 
 		<xsl:for-each  select="(for $a in ($mYpom[. &gt; -1]) return $yAxisMin + $a * $yAxisStep)"> 
-			<svg:text x="{m:R($originX - $majorMarkLen - 3)}" y="{m:R($yShift + $yKoef*(.) + 0.35*$labelFontSize)}">
+			<svg:text x="{m:R(m:R($originX - $majorMarkLen - 3))}" y="{m:R(m:R($yShift + $yKoef*(.) + 0.35*$labelFontSize))}">
 			<xsl:sequence select="m:FormatValue(., $yAxisStep, $gra/ph/@yAxisType, $gra/ph/@yAxisLabelsFormat, $gra/ph/@stacked)"/>
 			</svg:text>
 		</xsl:for-each> 
@@ -560,23 +481,23 @@
 			<xsl:variable name="lp"  select="min(($catCount, count(value)))"/>
 			<xsl:variable name="sk"  select="0.18"/>
 			<xsl:variable name="line"  select="
-				concat('M', $pX, ',', m:R($yShift + $yKoef * value[1])), 
+				concat('M', m:R($pX), ',', m:R($yShift + $yKoef * value[1])), 
 				for $a in (1 to $lp -1)  return 
 					concat('L', m:R($pX +$a*$catWd),',', m:R($yShift + $yKoef *value[$a+1]))
 				"/>
 				<xsl:variable name="line"  select="
-				concat('M', $pX, ',', m:R($yShift + $yKoef * value[1])), 
+				concat('M', m:R($pX), ',', m:R($yShift + $yKoef * value[1])), 
 				if (./@smooth = 'yes') then (
 					(for $a in (1 to $lp -2)  return 
 						concat(' S ', m:R($pX +$a*$catWd - 2*$catWd*$sk),
 						',', m:R($yShift + $yKoef *(value[$a+1] - (value[$a+2] - value[$a])*$sk)),
-						' ',  $pX +$a*$catWd,',', m:R($yShift + $yKoef *value[$a+1]) )
+						' ',  m:R($pX +$a*$catWd),',', m:R($yShift + $yKoef *value[$a+1]) )
 					),
-					concat (' S ', $pX +($lp -1)*$catWd,',', m:R($yShift + $yKoef *value[$lp])),
-					concat ($pX +($lp -1)*$catWd,',', m:R($yShift + $yKoef *value[$lp]))
+					concat (' S ', m:R($pX +($lp -1)*$catWd),',', m:R($yShift + $yKoef *value[$lp])),
+					concat (m:R($pX +($lp -1)*$catWd),',', m:R($yShift + $yKoef *value[$lp]))
 				) else (
 					for $a in (1 to $lp -1)  return 
-						concat('L', $pX +$a*$catWd,',', m:R($yShift + $yKoef *value[$a+1]))
+						concat('L', m:R($pX +$a*$catWd),',', m:R($yShift + $yKoef *value[$a+1]))
 				)" />
 			<svg:path d="{$line}" stroke="{$aColor}">
 				<xsl:if test="./@lineType">
@@ -585,9 +506,9 @@
 			</svg:path>
 			<xsl:if test="not ($gra/ph/@legend = 'none') and (title)">
 				<svg:path stroke="white" stroke-width="4.5"
-							d="M{$legendSX[1+$sn]},{$legendSY[1+$sn]} l{$legendPictureWd},{0}"/>
+							d="M{m:R($legendSX[1+$sn])},{m:R($legendSY[1+$sn])} l{m:R($legendPictureWd)},0"/>
 				<svg:path stroke="{$aColor}" 
-							d="M{$legendSX[1+$sn]},{$legendSY[1+$sn]} l{$legendPictureWd},{0}">
+							d="M{m:R($legendSX[1+$sn])},{m:R($legendSY[1+$sn])} l{m:R($legendPictureWd)},0">
 					<xsl:if test="./@lineType">
 						<xsl:attribute name="stroke-dasharray" select="m:LineType(./@lineType)"/>
 					</xsl:if>
@@ -612,7 +533,7 @@
 					<xsl:with-param name="type" select="
 							if (../@pointType) then ../@pointType else
 							if ($gra/ph/@pointType) then $gra/ph/@pointType else 'none'"/>
-					<xsl:with-param name="x" select="$pX + $vn*$catWd "/>
+					<xsl:with-param name="x" select="m:R($pX + $vn*$catWd)"/>
 					<xsl:with-param name="y" select="m:R($yShift + $yKoef * (.) )"/>
 					<xsl:with-param name="color" select="inh"/>
 				</xsl:call-template>
@@ -623,8 +544,8 @@
 					<xsl:with-param name="type" select="
 							if (./@pointType) then ./@pointType else
 							if ($gra/ph/@pointType) then $gra/ph/@pointType else 'none'"/>
-					<xsl:with-param name="x" select="$legendSX[1+$sn] + 0.5*$legendPictureWd"/>
-					<xsl:with-param name="y" select="$legendSY[1+$sn]"/>
+					<xsl:with-param name="x" select="m:R($legendSX[1+$sn] + 0.5*$legendPictureWd)"/>
+					<xsl:with-param name="y" select="m:R($legendSY[1+$sn])"/>
 					<xsl:with-param name="color" select="inh"/>
 				</xsl:call-template>
 			</xsl:if>
@@ -642,17 +563,19 @@
 			<xsl:variable name="sn"  select="count(preceding-sibling::values)"/>
 			<xsl:variable name="cn"  select="count(preceding-sibling::values) mod count($colorSch)+1"/>
 			<xsl:variable name="cc"  select="if (./@color) then ./@color else $colorSch[$cn]"/>
-			<svg:text x="{$legendSX[1+$sn] + $legendPictureWd + $legendGap}" 	
-					y="{$legendSY[1+$sn] + 0.35* $legendFontSize}" fill="{$cc}">
+			<svg:text x="{m:R($legendSX[1+$sn] + $legendPictureWd + $legendGap)}" 	
+					y="{m:R($legendSY[1+$sn] + 0.35* $legendFontSize)}" fill="{$cc}">
 				<xsl:value-of select="title"/>
 			</svg:text>
 		</xsl:for-each> 		
 		</svg:g>	
 	</xsl:if>
 
-	<!-- frame around the whole graph -->
-	<svg:rect x="0.5" y="0.5" width="{$width - 1}" height="{$height - 1}"  
-			stroke="black" fill="none" stroke-width="1"/> 
+	<xsl:call-template name="m:drawFrame">
+		<xsl:with-param name="width" select="$width"/>
+		<xsl:with-param name="height" select="$height"/>
+	</xsl:call-template>
+	
 	
 	<!-- debuging prints -->
 	<!-- 

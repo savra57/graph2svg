@@ -46,19 +46,19 @@
    </svg:defs>
    <svg:g stroke-width="0.4" stroke="black" stroke-linejoin="round">
       <svg:g transform="translate(53.6, 483)" fill="url(#lg0)">
-         <svg:path d="M-15,-0 h30 v-312.5 h-30 z"/>
+         <svg:path d="M-15,0 h30 v-312.5 h-30 z"/>
       </svg:g>
       <svg:g transform="translate(103.6, 483)" fill="url(#lg1)">
-         <svg:path d="M-15,-0 h30 v-252.5 h-30 z"/>
+         <svg:path d="M-15,0 h30 v-252.5 h-30 z"/>
       </svg:g>
       <svg:g transform="translate(153.6, 483)" fill="url(#lg2)">
-         <svg:path d="M-15,-0 h30 v-145 h-30 z"/>
+         <svg:path d="M-15,0 h30 v-145 h-30 z"/>
       </svg:g>
       <svg:g transform="translate(203.6, 483)" fill="url(#lg3)">
-         <svg:path d="M-15,-0 h30 v-242.49999999999997 h-30 z"/>
+         <svg:path d="M-15,0 h30 v-242.5 h-30 z"/>
       </svg:g>
       <svg:g transform="translate(253.6, 483)" fill="url(#lg4)">
-         <svg:path d="M-15,-0 h30 v-400 h-30 z"/>
+         <svg:path d="M-15,0 h30 v-400 h-30 z"/>
       </svg:g>
    </svg:g>
    <svg:g stroke="black">

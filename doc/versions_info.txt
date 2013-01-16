@@ -4,7 +4,7 @@ version 01
 version 02
     * added name spaces
     * removed LFT entities
-    * preprocessing in all scripts was changed
+    * pre-processing in all scripts was changed
     * fixed printing of values, when yAxisType=shifted
     * improved printing of values labelIn/labelOut in osgr
     * add new values "line" and "minus" into DTDs
@@ -34,6 +34,7 @@ TODO - shortTerm
     	- document
     * check/finish/clean up the testing tools
     	- release goal
+    	- add tasks to run tests also without DTDs (testAllWithoutDtds: comment all DTD definitions, testAll, uncomment)
     * more doc:
     	- try using the project WIKI 
     	- improve documentation for test utilities

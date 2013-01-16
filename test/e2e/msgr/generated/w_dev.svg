@@ -7,36 +7,33 @@
    </svg:g>
    <svg:g stroke-width="0.4" fill="#888" stroke="black" stroke-linejoin="round">
       <svg:g transform="translate(69, 483)">
-         <svg:path d="M-10,-0 h20 v-75 h-20 z"/>
+         <svg:path d="M-10,0 h20 v-75 h-20 z"/>
       </svg:g>
       <svg:g transform="translate(109, 483)">
-         <svg:path d="M-10,-0 h20 v-225 h-20 z"/>
+         <svg:path d="M-10,0 h20 v-225 h-20 z"/>
       </svg:g>
       <svg:g transform="translate(149, 483)">
-         <svg:path d="M-10,-0 h20 v-275 h-20 z"/>
+         <svg:path d="M-10,0 h20 v-275 h-20 z"/>
       </svg:g>
       <svg:g transform="translate(189, 483)">
-         <svg:path d="M-10,-0 h20 v-325 h-20 z"/>
+         <svg:path d="M-10,0 h20 v-325 h-20 z"/>
       </svg:g>
       <svg:g transform="translate(229, 483)">
-         <svg:path d="M-10,-0 h20 v-225 h-20 z"/>
+         <svg:path d="M-10,0 h20 v-225 h-20 z"/>
       </svg:g>
       <svg:g transform="translate(269, 483)">
-         <svg:path d="M-10,-0 h20 v-175 h-20 z"/>
+         <svg:path d="M-10,0 h20 v-175 h-20 z"/>
       </svg:g>
       <svg:g transform="translate(318,        248.5)">
-         <svg:path d="M-5,00 h10 v-20 h-10 z"/>
+         <svg:path d="M-5,0 h10 v-20 h-10 z"/>
       </svg:g>
    </svg:g>
    <svg:g stroke-width="0.4" fill="black" stroke="black" stroke-linejoin="round">
       <svg:g transform="translate(69, 483)">
-         <svg:path d="M0,-24.999999999999993 v-100" stroke-width="2" stroke-linecap="butt"
-                   stroke="black"/>
+         <svg:path d="M0,-25 v-100" stroke-width="2" stroke-linecap="butt" stroke="black"/>
       </svg:g>
       <svg:g transform="translate(109, 483)">
-         <svg:path d="M0,-125.00000000000001 v-144.99999999999997" stroke-width="2"
-                   stroke-linecap="butt"
-                   stroke="black"/>
+         <svg:path d="M0,-125 v-145" stroke-width="2" stroke-linecap="butt" stroke="black"/>
       </svg:g>
       <svg:g transform="translate(149, 483)">
          <svg:path d="M0,-160 v-170" stroke-width="2" stroke-linecap="butt" stroke="black"/>
@@ -45,15 +42,13 @@
          <svg:path d="M0,-245 v-170" stroke-width="2" stroke-linecap="butt" stroke="black"/>
       </svg:g>
       <svg:g transform="translate(229, 483)">
-         <svg:path d="M0,-144.99999999999997 v-170.00000000000003" stroke-width="2"
-                   stroke-linecap="butt"
-                   stroke="black"/>
+         <svg:path d="M0,-145 v-170" stroke-width="2" stroke-linecap="butt" stroke="black"/>
       </svg:g>
       <svg:g transform="translate(269, 483)">
          <svg:path d="M0,-150 v-80" stroke-width="2" stroke-linecap="butt" stroke="black"/>
       </svg:g>
       <svg:g transform="translate(318,        296.5)">
-         <svg:path d="M0,00 v-20" stroke-width="2" stroke-linecap="butt" stroke="black"/>
+         <svg:path d="M0,0 v-20" stroke-width="2" stroke-linecap="butt" stroke="black"/>
       </svg:g>
    </svg:g>
    <svg:g stroke="black">

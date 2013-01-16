@@ -148,20 +148,11 @@
 			if ($gra/ph/@colorScheme = 'grey') then $colorSchemeGrey else  $colorSchemeBlack "/>
 
 	<!-- start of SVG document -->
-	<svg:svg viewBox="0 0 {$width} {$height}"> 
-	<svg:desc><xsl:value-of select="$gra/ph/title"/></svg:desc>  
-
-	<!-- type the graph title -->
-	<svg:g>
-	<xsl:if test="count($gra/ph/title) &gt; 0">
-		<svg:text x="{m:R($width div 2)}" y="{$titleMargin + $titleFontSize}" 
-				text-anchor="middle"
-				font-family="Verdana" font-size="{$titleFontSize}"
-				fill="{if ($gra/ph/title/@color) then $gra/ph/title/@color else 'black'}" >
-		<xsl:value-of select="$gra/ph/title"/>
-		</svg:text> 
-	</xsl:if>
-	</svg:g>
+	<svg:svg viewBox="0 0 {m:R($width)} {m:R($height)}">
+	
+	<xsl:call-template name="m:drawDescritptionAndTitle">
+		<xsl:with-param name="width" select="$width"/>
+	</xsl:call-template>
 	
 	<!-- variables for axis and grids -->
 	<xsl:variable name="LB" select="$gra/ph/@axesPos = 'left-bottom'"/>
@@ -179,7 +170,6 @@
 				if ($yAxisMin &gt; 0) then (1 to $yAxisMarkCount) else
 				if ($yAxisMax &lt; 0) then (0 to $yAxisMarkCount - 1) else 
 					(0 to $yAxisMarkCount)   "/>
-	<xsl:variable name="logDiv"  select="0.301, 0.176, 0.125, 0.097, 0.079, 0.067, 0.058, 0.051, 0.046"/>     <!-- log10(i) - log10(i-1)   for  i=2,3,..,10 -->
 	<xsl:variable name="xAxisDiv"  select="
 			if ($gra/ph/@xAxisDivision = 'none') then -1 else
 			if ($gra/ph/@xAxisDivision = '1') then 1 else
@@ -199,49 +189,35 @@
 	<!-- major and minor grid for both axes -->
 	<xsl:if test="($gra/ph/@xGrid = 'minor') and ($xAxisDiv &gt; 1)"> <!-- minor grid of X axis -->
 		<xsl:variable name="gXMinor"  select="
-			concat('M', $xAxisLStart + $mXpom[1] * $xAxisMarkDist, ',', $yAxisTStart, ' l0,', $yAxisHg),
+			concat('M', m:R($xAxisLStart + $mXpom[1] * $xAxisMarkDist), ',', m:R($yAxisTStart), ' l0,', m:R($yAxisHg)),
 			if ($gra/ph/@xAxisType='log') then (
 				for $a in $mXpom[. != 1], $b in $logDiv return 
-					concat('m', $xAxisMarkDist *$b, ',-', $yAxisHg, ' l0,', $yAxisHg)
+					concat('m', m:R($xAxisMarkDist *$b), ',-', m:R($yAxisHg), ' l0,', m:R($yAxisHg))
 			) else (
 				for $n in (for $a in (1 to $xAxisDiv) return $mXpom[. != 1]) return 
-					concat('m', $xAxisMarkDist div $xAxisDiv, ',-', $yAxisHg, ' l0,', $yAxisHg)
+					concat('m', m:R($xAxisMarkDist div $xAxisDiv), ',-', m:R($yAxisHg), ' l0,', m:R($yAxisHg))
 			)"/>
 		<svg:path d="{$gXMinor}" stroke="{$minorGridColor}" 
 				stroke-width="{$minorGridStroke-width}" />   
 	</xsl:if>
-	<xsl:if test="($gra/ph/@yGrid = 'minor') and ($yAxisDiv &gt; 1) "> <!-- minor grid of Y axis -->
-		<xsl:variable name="gYMinor"  select="
-			concat('M', $xAxisLStart, ',', $yAxisTStart+$yAxisHg - $mYpom[1]*$yAxisMarkDist, ' l', $xAxisWd, ',0 '),
-			if ($gra/ph/@yAxisType='log') then (
-				for $a in $mYpom[. != 1], $b in $logDiv return 
-					concat('m-', $xAxisWd, ',-', $yAxisMarkDist * $b, ' l', $xAxisWd, ',0 ')
-			) else (
-				for $n in (for $a in (1 to $yAxisDiv) return $mYpom[. != 1]) return 
-					concat('m-', $xAxisWd, ',-', $yAxisMarkDist div $yAxisDiv, ' l', $xAxisWd, ',0 ')
-			)"/>
-		<svg:path d="{$gYMinor}" stroke="{$minorGridColor}" 
-				stroke-width="{$minorGridStroke-width}" />    
-	</xsl:if>
 	<xsl:if test="($gra/ph/@xGrid = 'major' or $gra/ph/@xGrid = 'minor')  
 			and ($xAxisDiv &gt; 0)">    <!-- major grid of X axis -->
 		<xsl:variable name="gXMajor"  select="	
-				concat('M', $xAxisLStart + $mXpom[1] * $xAxisMarkDist, ',', $yAxisTStart, ' l0,', $yAxisHg),
+				concat('M', m:R($xAxisLStart + $mXpom[1] * $xAxisMarkDist), ',', m:R($yAxisTStart), ' l0,', m:R($yAxisHg)),
 				for $n in $mXpom[. != 1] return 
-					concat('m', $xAxisMarkDist, ',-', $yAxisHg, ' l0,', $yAxisHg)"/>
+					concat('m', m:R($xAxisMarkDist), ',-', m:R($yAxisHg), ' l0,', m:R($yAxisHg))"/>
 		<svg:path d="{$gXMajor}" stroke="{$majorGridColor}" 
 				stroke-width="{$majorGridStroke-width}" />   
 	</xsl:if>
-	<xsl:if test="($gra/ph/@yGrid = 'major' or $gra/ph/@yGrid = 'minor') 
-			and ($yAxisDiv &gt; 0) ">    <!-- major grid of Y axis -->
-		<xsl:variable name="gYMajor"  select="
-				concat('M', $xAxisLStart, ',', $yAxisTStart + $yAxisHg - $mYpom[1] * $yAxisMarkDist,
-					' l', $xAxisWd, ',0 '),
-				for $n in $mYpom[. != 1] return 
-					concat('m-', $xAxisWd, ',-', $yAxisMarkDist, ' l', $xAxisWd, ',0 ')"/>
-		<svg:path d="{$gYMajor}" stroke="{$majorGridColor}" 
-				stroke-width="{$majorGridStroke-width}" />    
-	</xsl:if>
+	
+	<xsl:call-template name="m:drawYGrid">  
+		<xsl:with-param name="xAxisLStart" select="$xAxisLStart"/>
+		<xsl:with-param name="yAxisTStart" select="$yAxisTStart"/>
+		<xsl:with-param name="xAxisWd" select="$xAxisWd"/>
+		<xsl:with-param name="yAxisHg" select="$yAxisHg"/>
+		<xsl:with-param name="yAxisDiv" select="$yAxisDiv"/>
+		<xsl:with-param name="mYpom" select="$mYpom"/>
+	</xsl:call-template>
 	
 	<!-- major and minor marks for both axes -->
 	<svg:g stroke="black"> 
@@ -289,11 +265,11 @@
 	<svg:g stroke="black" stroke-width="{$axesStroke-width}"> 
 	<xsl:if test="$mXpom[1] != 0"> 
 		<svg:line stroke-dasharray="2,3"
-				x1="{$xAxisLStart}" y1="{$originY}" 
-				x2="{$xAxisLStart + $xAxisMarkDist}" y2="{$originY}"/>
+				x1="{m:R($xAxisLStart)}" y1="{m:R($originY)}" 
+				x2="{m:R($xAxisLStart + $xAxisMarkDist)}" y2="{m:R($originY)}"/>
 	</xsl:if>
-	<svg:line x1="{$xAxisLStart + $mXpom[1] * $xAxisMarkDist}" y1="{$originY}" 
-					x2="{$xAxisLStart + $mXpom[last()]*$xAxisMarkDist}" y2="{$originY}"/> 
+	<svg:line x1="{m:R($xAxisLStart + $mXpom[1] * $xAxisMarkDist)}" y1="{m:R($originY)}" 
+					x2="{m:R($xAxisLStart + $mXpom[last()]*$xAxisMarkDist)}" y2="{m:R($originY)}"/> 
 	<xsl:if test="$mXpom[last()] != $xAxisMarkCount"> 
 		<svg:line stroke-dasharray="2,3" 
 				x1="{$xAxisLStart + $xAxisWd - $xAxisMarkDist}" y1="{$originY}" 
@@ -327,13 +303,13 @@
 	<svg:g stroke="black" stroke-width="{$axesStroke-width}"> 
 	<xsl:if test="$mYpom[1] != 0">
 		<svg:line stroke-dasharray="2,3"
-				x1="{$originX}" y1="{$yAxisTStart + $yAxisHg - $yAxisMarkDist}" 
-				x2="{$originX}" y2="{$yAxisTStart + $yAxisHg}" />  
+				x1="{m:R($originX)}" y1="{m:R($yAxisTStart + $yAxisHg - $yAxisMarkDist)}" 
+				x2="{m:R($originX)}" y2="{m:R($yAxisTStart + $yAxisHg)}" />  
 		<!--svg:line x1="{$originX}" y1="{$yAxisTStart}" 
 				x2="{$originX}" y2="{$yAxisTStart + $yAxisHg - $yAxisMarkDist}"/-->  
 	</xsl:if>
-	<svg:line x1="{$originX}" y1="{$yAxisTStart + $yAxisHg - $mYpom[1] * $yAxisMarkDist}" 
-					x2="{$originX}" y2="{$yAxisTStart + $yAxisHg - $mYpom[last()]*$yAxisMarkDist}"/> 
+	<svg:line x1="{m:R($originX)}" y1="{m:R($yAxisTStart + $yAxisHg - $mYpom[1] * $yAxisMarkDist)}" 
+					x2="{m:R($originX)}" y2="{m:R($yAxisTStart + $yAxisHg - $mYpom[last()]*$yAxisMarkDist)}"/> 
 	<xsl:if test="$mYpom[last()] != $yAxisMarkCount">
 		<svg:line stroke-dasharray="2,3"
 			x1="{$originX}" y1="{$yAxisTStart}" 
@@ -507,9 +483,10 @@
 		</svg:g>
 	</xsl:if>
 	
-	<!-- frame around the whole graph -->
-	<svg:rect x="0.5" y="0.5" width="{m:R($width - 1)}" height="{m:R($height - 1)}"  
-			stroke="black" fill="none" stroke-width="1"/> 
+	<xsl:call-template name="m:drawFrame">
+		<xsl:with-param name="width" select="$width"/>
+		<xsl:with-param name="height" select="$height"/>
+	</xsl:call-template>
 	
 	<!-- debuging prints -->
 	

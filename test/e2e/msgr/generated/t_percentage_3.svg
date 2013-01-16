@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<svg:svg xmlns:svg="http://www.w3.org/2000/svg" viewBox="0 0 563.3 497.99043343869545">
+<svg:svg xmlns:svg="http://www.w3.org/2000/svg" viewBox="0 0 563.3 497.99">
    <svg:desc>Pokusný graf číslo 2 - log osa</svg:desc>
    <svg:g>
       <svg:text x="281.65" y="28" text-anchor="middle" font-family="Verdana" font-size="18"
@@ -23,7 +23,7 @@
          <svg:path d="M 295.65,65 m -3,-3 l 6,6 m 0,-6 l -6,6"/>
       </svg:g>
    </svg:g>
-   <svg:path d="M29,447  m40,-350 l0,350  m0,-350 l0,350  m0,-350 l0,350  m40,-350 l0,350  m0,-350 l0,350  m0,-350 l0,350  m40,-350 l0,350  m0,-350 l0,350  m0,-350 l0,350  m40,-350 l0,350  m0,-350 l0,350  m0,-350 l0,350  m40,-350 l0,350  m0,-350 l0,350  m0,-350 l0,350  m40,-350 l0,350  m0,-350 l0,350  m0,-350 l0,350  m40,-350 l0,350  m0,-350 l0,350  m0,-350 l0,350  m40,-350 l0,350  m0,-350 l0,350  m0,-350 l0,350  m40,-350 l0,350  m0,-350 l0,350  m0,-350 l0,350  m40,-350 l0,350  m0,-350 l0,350  m0,-350 l0,350  m40,-350 l0,350  m0,-350 l0,350  m0,-350 l0,350  m40,-350 l0,350  m0,-350 l0,350  m0,-350 l0,350  "
+   <svg:path d="M29,447  m40,-350 l0,350    m40,-350 l0,350    m40,-350 l0,350    m40,-350 l0,350    m40,-350 l0,350    m40,-350 l0,350    m40,-350 l0,350    m40,-350 l0,350    m40,-350 l0,350    m40,-350 l0,350    m40,-350 l0,350    m40,-350 l0,350    "
              stroke="#111"
              stroke-width="0.2"
              fill="none"/>
@@ -158,7 +158,6 @@
       <svg:text x="223.95" y="68.5" fill="#09a317">tržby 2</svg:text>
       <svg:text x="314.65" y="68.5" fill="#19009f">tržby 3</svg:text>
    </svg:g>
-   <svg:rect x="0.5" y="0.5" width="562.3" height="496.99043343869545" stroke="black"
-             fill="none"
+   <svg:rect x="0.5" y="0.5" width="562.3" height="496.99" stroke="black" fill="none"
              stroke-width="1"/>
 </svg:svg>

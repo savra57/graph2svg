@@ -5,7 +5,7 @@
       <svg:text x="152" y="28" text-anchor="middle" font-family="Verdana" font-size="18"
                 fill="black">Box diagram</svg:text>
    </svg:g>
-   <svg:path d="M29,358  m40,-300 l0,300  m0,-300 l0,300  m0,-300 l0,300  m0,-300 l0,300  m0,-300 l0,300  m40,-300 l0,300  m0,-300 l0,300  m0,-300 l0,300  m0,-300 l0,300  m0,-300 l0,300  m40,-300 l0,300  m0,-300 l0,300  m0,-300 l0,300  m0,-300 l0,300  m0,-300 l0,300  m40,-300 l0,300  m0,-300 l0,300  m0,-300 l0,300  m0,-300 l0,300  m0,-300 l0,300  m40,-300 l0,300  m0,-300 l0,300  m0,-300 l0,300  m0,-300 l0,300  m0,-300 l0,300  m40,-300 l0,300  m0,-300 l0,300  m0,-300 l0,300  m0,-300 l0,300  m0,-300 l0,300  "
+   <svg:path d="M29,358  m40,-300 l0,300    m40,-300 l0,300    m40,-300 l0,300    m40,-300 l0,300    m40,-300 l0,300    m40,-300 l0,300    "
              stroke="#111"
              stroke-width="0.2"
              fill="none"/>
@@ -19,49 +19,42 @@
              fill="none"/>
    <svg:g stroke-width="0.4" fill="black" stroke="black" stroke-linejoin="round">
       <svg:g transform="translate(69, 358)">
-         <svg:path d="M0,-149.99999999999997 v-92" stroke-width="2" stroke-linecap="butt"
-                   stroke="black"/>
+         <svg:path d="M0,-150 v-92" stroke-width="2" stroke-linecap="butt" stroke="black"/>
       </svg:g>
       <svg:g transform="translate(109, 358)">
-         <svg:path d="M0,-155.99999999999997 v-99" stroke-width="2" stroke-linecap="butt"
-                   stroke="black"/>
+         <svg:path d="M0,-156 v-99" stroke-width="2" stroke-linecap="butt" stroke="black"/>
       </svg:g>
       <svg:g transform="translate(149, 358)">
          <svg:path d="M0,-166 v-114" stroke-width="2" stroke-linecap="butt" stroke="black"/>
       </svg:g>
       <svg:g transform="translate(189, 358)">
-         <svg:path d="M0,-125.99999999999997 v-144.00000000000003" stroke-width="2"
-                   stroke-linecap="butt"
-                   stroke="black"/>
+         <svg:path d="M0,-126 v-144" stroke-width="2" stroke-linecap="butt" stroke="black"/>
       </svg:g>
       <svg:g transform="translate(229, 358)">
-         <svg:path d="M0,-112.99999999999999 v-140" stroke-width="2" stroke-linecap="butt"
-                   stroke="black"/>
+         <svg:path d="M0,-113 v-140" stroke-width="2" stroke-linecap="butt" stroke="black"/>
       </svg:g>
       <svg:g transform="translate(269, 358)">
-         <svg:path d="M0,-135.00000000000003 v-144.99999999999997" stroke-width="2"
-                   stroke-linecap="butt"
-                   stroke="black"/>
+         <svg:path d="M0,-135 v-145" stroke-width="2" stroke-linecap="butt" stroke="black"/>
       </svg:g>
    </svg:g>
    <svg:g stroke-width="0.4" fill="#fff" stroke="black" stroke-linejoin="round">
       <svg:g transform="translate(69, 358)">
-         <svg:path d="M-10,-179.99999999999997 h20 v-30.000000000000007 h-20 z"/>
+         <svg:path d="M-10,-180 h20 v-30 h-20 z"/>
       </svg:g>
       <svg:g transform="translate(109, 358)">
-         <svg:path d="M-10,-195.99999999999997 h20 v-18.99999999999999 h-20 z"/>
+         <svg:path d="M-10,-196 h20 v-19 h-20 z"/>
       </svg:g>
       <svg:g transform="translate(149, 358)">
-         <svg:path d="M-10,-198 h20 v-42.99999999999998 h-20 z"/>
+         <svg:path d="M-10,-198 h20 v-43 h-20 z"/>
       </svg:g>
       <svg:g transform="translate(189, 358)">
-         <svg:path d="M-10,-149.99999999999997 h20 v-89.99999999999999 h-20 z"/>
+         <svg:path d="M-10,-150 h20 v-90 h-20 z"/>
       </svg:g>
       <svg:g transform="translate(229, 358)">
-         <svg:path d="M-10,-149.99999999999997 h20 v-79.99999999999999 h-20 z"/>
+         <svg:path d="M-10,-150 h20 v-80 h-20 z"/>
       </svg:g>
       <svg:g transform="translate(269, 358)">
-         <svg:path d="M-10,-184.99999999999997 h20 v-73.00000000000001 h-20 z"/>
+         <svg:path d="M-10,-185 h20 v-73 h-20 z"/>
       </svg:g>
    </svg:g>
    <svg:g stroke="black">

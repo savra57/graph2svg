@@ -47,9 +47,6 @@
 	
 	
 	<!-- variable calculations-->
-		<!-- 2D / 3D -->
-	<xsl:variable name="depthX" select="if ($gra/ph/@effect = '3D') then 8 else 0"/>
-	<xsl:variable name="depthY" select="if ($gra/ph/@effect = '3D') then 8 else 0"/>
 	
 	<!-- calculation of common variables -->
 		<!-- color schemas -->
@@ -170,20 +167,11 @@
 			(if ($gra/ph/@legend = 'left' or $gra/ph/@legend =  'right') then max(($graphHg, $legendHg)) else $graphHg)"/>	
 		
 	<!-- begin of the SVG document for pie type-->
-	<svg:svg viewBox="0 0 {$width} {$height}"> 
-	<svg:desc><xsl:value-of select="$gra/ph/title"/></svg:desc>  
-
-	<!-- type a title for pie -->
-	<svg:g>
-	<xsl:if test="count($gra/ph/title) &gt; 0">
-		<svg:text x="{$width div 2}" y="{$titleMargin + $titleFontSize}" 
-				text-anchor="middle"
-				font-family="Verdana" font-size="{$titleFontSize}"
-				fill="{if ($gra/ph/title/@color) then $gra/ph/title/@color else 'black'}" >
-		<xsl:value-of select="$gra/ph/title"/>
-		</svg:text> 
-	</xsl:if>
-	</svg:g>
+	<svg:svg viewBox="0 0 {m:R($width)} {m:R($height)}">
+	
+	<xsl:call-template name="m:drawDescritptionAndTitle">
+		<xsl:with-param name="width" select="$width"/>
+	</xsl:call-template>
 	
 	<!-- the pie graph -->
 	<svg:g stroke-width="1" stroke="black" stroke-linejoin="round"> 
@@ -316,9 +304,11 @@
 		</svg:g>	
 	</xsl:if>
 
-		<!-- frame aroung pie chart -->
-	<svg:rect x="0.5" y="0.5" width="{$width - 1}" height="{$height - 1}"  
-			stroke="black" fill="none" stroke-width="1"/>  
+	<xsl:call-template name="m:drawFrame">
+		<xsl:with-param name="width" select="$width"/>
+		<xsl:with-param name="height" select="$height"/>
+	</xsl:call-template>
+  
 	</svg:svg> 
 </xsl:when>
 <xsl:otherwise>  <!--******************************graphType = 'norm' a other types-->
@@ -408,7 +398,6 @@
 	
 	<!-- variables for axis and grids - norm type-->
 	<xsl:variable name="LB" select="$gra/ph/@xAxisPos = 'bottom'"/>
-	<xsl:variable name="logDiv"  select="0.301, 0.176, 0.125, 0.097, 0.079, 0.067, 0.058, 0.051, 0.046"/>     <!-- log10(i) - log10(i-1)   for  i=2,3,..,10 -->
 	<xsl:variable name="mYpom"  select="				
 			if ($LB) then 
 				(0 to $yAxisMarkCount)
@@ -425,95 +414,35 @@
 			if ($gra/ph/@yAxisDivision = '10') then 10 else 1    "/>
 	
 	<!-- start of SVG document -->
-	<svg:svg viewBox="0 0 {$width} {$height}"> 
-	<svg:desc><xsl:value-of select="$gra/ph/title"/></svg:desc>  
-	
-	<!-- type a title for the norm graph -->
-	<svg:g>
-	<xsl:if test="count($gra/ph/title) &gt; 0">
-		<svg:text x="{$width div 2}" y="{$titleMargin + $titleFontSize}" 
-				text-anchor="middle"
-				font-family="Verdana" font-size="{$titleFontSize}"
-				fill="{if ($gra/ph/title/@color) then $gra/ph/title/@color else 'black'}" >
-		<xsl:value-of select="$gra/ph/title"/>
-		</svg:text> 
-	</xsl:if>
-	</svg:g>
+	<svg:svg viewBox="0 0 {m:R($width)} {m:R($height)}"> 
+
+	<xsl:call-template name="m:drawDescritptionAndTitle">
+		<xsl:with-param name="width" select="$width"/>
+	</xsl:call-template>
 	
 
 	<!-- major and minor grid for both axes -->
-	<xsl:if test="($gra/ph/@xGrid='minor' or $gra/ph/@xGrid='both')">    <!-- minor grid of X axis -->
-		<xsl:variable name="gXMinor"  select="	
-				concat('M', m:R($xAxisLStart +$catGap +0.5*$colWd  +$depthX), ',', $yAxisTStart -$depthY),
-				for $a in (1 to $catCount) return 
-					concat(' v', $yAxisHg, ' m', 2*$catGap+$colWd, ',', -$yAxisHg) ,
-				if ($gra/ph/@effect = '3D') then (
-					concat('M', $xAxisLStart +$catGap + 0.5*$colWd, ',', $originY),
-					for $a in (1 to $catCount) return 
-						concat('l', $depthX, ',', -$depthY, ' m', 2*$catGap+$colWd -$depthX, ',', $depthY)
-				) else ' '
-				"/>
-		<svg:path d="{$gXMinor}"  stroke="{$minorGridColor}" 
-				stroke-width="{$minorGridStroke-width}" fill="none" />  
-	</xsl:if>
-	<xsl:if test="($gra/ph/@xGrid !='none' and $gra/ph/@xGrid !='minor' )">    <!-- major grid of X axis -->
-		<xsl:variable name="gXMajor1"  select="
-				concat('M', $xAxisLStart +$depthX, ',', $yAxisTStart -$depthY, ' l0,', $yAxisHg),
-				for $a in (1 to $catCount) return (
-					concat('m', $catWd, ',-', $yAxisHg, ' l0,', $yAxisHg)
-				),
-				if ($gra/ph/@effect = '3D') then (
-					concat('M', $xAxisLStart, ',', $originY, ' l', $depthX, ',', -$depthY),
-					for $a in (1 to $catCount) return
-						concat('m', $catWd -$depthX, ',', $depthX, ' l', $depthX, ',', -$depthY)
-				) else ''
-				"/>
-		<svg:path d="{$gXMajor1}" stroke="{$majorGridColor}" 
-				stroke-width="{$majorGridStroke-width}" fill="none"/>  
-				
-	</xsl:if>
-	<xsl:if test="$gra/ph/@yGrid = 'minor' or $gra/ph/@yGrid = 'both' "> <!-- minor grid of Y axis -->
-		<xsl:variable name="gYMinor"  select="
-			concat('M', $xAxisLStart, ',', $yAxisTStart+$yAxisHg - $mYpom[1]*$yAxisMarkDist),
-			(if ($gra/ph/@effect = '3D') then concat('l', $depthX, ',', -$depthY) else ''),
-			concat(' l', $xAxisWd, ',0 '),
-			if ($gra/ph/@yAxisType='log') then (
-				for $a in $mYpom[. != 1], $b in $logDiv return (
-					if ($gra/ph/@effect = '3D') then
-						concat('m', -$xAxisWd -$depthX, ',', $depthY -$yAxisMarkDist * $b,
-								'l', $depthX, ',', -$depthY, ' l', $xAxisWd, ',0 ')
-					else
-						concat('m-', $xAxisWd, ',-', $yAxisMarkDist * $b, ' l', $xAxisWd, ',0 ')
-				)
-			) else (
-				for  $a in $mYpom[. != 1], $b in (1 to $yAxisDiv) return (
-					if ($gra/ph/@effect = '3D') then
-						concat('m', -$xAxisWd -$depthX, ',', $depthY -$yAxisMarkDist div $yAxisDiv,
-								'l', $depthX, ',', -$depthY, ' l', $xAxisWd, ',0 ')
-					else
-						concat('m-', $xAxisWd, ',-', $yAxisMarkDist div $yAxisDiv, ' l', $xAxisWd, ',0 ')
-				)
-			) "/>
-		<svg:path d="{$gYMinor}" stroke="{$minorGridColor}" 
-				stroke-width="{$minorGridStroke-width}" fill="none" />    
-	</xsl:if>
-	<xsl:if test="($gra/ph/@yGrid = 'major' or $gra/ph/@yGrid = 'minor') 
-			and ($yAxisDiv &gt; 0) ">    <!-- major grid of Y axis -->
-		<xsl:variable name="gYMajor"  select="
-				concat('M', $xAxisLStart, ',', $yAxisTStart + $yAxisHg - $mYpom[1] * $yAxisMarkDist),
-				(if ($gra/ph/@effect = '3D') then concat('l', $depthX, ',', -$depthY) else ''),
-				concat(' l', $xAxisWd, ',0 '),
-				for $n in $mYpom[. != 1] return (
-					if ($gra/ph/@effect = '3D') then
-						concat('m', -$xAxisWd -$depthX, ',', $depthY -$yAxisMarkDist,
-								'l', $depthX, ',', -$depthY, ' l', $xAxisWd, ',0 ')
-					else
-						concat('m-', $xAxisWd, ',-', $yAxisMarkDist, ' l', $xAxisWd, ',0 ')
-				) " />
-		<svg:path d="{$gYMajor}" stroke="{$majorGridColor}" 
-				stroke-width="{$majorGridStroke-width}" fill="none" />    
-	</xsl:if>
-		
+	<xsl:call-template name="m:drawXGrid">  
+		<xsl:with-param name="xAxisLStart" select="$xAxisLStart"/>
+		<xsl:with-param name="yAxisTStart" select="$yAxisTStart"/>
+		<xsl:with-param name="catGap" select="$catGap"/>
+		<xsl:with-param name="colWd" select="$colWd"/>
+		<xsl:with-param name="catWd" select="$catWd"/>
+		<xsl:with-param name="catCount" select="$catCount"/>
+		<xsl:with-param name="yAxisHg" select="$yAxisHg"/>
+		<xsl:with-param name="originY" select="$originY"/>
+		<xsl:with-param name="serCount" select="1"/>
+		<xsl:with-param name="shift" select="0"/>
+	</xsl:call-template>
+	<xsl:call-template name="m:drawYGrid">  
+		<xsl:with-param name="xAxisLStart" select="$xAxisLStart"/>
+		<xsl:with-param name="yAxisTStart" select="$yAxisTStart"/>
+		<xsl:with-param name="xAxisWd" select="$xAxisWd"/>
+		<xsl:with-param name="yAxisHg" select="$yAxisHg"/>
+		<xsl:with-param name="yAxisDiv" select="$yAxisDiv"/>
+		<xsl:with-param name="mYpom" select="$mYpom"/>
+	</xsl:call-template>
+			
 	<!-- drawing of columns -->
 	<xsl:if test="not ($gra/ph/@colType = 'none')"> 
 		<!-- gradient definition for area filling -->
@@ -804,10 +733,11 @@
 		</svg:g>	
 	</xsl:if>
 	
-	<!-- frame around the whole graph - norm -->
-	<svg:rect x="0.5" y="0.5" width="{$width - 1}" height="{$height - 1}"  
-			stroke="black" fill="none" stroke-width="1"/>  
-	
+	<xsl:call-template name="m:drawFrame">
+		<xsl:with-param name="width" select="$width"/>
+		<xsl:with-param name="height" select="$height"/>
+	</xsl:call-template>
+
 	<!-- debuging frames >
 	<svg:rect x="1" y="1" width="{$width - 2}" height="{$titleHg - 2}"  
 			stroke="blue" fill="none" stroke-width="1"/> 
