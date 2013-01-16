@@ -63,6 +63,9 @@
 <xsl:variable name="depthX" select="if ($graph/@effect = '3D') then 8 else 0"/>
 <xsl:variable name="depthY" select="if ($graph/@effect = '3D') then 8 else 0"/>
 
+<xsl:variable name="yAxisDiv"  select="m:AxisDivision($graph/@yAxisDivision)"/>
+<xsl:variable name="xAxisDiv"  select="m:AxisDivision($graph/@xAxisDivision)"/>
+
 
 <!--******************************************************************************-->
 <!--*********************************** SVG functions and templates **************-->
@@ -158,7 +161,6 @@
 	<xsl:param name="yAxisTStart"/>
 	<xsl:param name="xAxisWd"/>
 	<xsl:param name="yAxisHg"/>
-	<xsl:param name="yAxisDiv"/>
 	<xsl:param name="mYpom"/>
 	
 	<!-- minor grid of Y axis -->
@@ -453,6 +455,18 @@
 		<xsl:otherwise> </xsl:otherwise>
 	</xsl:choose>
 </xsl:template>
+
+<!-- return a normalized value of an axis attribute -->
+<xsl:function name="m:AxisDivision">
+	<xsl:param name="axisDivAtt"/>
+	<xsl:value-of select="
+			if ($axisDivAtt = 'none') then -1 else
+			if ($axisDivAtt = '1') then 1 else
+			if ($axisDivAtt = '2') then 2 else
+			if ($axisDivAtt = '4') then 4 else
+			if ($axisDivAtt = '5') then 5 else
+			if ($axisDivAtt = '10') then 10 else 1    "/>	
+</xsl:function>
 
 <!--******************************************************************************-->
 <!--***************** step calculation functions - supports dateTime *************-->
