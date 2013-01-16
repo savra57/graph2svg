@@ -57,7 +57,7 @@
 
 
 <!--******************************************************************************-->
-<!--*********************************** common variables *************************-->
+<!--*********************************** common variables calculation *************-->
 <!--******************************************************************************-->
 <!-- 2D / 3D - for osgr and msgr -->
 <xsl:variable name="depthX" select="if ($graph/@effect = '3D') then 8 else 0"/>
@@ -65,6 +65,27 @@
 
 <xsl:variable name="yAxisDiv"  select="m:AxisDivision($graph/@yAxisDivision)"/>
 <xsl:variable name="xAxisDiv"  select="m:AxisDivision($graph/@xAxisDivision)"/>
+
+<!-- return a normalised value of an axis attribute -->
+<xsl:function name="m:AxisDivision">
+	<xsl:param name="axisDivAtt"/>
+	<xsl:value-of select="m:LookUp($axisDivAtt, ('none', '10', '5', '4', '2', '1'), (-1, 10, 5, 4, 2, 1), 1)"/>	
+</xsl:function>
+
+<!-- looks up $val in $keys sequence and returns a corresponding element from $values sequence;
+returns $default if the $val is not in $keys or $values is too short -->
+<xsl:function name="m:LookUp">
+	<xsl:param name="val"/>
+	<xsl:param name="keys"/>
+	<xsl:param name="values"/>
+	<xsl:param name="default"/>
+	
+	<xsl:variable name="index" select="
+			for $i in (1 to count($keys)) return 
+				if ($keys[$i] = $val) then $i else -1"/>
+	<xsl:variable name="max" select="max($index)"/>
+	<xsl:value-of select="if ($max &gt; 0 and $max &lt;= count($values)) then $values[$max] else $default"/>	
+</xsl:function>
 
 
 <!--******************************************************************************-->
@@ -456,17 +477,6 @@
 	</xsl:choose>
 </xsl:template>
 
-<!-- return a normalized value of an axis attribute -->
-<xsl:function name="m:AxisDivision">
-	<xsl:param name="axisDivAtt"/>
-	<xsl:value-of select="
-			if ($axisDivAtt = 'none') then -1 else
-			if ($axisDivAtt = '1') then 1 else
-			if ($axisDivAtt = '2') then 2 else
-			if ($axisDivAtt = '4') then 4 else
-			if ($axisDivAtt = '5') then 5 else
-			if ($axisDivAtt = '10') then 10 else 1    "/>	
-</xsl:function>
 
 <!--******************************************************************************-->
 <!--***************** step calculation functions - supports dateTime *************-->
