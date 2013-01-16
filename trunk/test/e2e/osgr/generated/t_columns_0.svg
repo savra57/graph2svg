@@ -7,28 +7,28 @@
    </svg:g>
    <svg:g stroke-width="0.4" stroke="black" stroke-linejoin="round">
       <svg:g transform="translate(53.6, 386)" fill="#d82914">
-         <svg:path d="M-15,-0 h30 v-150 h-30 z"/>
-         <svg:path d="M15,-0 l8,-8 v-150 l-8,8 z"/>
+         <svg:path d="M-15,0 h30 v-150 h-30 z"/>
+         <svg:path d="M15,0 l8,-8 v-150 l-8,8 z"/>
          <svg:path d="M-15,-150 h30 l8,-8 h-30 z"/>
       </svg:g>
       <svg:g transform="translate(103.6, 386)" fill="#f2ee15">
-         <svg:path d="M-15,-0 h30 v-75 h-30 z"/>
-         <svg:path d="M15,-0 l8,-8 v-75 l-8,8 z"/>
+         <svg:path d="M-15,0 h30 v-75 h-30 z"/>
+         <svg:path d="M15,0 l8,-8 v-75 l-8,8 z"/>
          <svg:path d="M-15,-75 h30 l8,-8 h-30 z"/>
       </svg:g>
       <svg:g transform="translate(153.6, 386)" fill="#21ab03">
-         <svg:path d="M-15,-0 h30 v-37.5 h-30 z"/>
-         <svg:path d="M15,-0 l8,-8 v-37.5 l-8,8 z"/>
+         <svg:path d="M-15,0 h30 v-37.5 h-30 z"/>
+         <svg:path d="M15,0 l8,-8 v-37.5 l-8,8 z"/>
          <svg:path d="M-15,-37.5 h30 l8,-8 h-30 z"/>
       </svg:g>
       <svg:g transform="translate(203.6, 386)" fill="#c5a712">
-         <svg:path d="M-15,-0 h30 v-150 h-30 z"/>
-         <svg:path d="M15,-0 l8,-8 v-150 l-8,8 z"/>
+         <svg:path d="M-15,0 h30 v-150 h-30 z"/>
+         <svg:path d="M15,0 l8,-8 v-150 l-8,8 z"/>
          <svg:path d="M-15,-150 h30 l8,-8 h-30 z"/>
       </svg:g>
       <svg:g transform="translate(253.6, 386)" fill="#a4005a">
-         <svg:path d="M-15,-0 h30 v-300 h-30 z"/>
-         <svg:path d="M15,-0 l8,-8 v-300 l-8,8 z"/>
+         <svg:path d="M-15,0 h30 v-300 h-30 z"/>
+         <svg:path d="M15,0 l8,-8 v-300 l-8,8 z"/>
          <svg:path d="M-15,-300 h30 l8,-8 h-30 z"/>
       </svg:g>
    </svg:g>

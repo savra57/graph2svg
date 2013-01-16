@@ -7,19 +7,19 @@
    </svg:g>
    <svg:g stroke-width="0.4" stroke="black" stroke-linejoin="round">
       <svg:g transform="translate(67.2, 108)" fill="#14f">
-         <svg:path d="M-15,-0 h30 v-48.856062735983116 h-30 z"/>
+         <svg:path d="M-15,0 h30 v-48.86 h-30 z"/>
       </svg:g>
       <svg:g transform="translate(117.2, 108)" fill="#ff1">
-         <svg:path d="M-15,-0 h30 v-25 h-30 z"/>
+         <svg:path d="M-15,0 h30 v-25 h-30 z"/>
       </svg:g>
       <svg:g transform="translate(167.2, 108)" fill="#f0d">
-         <svg:path d="M-15,0 h30 v25.484010813906572 h-30 z"/>
+         <svg:path d="M-15,0 h30 v25.48 h-30 z"/>
       </svg:g>
       <svg:g transform="translate(217.2, 108)" fill="#3f1">
-         <svg:path d="M-15,0 h30 v70.14408128190426 h-30 z"/>
+         <svg:path d="M-15,0 h30 v70.14 h-30 z"/>
       </svg:g>
       <svg:g transform="translate(267.2, 108)" fill="#f33">
-         <svg:path d="M-15,0 h30 v99.99999999999999 h-30 z"/>
+         <svg:path d="M-15,0 h30 v100 h-30 z"/>
       </svg:g>
    </svg:g>
    <svg:g stroke="black">
@@ -54,20 +54,6 @@
       </svg:text>
       <svg:text x="36.2" y="61.5">10<svg:tspan font-size="7.5" dy="-4">2</svg:tspan>
       </svg:text>
-   </svg:g>
-   <svg:g text-anchor="middle" font-family="Verdana" font-size="10" fill="black">
-      <svg:text x="67.2" y="87.07"/>
-      <svg:text x="117.2" y="99"/>
-      <svg:text x="167.2" y="124.24"/>
-      <svg:text x="217.2" y="146.57"/>
-      <svg:text x="267.2" y="161.5"/>
-   </svg:g>
-   <svg:g text-anchor="middle" font-family="Verdana" font-size="10" fill="black">
-      <svg:text x="67.2" y="55.14"/>
-      <svg:text x="117.2" y="79"/>
-      <svg:text x="167.2" y="145.48"/>
-      <svg:text x="217.2" y="190.14"/>
-      <svg:text x="267.2" y="220"/>
    </svg:g>
    <svg:rect x="0.5" y="0.5" width="306.2" height="227" stroke="black" fill="none"
              stroke-width="1"/>

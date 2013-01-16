@@ -5,7 +5,7 @@
       <svg:text x="146.8" y="28" text-anchor="middle" font-family="Verdana" font-size="18"
                 fill="black">Revenues (in thousnds €)</svg:text>
    </svg:g>
-   <svg:path d="M53.6,58  v325 m50,-325  v325 m50,-325  v325 m50,-325  v325 m50,-325  v325 m50,-325  "
+   <svg:path d="M3.6,383  m50,-325 l0,325    m50,-325 l0,325    m50,-325 l0,325    m50,-325 l0,325    m50,-325 l0,325    "
              stroke="#111"
              stroke-width="0.2"
              fill="none"/>

@@ -7,19 +7,19 @@
    </svg:g>
    <svg:g stroke-width="0.4" stroke="black" stroke-linejoin="round">
       <svg:g transform="translate(53.6, 208)" fill="#14f">
-         <svg:path d="M-15,-0 h30 v-162.5 h-30 z"/>
+         <svg:path d="M-15,0 h30 v-162.5 h-30 z"/>
       </svg:g>
       <svg:g transform="translate(103.6, 208)" fill="#ff1">
-         <svg:path d="M-15,-0 h30 v-125 h-30 z"/>
+         <svg:path d="M-15,0 h30 v-125 h-30 z"/>
       </svg:g>
       <svg:g transform="translate(153.6, 208)" fill="#f0d">
-         <svg:path d="M-15,-0 h30 v-25 h-30 z"/>
+         <svg:path d="M-15,0 h30 v-25 h-30 z"/>
       </svg:g>
       <svg:g transform="translate(203.6, 208)" fill="#3f1">
-         <svg:path d="M-15,-0 h30 v-150 h-30 z"/>
+         <svg:path d="M-15,0 h30 v-150 h-30 z"/>
       </svg:g>
       <svg:g transform="translate(253.6, 208)" fill="#f33">
-         <svg:path d="M-15,-0 h30 v-50 h-30 z"/>
+         <svg:path d="M-15,0 h30 v-50 h-30 z"/>
       </svg:g>
    </svg:g>
    <svg:g stroke="black">
@@ -47,20 +47,6 @@
       <svg:text x="22.6" y="111.5">36</svg:text>
       <svg:text x="22.6" y="86.5">38</svg:text>
       <svg:text x="22.6" y="61.5">40</svg:text>
-   </svg:g>
-   <svg:g text-anchor="middle" font-family="Verdana" font-size="10" fill="black">
-      <svg:text x="53.6" y="130.25"/>
-      <svg:text x="103.6" y="149"/>
-      <svg:text x="153.6" y="199"/>
-      <svg:text x="203.6" y="136.5"/>
-      <svg:text x="253.6" y="186.5"/>
-   </svg:g>
-   <svg:g text-anchor="middle" font-family="Verdana" font-size="10" fill="black">
-      <svg:text x="53.6" y="41.5"/>
-      <svg:text x="103.6" y="79"/>
-      <svg:text x="153.6" y="179"/>
-      <svg:text x="203.6" y="54"/>
-      <svg:text x="253.6" y="154"/>
    </svg:g>
    <svg:rect x="0.5" y="0.5" width="292.6" height="235" stroke="black" fill="none"
              stroke-width="1"/>

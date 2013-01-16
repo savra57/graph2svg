@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<svg:svg xmlns:svg="http://www.w3.org/2000/svg" viewBox="0 0 544.2 418.3603126457975">
+<svg:svg xmlns:svg="http://www.w3.org/2000/svg" viewBox="0 0 544.2 418.36">
    <svg:desc>Sizes - Big Fonts, label angle</svg:desc>
    <svg:g>
       <svg:text x="272.1" y="40" text-anchor="middle" font-family="Verdana" font-size="30"
@@ -7,13 +7,13 @@
    </svg:g>
    <svg:g stroke-width="0.4" fill="#c5a712" stroke="black" stroke-linejoin="round">
       <svg:g transform="translate(75.8, 300)">
-         <svg:path d="M-10,-0 h20 v-12.5 h-20 z"/>
-         <svg:path d="M10,-0 l8,-8 v-12.5 l-8,8 z"/>
+         <svg:path d="M-10,0 h20 v-12.5 h-20 z"/>
+         <svg:path d="M10,0 l8,-8 v-12.5 l-8,8 z"/>
          <svg:path d="M-10,-12.5 h20 l8,-8 h-20 z"/>
       </svg:g>
       <svg:g transform="translate(145.8, 300)">
-         <svg:path d="M-10,-0 h20 v-75 h-20 z"/>
-         <svg:path d="M10,-0 l8,-8 v-75 l-8,8 z"/>
+         <svg:path d="M-10,0 h20 v-75 h-20 z"/>
+         <svg:path d="M10,0 l8,-8 v-75 l-8,8 z"/>
          <svg:path d="M-10,-75 h20 l8,-8 h-20 z"/>
       </svg:g>
       <svg:g transform="translate(215.8, 300)">
@@ -21,45 +21,44 @@
          <svg:path d="M10,0 l8,-8 v37.5 l-8,8 z"/>
          <svg:path d="M-10,37.5 h20 l8,-8 h-20 z"/>
       </svg:g>
-      <svg:g transform="translate(302.8,        232.18015632289874)">
-         <svg:path d="M-5,-0 h10 v-16 h-10 z"/>
-         <svg:path d="M5,-0 l4,-4 v-16 l-4,4 z"/>
+      <svg:g transform="translate(302.8,        232.18)">
+         <svg:path d="M-5,0 h10 v-16 h-10 z"/>
+         <svg:path d="M5,0 l4,-4 v-16 l-4,4 z"/>
          <svg:path d="M-5,-16 h10 l4,-4 h-10 z"/>
       </svg:g>
    </svg:g>
    <svg:g stroke-width="0.4" fill="#d82914" stroke="black" stroke-linejoin="round">
       <svg:g transform="translate(105.8, 300)">
-         <svg:path d="M-10,-0 h20 v-37.5 h-20 z"/>
-         <svg:path d="M10,-0 l8,-8 v-37.5 l-8,8 z"/>
+         <svg:path d="M-10,0 h20 v-37.5 h-20 z"/>
+         <svg:path d="M10,0 l8,-8 v-37.5 l-8,8 z"/>
          <svg:path d="M-10,-37.5 h20 l8,-8 h-20 z"/>
       </svg:g>
       <svg:g transform="translate(175.8, 300)">
-         <svg:path d="M-10,-0 h20 v-125 h-20 z"/>
-         <svg:path d="M10,-0 l8,-8 v-125 l-8,8 z"/>
+         <svg:path d="M-10,0 h20 v-125 h-20 z"/>
+         <svg:path d="M10,0 l8,-8 v-125 l-8,8 z"/>
          <svg:path d="M-10,-125 h20 l8,-8 h-20 z"/>
       </svg:g>
       <svg:g transform="translate(245.8, 300)">
-         <svg:path d="M-10,-0 h20 v-222.5 h-20 z"/>
-         <svg:path d="M10,-0 l8,-8 v-222.5 l-8,8 z"/>
+         <svg:path d="M-10,0 h20 v-222.5 h-20 z"/>
+         <svg:path d="M10,0 l8,-8 v-222.5 l-8,8 z"/>
          <svg:path d="M-10,-222.5 h20 l8,-8 h-20 z"/>
       </svg:g>
-      <svg:g transform="translate(302.8,        256.1801563228987)">
-         <svg:path d="M-5,-0 h10 v-16 h-10 z"/>
-         <svg:path d="M5,-0 l4,-4 v-16 l-4,4 z"/>
+      <svg:g transform="translate(302.8,        256.18)">
+         <svg:path d="M-5,0 h10 v-16 h-10 z"/>
+         <svg:path d="M5,0 l4,-4 v-16 l-4,4 z"/>
          <svg:path d="M-5,-16 h10 l4,-4 h-10 z"/>
       </svg:g>
    </svg:g>
    <svg:g stroke="black">
-      <svg:path d="M75.80000000000001,298 l0,2 m30,-2 l0,2 m40,-2 l0,2 m30,-2 l0,2 m40,-2 l0,2 m30,-2 l0,2 m40,-2"
+      <svg:path d="M75.8,298 l0,2 m30,-2 l0,2 m40,-2 l0,2 m30,-2 l0,2 m40,-2 l0,2 m30,-2 l0,2 m40,-2"
                 stroke-width="0.5"/>
-      <svg:path d="M55.800000000000004,300 l0,3 m70,-3 l0,3 m70,-3 l0,3" stroke-width="1"/>
+      <svg:path d="M55.8,300 l0,3 m70,-3 l0,3 m70,-3 l0,3" stroke-width="1"/>
       <svg:path d="M53.8,350 l4,0  m-4,-12.5 l4,0  m-4,-12.5 l4,0  m-4,-12.5 l4,0  m-4,-12.5 l4,0  m-4,-12.5 l4,0  m-4,-12.5 l4,0  m-4,-12.5 l4,0  m-4,-12.5 l4,0  m-4,-12.5 l4,0  m-4,-12.5 l4,0  m-4,-12.5 l4,0  m-4,-12.5 l4,0  m-4,-12.5 l4,0  m-4,-12.5 l4,0  m-4,-12.5 l4,0  m-4,-12.5 l4,0  m-4,-12.5 l4,0  m-4,-12.5 l4,0  m-4,-12.5 l4,0  m-4,-12.5 l4,0  m-4,-12.5 l4,0  m-4,-12.5 l4,0 "
                 stroke-width="0.5"/>
       <svg:path d="M52.8,350 l6,0  m-6,-25 l6,0  m-6,-25 l6,0  m-6,-25 l6,0  m-6,-25 l6,0  m-6,-25 l6,0  m-6,-25 l6,0  m-6,-25 l6,0  m-6,-25 l6,0  m-6,-25 l6,0  m-6,-25 l6,0  m-6,-25 l6,0 "
                 stroke-width="1"/>
    </svg:g>
-   <svg:line x1="55.800000000000004" y1="300" x2="265.8" y2="300" stroke="black"
-             stroke-width="1"/>
+   <svg:line x1="55.8" y1="300" x2="265.8" y2="300" stroke="black" stroke-width="1"/>
    <svg:g font-family="Verdana" font-size="20" fill="black">
       <svg:g transform="translate(65.8,       323) rotate(80) ">
          <svg:text>Spring</svg:text>
@@ -72,7 +71,7 @@
       </svg:g>
    </svg:g>
    <svg:g stroke="black" stroke-width="1">
-      <svg:line x1="55.800000000000004" y1="350" x2="55.800000000000004" y2="75"/>
+      <svg:line x1="55.8" y1="350" x2="55.8" y2="75"/>
    </svg:g>
    <svg:g text-anchor="end" font-family="Verdana" font-size="20" fill="black">
       <svg:text x="49.8" y="357">-20</svg:text>
@@ -89,10 +88,9 @@
       <svg:text x="49.8" y="82">90</svg:text>
    </svg:g>
    <svg:g text-anchor="start" font-family="Verdana" font-size="20" fill="black">
-      <svg:text x="321.8" y="229.18015632289874" fill="#c5a712">Pears Net Export</svg:text>
-      <svg:text x="321.8" y="253.18015632289874" fill="#d82914">Apples Net Export</svg:text>
+      <svg:text x="321.8" y="229.18" fill="#c5a712">Pears Net Export</svg:text>
+      <svg:text x="321.8" y="253.18" fill="#d82914">Apples Net Export</svg:text>
    </svg:g>
-   <svg:rect x="0.5" y="0.5" width="543.2" height="417.3603126457975" stroke="black"
-             fill="none"
+   <svg:rect x="0.5" y="0.5" width="543.2" height="417.36" stroke="black" fill="none"
              stroke-width="1"/>
 </svg:svg>

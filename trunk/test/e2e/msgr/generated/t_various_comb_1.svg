@@ -1,40 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
-<svg:svg xmlns:svg="http://www.w3.org/2000/svg" viewBox="0 0 683.0999999999999 431">
+<svg:svg xmlns:svg="http://www.w3.org/2000/svg" viewBox="0 0 683.1 431">
    <svg:desc>Pokusný graf číslo 1</svg:desc>
    <svg:g>
-      <svg:text x="341.54999999999995" y="28" text-anchor="middle" font-family="Verdana"
-                font-size="18"
+      <svg:text x="341.55" y="28" text-anchor="middle" font-family="Verdana" font-size="18"
                 fill="black">Pokusný graf číslo 1</svg:text>
    </svg:g>
    <svg:g stroke-width="0.2" stroke="black" stroke-linejoin="round">
       <svg:path d="M63.4,183 L103.4,163 L143.4,378 L143.4,253 L63.4,253 z" fill="#14f"/>
-      <svg:rect x="549.6999999999999" y="200.5" width="28" height="20" fill="#14f"/>
+      <svg:rect x="549.7" y="200.5" width="28" height="20" fill="#14f"/>
       <svg:g stroke-width="4.5" fill="white" color="white" stroke="white"
              stroke-linecap="round">
-         <svg:circle cx="563.6999999999999" cy="210.5" r="4"/>
+         <svg:circle cx="563.7" cy="210.5" r="4"/>
       </svg:g>
       <svg:path d="M63.4,178 L103.4,173 L143.4,153 L183.4,138 L223.4,148 L263.4,178 L303.4,183 L343.4,163 L383.4,158 L423.4,138 L463.4,113 L503.4,108 L503.4,253 L63.4,253 z L103.4,163 L63.4,183"
                 fill="#ff1"/>
       <svg:path d="M63.4,163 L103.4,163 L143.4,148 L183.4,143 L223.4,138 L263.4,173 L303.4,163 L343.4,153 L383.4,138 L423.4,118 L463.4,98 L463.4,253 L63.4,253 z L463.4,113 L423.4,138 L383.4,158 L343.4,163 L303.4,183 L263.4,178 L223.4,148 L183.4,138 L143.4,153 L103.4,173 L63.4,178"
                 fill="#f0d"/>
-      <svg:rect x="549.6999999999999" y="224.5" width="28" height="20" fill="#f0d"/>
+      <svg:rect x="549.7" y="224.5" width="28" height="20" fill="#f0d"/>
       <svg:g stroke-width="4.5" fill="white" color="white" stroke="white"
              stroke-linecap="round">
-         <svg:path d="M 563.6999999999999,234.5 m 0,-4 l 0,8 m -3.48,-6 l 6.92,4      m -6.92,0 l 6.92,-4"/>
+         <svg:path d="M 563.7,234.5 m 0,-4 l 0,8 m -3.48,-6 l 6.92,4      m -6.92,0 l 6.92,-4"/>
       </svg:g>
       <svg:path d="M63.4,113 L103.4,113 L143.4,103 L183.4,103 L223.4,153 L263.4,153 L303.4,153 L343.4,128 L383.4,108 L423.4,98 L463.4,78 L503.4,88 L503.4,253 L63.4,253 z L423.4,118 L383.4,138 L343.4,153 L303.4,163 L263.4,173 L223.4,138 L183.4,143 L143.4,148 L103.4,163 L63.4,163"
                 fill="#3f1"/>
-      <svg:rect x="549.6999999999999" y="248.5" width="28" height="20" fill="#3f1"/>
+      <svg:rect x="549.7" y="248.5" width="28" height="20" fill="#3f1"/>
       <svg:g stroke-width="4.5" fill="white" color="white" stroke="white"
              stroke-linecap="round">
-         <svg:path d="M 563.6999999999999,258.5 m -3,-3 l 6,6 m 0,-6 l -6,6"/>
+         <svg:path d="M 563.7,258.5 m -3,-3 l 6,6 m 0,-6 l -6,6"/>
       </svg:g>
    </svg:g>
-   <svg:path d="M23.4,403  m40,-350 l0,350  m0,-350 l0,350  m0,-350 l0,350  m0,-350 l0,350  m40,-350 l0,350  m0,-350 l0,350  m0,-350 l0,350  m0,-350 l0,350  m40,-350 l0,350  m0,-350 l0,350  m0,-350 l0,350  m0,-350 l0,350  m40,-350 l0,350  m0,-350 l0,350  m0,-350 l0,350  m0,-350 l0,350  m40,-350 l0,350  m0,-350 l0,350  m0,-350 l0,350  m0,-350 l0,350  m40,-350 l0,350  m0,-350 l0,350  m0,-350 l0,350  m0,-350 l0,350  m40,-350 l0,350  m0,-350 l0,350  m0,-350 l0,350  m0,-350 l0,350  m40,-350 l0,350  m0,-350 l0,350  m0,-350 l0,350  m0,-350 l0,350  m40,-350 l0,350  m0,-350 l0,350  m0,-350 l0,350  m0,-350 l0,350  m40,-350 l0,350  m0,-350 l0,350  m0,-350 l0,350  m0,-350 l0,350  m40,-350 l0,350  m0,-350 l0,350  m0,-350 l0,350  m0,-350 l0,350  m40,-350 l0,350  m0,-350 l0,350  m0,-350 l0,350  m0,-350 l0,350 M55.4,261 l8,-8 m-8,8 l8,-8 m-8,8 l8,-8 m-8,8 l8,-8 m32,8 l8,-8 m-8,8 l8,-8 m-8,8 l8,-8 m-8,8 l8,-8 m32,8 l8,-8 m-8,8 l8,-8 m-8,8 l8,-8 m-8,8 l8,-8 m32,8 l8,-8 m-8,8 l8,-8 m-8,8 l8,-8 m-8,8 l8,-8 m32,8 l8,-8 m-8,8 l8,-8 m-8,8 l8,-8 m-8,8 l8,-8 m32,8 l8,-8 m-8,8 l8,-8 m-8,8 l8,-8 m-8,8 l8,-8 m32,8 l8,-8 m-8,8 l8,-8 m-8,8 l8,-8 m-8,8 l8,-8 m32,8 l8,-8 m-8,8 l8,-8 m-8,8 l8,-8 m-8,8 l8,-8 m32,8 l8,-8 m-8,8 l8,-8 m-8,8 l8,-8 m-8,8 l8,-8 m32,8 l8,-8 m-8,8 l8,-8 m-8,8 l8,-8 m-8,8 l8,-8 m32,8 l8,-8 m-8,8 l8,-8 m-8,8 l8,-8 m-8,8 l8,-8 m32,8 l8,-8 m-8,8 l8,-8 m-8,8 l8,-8 m-8,8 l8,-8 m32,8"
+   <svg:path d="M23.4,403  m40,-350 l0,350    m40,-350 l0,350    m40,-350 l0,350    m40,-350 l0,350    m40,-350 l0,350    m40,-350 l0,350    m40,-350 l0,350    m40,-350 l0,350    m40,-350 l0,350    m40,-350 l0,350    m40,-350 l0,350    m40,-350 l0,350   M55.400000000000006,261 l8,-8 m-8,8 l8,-8 m-8,8 l8,-8 m-8,8 l8,-8 m32,8 l8,-8 m-8,8 l8,-8 m-8,8 l8,-8 m-8,8 l8,-8 m32,8 l8,-8 m-8,8 l8,-8 m-8,8 l8,-8 m-8,8 l8,-8 m32,8 l8,-8 m-8,8 l8,-8 m-8,8 l8,-8 m-8,8 l8,-8 m32,8 l8,-8 m-8,8 l8,-8 m-8,8 l8,-8 m-8,8 l8,-8 m32,8 l8,-8 m-8,8 l8,-8 m-8,8 l8,-8 m-8,8 l8,-8 m32,8 l8,-8 m-8,8 l8,-8 m-8,8 l8,-8 m-8,8 l8,-8 m32,8 l8,-8 m-8,8 l8,-8 m-8,8 l8,-8 m-8,8 l8,-8 m32,8 l8,-8 m-8,8 l8,-8 m-8,8 l8,-8 m-8,8 l8,-8 m32,8 l8,-8 m-8,8 l8,-8 m-8,8 l8,-8 m-8,8 l8,-8 m32,8 l8,-8 m-8,8 l8,-8 m-8,8 l8,-8 m-8,8 l8,-8 m32,8 l8,-8 m-8,8 l8,-8 m-8,8 l8,-8 m-8,8 l8,-8 m32,8"
              stroke="#111"
              stroke-width="0.2"
              fill="none"/>
-   <svg:path d="M43.4,53 l0,350 m40,-350 l0,350 m40,-350 l0,350 m40,-350 l0,350 m40,-350 l0,350 m40,-350 l0,350 m40,-350 l0,350 m40,-350 l0,350 m40,-350 l0,350 m40,-350 l0,350 m40,-350 l0,350 m40,-350 l0,350 m40,-350 l0,350 M35.4,261 l8,-8 m32,8 l8,-8 m32,8 l8,-8 m32,8 l8,-8 m32,8 l8,-8 m32,8 l8,-8 m32,8 l8,-8 m32,8 l8,-8 m32,8 l8,-8 m32,8 l8,-8 m32,8 l8,-8 m32,8 l8,-8 m32,8 l8,-8"
+   <svg:path d="M43.400000000000006,53 l0,350 m40,-350 l0,350 m40,-350 l0,350 m40,-350 l0,350 m40,-350 l0,350 m40,-350 l0,350 m40,-350 l0,350 m40,-350 l0,350 m40,-350 l0,350 m40,-350 l0,350 m40,-350 l0,350 m40,-350 l0,350 m40,-350 l0,350 M35.400000000000006,261 l8,-8 m32,8 l8,-8 m32,8 l8,-8 m32,8 l8,-8 m32,8 l8,-8 m32,8 l8,-8 m32,8 l8,-8 m32,8 l8,-8 m32,8 l8,-8 m32,8 l8,-8 m32,8 l8,-8 m32,8 l8,-8 m32,8 l8,-8"
              stroke="#222"
              stroke-width="0.4"
              fill="none"/>
@@ -42,138 +41,138 @@
              stroke="#111"
              stroke-width="0.2"
              fill="none"/>
-   <svg:path d="M35.4,411 l8,-8  l480,0  m-488,-17l8,-8 l480,0  m-488,-17l8,-8 l480,0  m-488,-17l8,-8 l480,0  m-488,-17l8,-8 l480,0  m-488,-17l8,-8 l480,0  m-488,-17l8,-8 l480,0  m-488,-17l8,-8 l480,0  m-488,-17l8,-8 l480,0  m-488,-17l8,-8 l480,0  m-488,-17l8,-8 l480,0  m-488,-17l8,-8 l480,0  m-488,-17l8,-8 l480,0  m-488,-17l8,-8 l480,0  m-488,-17l8,-8 l480,0 "
+   <svg:path d="M35.4,411 l8,-8  l480,0  m-488,-17 l8,-8 l480,0  m-488,-17 l8,-8 l480,0  m-488,-17 l8,-8 l480,0  m-488,-17 l8,-8 l480,0  m-488,-17 l8,-8 l480,0  m-488,-17 l8,-8 l480,0  m-488,-17 l8,-8 l480,0  m-488,-17 l8,-8 l480,0  m-488,-17 l8,-8 l480,0  m-488,-17 l8,-8 l480,0  m-488,-17 l8,-8 l480,0  m-488,-17 l8,-8 l480,0  m-488,-17 l8,-8 l480,0  m-488,-17 l8,-8 l480,0 "
              stroke="#222"
              stroke-width="0.4"
              fill="none"/>
    <svg:g stroke-width="0.4" fill="#14f" stroke="black" stroke-linejoin="round">
       <svg:g transform="translate(55.4, 261)">
-         <svg:path d="M0,-0 v-70" stroke-width="2" stroke-linecap="butt" stroke="#14f"/>
+         <svg:path d="M0,0 v-70" stroke-width="2" stroke-linecap="butt" stroke="#14f"/>
       </svg:g>
       <svg:g transform="translate(95.4, 261)">
-         <svg:path d="M0,-0 v-90" stroke-width="2" stroke-linecap="butt" stroke="#14f"/>
+         <svg:path d="M0,0 v-90" stroke-width="2" stroke-linecap="butt" stroke="#14f"/>
       </svg:g>
       <svg:g transform="translate(135.4, 261)">
          <svg:path d="M0,0 v125" stroke-width="2" stroke-linecap="butt" stroke="#14f"/>
       </svg:g>
-      <svg:g transform="translate(563.6999999999999,        220.5)">
+      <svg:g transform="translate(563.7,        220.5)">
          <svg:path d="M0,0 v-16" stroke-width="2" stroke-linecap="butt" stroke="#14f"/>
       </svg:g>
    </svg:g>
    <svg:g stroke-width="0.4" fill="#ff1" stroke="black" stroke-linejoin="round">
       <svg:g transform="translate(55.4, 261)">
-         <svg:path d="M0,-0 v-75" stroke-width="2" stroke-linecap="butt" stroke="#ff1"/>
+         <svg:path d="M0,0 v-75" stroke-width="2" stroke-linecap="butt" stroke="#ff1"/>
       </svg:g>
       <svg:g transform="translate(95.4, 261)">
-         <svg:path d="M0,-0 v-80" stroke-width="2" stroke-linecap="butt" stroke="#ff1"/>
+         <svg:path d="M0,0 v-80" stroke-width="2" stroke-linecap="butt" stroke="#ff1"/>
       </svg:g>
       <svg:g transform="translate(135.4, 261)">
-         <svg:path d="M0,-0 v-100" stroke-width="2" stroke-linecap="butt" stroke="#ff1"/>
+         <svg:path d="M0,0 v-100" stroke-width="2" stroke-linecap="butt" stroke="#ff1"/>
       </svg:g>
       <svg:g transform="translate(175.4, 261)">
-         <svg:path d="M0,-0 v-115" stroke-width="2" stroke-linecap="butt" stroke="#ff1"/>
+         <svg:path d="M0,0 v-115" stroke-width="2" stroke-linecap="butt" stroke="#ff1"/>
       </svg:g>
       <svg:g transform="translate(215.4, 261)">
-         <svg:path d="M0,-0 v-105" stroke-width="2" stroke-linecap="butt" stroke="#ff1"/>
+         <svg:path d="M0,0 v-105" stroke-width="2" stroke-linecap="butt" stroke="#ff1"/>
       </svg:g>
       <svg:g transform="translate(255.4, 261)">
-         <svg:path d="M0,-0 v-75" stroke-width="2" stroke-linecap="butt" stroke="#ff1"/>
+         <svg:path d="M0,0 v-75" stroke-width="2" stroke-linecap="butt" stroke="#ff1"/>
       </svg:g>
       <svg:g transform="translate(295.4, 261)">
-         <svg:path d="M0,-0 v-70" stroke-width="2" stroke-linecap="butt" stroke="#ff1"/>
+         <svg:path d="M0,0 v-70" stroke-width="2" stroke-linecap="butt" stroke="#ff1"/>
       </svg:g>
       <svg:g transform="translate(335.4, 261)">
-         <svg:path d="M0,-0 v-90" stroke-width="2" stroke-linecap="butt" stroke="#ff1"/>
+         <svg:path d="M0,0 v-90" stroke-width="2" stroke-linecap="butt" stroke="#ff1"/>
       </svg:g>
       <svg:g transform="translate(375.4, 261)">
-         <svg:path d="M0,-0 v-95" stroke-width="2" stroke-linecap="butt" stroke="#ff1"/>
+         <svg:path d="M0,0 v-95" stroke-width="2" stroke-linecap="butt" stroke="#ff1"/>
       </svg:g>
       <svg:g transform="translate(415.4, 261)">
-         <svg:path d="M0,-0 v-115" stroke-width="2" stroke-linecap="butt" stroke="#ff1"/>
+         <svg:path d="M0,0 v-115" stroke-width="2" stroke-linecap="butt" stroke="#ff1"/>
       </svg:g>
       <svg:g transform="translate(455.4, 261)">
-         <svg:path d="M0,-0 v-140" stroke-width="2" stroke-linecap="butt" stroke="#ff1"/>
+         <svg:path d="M0,0 v-140" stroke-width="2" stroke-linecap="butt" stroke="#ff1"/>
       </svg:g>
       <svg:g transform="translate(495.4, 261)">
-         <svg:path d="M0,-0 v-145" stroke-width="2" stroke-linecap="butt" stroke="#ff1"/>
+         <svg:path d="M0,0 v-145" stroke-width="2" stroke-linecap="butt" stroke="#ff1"/>
       </svg:g>
    </svg:g>
    <svg:g stroke-width="0.4" fill="#f0d" stroke="black" stroke-linejoin="round">
       <svg:g transform="translate(55.4, 261)">
-         <svg:path d="M0,-0 v-90" stroke-width="2" stroke-linecap="butt" stroke="#f0d"/>
+         <svg:path d="M0,0 v-90" stroke-width="2" stroke-linecap="butt" stroke="#f0d"/>
       </svg:g>
       <svg:g transform="translate(95.4, 261)">
-         <svg:path d="M0,-0 v-90" stroke-width="2" stroke-linecap="butt" stroke="#f0d"/>
+         <svg:path d="M0,0 v-90" stroke-width="2" stroke-linecap="butt" stroke="#f0d"/>
       </svg:g>
       <svg:g transform="translate(135.4, 261)">
-         <svg:path d="M0,-0 v-105" stroke-width="2" stroke-linecap="butt" stroke="#f0d"/>
+         <svg:path d="M0,0 v-105" stroke-width="2" stroke-linecap="butt" stroke="#f0d"/>
       </svg:g>
       <svg:g transform="translate(175.4, 261)">
-         <svg:path d="M0,-0 v-110" stroke-width="2" stroke-linecap="butt" stroke="#f0d"/>
+         <svg:path d="M0,0 v-110" stroke-width="2" stroke-linecap="butt" stroke="#f0d"/>
       </svg:g>
       <svg:g transform="translate(215.4, 261)">
-         <svg:path d="M0,-0 v-115" stroke-width="2" stroke-linecap="butt" stroke="#f0d"/>
+         <svg:path d="M0,0 v-115" stroke-width="2" stroke-linecap="butt" stroke="#f0d"/>
       </svg:g>
       <svg:g transform="translate(255.4, 261)">
-         <svg:path d="M0,-0 v-80" stroke-width="2" stroke-linecap="butt" stroke="#f0d"/>
+         <svg:path d="M0,0 v-80" stroke-width="2" stroke-linecap="butt" stroke="#f0d"/>
       </svg:g>
       <svg:g transform="translate(295.4, 261)">
-         <svg:path d="M0,-0 v-90" stroke-width="2" stroke-linecap="butt" stroke="#f0d"/>
+         <svg:path d="M0,0 v-90" stroke-width="2" stroke-linecap="butt" stroke="#f0d"/>
       </svg:g>
       <svg:g transform="translate(335.4, 261)">
-         <svg:path d="M0,-0 v-100" stroke-width="2" stroke-linecap="butt" stroke="#f0d"/>
+         <svg:path d="M0,0 v-100" stroke-width="2" stroke-linecap="butt" stroke="#f0d"/>
       </svg:g>
       <svg:g transform="translate(375.4, 261)">
-         <svg:path d="M0,-0 v-115" stroke-width="2" stroke-linecap="butt" stroke="#f0d"/>
+         <svg:path d="M0,0 v-115" stroke-width="2" stroke-linecap="butt" stroke="#f0d"/>
       </svg:g>
       <svg:g transform="translate(415.4, 261)">
-         <svg:path d="M0,-0 v-135" stroke-width="2" stroke-linecap="butt" stroke="#f0d"/>
+         <svg:path d="M0,0 v-135" stroke-width="2" stroke-linecap="butt" stroke="#f0d"/>
       </svg:g>
       <svg:g transform="translate(455.4, 261)">
-         <svg:path d="M0,-0 v-155" stroke-width="2" stroke-linecap="butt" stroke="#f0d"/>
+         <svg:path d="M0,0 v-155" stroke-width="2" stroke-linecap="butt" stroke="#f0d"/>
       </svg:g>
-      <svg:g transform="translate(563.6999999999999,        244.5)">
+      <svg:g transform="translate(563.7,        244.5)">
          <svg:path d="M0,0 v-16" stroke-width="2" stroke-linecap="butt" stroke="#f0d"/>
       </svg:g>
    </svg:g>
    <svg:g stroke-width="0.4" fill="#3f1" stroke="black" stroke-linejoin="round">
       <svg:g transform="translate(55.4, 261)">
-         <svg:path d="M0,-0 v-140" stroke-width="2" stroke-linecap="butt" stroke="#3f1"/>
+         <svg:path d="M0,0 v-140" stroke-width="2" stroke-linecap="butt" stroke="#3f1"/>
       </svg:g>
       <svg:g transform="translate(95.4, 261)">
-         <svg:path d="M0,-0 v-140" stroke-width="2" stroke-linecap="butt" stroke="#3f1"/>
+         <svg:path d="M0,0 v-140" stroke-width="2" stroke-linecap="butt" stroke="#3f1"/>
       </svg:g>
       <svg:g transform="translate(135.4, 261)">
-         <svg:path d="M0,-0 v-150" stroke-width="2" stroke-linecap="butt" stroke="#3f1"/>
+         <svg:path d="M0,0 v-150" stroke-width="2" stroke-linecap="butt" stroke="#3f1"/>
       </svg:g>
       <svg:g transform="translate(175.4, 261)">
-         <svg:path d="M0,-0 v-150" stroke-width="2" stroke-linecap="butt" stroke="#3f1"/>
+         <svg:path d="M0,0 v-150" stroke-width="2" stroke-linecap="butt" stroke="#3f1"/>
       </svg:g>
       <svg:g transform="translate(215.4, 261)">
-         <svg:path d="M0,-0 v-100" stroke-width="2" stroke-linecap="butt" stroke="#3f1"/>
+         <svg:path d="M0,0 v-100" stroke-width="2" stroke-linecap="butt" stroke="#3f1"/>
       </svg:g>
       <svg:g transform="translate(255.4, 261)">
-         <svg:path d="M0,-0 v-100" stroke-width="2" stroke-linecap="butt" stroke="#3f1"/>
+         <svg:path d="M0,0 v-100" stroke-width="2" stroke-linecap="butt" stroke="#3f1"/>
       </svg:g>
       <svg:g transform="translate(295.4, 261)">
-         <svg:path d="M0,-0 v-100" stroke-width="2" stroke-linecap="butt" stroke="#3f1"/>
+         <svg:path d="M0,0 v-100" stroke-width="2" stroke-linecap="butt" stroke="#3f1"/>
       </svg:g>
       <svg:g transform="translate(335.4, 261)">
-         <svg:path d="M0,-0 v-125" stroke-width="2" stroke-linecap="butt" stroke="#3f1"/>
+         <svg:path d="M0,0 v-125" stroke-width="2" stroke-linecap="butt" stroke="#3f1"/>
       </svg:g>
       <svg:g transform="translate(375.4, 261)">
-         <svg:path d="M0,-0 v-145" stroke-width="2" stroke-linecap="butt" stroke="#3f1"/>
+         <svg:path d="M0,0 v-145" stroke-width="2" stroke-linecap="butt" stroke="#3f1"/>
       </svg:g>
       <svg:g transform="translate(415.4, 261)">
-         <svg:path d="M0,-0 v-155" stroke-width="2" stroke-linecap="butt" stroke="#3f1"/>
+         <svg:path d="M0,0 v-155" stroke-width="2" stroke-linecap="butt" stroke="#3f1"/>
       </svg:g>
       <svg:g transform="translate(455.4, 261)">
-         <svg:path d="M0,-0 v-175" stroke-width="2" stroke-linecap="butt" stroke="#3f1"/>
+         <svg:path d="M0,0 v-175" stroke-width="2" stroke-linecap="butt" stroke="#3f1"/>
       </svg:g>
       <svg:g transform="translate(495.4, 261)">
-         <svg:path d="M0,-0 v-165" stroke-width="2" stroke-linecap="butt" stroke="#3f1"/>
+         <svg:path d="M0,0 v-165" stroke-width="2" stroke-linecap="butt" stroke="#3f1"/>
       </svg:g>
-      <svg:g transform="translate(563.6999999999999,        268.5)">
+      <svg:g transform="translate(563.7,        268.5)">
          <svg:path d="M0,0 v-16" stroke-width="2" stroke-linecap="butt" stroke="#3f1"/>
       </svg:g>
    </svg:g>
@@ -251,15 +250,15 @@
       <svg:path d="M55.4,171 L95.4,171 L135.4,156 L175.4,151 L215.4,146 L255.4,181 L295.4,171 L335.4,161 L375.4,146 L415.4,126 L455.4,106"
                 stroke="#f0d"
                 stroke-dasharray="6,3,0.2,3"/>
-      <svg:path stroke="white" stroke-width="4.5" d="M549.6999999999999,234.5 l28,0"/>
-      <svg:path stroke="#f0d" d="M549.6999999999999,234.5 l28,0" stroke-dasharray="6,3,0.2,3"/>
+      <svg:path stroke="white" stroke-width="4.5" d="M549.7,234.5 l28,0"/>
+      <svg:path stroke="#f0d" d="M549.7,234.5 l28,0" stroke-dasharray="6,3,0.2,3"/>
    </svg:g>
    <svg:g stroke-width="1.5" fill="none" color="#14f" stroke="#14f"
           stroke-linecap="round">
       <svg:circle cx="55.4" cy="191" r="4"/>
       <svg:circle cx="95.4" cy="171" r="4"/>
       <svg:circle cx="135.4" cy="386" r="4"/>
-      <svg:circle cx="563.6999999999999" cy="210.5" r="4"/>
+      <svg:circle cx="563.7" cy="210.5" r="4"/>
    </svg:g>
    <svg:g stroke-width="1.5" fill="none" color="#ff1" stroke="#ff1"
           stroke-linecap="round">
@@ -289,7 +288,7 @@
       <svg:path d="M 375.4,146 m 0,-4 l 0,8 m -3.48,-6 l 6.92,4      m -6.92,0 l 6.92,-4"/>
       <svg:path d="M 415.4,126 m 0,-4 l 0,8 m -3.48,-6 l 6.92,4      m -6.92,0 l 6.92,-4"/>
       <svg:path d="M 455.4,106 m 0,-4 l 0,8 m -3.48,-6 l 6.92,4      m -6.92,0 l 6.92,-4"/>
-      <svg:path d="M 563.6999999999999,234.5 m 0,-4 l 0,8 m -3.48,-6 l 6.92,4      m -6.92,0 l 6.92,-4"/>
+      <svg:path d="M 563.7,234.5 m 0,-4 l 0,8 m -3.48,-6 l 6.92,4      m -6.92,0 l 6.92,-4"/>
    </svg:g>
    <svg:g stroke-width="1.5" fill="none" color="#3f1" stroke="#3f1"
           stroke-linecap="round">
@@ -305,14 +304,13 @@
       <svg:path d="M 415.4,106 m -3,-3 l 6,6 m 0,-6 l -6,6"/>
       <svg:path d="M 455.4,86 m -3,-3 l 6,6 m 0,-6 l -6,6"/>
       <svg:path d="M 495.4,96 m -3,-3 l 6,6 m 0,-6 l -6,6"/>
-      <svg:path d="M 563.6999999999999,258.5 m -3,-3 l 6,6 m 0,-6 l -6,6"/>
+      <svg:path d="M 563.7,258.5 m -3,-3 l 6,6 m 0,-6 l -6,6"/>
    </svg:g>
    <svg:g text-anchor="start" font-family="Verdana" font-size="10" fill="black">
-      <svg:text x="582.6999999999999" y="214" fill="#14f">náklady jinačí</svg:text>
-      <svg:text x="582.6999999999999" y="238" fill="#f0d">tržby</svg:text>
-      <svg:text x="582.6999999999999" y="262" fill="#3f1">tržby</svg:text>
+      <svg:text x="582.7" y="214" fill="#14f">náklady jinačí</svg:text>
+      <svg:text x="582.7" y="238" fill="#f0d">tržby</svg:text>
+      <svg:text x="582.7" y="262" fill="#3f1">tržby</svg:text>
    </svg:g>
-   <svg:rect x="0.5" y="0.5" width="682.0999999999999" height="430" stroke="black"
-             fill="none"
+   <svg:rect x="0.5" y="0.5" width="682.1" height="430" stroke="black" fill="none"
              stroke-width="1"/>
 </svg:svg>

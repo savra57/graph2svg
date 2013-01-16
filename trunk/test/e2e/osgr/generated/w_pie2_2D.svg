@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<svg:svg xmlns:svg="http://www.w3.org/2000/svg" viewBox="0 0 249.77820307621533 298">
+<svg:svg xmlns:svg="http://www.w3.org/2000/svg" viewBox="0 0 249.78 298">
    <svg:desc>Revenues (in thousnds €)</svg:desc>
    <svg:g>
-      <svg:text x="124.88910153810767" y="28" text-anchor="middle" font-family="Verdana"
-                font-size="18"
+      <svg:text x="124.89" y="28" text-anchor="middle" font-family="Verdana" font-size="18"
                 fill="black">Revenues (in thousnds €)</svg:text>
    </svg:g>
    <svg:g stroke-width="1" stroke="black" stroke-linejoin="round">
@@ -32,7 +31,6 @@
       <svg:text x="48.36986805031202" y="253.06596376779615" text-anchor="end">Thu</svg:text>
       <svg:text x="33" y="106.55864470710682" text-anchor="end">Fri</svg:text>
    </svg:g>
-   <svg:rect x="0.5" y="0.5" width="248.77820307621533" height="297" stroke="black"
-             fill="none"
+   <svg:rect x="0.5" y="0.5" width="248.78" height="297" stroke="black" fill="none"
              stroke-width="1"/>
 </svg:svg>

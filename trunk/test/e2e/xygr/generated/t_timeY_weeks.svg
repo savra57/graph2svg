@@ -50,19 +50,19 @@
       <svg:text x="117.8" y="61.5">22 Februar 2010</svg:text>
    </svg:g>
    <svg:g stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
-      <svg:path d="M207.8,154.88 L295.3,167.38 L263.8,111.13 L351.3,229.88 L438.8,336.13 L480.8,192.38 L543.8,64.25 L459.8,123.63"
+      <svg:path d="M207.8,154.88 L295.3,167.38 L263.8,111.12 L351.3,229.88 L438.8,336.12 L480.8,192.38 L543.8,64.25 L459.8,123.62"
                 stroke="#07bbbb"/>
    </svg:g>
    <svg:g stroke-width="1.5" fill="none" color="#07bbbb" stroke="#07bbbb"
           stroke-linecap="round">
       <svg:circle cx="207.8" cy="154.88" r="4"/>
       <svg:circle cx="295.3" cy="167.38" r="4"/>
-      <svg:circle cx="263.8" cy="111.13" r="4"/>
+      <svg:circle cx="263.8" cy="111.12" r="4"/>
       <svg:circle cx="351.3" cy="229.88" r="4"/>
-      <svg:circle cx="438.8" cy="336.13" r="4"/>
+      <svg:circle cx="438.8" cy="336.12" r="4"/>
       <svg:circle cx="480.8" cy="192.38" r="4"/>
       <svg:circle cx="543.8" cy="64.25" r="4"/>
-      <svg:circle cx="459.8" cy="123.63" r="4"/>
+      <svg:circle cx="459.8" cy="123.62" r="4"/>
    </svg:g>
    <svg:rect x="0.5" y="0.5" width="603" height="410" stroke="black" fill="none"
              stroke-width="1"/>

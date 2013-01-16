@@ -11,6 +11,7 @@
 	version="2.0">
  
 <xsl:variable name="pi"  select="3.14159265359"/>
+<xsl:variable name="logDiv"  select="0.301, 0.176, 0.125, 0.097, 0.079, 0.067, 0.058, 0.051, 0.046"/>     <!-- log10(i) - log10(i-1)   pro i=2,3,..,10 -->
 
 
 <!--******************************************************************************-->
@@ -52,12 +53,159 @@
 <xsl:variable name="colorSchemeCold" select="('#07bbbb', '#09a317', '#19009f', '#9a0084', '#6efaff', '#88f917', '#a9a7f6', '#fbbbf3', '#002dff', '#ff00bf')"/>  
 <xsl:variable name="colorSchemeWarm" select="('#d82914', '#f2ee15', '#21ab03', '#c5a712', '#a4005a', '#f17a2e', '#c9f581', '#ffbcc5', '#ffffc4', '#f8887f')"/>
 <xsl:variable name="colorSchemeGrey" select="('#ccc', '#888', '#444', '#eee', '#aaa', '#666', '#222')"/>  
-<xsl:variable name="colorSchemeBlack" select="('black')"/>  
+<xsl:variable name="colorSchemeBlack" select="('black')"/>
 
 
 <!--******************************************************************************-->
-<!--*********************************** drawing functions ************************-->
+<!--*********************************** common variables *************************-->
 <!--******************************************************************************-->
+<!-- 2D / 3D - for osgr and msgr -->
+<xsl:variable name="depthX" select="if ($graph/@effect = '3D') then 8 else 0"/>
+<xsl:variable name="depthY" select="if ($graph/@effect = '3D') then 8 else 0"/>
+
+
+<!--******************************************************************************-->
+<!--*********************************** SVG functions and templates **************-->
+<!--******************************************************************************-->
+
+<!-- draw the SVG document description and the graph title -->
+<xsl:template name="m:drawDescritptionAndTitle">
+	<xsl:param name="width"/>
+	
+	<!-- SVG document description -->
+	<svg:desc><xsl:value-of select="$graph/m:title"/></svg:desc>  
+
+	<!-- type the graph title -->
+	<svg:g>
+	<xsl:if test="count($graph/m:title) &gt; 0">
+		<svg:text x="{m:R($width div 2)}" y="{m:R($titleMargin + $titleFontSize)}" 
+				text-anchor="middle"
+				font-family="Verdana" font-size="{$titleFontSize}"
+				fill="{if ($graph/m:title/@color) then $graph/m:title/@color else 'black'}" >
+		<xsl:value-of select="$graph/m:title"/>
+		</svg:text> 
+	</xsl:if>
+	</svg:g>
+</xsl:template>
+
+<!-- draw the frame around the whole grap -->
+<xsl:template name="m:drawFrame">
+	<xsl:param name="width"/>
+	<xsl:param name="height"/>
+	
+	<svg:rect x="0.5" y="0.5" width="{m:R($width - 1)}" height="{m:R($height - 1)}"  
+			stroke="black" fill="none" stroke-width="1"/> 
+</xsl:template>
+
+<!-- draw major and minor grid for X axis -->
+<xsl:template name="m:drawXGrid">
+	<xsl:param name="xAxisLStart"/>
+	<xsl:param name="yAxisTStart"/>
+	<xsl:param name="catGap"/>
+	<xsl:param name="colWd"/>
+	<xsl:param name="catWd"/>
+	<xsl:param name="catCount"/>
+	<xsl:param name="yAxisHg"/>
+	<xsl:param name="originY"/>
+	<xsl:param name="serCount"/>
+	<xsl:param name="shift"/>
+	
+	<!-- minor grid of X axis -->
+	<xsl:if test="($graph/@xGrid='minor' or $graph/@xGrid='both')">    
+		<xsl:variable name="gXMinor"  select="	
+				concat('M', m:R($xAxisLStart -0.5*$colWd -$catGap +$depthX), ',', $yAxisTStart +$yAxisHg -$depthY),
+				for $a in (1 to $catCount) return (
+					concat(' m', 2*$catGap+$colWd, ',', -$yAxisHg, ' l0,', $yAxisHg),
+					if ($shift != 0) then (
+						for $b in (2 to $serCount) return 
+							concat(' m', $colWd*$shift, ',', -$yAxisHg, ' l0,', $yAxisHg)
+					) else ' '
+				),
+				if ($graph/@effect = '3D') then (
+					concat('M', $xAxisLStart +$catGap + $colWd div 2, ',', $originY),
+					for $a in (1 to $catCount) return (
+						for $b in (1 to $serCount -1) return 
+							concat('l', $depthX, ',', -$depthY, ' m', $colWd*$shift -$depthX, ',', $depthY) ,
+						concat('l', $depthX, ',', -$depthY, ' m', 2*$catGap+$colWd -$depthX, ',', $depthY)
+					)
+				) else ' '
+				"/>
+		<svg:path d="{$gXMinor}"  stroke="{$minorGridColor}" 
+				stroke-width="{$minorGridStroke-width}" fill="none" />  
+	</xsl:if>
+	
+	<!-- major grid of X axis -->
+	<xsl:if test="($graph/@xGrid !='none' and $graph/@xGrid !='minor' )">    
+		<xsl:variable name="gXMajor1"  select="
+				concat('M', $xAxisLStart +$depthX, ',', $yAxisTStart -$depthY, ' l0,', $yAxisHg),
+				for $a in (1 to $catCount) return (
+					concat('m', $catWd, ',-', $yAxisHg, ' l0,', $yAxisHg)
+				),
+				if ($graph/@effect = '3D') then (
+					concat('M', $xAxisLStart, ',', $originY, ' l', $depthX, ',', -$depthY),
+					for $a in (1 to $catCount) return
+						concat('m', $catWd -$depthX, ',', $depthX, ' l', $depthX, ',', -$depthY)
+				) else ''
+				"/>
+		<svg:path d="{$gXMajor1}" stroke="{$majorGridColor}" 
+				stroke-width="{$majorGridStroke-width}" fill="none"/>  
+	</xsl:if>
+</xsl:template>
+
+<!-- draw major and minor grid for Y axis -->
+<xsl:template name="m:drawYGrid">
+	<xsl:param name="xAxisLStart"/>
+	<xsl:param name="yAxisTStart"/>
+	<xsl:param name="xAxisWd"/>
+	<xsl:param name="yAxisHg"/>
+	<xsl:param name="yAxisDiv"/>
+	<xsl:param name="mYpom"/>
+	
+	<!-- minor grid of Y axis -->
+	<xsl:if test="$graph/@yGrid = 'minor' or $graph/@yGrid = 'both' "> 
+		<xsl:variable name="gYMinor"  select="
+			concat('M', m:R($xAxisLStart), ',', m:R($yAxisTStart+$yAxisHg - $mYpom[1]*$yAxisMarkDist)),
+			(if ($graph/@effect = '3D') then concat('l', m:R($depthX), ',', m:R(-$depthY)) else ''),
+			concat(' l', m:R($xAxisWd), ',0 '),
+			if ($graph/@yAxisType='log') then (
+				for $a in $mYpom[. != 1], $b in $logDiv return (
+					if ($graph/@effect = '3D') then
+						concat('m', m:R(-$xAxisWd -$depthX), ',', m:R($depthY -$yAxisMarkDist * $b),
+								' l', m:R($depthX), ',', m:R(-$depthY), ' l', m:R($xAxisWd), ',0 ')
+					else
+						concat('m-', m:R($xAxisWd), ',-', m:R($yAxisMarkDist * $b), ' l', m:R($xAxisWd), ',0 ')
+				)
+			) else (
+				for  $a in $mYpom[. != 1], $b in (1 to $yAxisDiv) return (
+					if ($graph/@effect = '3D') then
+						concat('m', m:R(-$xAxisWd -$depthX), ',', m:R($depthY -$yAxisMarkDist div $yAxisDiv),
+								'l', m:R($depthX), ',', m:R(-$depthY), ' l', m:R($xAxisWd), ',0 ')
+					else
+						concat('m-', m:R($xAxisWd), ',-', m:R($yAxisMarkDist div $yAxisDiv), ' l', m:R($xAxisWd), ',0 ')
+				)
+			) "/>
+		<svg:path d="{$gYMinor}" stroke="{$minorGridColor}" 
+				stroke-width="{$minorGridStroke-width}" fill="none" />    
+	</xsl:if>
+	
+	<!-- major grid of Y axis -->
+	<xsl:if test="($graph/@yGrid = 'major' or $graph/@yGrid = 'minor') 
+			and ($yAxisDiv &gt; 0) ">    
+		<xsl:variable name="gYMajor"  select="
+				concat('M', m:R($xAxisLStart), ',', m:R($yAxisTStart + $yAxisHg - $mYpom[1] * $yAxisMarkDist)),
+				(if ($graph/@effect = '3D') then concat('l', m:R($depthX), ',', m:R(-$depthY)) else ''),
+				concat(' l', m:R($xAxisWd), ',0 '),
+				for $n in $mYpom[. != 1] return (
+					if ($graph/@effect = '3D') then
+						concat('m', m:R(-$xAxisWd -$depthX), ',', m:R($depthY -$yAxisMarkDist),
+								' l', m:R($depthX), ',', m:R(-$depthY), ' l', m:R($xAxisWd), ',0 ')
+					else
+						concat('m-', m:R($xAxisWd), ',-', m:R($yAxisMarkDist), ' l', m:R($xAxisWd), ',0 ')
+				) " />
+		<svg:path d="{$gYMajor}" stroke="{$majorGridColor}" 
+				stroke-width="{$majorGridStroke-width}" fill="none" />    
+	</xsl:if>
+</xsl:template>
 
 <!-- return "dash-array" for given curve (line) type -->
 <xsl:function name="m:LineType">
@@ -89,62 +237,62 @@
 		<xsl:when test="$effect = '3D'">  <!--3D-->
 			<xsl:choose>
 				<xsl:when test="$type = 'cylinder' ">  <!--3D cylinder-->
-					<svg:path d="M{-$colW +0.5*$dpX},{-$hg*(1-$bW) -0.5*$dpY} {m:Arc($colW,0.5*$dpX,0)} 
-						v{-$hg*($bW -$tW)} {m:Arc(-$colW,0.5*$dpX,1)} z"/>
-					<svg:path d="M{-$colW +0.5*$dpX},{-$hg*(1-$tW) -0.5*$dpY} {m:Arc($colW,0.5*$dpX,0)} 
-						{m:Arc(-$colW,0.5*$dpX,0)}" fill="{$color}"/>
+					<svg:path d="M{m:R(-$colW +0.5*$dpX)},{m:R(-$hg*(1-$bW) -0.5*$dpY)} {m:R(m:Arc($colW,0.5*$dpX,0))} 
+						v{m:R(-$hg*($bW -$tW))} {m:R(m:Arc(-$colW,0.5*$dpX,1))} z"/>
+					<svg:path d="M{m:R(-$colW +0.5*$dpX)},{m:R(-$hg*(1-$tW) -0.5*$dpY)} {m:R(m:Arc($colW,0.5*$dpX,0))} 
+						{m:R(m:Arc(-$colW,0.5*$dpX,0))}" fill="{$color}"/>
 				</xsl:when>
 				<xsl:when test="$type = 'cone' ">  <!--3D cone, TODO: not exact--> 
-					<svg:path d="M{-$colW*$bW +0.5*$dpX},{-$hg*(1-$bW) -0.5*$dpY} 
-						{m:Arc($colW*$bW,0.5*$dpX*$bW,0)} 
-						l{-$colW*($bW -$tW)},{-$hg*($bW -$tW)} 
-						{m:Arc(-$colW*$tW,0.5*$dpX*$tW,1)} z"/>
-					<svg:path d="M{-$colW*$tW +0.5*$dpX},{-$hg*(1-$tW) -0.5*$dpY} 
-						{m:Arc($colW*$tW,0.5*$dpX*$tW,0)} 
-						{m:Arc(-$colW*$tW,0.5*$dpX*$tW,0)} " fill="{$color}"/>
+					<svg:path d="M{m:R(-$colW*$bW +0.5*$dpX)},{m:R(-$hg*(1-$bW) -0.5*$dpY)} 
+						{m:R(m:Arc($colW*$bW,0.5*$dpX*$bW,0))} 
+						l{m:R(-$colW*($bW -$tW))},{m:R(-$hg*($bW -$tW))} 
+						{m:R(m:Arc(-$colW*$tW,0.5*$dpX*$tW,1))} z"/>
+					<svg:path d="M{m:R(-$colW*$tW +0.5*$dpX)},{m:R(-$hg*(1-$tW) -0.5*$dpY)} 
+						{m:R(m:Arc($colW*$tW,0.5*$dpX*$tW,0))} 
+						{m:R(m:Arc(-$colW*$tW,0.5*$dpX*$tW,0))} " fill="{$color}"/>
 				</xsl:when>
 				<xsl:when test="$type = 'pyramid' ">  <!--3D pyramid, TODO: to draw tW=0 separately -->
-					<svg:path d="M{-$colW*$bW +0.5*$dpX*(1-$bW)},{-$hg*(1-$bW) -0.5*$dpY*(1-$bW)}
-						h{2*$colW*$bW} 
-						l{-$colW*($bW -$tW) +0.5*$dpX*($bW -$tW)},{-$hg*($bW -$tW) -0.5*$dpY*($bW -$tW)}
-						h{-2*$colW*$tW} z"/>
-					<svg:path d="M{$colW*$bW +0.5*$dpX*(1-$bW)},{-$hg*(1-$bW) -0.5*$dpY*(1-$bW)}
-						l{$dpX*$bW},{-$dpY*$bW}
-						l{-$colW*($bW -$tW) -0.5*$dpX*($bW -$tW)},{-$hg*($bW -$tW)+0.5*$dpY*($bW -$tW)}
-						l{-$dpX*$tW},{$dpY*$tW} z"/>
-					<svg:path d="M{-$colW*$tW +0.5*$dpX*(1-$tW)},{-$hg*(1-$tW) -0.5*$dpY*(1-$tW)}
-						h{2*$colW*$tW} 
-						l{$dpX*$tW},{-$dpY*$tW}
-						h{-2*$colW*$tW} z"/>
+					<svg:path d="M{m:R(-$colW*$bW +0.5*$dpX*(1-$bW))},{m:R(-$hg*(1-$bW) -0.5*$dpY*(1-$bW))}
+						h{m:R(2*$colW*$bW)} 
+						l{m:R(-$colW*($bW -$tW) +0.5*$dpX*($bW -$tW))},{m:R(-$hg*($bW -$tW) -0.5*$dpY*($bW -$tW))}
+						h{m:R(-2*$colW*$tW)} z"/>
+					<svg:path d="M{m:R($colW*$bW +0.5*$dpX*(1-$bW))},{m:R(-$hg*(1-$bW) -0.5*$dpY*(1-$bW))}
+						l{m:R($dpX*$bW)},{m:R(-$dpY*$bW)}
+						l{m:R(-$colW*($bW -$tW) -0.5*$dpX*($bW -$tW))},{m:R(-$hg*($bW -$tW)+0.5*$dpY*($bW -$tW))}
+						l{m:R(-$dpX*$tW)},{m:R($dpY*$tW)} z"/>
+					<svg:path d="M{m:R(-$colW*$tW +0.5*$dpX*(1-$tW))},{m:R(-$hg*(1-$tW) -0.5*$dpY*(1-$tW))}
+						h{m:R(2*$colW*$tW)} 
+						l{m:R($dpX*$tW)},{m:R(-$dpY*$tW)}
+						h{m:R(-2*$colW*$tW)} z"/>
 				</xsl:when>
 				<xsl:when test="$type = 'line' "> <!-- 3D line -->
-					<svg:path d="M{0},{-$hg*(1-$bW)} v{-$hg*($bW -$tW)}" stroke-width="2" 
+					<svg:path d="M{m:R(0)},{m:R(-$hg*(1-$bW))} v{m:R(-$hg*($bW -$tW))}" stroke-width="2" 
 						stroke-linecap = "butt" stroke="{$color}"/>
 				</xsl:when>
 				<xsl:otherwise> <!--3D block and other types-->
-					<svg:path d="M{-$colW},{-$hg*(1-$bW)} h{2*$colW} v{-$hg*($bW -$tW)} h{-2*$colW} z"/>
-					<svg:path d="M{$colW},{-$hg*(1-$bW)} l{$dpX},{-$dpY} v{-$hg*($bW -$tW)} l{-$dpX},{$dpY} z"/>
-					<svg:path d="M{-$colW},{-$hg*(1-$tW)} h{2*$colW} l{$dpX},{-$dpY} h{-2*$colW} z"/>
+					<svg:path d="M{m:R(-$colW)},{m:R(-$hg*(1-$bW))} h{m:R(2*$colW)} v{m:R(-$hg*($bW -$tW))} h{m:R(-2*$colW)} z"/>
+					<svg:path d="M{m:R($colW)},{m:R(-$hg*(1-$bW))} l{m:R($dpX)},{m:R(-$dpY)} v{m:R(-$hg*($bW -$tW))} l{m:R(-$dpX)},{m:R($dpY)} z"/>
+					<svg:path d="M{m:R(-$colW)},{m:R(-$hg*(1-$tW))} h{m:R(2*$colW)} l{m:R($dpX)},{m:R(-$dpY)} h{m:R(-2*$colW)} z"/>
 				</xsl:otherwise>
 			</xsl:choose>
 		</xsl:when>
 		<xsl:otherwise>  <!--2D a other types-->
 			<xsl:choose>
 				<xsl:when test="$type = 'cylinder' ">  <!--2D cylinder-->
-					<svg:path d="M{-$colW},{-$hg*(1-$bW)} h{2*$colW} v{-$hg*($bW -$tW)} h{-2*$colW} z"/>
+					<svg:path d="M{m:R(-$colW)},{m:R(-$hg*(1-$bW))} h{m:R(2*$colW)} v{m:R(-$hg*($bW -$tW))} h{m:R(-2*$colW)} z"/>
 				</xsl:when>
 				<xsl:when test="$type = 'cone' ">  <!--2D cone -->
-					<svg:path d="M{-$colW*$bW},{-$hg*(1-$bW)} h{2*$colW*$bW} l{-$colW*($bW -$tW)},{-$hg*($bW -$tW)} h{-2*$colW*$tW} z"/>
+					<svg:path d="M{m:R(-$colW*$bW)},{m:R(-$hg*(1-$bW))} h{m:R(2*$colW*$bW)} l{m:R(-$colW*($bW -$tW))},{m:R(-$hg*($bW -$tW))} h{m:R(-2*$colW*$tW)} z"/>
 				</xsl:when>
 				<xsl:when test="$type = 'pyramid' ">  <!--2D pyramid -->
-					<svg:path d="M{-$colW*$bW},{-$hg*(1-$bW)} h{2*$colW*$bW} l{-$colW*($bW -$tW)},{-$hg*($bW -$tW)} h{-2*$colW*$tW} z"/>
+					<svg:path d="M{m:R(-$colW*$bW)},{m:R(-$hg*(1-$bW))} h{m:R(2*$colW*$bW)} l{m:R(-$colW*($bW -$tW))},{m:R(-$hg*($bW -$tW))} h{m:R(-2*$colW*$tW)} z"/>
 				</xsl:when>
 				<xsl:when test="$type = 'line' "> <!-- 2D line -->
-					<svg:path d="M{0},{-$hg*(1-$bW)} v{-$hg*($bW -$tW)}" stroke-width="2" 
+					<svg:path d="M{0},{m:R(-$hg*(1-$bW))} v{m:R(-$hg*($bW -$tW))}" stroke-width="2" 
 						stroke-linecap = "butt" stroke="{$color}"/>
 				</xsl:when>
 				<xsl:otherwise> <!--2D block a other types -->
-					<svg:path d="M{-$colW},{-$hg*(1-$bW)} h{2*$colW} v{-$hg*($bW -$tW)} h{-2*$colW} z"/>
+					<svg:path d="M{m:R(-$colW)},{m:R(-$hg*(1-$bW))} h{m:R(2*$colW)} v{m:R(-$hg*($bW -$tW))} h{m:R(-2*$colW)} z"/>
 				</xsl:otherwise>
 			</xsl:choose>
 		</xsl:otherwise>
@@ -179,7 +327,7 @@
 	
 	<xsl:choose>
 		<xsl:when test="$type = 'point'">
-			<svg:circle cx="{$x}" cy="{$y}" r="{$poS}" fill="currentColor">
+			<svg:circle cx="{m:R($x)}" cy="{m:R($y)}" r="{m:R($poS)}" fill="currentColor">
 				<xsl:if test="($color != 'inh')">
 					<xsl:attribute name="stroke" select="$color"/>
 					<xsl:attribute name="color" select="$color"/>
@@ -187,79 +335,79 @@
 			</svg:circle>
 		</xsl:when>
 		<xsl:when test="$type = 'cross' ">
-			<svg:path d="M {$x},{$y} m {- $crS},{- $crS} l {2 * $crS},{2 * $crS} m 0,{- 2 * $crS} l {- 2 * $crS},{2 * $crS}">
+			<svg:path d="M {m:R($x)},{m:R($y)} m {m:R(- $crS)},{m:R(- $crS)} l {m:R(2 * $crS)},{m:R(2 * $crS)} m 0,{m:R(- 2 * $crS)} l {m:R(- 2 * $crS)},{m:R(2 * $crS)}">
 				<xsl:if test="($color != 'inh')">
 					<xsl:attribute name="stroke" select="$color"/>
 				</xsl:if>
 			</svg:path>
 		</xsl:when>
 		<xsl:when test="$type = 'plus' ">
-			<svg:path d="M {$x},{$y} m {- $plS},0 l {2 * $plS},0 m {- $plS},{- $plS} l 0,{2 * $plS}">
+			<svg:path d="M {m:R($x)},{m:R($y)} m {m:R(- $plS)},0 l {m:R(2 * $plS)},0 m {m:R(- $plS)},{m:R(- $plS)} l 0,{m:R(2 * $plS)}">
 				<xsl:if test="($color != 'inh')">
 					<xsl:attribute name="stroke" select="$color"/>
 				</xsl:if>
 			</svg:path>
 		</xsl:when>
 		<xsl:when test="$type = 'minus' ">
-			<svg:path d="M{$x},{$y} m{-$miS},0 h{2*$miS}">
+			<svg:path d="M{m:R($x)},{m:R($y)} m{m:R(-$miS)},0 h{m:R(2*$miS)}">
 				<xsl:if test="($color != 'inh')">
 					<xsl:attribute name="stroke" select="$color"/>
 				</xsl:if>
 			</svg:path>
 		</xsl:when>
 		<xsl:when test="$type = 'star'">
-			<svg:path d="M {$x},{$y} m 0,{- $stS} l 0,{2 * $stS} m {- $stS * 0.87},{- $stS * 1.5} l {$stS * 1.73},{$stS}
-					m {- $stS * 1.73},0 l {$stS * 1.73},{-$stS}">
+			<svg:path d="M {m:R($x)},{m:R($y)} m 0,{m:R(- $stS)} l 0,{m:R(2 * $stS)} m {m:R(- $stS * 0.87)},{m:R(- $stS * 1.5)} l {m:R($stS * 1.73)},{m:R($stS)}
+					m {m:R(- $stS * 1.73)},0 l {m:R($stS * 1.73)},{m:R(-$stS)}">
 				<xsl:if test="($color != 'inh')">
 					<xsl:attribute name="stroke" select="$color"/>
 				</xsl:if>
 			</svg:path>
 		</xsl:when>
 		<!--xsl:when test="$type = 'star2'">
-			<svg:path d="M {$x},{$y} m {- $stS},0 l {2 * $stS},0 m {- $stS * 1.5},{- $stS * 0.87} l {$stS},{$stS * 1.73}
-					m 0,{- $stS * 1.73} l {-$stS},{$stS * 1.73}">
+			<svg:path d="M {m:R($x)},{m:R($y)} m {m:R(- $stS)},0 l {m:R(2 * $stS)},0 m {m:R(- $stS * 1.5)},{m:R(- $stS * 0.87)} l {m:R($stS)},{m:R($stS * 1.73)}
+					m 0,{m:R(- $stS * 1.73)} l {m:R(-$stS)},{m:R($stS * 1.73)}">
 				<xsl:if test="($color != 'inh')">
 					<xsl:attribute name="stroke" select="$color"/>
 				</xsl:if>
 			</svg:path>
 		</xsl:when-->
 		<xsl:when test="$type = 'square'">
-			<svg:path d="M {$x},{$y} m {- $sqS},{- $sqS} l {2 * $sqS},0 l 0,{2 * $sqS} l {- 2 * $sqS},0 z">
+			<svg:path d="M {m:R($x)},{m:R($y)} m {m:R(- $sqS)},{m:R(- $sqS)} l {m:R(2 * $sqS)},0 l 0,{m:R(2 * $sqS)} l {m:R(- 2 * $sqS)},0 z">
 				<xsl:if test="($color != 'inh')">
 					<xsl:attribute name="stroke" select="$color"/>
 				</xsl:if>
 			</svg:path>
 		</xsl:when>
 		<xsl:when test="$type = 'circle'">
-			<svg:circle cx="{$x}" cy="{$y}" r="{$ciS}">
+			<svg:circle cx="{m:R($x)}" cy="{m:R($y)}" r="{m:R($ciS)}">
 				<xsl:if test="($color != 'inh')">
 					<xsl:attribute name="stroke" select="$color"/>
 				</xsl:if>
 			</svg:circle>
 		</xsl:when>
 		<xsl:when test="$type = 'triangle'">
-			<svg:path d="M {$x},{$y} m {$trS},{- $trS * 0.58} l {-2 * $trS},0 l {$trS},{$trS * 1.73} z">
+			<svg:path d="M {m:R($x)},{m:R($y)} m {m:R($trS)},{m:R(- $trS * 0.58)} l {m:R(-2 * $trS)},0 l {m:R($trS)},{m:R($trS * 1.73)} z">
 				<xsl:if test="($color != 'inh')">
 					<xsl:attribute name="stroke" select="$color"/>
 				</xsl:if>
 			</svg:path>
 		</xsl:when>
 		<xsl:when test="$type = 'rhomb'">
-			<svg:path d="M {$x},{$y} m 0,{- $rhS} l {$rhS},{$rhS} l {- $rhS},{$rhS} l {- $rhS},{- $rhS} z">
+			<svg:path d="M {m:R($x)},{m:R($y)} m 0,{m:R(- $rhS)} l {m:R($rhS)},{m:R($rhS)} l {m:R(- $rhS)},{m:R($rhS)} l {m:R(- $rhS)},{m:R(- $rhS)} z">
 				<xsl:if test="($color != 'inh')">
 					<xsl:attribute name="stroke" select="$color"/>
 				</xsl:if>
 			</svg:path>
 		</xsl:when>
 		<xsl:when test="$type = 'pyramid'">
-			<svg:path d="M {$x},{$y} m {$trS},{$trS * 0.58} l {-2 * $trS},0 l {$trS},{- $trS * 1.73} z">
+			<svg:path d="M {m:R($x)},{m:R($y)} m {m:R($trS)},{m:R($trS * 0.58)} l {m:R(-2 * $trS)},0 l {m:R($trS)},{m:R(- $trS * 1.73)} z">
 				<xsl:if test="($color != 'inh')">
 					<xsl:attribute name="stroke" select="$color"/>
 				</xsl:if>
 			</svg:path>
 		</xsl:when>
 		<xsl:when test="$type = 'squareF'">
-			<svg:path d="M {$x},{$y} m {- $sqS},{- $sqS} l {2 * $sqS},0 l 0,{2 * $sqS} l {- 2 * $sqS},0 z"
+			<svg:path d="M {m:R($x)},{m:R($y)} m {m:R(- $sqS)},{m:R(- $sqS)} l {m:R(2 * $sqS)},0 l 0,{m:R(2 * $sqS)} l {m:R(- 2 * $sqS)},0 z"
 					fill="currentColor">
 				<xsl:if test="($color != 'inh')">
 					<xsl:attribute name="stroke" select="$color"/>
@@ -268,7 +416,7 @@
 			</svg:path>
 		</xsl:when>
 		<xsl:when test="$type = 'circleF'">
-			<svg:circle cx="{$x}" cy="{$y}" r="{$ciS}" fill="currentColor">
+			<svg:circle cx="{m:R($x)}" cy="{m:R($y)}" r="{m:R($ciS)}" fill="currentColor">
 				<xsl:if test="($color != 'inh')">
 					<xsl:attribute name="stroke" select="$color"/>
 					<xsl:attribute name="color" select="$color"/>
@@ -276,7 +424,7 @@
 			</svg:circle>
 		</xsl:when>
 		<xsl:when test="$type = 'triangleF'">
-			<svg:path d="M {$x},{$y} m {$trS},{- $trS * 0.58} l {-2 * $trS},0 l {$trS},{$trS * 1.73} z"
+			<svg:path d="M {m:R($x)},{m:R($y)} m {m:R($trS)},{m:R(- $trS * 0.58)} l {m:R(-2 * $trS)},0 l {m:R($trS)},{m:R($trS * 1.73)} z"
 					fill="currentColor">
 				<xsl:if test="($color != 'inh')">
 					<xsl:attribute name="stroke" select="$color"/>
@@ -285,7 +433,7 @@
 			</svg:path>
 		</xsl:when>
 		<xsl:when test="$type = 'rhombF'">
-			<svg:path d="M {$x},{$y} m 0,{- $rhS} l {$rhS},{$rhS} l {- $rhS},{$rhS} l {- $rhS},{- $rhS} z"
+			<svg:path d="M {m:R($x)},{m:R($y)} m 0,{m:R(- $rhS)} l {m:R($rhS)},{m:R($rhS)} l {m:R(- $rhS)},{m:R($rhS)} l {m:R(- $rhS)},{m:R(- $rhS)} z"
 					fill="currentColor">
 				<xsl:if test="($color != 'inh')">
 					<xsl:attribute name="stroke" select="$color"/>
@@ -294,7 +442,7 @@
 			</svg:path>
 		</xsl:when>
 		<xsl:when test="$type = 'pyramidF'">
-			<svg:path d="M {$x},{$y} m {$trS},{$trS * 0.58} l {-2 * $trS},0 l {$trS},{- $trS * 1.73} z"
+			<svg:path d="M {m:R($x)},{m:R($y)} m {m:R($trS)},{m:R($trS * 0.58)} l {m:R(-2 * $trS)},0 l {m:R($trS)},{m:R(- $trS * 1.73)} z"
 					fill="currentColor">
 				<xsl:if test="($color != 'inh')">
 					<xsl:attribute name="stroke" select="$color"/>
@@ -486,7 +634,7 @@ numbers:
 	<xsl:choose>
 		<xsl:when test="$axisType='log'">
 			<xsl:value-of select="'10'"/>
-			<svg:tspan font-size="{0.75*$labelFontSize}" dy="{-0.4*$labelFontSize}">
+			<svg:tspan font-size="{m:R(0.75*$labelFontSize)}" dy="{m:R(-0.4*$labelFontSize)}">
 				<xsl:value-of select="$val"/>
 			</svg:tspan>
 		</xsl:when>
@@ -548,7 +696,6 @@ numbers:
 </xsl:function>
 
 
-
 <!--******************************************************************************-->
 <!--******************************************* general helper functions *********-->
 <!--******************************************************************************-->
@@ -563,7 +710,7 @@ numbers:
 <!-- rounds the given value on 2 decimal places, used for SVG coordinates -->
 <xsl:function name="m:R"> 
 	<xsl:param name="val"/>
-	<xsl:value-of select="round($val * 100) div 100"/>
+	<xsl:value-of select="format-number($val, '#.##')"/>
 </xsl:function>
 
 <!-- returns the main node attribute value or the specified default value if the attribute is undefined -->
@@ -582,7 +729,7 @@ numbers:
 
 
 <!--******************************************************************************-->
-<!--***************** value proprocessing for all scripts ************************-->
+<!--***************** value pre-processing for all scripts ************************-->
 <!--******************************************************************************-->
 
 <!-- process values for msgr and osgr -->
