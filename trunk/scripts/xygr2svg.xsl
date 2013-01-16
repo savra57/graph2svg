@@ -170,21 +170,6 @@
 				if ($yAxisMin &gt; 0) then (1 to $yAxisMarkCount) else
 				if ($yAxisMax &lt; 0) then (0 to $yAxisMarkCount - 1) else 
 					(0 to $yAxisMarkCount)   "/>
-	<xsl:variable name="xAxisDiv"  select="
-			if ($gra/ph/@xAxisDivision = 'none') then -1 else
-			if ($gra/ph/@xAxisDivision = '1') then 1 else
-			if ($gra/ph/@xAxisDivision = '2') then 2 else
-			if ($gra/ph/@xAxisDivision = '4') then 4 else
-			if ($gra/ph/@xAxisDivision = '5') then 5 else
-			if ($gra/ph/@xAxisDivision = '10') then 10 else 1  "/>	
-	<xsl:variable name="yAxisDiv"  select="
-			if ($gra/ph/@yAxisDivision = 'none') then -1 else
-			if ($gra/ph/@yAxisDivision = '1') then 1 else
-			if ($gra/ph/@yAxisDivision = '2') then 2 else
-			if ($gra/ph/@yAxisDivision = '4') then 4 else
-			if ($gra/ph/@yAxisDivision = '5') then 5 else
-			if ($gra/ph/@yAxisDivision = '10') then 10 else 1    "/>	
-
 
 	<!-- major and minor grid for both axes -->
 	<xsl:if test="($gra/ph/@xGrid = 'minor') and ($xAxisDiv &gt; 1)"> <!-- minor grid of X axis -->
@@ -215,7 +200,6 @@
 		<xsl:with-param name="yAxisTStart" select="$yAxisTStart"/>
 		<xsl:with-param name="xAxisWd" select="$xAxisWd"/>
 		<xsl:with-param name="yAxisHg" select="$yAxisHg"/>
-		<xsl:with-param name="yAxisDiv" select="$yAxisDiv"/>
 		<xsl:with-param name="mYpom" select="$mYpom"/>
 	</xsl:call-template>
 	
