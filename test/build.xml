@@ -181,6 +181,32 @@
 		</antcall>
 	</target>
 
+	<target name="suppresDoctypes">
+		<replaceregexp byline="true" encoding="utf-8">
+			<regexp pattern="&lt;!DOCTYPE(.*)&gt;" />
+			<substitution expression="&lt;!--DOCTYPE\1--&gt;" />
+			<fileset dir="e2e">
+				<include name="*/*.xml" />
+			</fileset>
+		</replaceregexp>
+	</target>
+
+	<target name="resumeDoctypes">
+		<replaceregexp byline="true" encoding="utf-8">
+			<regexp pattern="&lt;!--DOCTYPE(.*)--&gt;" />
+			<substitution expression="&lt;!DOCTYPE\1&gt;" />
+			<fileset dir="e2e">
+				<include name="*/*.xml" />
+			</fileset>
+		</replaceregexp>
+	</target>
+
+	<target name="testAllNoDtd">
+		<antcall target="suppresDoctypes" />
+		<antcall target="testAll" />
+		<antcall target="resumeDoctypes" />
+	</target>
+
 	<target name="testAll">
 		<antcall target="testOsgr" />
 		<antcall target="testMsgr" />
