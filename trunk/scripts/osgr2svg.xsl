@@ -81,6 +81,10 @@
 	<xsl:variable name="legendR"  select="if ($gra/ph/@legend = 'right') then $legendWd else 0"/>
 	<xsl:variable name="legendT"  select="if ($gra/ph/@legend = 'top') then $legendHg else 0"/>
 	<xsl:variable name="legendB"  select="if ($gra/ph/@legend = 'bottom') then $legendHg else 0"/>
+	
+	<!-- normalization of values of labelIn properties - important if there is no DTD defined -->
+	<xsl:variable name="labelIn" select="m:LookUp($gra/ph/@labelIn, ('value', 'percent', 'name'), ('value', 'percent', 'name'), 'none')"/>
+	<xsl:variable name="labelOut" select="m:LookUp($gra/ph/@labelOut, ('value', 'percent', 'name'), ('value', 'percent', 'name'), 'none')"/>
 
 	
 <!-- division according GRAPHTYPE-->
@@ -90,17 +94,17 @@
 		<!-- pie graph itselvse -->
 	<xsl:variable name="pieValSum" select="sum($gra/ph/values/value)"/>  
 	<xsl:variable name="pieTSpace"  select="$graphMargin + 
-			(if ($gra/ph/@labelOut = 'none') then 0 else 1.5*$labelOutFontSize)"/>  
+			(if ($labelOut = 'none') then 0 else 1.5*$labelOutFontSize)"/>  
 	<xsl:variable name="pieBSpace"  select="$graphMargin + $pie3DHg +
-			(if ($gra/ph/@labelOut = 'none') then 0 else 1.5*$labelOutFontSize)"/>	
+			(if ($labelOut = 'none') then 0 else 1.5*$labelOutFontSize)"/>	
 	<xsl:variable name="pieLSpace"  select="$graphMargin + 
-			(if (not ($gra/ph/@labelOut = 'none'))  then 
+			(if (not ($labelOut = 'none'))  then 
 				max((0, (
 					for $a in $gra/ph/values/value return (
 						string-length(
-							if ($gra/ph/@labelOut = 'value')  then $a else 
-							if ($gra/ph/@labelOut = 'percent') then format-number(. div $pieValSum, '#%') else
-							if ($gra/ph/@labelOut = 'name') then 
+							if ($labelOut = 'value')  then $a else 
+							if ($labelOut = 'percent') then format-number(. div $pieValSum, '#%') else
+							if ($labelOut = 'name') then 
 								$gra/ph/names/name[count($a/preceding-sibling::value)+1] else '')
 						)*$labelOutFontSize*$labelOutFontWd
 						- $pieRadiusX - ($pieRadiusX+0.85*$labelOutFontSize)*
@@ -109,13 +113,13 @@
 			else 0)
 		"/>  
 	<xsl:variable name="pieRSpace"  select="$graphMargin+ 
-			(if (not ($gra/ph/@labelOut = 'none'))  then 
+			(if (not ($labelOut = 'none'))  then 
 				max((0, (
 					for $a in $gra/ph/values/value return (
 						string-length(
-							if ($gra/ph/@labelOut = 'value')  then $a else 
-							if ($gra/ph/@labelOut = 'percent') then format-number(. div $pieValSum, '#%') else
-							if ($gra/ph/@labelOut = 'name') then 
+							if ($labelOut = 'value')  then $a else 
+							if ($labelOut = 'percent') then format-number(. div $pieValSum, '#%') else
+							if ($labelOut = 'name') then 
 								$gra/ph/names/name[count($a/preceding-sibling::value)+1] else '')
 						)*$labelOutFontSize*$labelOutFontWd
 						- $pieRadiusX + ($pieRadiusX+0.85*$labelOutFontSize)*
@@ -235,7 +239,7 @@
 	</xsl:if>
 	
 	<!-- values in labelIn - pie-->
-	<xsl:if test="(not ($gra/ph/@labelIn = 'none'))">
+	<xsl:if test="(not ($labelIn = 'none'))">
 		<svg:g text-anchor="middle" font-family="Verdana" font-size="{$labelInFontSize}" fill="black"> 
 		<xsl:for-each select="$gra/ph/values/value">
 			<xsl:variable name="sn"  select="count(preceding-sibling::value)"/>
@@ -244,13 +248,13 @@
 			<svg:text x="{$pieXCenter + $pieRadiusX*$labelInRadiusRatio*math:sin($mA)}" 	
 					y="{$pieYCenter -$pieRadiusY*$labelInRadiusRatio*math:cos($mA) + 0.35* $labelInFontSize}">
 				<xsl:choose>
-					<xsl:when test="$gra/ph/@labelIn = 'value' ">
+					<xsl:when test="$labelIn = 'value' ">
 						<xsl:value-of select="."/>
 					</xsl:when>
-					<xsl:when test="$gra/ph/@labelIn = 'percent' ">
+					<xsl:when test="$labelIn = 'percent' ">
 						<xsl:value-of select="format-number(. div $pieValSum, '#%')"/>
 					</xsl:when>
-					<xsl:when test="$gra/ph/@labelIn = 'name' ">
+					<xsl:when test="$labelIn = 'name' ">
 						<xsl:value-of select="$gra/ph/names/name[1+$sn]"/>
 					</xsl:when>
 					<xsl:otherwise/> 
@@ -261,7 +265,7 @@
 	</xsl:if>
 	
 	<!-- values in labelOut - pie-->
-	<xsl:if test="(not ($gra/ph/@labelOut = 'none'))">
+	<xsl:if test="(not ($labelOut = 'none'))">
 		<svg:g  font-family="Verdana" font-size="{$labelOutFontSize}" fill="black"> 
 		<xsl:for-each select="$gra/ph/values/value">
 			<xsl:variable name="sn"  select="count(preceding-sibling::value)"/>
@@ -273,13 +277,13 @@
 					)*math:cos($mA) + 0.35* $labelOutFontSize}"
 					text-anchor="{if ($mA &lt;= $pi) then 'start' else 'end'}">
 				<xsl:choose>
-					<xsl:when test="$gra/ph/@labelOut = 'value' ">
+					<xsl:when test="$labelOut = 'value' ">
 						<xsl:value-of select="."/>
 					</xsl:when>
-					<xsl:when test="$gra/ph/@labelOut = 'percent' ">
+					<xsl:when test="$labelOut = 'percent' ">
 						<xsl:value-of select="format-number(. div $pieValSum, '#%')"/>
 					</xsl:when>
-					<xsl:when test="$gra/ph/@labelOut = 'name' ">
+					<xsl:when test="$labelOut = 'name' ">
 						<xsl:value-of select="$gra/ph/names/name[1+$sn]"/>
 					</xsl:when>
 					<xsl:otherwise/> 
@@ -662,20 +666,20 @@
 	</xsl:if>
 	
 	<!-- values in labelIn - norm-->
-	<xsl:if test="(not ($gra/ph/@labelIn = 'none'))">
+	<xsl:if test="(not ($labelIn = 'none'))">
 		<svg:g text-anchor="middle" font-family="Verdana" font-size="{$labelInFontSize}" fill="black"> 
 		<xsl:for-each select="$gra/ph/values/value">
 			<xsl:variable name="vn"  select="count(preceding-sibling::value)"/>
 			<svg:text x="{$pX + $vn*$catWd}" 	
 					y="{m:R( 0.5*($originY +$yShift +$yKoef * (.)) + 0.35*$labelInFontSize )}">
 				<xsl:choose>
-					<xsl:when test="$gra/ph/@labelIn = 'value' ">
+					<xsl:when test="$labelIn = 'value' ">
 						<xsl:value-of select="."/>
 					</xsl:when>
-					<xsl:when test="$gra/ph/@labelIn = 'percent' ">
+					<xsl:when test="$labelIn = 'percent' ">
 						<xsl:value-of select="format-number(. div $normValSum, '#%')"/>
 					</xsl:when>
-					<xsl:when test="$gra/ph/@labelIn = 'name' ">
+					<xsl:when test="$labelIn = 'name' ">
 						<xsl:value-of select="$gra/ph/names/name[1+$vn]"/>
 					</xsl:when>
 					<xsl:otherwise/> 
@@ -686,7 +690,7 @@
 	</xsl:if>
 	
 	<!-- values in labelOut - norm-->
-	<xsl:if test="(not ($gra/ph/@labelOut = 'none'))">
+	<xsl:if test="(not ($labelOut = 'none'))">
 		<svg:g text-anchor="middle" font-family="Verdana" font-size="{$labelOutFontSize}" fill="black"> 
 		<xsl:for-each select="$gra/ph/values/value">
 			<xsl:variable name="vn"  select="count(preceding-sibling::value)"/>
@@ -694,13 +698,13 @@
 					y="{m:R($yShift + $yKoef * (.) ) + 
 						(if (. &gt;= 0) then (-4 -$depthY) else ($labelOutFontSize +2))}">
 				<xsl:choose>
-					<xsl:when test="$gra/ph/@labelOut = 'value' ">
+					<xsl:when test="$labelOut = 'value' ">
 						<xsl:value-of select="."/>
 					</xsl:when>
-					<xsl:when test="$gra/ph/@labelOut = 'percent' ">
+					<xsl:when test="$labelOut = 'percent' ">
 						<xsl:value-of select="format-number(. div $normValSum, '#%')"/>
 					</xsl:when>
-					<xsl:when test="$gra/ph/@labelOut = 'name' ">
+					<xsl:when test="$labelOut = 'name' ">
 						<xsl:value-of select="$gra/ph/names/name[1+$vn]"/>
 					</xsl:when>
 					<xsl:otherwise/> 

@@ -83,11 +83,11 @@
 			if ($gra/ph/@legend = 'left' or $gra/ph/@legend =  'right') then (
 				$legendMargin + $legendPictureWd + $legendGap  +
 				$legendFontSize * $legendFontWd * 
-				max(((for $a in ($gra/ph/curve[not (name/@visibility='none' or name/@visibility='graph')]) return string-length($a/name)), 9))
+				max(((for $a in ($gra/ph/curve[m:isCurveInLegend(.) = true()]) return string-length($a/name)), 9))
 			) else 
 			if ($gra/ph/@legend = 'top' or $gra/ph/@legend =  'bottom') then (
 				2*$legendMargin + sum(
-					for $a in ($gra/ph/curve[not (name/@visibility='none' or name/@visibility='graph')]) return 
+					for $a in ($gra/ph/curve[m:isCurveInLegend(.) = true()]) return 
 						((if ($a/name) then string-length($a/name) else 9) * 
 							$legendFontSize * $legendFontWd + $legendPictureWd + $legendGap + $legendMargin)
 					)
@@ -96,7 +96,7 @@
 	<xsl:variable name="legendHg"  select="
 			if ($gra/ph/@legend = 'left' or $gra/ph/@legend =  'right') then (
 				$legendLineHg -$legendFontSize +2*$legendMargin +$legendLineHg * 
-				count($gra/ph/curve[name/@visibility='both' or name/@visibility='legend'])
+				count($gra/ph/curve[m:isCurveInLegend(.) = true()])
 			) else 
 			if ($gra/ph/@legend = 'top' or $gra/ph/@legend =  'bottom') then (
 				$legendMargin + $legendFontSize
@@ -318,8 +318,8 @@
 	<!-- legend -->
 	<xsl:if test="($gra/ph/@legend != 'none')">
 		<svg:g text-anchor="start" font-family="Verdana" font-size="{$legendFontSize}" fill="black"> 
-		<xsl:for-each select="$gra/ph/curve[(name) and not (name/@visibility='none' or name/@visibility='graph')]">
-			<xsl:variable name="nn"  select="count(preceding-sibling::curve[(name) and not (name/@visibility='none' or name/@visibility='graph')])"/>
+		<xsl:for-each select="$gra/ph/curve[m:isCurveInLegend(.) = true()]">
+			<xsl:variable name="nn"  select="count(preceding-sibling::curve[m:isCurveInLegend(.) = true()])"/>
 			<xsl:variable name="cn"  select="count(preceding-sibling::curve) mod count($colorSch)+1"/>
 			<xsl:variable name="cc"  select="
 					if (name/@color) then (name/@color) else 
@@ -332,7 +332,7 @@
 			</xsl:if>
 			<xsl:if test="($gra/ph/@legend = 'top') or ($gra/ph/@legend = 'bottom')">
 				<svg:text x="{$legendX + $legendPictureWd + $legendGap + 
-					sum( for $a in (preceding-sibling::curve[name/@visibility='both' or name/@visibility='legend']) return 
+					sum( for $a in (preceding-sibling::curve[m:isCurveInLegend(.) = true()]) return 
 						((if ($a/name) then string-length($a/name) else 9) * 
 							$legendFontSize * $legendFontWd + $legendPictureWd + $legendGap + $legendMargin)  ) }" 	
 					y="{$legendY+ $legendFontSize}" fill="{$cc}">
@@ -351,7 +351,7 @@
 			</xsl:if>
 		<xsl:for-each select="$gra/ph/curve[not (./@lineType = 'none') and 
 				((./@lineType) or not ($gra/ph/@lineType = 'none'))]">  <!-- do until the lineT is not none or until we didn't inheritied from graph -->
-			<xsl:variable name="nn"  select="count(preceding-sibling::curve[name/@visibility='both' or name/@visibility='legend'])"/>
+			<xsl:variable name="nn"  select="count(preceding-sibling::curve[m:isCurveInLegend(.) = true()])"/>
 			<xsl:variable name="cn"  select="count(preceding-sibling::curve) mod count($colorSch)+1"/>
 			<xsl:variable name="sk"  select="0.18"/>
 			<xsl:variable name="line"  select="
@@ -376,7 +376,7 @@
 				</xsl:if>
 			</svg:path>
 			
-			<xsl:if test="($gra/ph/@legend != 'none') and (name/@visibility='both' or name/@visibility='legend')">
+			<xsl:if test="($gra/ph/@legend != 'none') and (m:isCurveInLegend(.) = true())">
 				<xsl:if test="($gra/ph/@legend = 'right') or ($gra/ph/@legend = 'left')">
 					<svg:path stroke="{if (./@color) then (./@color) else $colorSch[$cn]}"
 							d="M{$legendX},{$legendY + $legendLineHg * ($nn + 1) - 0.38 * $legendFontSize}
@@ -389,7 +389,7 @@
 				<xsl:if test="($gra/ph/@legend = 'top') or ($gra/ph/@legend = 'bottom')">
 					<svg:path stroke="{if (./@color) then (./@color) else $colorSch[$cn]}"
 							d="M{$legendX + 
-									sum( for $a in (preceding-sibling::curve[name/@visibility='both' or name/@visibility='legend']) return 
+									sum( for $a in (preceding-sibling::curve[m:isCurveInLegend(.) = true()]) return 
 										((if ($a/name) then string-length($a/name) else 9) * 
 										$legendFontSize * $legendFontWd + $legendPictureWd + $legendGap + $legendMargin)
 									) },{$legendY +(1 - 0.38)* $legendFontSize}
@@ -406,7 +406,7 @@
 		
 	<!-- draw points -->
 	<xsl:for-each select="$gra/ph/curve">
-		<xsl:variable name="nn"  select="count(preceding-sibling::curve[name/@visibility='both' or name/@visibility='legend'])"/>
+		<xsl:variable name="nn"  select="count(preceding-sibling::curve[m:isCurveInLegend(.) = true()])"/>
 		<xsl:variable name="cn"  select="count(preceding-sibling::curve) mod count($colorSch)+1"/>
 		<xsl:variable name="cc"  select="if (@color) then (@color) else $colorSch[$cn]"/>
 		<xsl:if test="some $a in (./point/@pointType, ./@pointType, $gra/ph/@pointType) 
@@ -426,15 +426,14 @@
 			</xsl:for-each>
 			
 			<!-- point of a given type for the legend -->
-			<xsl:if test="($gra/ph/@legend != 'none') and (name) and
-					not (name/@visibility='none' or name/@visibility='graph')">
+			<xsl:if test="($gra/ph/@legend != 'none') and (m:isCurveInLegend(.) = true())">
 				<xsl:call-template name="m:drawPoint">  
 					<xsl:with-param name="type" select="
 							if (./@pointType) then ./@pointType else
 							if ($gra/ph/@pointType) then $gra/ph/@pointType else 'none'"/>
 					<xsl:with-param name="x" select="$legendX + $legendPictureWd div 2 + (
 							if ($gra/ph/@legend = 'top' or $gra/ph/@legend = 'bottom') then 
-								sum( for $a in (preceding-sibling::curve[name/@visibility='both' or name/@visibility='legend']) return 
+								sum( for $a in (preceding-sibling::curve[m:isCurveInLegend(.) = true()]) return 
 									((if ($a/name) then string-length($a/name) else 9) * 
 									$legendFontSize * $legendFontWd + $legendPictureWd + $legendGap + $legendMargin) )
 							else 0
@@ -453,10 +452,9 @@
 	</xsl:for-each>
 
 	<!-- curve titles -->
-	<xsl:if test="some $a in $gra/ph/curve satisfies (($a/name) and 
-			not ($a/name/@visibility='none' or $a/name/@visibility='legend'))">
+	<xsl:if test="some $a in $gra/ph/curve satisfies (m:isCurveInGraph($a) = true())">
 		<svg:g text-anchor="start" font-family="Verdana" font-size="{$curveFontSize}" fill="black"> 
-		<xsl:for-each select="$gra/ph/curve[(name) and not (name/@visibility='none' or name/@visibility='legend')]">
+		<xsl:for-each select="$gra/ph/curve[m:isCurveInGraph(.) = true()]">
 			<xsl:variable name="cn"  select="count(preceding-sibling::curve) mod count($colorSch)+1"/>
 			<xsl:variable name="cc"  select="if (name/@color) then (name/@color) else $colorSch[$cn]"/>
 			<svg:text x="{m:R($xShift + $xKoef * (if (./name/@x) then (./name/@x) else (./point[last()]/@x)))}" 
@@ -500,6 +498,16 @@
 			x2="{$originX}" y2="{$yAxisTStart}" 
 			stroke="pink" stroke-width="2"/>  -->
 	
+	<!-- testing legend: >
+	<xsl:for-each select="$gra/ph/curve[m:isCurveInLegend(.) = true()]">
+		<xsl:variable name="nnTest"  select="count(preceding-sibling::curve[m:isCurveInLegend(.) = true()])"/>
+		<svg:text x="{$legendX + $legendPictureWd + $legendGap + 50}" 	
+			y="{$legendY + $legendLineHg * ($nnTest + 1)}">
+		<xsl:value-of select="((if (./name) then (./name) else ('series', $nnTest +1)), ': ', m:isCurveInLegend(.))"/>
+		</svg:text>
+	</xsl:for-each>  -->
+
+	
 	<!-- debuging frames >
 	<svg:rect x="1" y="1" width="{$width - 2}" height="{$titleHg - 2}"  
 			stroke="blue" fill="none" stroke-width="1"/> 
@@ -512,5 +520,20 @@
 
 	</svg:svg>
 </xsl:template>
+
+
+<xsl:function name="m:isCurveInLegend">
+	<xsl:param name="curveEl"/>
+	
+	<xsl:variable name="name"  select="$curveEl/name"/>
+	<xsl:value-of select="boolean(($name) and not ($name/@visibility='none' or $name/@visibility='graph'))"/>
+</xsl:function>
+
+<xsl:function name="m:isCurveInGraph">
+	<xsl:param name="curveEl"/>
+	
+	<xsl:variable name="name"  select="$curveEl/name"/>
+	<xsl:value-of select="boolean(($name) and not ($name/@visibility='none' or $name/@visibility='legend'))"/>
+</xsl:function>
 
 </xsl:stylesheet>
