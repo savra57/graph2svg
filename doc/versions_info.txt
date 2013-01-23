@@ -34,7 +34,6 @@ TODO - shortTerm
     	- document
     * check/finish/clean up the testing tools
     	- release goal
-    	- add tasks to run tests also without DTDs (testAllWithoutDtds: comment all DTD definitions, testAll, uncomment)
     * more doc:
     	- try using the project WIKI 
     	- improve documentation for test utilities
