@@ -1,73 +1,71 @@
 <?xml version="1.0" encoding="utf-8"?>
-<svg:svg xmlns:svg="http://www.w3.org/2000/svg" viewBox="0 0 809.0999999999999 356">
+<svg:svg xmlns:svg="http://www.w3.org/2000/svg" viewBox="0 0 809.1 356">
    <svg:desc>Sizes - Big Legend, Wide Columns and Gaps</svg:desc>
    <svg:g>
-      <svg:text x="404.54999999999995" y="28" text-anchor="middle" font-family="Verdana"
-                font-size="18"
+      <svg:text x="404.55" y="28" text-anchor="middle" font-family="Verdana" font-size="18"
                 fill="black">Sizes - Big Legend, Wide Columns and Gaps</svg:text>
    </svg:g>
    <svg:g stroke-width="0.4" fill="#c5a712" stroke="black" stroke-linejoin="round">
       <svg:g transform="translate(95.4, 286)">
-         <svg:path d="M-20,-0 h40 v-12.5 h-40 z"/>
-         <svg:path d="M20,-0 l8,-8 v-12.5 l-8,8 z"/>
+         <svg:path d="M-20,0 h40 v-12.5 h-40 z"/>
+         <svg:path d="M20,0 l8,-8 v-12.5 l-8,8 z"/>
          <svg:path d="M-20,-12.5 h40 l8,-8 h-40 z"/>
       </svg:g>
       <svg:g transform="translate(275.4, 286)">
-         <svg:path d="M-20,-0 h40 v-75 h-40 z"/>
-         <svg:path d="M20,-0 l8,-8 v-75 l-8,8 z"/>
+         <svg:path d="M-20,0 h40 v-75 h-40 z"/>
+         <svg:path d="M20,0 l8,-8 v-75 l-8,8 z"/>
          <svg:path d="M-20,-75 h40 l8,-8 h-40 z"/>
       </svg:g>
       <svg:g transform="translate(455.4, 286)">
          <svg:path d="M-20,0 h40 v37.5 h-40 z"/>
          <svg:path d="M20,0 l8,-8 v37.5 l-8,8 z"/>
-         <svg:path d="M-20,37.5 h40 l8,-8 h-40 z"/>
+         <svg:path d="M-20,0 h40 l8,-8 h-40 z"/>
       </svg:g>
       <svg:g transform="translate(624.4,        177)">
-         <svg:path d="M-10,-0 h20 v-36 h-20 z"/>
-         <svg:path d="M10,-0 l4,-4 v-36 l-4,4 z"/>
+         <svg:path d="M-10,0 h20 v-36 h-20 z"/>
+         <svg:path d="M10,0 l4,-4 v-36 l-4,4 z"/>
          <svg:path d="M-10,-36 h20 l4,-4 h-20 z"/>
       </svg:g>
    </svg:g>
    <svg:g stroke-width="0.4" fill="#d82914" stroke="black" stroke-linejoin="round">
       <svg:g transform="translate(155.4, 286)">
-         <svg:path d="M-20,-0 h40 v-37.5 h-40 z"/>
-         <svg:path d="M20,-0 l8,-8 v-37.5 l-8,8 z"/>
+         <svg:path d="M-20,0 h40 v-37.5 h-40 z"/>
+         <svg:path d="M20,0 l8,-8 v-37.5 l-8,8 z"/>
          <svg:path d="M-20,-37.5 h40 l8,-8 h-40 z"/>
       </svg:g>
       <svg:g transform="translate(335.4, 286)">
-         <svg:path d="M-20,-0 h40 v-125 h-40 z"/>
-         <svg:path d="M20,-0 l8,-8 v-125 l-8,8 z"/>
+         <svg:path d="M-20,0 h40 v-125 h-40 z"/>
+         <svg:path d="M20,0 l8,-8 v-125 l-8,8 z"/>
          <svg:path d="M-20,-125 h40 l8,-8 h-40 z"/>
       </svg:g>
       <svg:g transform="translate(515.4, 286)">
-         <svg:path d="M-20,-0 h40 v-222.5 h-40 z"/>
-         <svg:path d="M20,-0 l8,-8 v-222.5 l-8,8 z"/>
+         <svg:path d="M-20,0 h40 v-222.5 h-40 z"/>
+         <svg:path d="M20,0 l8,-8 v-222.5 l-8,8 z"/>
          <svg:path d="M-20,-222.5 h40 l8,-8 h-40 z"/>
       </svg:g>
       <svg:g transform="translate(624.4,        257)">
-         <svg:path d="M-10,-0 h20 v-36 h-20 z"/>
-         <svg:path d="M10,-0 l4,-4 v-36 l-4,4 z"/>
+         <svg:path d="M-10,0 h20 v-36 h-20 z"/>
+         <svg:path d="M10,0 l4,-4 v-36 l-4,4 z"/>
          <svg:path d="M-10,-36 h20 l4,-4 h-20 z"/>
       </svg:g>
    </svg:g>
    <svg:g stroke="black">
       <svg:path d="M95.4,284 l0,2 m60,-2 l0,2 m120,-2 l0,2 m60,-2 l0,2 m120,-2 l0,2 m60,-2 l0,2 m120,-2"
                 stroke-width="0.5"/>
-      <svg:path d="M35.400000000000006,286 l0,3 m180,-3 l0,3 m180,-3 l0,3" stroke-width="1"/>
+      <svg:path d="M35.4,286 l0,3 m180,-3 l0,3 m180,-3 l0,3" stroke-width="1"/>
       <svg:path d="M33.4,336 l4,0  m-4,-12.5 l4,0  m-4,-12.5 l4,0  m-4,-12.5 l4,0  m-4,-12.5 l4,0  m-4,-12.5 l4,0  m-4,-12.5 l4,0  m-4,-12.5 l4,0  m-4,-12.5 l4,0  m-4,-12.5 l4,0  m-4,-12.5 l4,0  m-4,-12.5 l4,0  m-4,-12.5 l4,0  m-4,-12.5 l4,0  m-4,-12.5 l4,0  m-4,-12.5 l4,0  m-4,-12.5 l4,0  m-4,-12.5 l4,0  m-4,-12.5 l4,0  m-4,-12.5 l4,0  m-4,-12.5 l4,0  m-4,-12.5 l4,0  m-4,-12.5 l4,0 "
                 stroke-width="0.5"/>
       <svg:path d="M32.4,336 l6,0  m-6,-25 l6,0  m-6,-25 l6,0  m-6,-25 l6,0  m-6,-25 l6,0  m-6,-25 l6,0  m-6,-25 l6,0  m-6,-25 l6,0  m-6,-25 l6,0  m-6,-25 l6,0  m-6,-25 l6,0  m-6,-25 l6,0 "
                 stroke-width="1"/>
    </svg:g>
-   <svg:line x1="35.400000000000006" y1="286" x2="575.4" y2="286" stroke="black"
-             stroke-width="1"/>
+   <svg:line x1="35.4" y1="286" x2="575.4" y2="286" stroke="black" stroke-width="1"/>
    <svg:g text-anchor="middle" font-family="Verdana" font-size="10" fill="black">
       <svg:text x="125.4" y="299">Spring</svg:text>
       <svg:text x="305.4" y="299">Summer</svg:text>
       <svg:text x="485.4" y="299">Autumn</svg:text>
    </svg:g>
    <svg:g stroke="black" stroke-width="1">
-      <svg:line x1="35.400000000000006" y1="336" x2="35.400000000000006" y2="61"/>
+      <svg:line x1="35.4" y1="336" x2="35.4" y2="61"/>
    </svg:g>
    <svg:g text-anchor="end" font-family="Verdana" font-size="10" fill="black">
       <svg:text x="29.4" y="339.5">-20</svg:text>
@@ -87,7 +85,6 @@
       <svg:text x="690.4" y="160.5" fill="#c5a712">Pears Net Export</svg:text>
       <svg:text x="690.4" y="240.5" fill="#d82914">Apples Net Export</svg:text>
    </svg:g>
-   <svg:rect x="0.5" y="0.5" width="808.0999999999999" height="355" stroke="black"
-             fill="none"
+   <svg:rect x="0.5" y="0.5" width="808.1" height="355" stroke="black" fill="none"
              stroke-width="1"/>
 </svg:svg>

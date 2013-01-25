@@ -54,4 +54,4 @@
 			pointType (none|point|cross|plus|minus|star|square|circle|triangle|rhomb|pyramid|squareF|circleF|triangleF|rhombF|pyramidF) #IMPLIED
 			smooth (yes|no) "no"
 			fillArea  (yes|no) #IMPLIED
-			startFrom (axis|last) #IMPLIED>
+			startFrom (axis|last) "axis">

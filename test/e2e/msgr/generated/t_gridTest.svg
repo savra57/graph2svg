@@ -25,111 +25,90 @@
       <svg:g transform="translate(62.2, 425)">
          <svg:path d="M-10,0       h20        l-6,-214       h0 z"/>
          <svg:path d="M10,0       l8,-8       l-14,-206       l0,0 z"/>
-         <svg:path d="M4,-214       h0        l0,0       h0 z"/>
       </svg:g>
       <svg:g transform="translate(130.2, 425)">
          <svg:path d="M-10,0       h20        l-6,-224       h0 z"/>
          <svg:path d="M10,0       l8,-8       l-14,-216       l0,0 z"/>
-         <svg:path d="M4,-224       h0        l0,0       h0 z"/>
       </svg:g>
       <svg:g transform="translate(198.2, 425)">
          <svg:path d="M-10,0       h20        l-6,-184       h0 z"/>
          <svg:path d="M10,0       l8,-8       l-14,-176       l0,0 z"/>
-         <svg:path d="M4,-184       h0        l0,0       h0 z"/>
       </svg:g>
       <svg:g transform="translate(266.2, 425)">
          <svg:path d="M-10,0       h20        l-6,-184       h0 z"/>
          <svg:path d="M10,0       l8,-8       l-14,-176       l0,0 z"/>
-         <svg:path d="M4,-184       h0        l0,0       h0 z"/>
       </svg:g>
       <svg:g transform="translate(334.2, 425)">
          <svg:path d="M-10,0       h20        l-6,-164       h0 z"/>
          <svg:path d="M10,0       l8,-8       l-14,-156       l0,0 z"/>
-         <svg:path d="M4,-164       h0        l0,0       h0 z"/>
       </svg:g>
       <svg:g transform="translate(402.2, 425)">
          <svg:path d="M-10,0       h20        l-6,-144       h0 z"/>
          <svg:path d="M10,0       l8,-8       l-14,-136       l0,0 z"/>
-         <svg:path d="M4,-144       h0        l0,0       h0 z"/>
       </svg:g>
       <svg:g transform="translate(96.25,        75)">
          <svg:path d="M-5,0       h10        l-3,-18       h0 z"/>
          <svg:path d="M5,0       l4,-4       l-7,-14       l0,0 z"/>
-         <svg:path d="M2,-18       h0        l0,0       h0 z"/>
       </svg:g>
    </svg:g>
    <svg:g stroke-width="0.4" fill="#f2ee15" stroke="black" stroke-linejoin="round">
       <svg:g transform="translate(76.2, 425)">
          <svg:path d="M-10,0       h20        l-6,-104       h0 z"/>
          <svg:path d="M10,0       l8,-8       l-14,-96       l0,0 z"/>
-         <svg:path d="M4,-104       h0        l0,0       h0 z"/>
       </svg:g>
       <svg:g transform="translate(144.2, 425)">
          <svg:path d="M-10,0       h20        l-6,-124       h0 z"/>
          <svg:path d="M10,0       l8,-8       l-14,-116       l0,0 z"/>
-         <svg:path d="M4,-124       h0        l0,0       h0 z"/>
       </svg:g>
       <svg:g transform="translate(212.2, 425)">
          <svg:path d="M-10,0       h20        l-6,-94       h0 z"/>
          <svg:path d="M10,0       l8,-8       l-14,-86       l0,0 z"/>
-         <svg:path d="M4,-94       h0        l0,0       h0 z"/>
       </svg:g>
       <svg:g transform="translate(280.2, 425)">
          <svg:path d="M-10,0       h20        l-6,-114       h0 z"/>
          <svg:path d="M10,0       l8,-8       l-14,-106       l0,0 z"/>
-         <svg:path d="M4,-114       h0        l0,0       h0 z"/>
       </svg:g>
       <svg:g transform="translate(348.2, 425)">
          <svg:path d="M-10,0       h20        l-6,-154       h0 z"/>
          <svg:path d="M10,0       l8,-8       l-14,-146       l0,0 z"/>
-         <svg:path d="M4,-154       h0        l0,0       h0 z"/>
       </svg:g>
       <svg:g transform="translate(416.2, 425)">
          <svg:path d="M-10,0       h20        l-6,-184       h0 z"/>
          <svg:path d="M10,0       l8,-8       l-14,-176       l0,0 z"/>
-         <svg:path d="M4,-184       h0        l0,0       h0 z"/>
       </svg:g>
       <svg:g transform="translate(199.15,        75)">
          <svg:path d="M-5,0       h10        l-3,-18       h0 z"/>
          <svg:path d="M5,0       l4,-4       l-7,-14       l0,0 z"/>
-         <svg:path d="M2,-18       h0        l0,0       h0 z"/>
       </svg:g>
    </svg:g>
    <svg:g stroke-width="0.4" fill="#21ab03" stroke="black" stroke-linejoin="round">
       <svg:g transform="translate(90.2, 425)">
          <svg:path d="M-10,0       h20        l-6,-284       h0 z"/>
          <svg:path d="M10,0       l8,-8       l-14,-276       l0,0 z"/>
-         <svg:path d="M4,-284       h0        l0,0       h0 z"/>
       </svg:g>
       <svg:g transform="translate(158.2, 425)">
          <svg:path d="M-10,0       h20        l-6,-294       h0 z"/>
          <svg:path d="M10,0       l8,-8       l-14,-286       l0,0 z"/>
-         <svg:path d="M4,-294       h0        l0,0       h0 z"/>
       </svg:g>
       <svg:g transform="translate(226.2, 425)">
          <svg:path d="M-10,0       h20        l-6,-224       h0 z"/>
          <svg:path d="M10,0       l8,-8       l-14,-216       l0,0 z"/>
-         <svg:path d="M4,-224       h0        l0,0       h0 z"/>
       </svg:g>
       <svg:g transform="translate(294.2, 425)">
          <svg:path d="M-10,0       h20        l-6,-254       h0 z"/>
          <svg:path d="M10,0       l8,-8       l-14,-246       l0,0 z"/>
-         <svg:path d="M4,-254       h0        l0,0       h0 z"/>
       </svg:g>
       <svg:g transform="translate(362.2, 425)">
          <svg:path d="M-10,0       h20        l-6,-304       h0 z"/>
          <svg:path d="M10,0       l8,-8       l-14,-296       l0,0 z"/>
-         <svg:path d="M4,-304       h0        l0,0       h0 z"/>
       </svg:g>
       <svg:g transform="translate(430.2, 425)">
          <svg:path d="M-10,0       h20        l-6,-254       h0 z"/>
          <svg:path d="M10,0       l8,-8       l-14,-246       l0,0 z"/>
-         <svg:path d="M4,-254       h0        l0,0       h0 z"/>
       </svg:g>
       <svg:g transform="translate(302.05,        75)">
          <svg:path d="M-5,0       h10        l-3,-18       h0 z"/>
          <svg:path d="M5,0       l4,-4       l-7,-14       l0,0 z"/>
-         <svg:path d="M2,-18       h0        l0,0       h0 z"/>
       </svg:g>
    </svg:g>
    <svg:g stroke="black">

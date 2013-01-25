@@ -245,8 +245,32 @@ returns $default if the $val is not in $keys or $values is too short -->
 </xsl:function>
 
 <!-- not used in xygr -->
-<!-- draw a column -->
+<!-- draw a graph column -->
 <xsl:template name="m:drawCol">
+	<xsl:param name="type"/>
+	<xsl:param name="effect"/>
+	<xsl:param name="color"/>
+	<xsl:param name="hg"/>
+	<xsl:param name="tW"/>
+	<xsl:param name="bW"/>
+	<xsl:param name="colW"/>
+	
+	<xsl:call-template name="m:drawColGeneral">
+		<xsl:with-param name="type" select="$type"/>
+		<xsl:with-param name="effect" select="$effect"/>
+		<xsl:with-param name="color" select="$color"/>
+		<xsl:with-param name="hg" select="$hg"/>
+		<xsl:with-param name="tW" select="$tW"/>
+		<xsl:with-param name="bW" select="$bW"/>
+		<xsl:with-param name="dpX" select="$depthX"/>
+		<xsl:with-param name="dpY" select="$depthY"/>
+		<xsl:with-param name="colW" select="$colW"/>
+	</xsl:call-template>
+</xsl:template>
+
+<!-- not used in xygr -->
+<!-- draw a legend column -->
+<xsl:template name="m:drawColLegend">
 	<xsl:param name="type"/>
 	<xsl:param name="effect"/>
 	<xsl:param name="color"/>
@@ -256,66 +280,100 @@ returns $default if the $val is not in $keys or $values is too short -->
 	<xsl:param name="dpX"/>
 	<xsl:param name="dpY"/>
 	<xsl:param name="colW"/>
+	
+	<xsl:call-template name="m:drawColGeneral">
+		<xsl:with-param name="type" select="$type"/>
+		<xsl:with-param name="effect" select="$effect"/>
+		<xsl:with-param name="color" select="$color"/>
+		<xsl:with-param name="hg" select="$legendPictureHg -$depthX*0.5"/>
+		<xsl:with-param name="tW" select="0"/>
+		<xsl:with-param name="bW" select="1"/>
+		<xsl:with-param name="dpX" select="$depthX*0.5"/>
+		<xsl:with-param name="dpY" select="$depthY*0.5"/>
+		<xsl:with-param name="colW" select="$colW"/>
+	</xsl:call-template>
+</xsl:template>
+
+<!-- not used in xygr -->
+<!-- draw a general column, used for both graph and legend -->
+<xsl:template name="m:drawColGeneral">
+	<xsl:param name="type"/>
+	<xsl:param name="effect"/>
+	<xsl:param name="color"/>
+	<xsl:param name="hg"/>
+	<xsl:param name="tW"/>
+	<xsl:param name="bW"/>
+	<xsl:param name="dpX"/>
+	<xsl:param name="dpY"/>
+	<xsl:param name="colW"/>
+
+	<xsl:variable name="top" select="if ($hg &lt; 0) then 0 else $hg"/>
+	<xsl:variable name="topW" select="if ($hg &lt; 0) then $bW else $tW"/>
+
 	<xsl:choose>
 		<xsl:when test="$effect = '3D'">  <!--3D-->
 			<xsl:choose>
 				<xsl:when test="$type = 'cylinder' ">  <!--3D cylinder-->
-					<svg:path d="M{m:R(-$colW +0.5*$dpX)},{m:R(-$hg*(1-$bW) -0.5*$dpY)} {m:R(m:Arc($colW,0.5*$dpX,0))} 
-						v{m:R(-$hg*($bW -$tW))} {m:R(m:Arc(-$colW,0.5*$dpX,1))} z"/>
-					<svg:path d="M{m:R(-$colW +0.5*$dpX)},{m:R(-$hg*(1-$tW) -0.5*$dpY)} {m:R(m:Arc($colW,0.5*$dpX,0))} 
-						{m:R(m:Arc(-$colW,0.5*$dpX,0))}" fill="{$color}"/>
+					<svg:path d="M{m:R(-$colW +0.5*$dpX)},{m:R(-0.5*$dpY)} {m:Arc($colW,0.5*$dpX,0)} 
+						v{m:R(-$hg)} {m:Arc(-$colW,0.5*$dpX,1)} z"/>
+					<svg:path d="M{m:R(-$colW +0.5*$dpX)},{m:R(-$top -0.5*$dpY)} {m:Arc($colW,0.5*$dpX,0)} 
+						{m:Arc(-$colW,0.5*$dpX,0)}" fill="{$color}"/>
 				</xsl:when>
 				<xsl:when test="$type = 'cone' ">  <!--3D cone, TODO: not exact--> 
-					<svg:path d="M{m:R(-$colW*$bW +0.5*$dpX)},{m:R(-$hg*(1-$bW) -0.5*$dpY)} 
-						{m:R(m:Arc($colW*$bW,0.5*$dpX*$bW,0))} 
-						l{m:R(-$colW*($bW -$tW))},{m:R(-$hg*($bW -$tW))} 
-						{m:R(m:Arc(-$colW*$tW,0.5*$dpX*$tW,1))} z"/>
-					<svg:path d="M{m:R(-$colW*$tW +0.5*$dpX)},{m:R(-$hg*(1-$tW) -0.5*$dpY)} 
-						{m:R(m:Arc($colW*$tW,0.5*$dpX*$tW,0))} 
-						{m:R(m:Arc(-$colW*$tW,0.5*$dpX*$tW,0))} " fill="{$color}"/>
+					<svg:path d="M{m:R(-$colW*$bW +0.5*$dpX)},{m:R(-0.5*$dpY)} 
+						{m:Arc($colW*$bW,0.5*$dpX*$bW,0)} 
+						l{m:R(-$colW*($bW -$tW))},{m:R(-$hg)} 
+						{m:Arc(-$colW*$tW,0.5*$dpX*$tW,1)} z"/>
+					<xsl:if test="($topW != 0)"> 
+						<svg:path d="M{m:R(-$colW*$topW +0.5*$dpX)},{m:R(-$top -0.5*$dpY)} 
+							{m:Arc($colW*$topW,0.5*$dpX*$topW,0)} 
+							{m:Arc(-$colW*$topW,0.5*$dpX*$topW,0)} " fill="{$color}"/>
+					</xsl:if>
 				</xsl:when>
 				<xsl:when test="$type = 'pyramid' ">  <!--3D pyramid, TODO: to draw tW=0 separately -->
-					<svg:path d="M{m:R(-$colW*$bW +0.5*$dpX*(1-$bW))},{m:R(-$hg*(1-$bW) -0.5*$dpY*(1-$bW))}
+					<svg:path d="M{m:R(-$colW*$bW +0.5*$dpX*(1-$bW))},{m:R(-0.5*$dpY*(1-$bW))}
 						h{m:R(2*$colW*$bW)} 
-						l{m:R(-$colW*($bW -$tW) +0.5*$dpX*($bW -$tW))},{m:R(-$hg*($bW -$tW) -0.5*$dpY*($bW -$tW))}
+						l{m:R(-$colW*($bW -$tW) +0.5*$dpX*($bW -$tW))},{m:R(-$hg -0.5*$dpY*($bW -$tW))}
 						h{m:R(-2*$colW*$tW)} z"/>
-					<svg:path d="M{m:R($colW*$bW +0.5*$dpX*(1-$bW))},{m:R(-$hg*(1-$bW) -0.5*$dpY*(1-$bW))}
+					<svg:path d="M{m:R($colW*$bW +0.5*$dpX*(1-$bW))},{m:R(-0.5*$dpY*(1-$bW))}
 						l{m:R($dpX*$bW)},{m:R(-$dpY*$bW)}
-						l{m:R(-$colW*($bW -$tW) -0.5*$dpX*($bW -$tW))},{m:R(-$hg*($bW -$tW)+0.5*$dpY*($bW -$tW))}
+						l{m:R(-$colW*($bW -$tW) -0.5*$dpX*($bW -$tW))},{m:R(-$hg+0.5*$dpY*($bW -$tW))}
 						l{m:R(-$dpX*$tW)},{m:R($dpY*$tW)} z"/>
-					<svg:path d="M{m:R(-$colW*$tW +0.5*$dpX*(1-$tW))},{m:R(-$hg*(1-$tW) -0.5*$dpY*(1-$tW))}
-						h{m:R(2*$colW*$tW)} 
-						l{m:R($dpX*$tW)},{m:R(-$dpY*$tW)}
-						h{m:R(-2*$colW*$tW)} z"/>
+					<xsl:if test="($topW != 0)"> 
+						<svg:path d="M{m:R(-$colW*$topW +0.5*$dpX*(1-$topW))},{m:R(-$top -0.5*$dpY*(1-$topW))}
+							h{m:R(2*$colW*$topW)} 
+							l{m:R($dpX*$topW)},{m:R(-$dpY*$topW)}
+							h{m:R(-2*$colW*$topW)} z"/>
+					</xsl:if>
 				</xsl:when>
 				<xsl:when test="$type = 'line' "> <!-- 3D line -->
 					<svg:path d="M{m:R(0)},{m:R(-$hg*(1-$bW))} v{m:R(-$hg*($bW -$tW))}" stroke-width="2" 
 						stroke-linecap = "butt" stroke="{$color}"/>
 				</xsl:when>
 				<xsl:otherwise> <!--3D block and other types-->
-					<svg:path d="M{m:R(-$colW)},{m:R(-$hg*(1-$bW))} h{m:R(2*$colW)} v{m:R(-$hg*($bW -$tW))} h{m:R(-2*$colW)} z"/>
-					<svg:path d="M{m:R($colW)},{m:R(-$hg*(1-$bW))} l{m:R($dpX)},{m:R(-$dpY)} v{m:R(-$hg*($bW -$tW))} l{m:R(-$dpX)},{m:R($dpY)} z"/>
-					<svg:path d="M{m:R(-$colW)},{m:R(-$hg*(1-$tW))} h{m:R(2*$colW)} l{m:R($dpX)},{m:R(-$dpY)} h{m:R(-2*$colW)} z"/>
+					<svg:path d="M{m:R(-$colW)},0 h{m:R(2*$colW)} v{m:R(-$hg)} h{m:R(-2*$colW)} z"/>
+					<svg:path d="M{m:R($colW)},0 l{m:R($dpX)},{m:R(-$dpY)} v{m:R(-$hg)} l{m:R(-$dpX)},{m:R($dpY)} z"/>
+					<svg:path d="M{m:R(-$colW)},{m:R(-$top)} h{m:R(2*$colW)} l{m:R($dpX)},{m:R(-$dpY)} h{m:R(-2*$colW)} z"/>
 				</xsl:otherwise>
 			</xsl:choose>
 		</xsl:when>
 		<xsl:otherwise>  <!--2D a other types-->
 			<xsl:choose>
 				<xsl:when test="$type = 'cylinder' ">  <!--2D cylinder-->
-					<svg:path d="M{m:R(-$colW)},{m:R(-$hg*(1-$bW))} h{m:R(2*$colW)} v{m:R(-$hg*($bW -$tW))} h{m:R(-2*$colW)} z"/>
+					<svg:path d="M{m:R(-$colW)},0 h{m:R(2*$colW)} v{m:R(-$hg)} h{m:R(-2*$colW)} z"/>
 				</xsl:when>
 				<xsl:when test="$type = 'cone' ">  <!--2D cone -->
-					<svg:path d="M{m:R(-$colW*$bW)},{m:R(-$hg*(1-$bW))} h{m:R(2*$colW*$bW)} l{m:R(-$colW*($bW -$tW))},{m:R(-$hg*($bW -$tW))} h{m:R(-2*$colW*$tW)} z"/>
+					<svg:path d="M{m:R(-$colW*$bW)},0 h{m:R(2*$colW*$bW)} l{m:R(-$colW)},{m:R(-$hg)} h{m:R(-2*$colW*$tW)} z"/>
 				</xsl:when>
 				<xsl:when test="$type = 'pyramid' ">  <!--2D pyramid -->
-					<svg:path d="M{m:R(-$colW*$bW)},{m:R(-$hg*(1-$bW))} h{m:R(2*$colW*$bW)} l{m:R(-$colW*($bW -$tW))},{m:R(-$hg*($bW -$tW))} h{m:R(-2*$colW*$tW)} z"/>
+					<svg:path d="M{m:R(-$colW*$bW)},0 h{m:R(2*$colW*$bW)} l{m:R(-$colW)},{m:R(-$hg)} h{m:R(-2*$colW*$tW)} z"/>
 				</xsl:when>
 				<xsl:when test="$type = 'line' "> <!-- 2D line -->
-					<svg:path d="M{0},{m:R(-$hg*(1-$bW))} v{m:R(-$hg*($bW -$tW))}" stroke-width="2" 
+					<svg:path d="M0,0 v{m:R(-$hg)}" stroke-width="2" 
 						stroke-linecap = "butt" stroke="{$color}"/>
 				</xsl:when>
 				<xsl:otherwise> <!--2D block a other types -->
-					<svg:path d="M{m:R(-$colW)},{m:R(-$hg*(1-$bW))} h{m:R(2*$colW)} v{m:R(-$hg*($bW -$tW))} h{m:R(-2*$colW)} z"/>
+					<svg:path d="M{m:R(-$colW)},0 h{m:R(2*$colW)} v{m:R(-$hg)} h{m:R(-2*$colW)} z"/>
 				</xsl:otherwise>
 			</xsl:choose>
 		</xsl:otherwise>
@@ -328,7 +386,7 @@ returns $default if the $val is not in $keys or $values is too short -->
 	<xsl:param name="dx"/>
 	<xsl:param name="hg"/>
 	<xsl:param name="sp"/>
-	<xsl:value-of select="concat('a', math:abs($dx), ',', $hg, ' 0 0,', $sp, ' ', 2*$dx, ',0')"/>
+	<xsl:value-of select="concat('a', m:R(math:abs($dx)), ',', m:R($hg), ' 0 0,', m:R($sp), ' ', m:R(2*$dx), ',0')"/>
 </xsl:function>
 
 <!--draw a point (mark) of a given type -->

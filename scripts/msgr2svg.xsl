@@ -311,28 +311,29 @@
 				<xsl:variable name="vn"  select="count(preceding-sibling::value)"/>
 				<xsl:variable name="x" select="$pX + $vn*$catWd "/>
 				<xsl:variable name="y" select="$originY"/>
-				<svg:g transform="translate({m:R($x)}, {$y})">
+				<svg:g transform="translate({m:R($x)}, {m:R($y - (
+						if ($sn>0 and ($stacked or (../@startFrom='last'))) then 
+							$originY - $yShift - $yKoef * ($gra/ph/values[$sn]/value[$vn+1])
+						else 0 
+					))})">
 				<xsl:call-template name="m:drawCol"> <!-- dwaw a column -->
 					<xsl:with-param name="type" select="$colT"/>
 					<xsl:with-param name="effect" select="$gra/ph/@effect"/>
 					<xsl:with-param name="color" select="$cc"/>
-					<xsl:with-param name="hg" select="$originY - $yShift - $yKoef * ( 
-						if ($stacked) then $gra/ph/values[last()]/value[$vn+1] else (.) )"/>
+					<xsl:with-param name="hg" select="$originY - $yShift - $yKoef * (.) - (
+							if ($sn>0 and ($stacked or (../@startFrom='last'))) then 
+								($originY - $yShift - $yKoef * ($gra/ph/values[$sn]/value[$vn+1]))
+							else 0 )"/>
 					<xsl:with-param name="tW" select="
 							if ($stacked) then
 								(1 - ($originY -$yShift -$yKoef*($gra/ph/values[$sn+1]/value[$vn+1]))
 									div ($originY -$yShift -$yKoef*($gra/ph/values[last()]/value[$vn+1])))
 							else 0 "/>
 					<xsl:with-param name="bW" select="
-							if ($stacked and $sn>0 and (not (../@startFrom='axis')))  then
+							if ($stacked and $sn>0) then
 								(1 - ($originY -$yShift -$yKoef*($gra/ph/values[$sn]/value[$vn+1]))
 									div ($originY -$yShift -$yKoef*($gra/ph/values[last()]/value[$vn+1])))
-							else if (../@startFrom='last') then 
-								(1 - ($originY -$yShift -$yKoef*($gra/ph/values[$sn]/value[$vn+1]))
-									div ($originY -$yShift -$yKoef*(.)))
 							else 1"/>
-					<xsl:with-param name="dpX" select="$depthX"/>
-					<xsl:with-param name="dpY" select="$depthY"/>
 					<xsl:with-param name="colW" select="0.5*$colWd"/>
 				</xsl:call-template>
 				</svg:g>
@@ -341,15 +342,10 @@
 			<xsl:if test="not ($gra/ph/@legend = 'none') and (title)">
 				<svg:g transform="translate({m:R($legendSX[1+$sn] + 0.5*$legendPictureWd)}, 
 						{m:R($legendSY[1+$sn] +0.5*$legendPictureHg)})">
-				<xsl:call-template name="m:drawCol"> <!-- draw a column-->
+				<xsl:call-template name="m:drawColLegend"> <!-- draw a column-->
 					<xsl:with-param name="type" select="$colT"/>
 					<xsl:with-param name="effect" select="$gra/ph/@effect"/>
 					<xsl:with-param name="color" select="$cc"/>
-					<xsl:with-param name="hg" select="$legendPictureHg -$depthX*0.5"/>
-					<xsl:with-param name="tW" select="0"/>
-					<xsl:with-param name="bW" select="1"/>
-					<xsl:with-param name="dpX" select="$depthX*0.5"/>
-					<xsl:with-param name="dpY" select="$depthY*0.5"/>
 					<xsl:with-param name="colW" select="0.5*0.5*$colWd"/>
 				</xsl:call-template>
 				</svg:g>

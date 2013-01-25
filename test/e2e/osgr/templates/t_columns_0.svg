@@ -1,35 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
-<svg:svg xmlns:svg="http://www.w3.org/2000/svg" viewBox="0 0 301.6 414">
+<svg:svg xmlns:svg="http://www.w3.org/2000/svg" viewBox="0 0 393.52 414">
    <svg:desc>Pokusný graf číslo 4 - sloupce</svg:desc>
    <svg:g>
-      <svg:text x="150.8" y="28" text-anchor="middle" font-family="Verdana" font-size="18"
+      <svg:text x="196.76" y="28" text-anchor="middle" font-family="Verdana" font-size="18"
                 fill="black">Pokusný graf číslo 4 - sloupce</svg:text>
    </svg:g>
    <svg:g stroke-width="0.4" stroke="black" stroke-linejoin="round">
       <svg:g transform="translate(53.6, 386)" fill="#d82914">
-         <svg:path d="M-15,-0 h30 v-150 h-30 z"/>
-         <svg:path d="M15,-0 l8,-8 v-150 l-8,8 z"/>
+         <svg:path d="M-15,0 h30 v-150 h-30 z"/>
+         <svg:path d="M15,0 l8,-8 v-150 l-8,8 z"/>
          <svg:path d="M-15,-150 h30 l8,-8 h-30 z"/>
+      </svg:g>
+      <svg:g transform="translate(315.6,         188)" fill="#d82914">
+         <svg:path d="M-7.5,0 h15 v-16 h-15 z"/>
+         <svg:path d="M7.5,0 l4,-4 v-16 l-4,4 z"/>
+         <svg:path d="M-7.5,-16 h15 l4,-4 h-15 z"/>
       </svg:g>
       <svg:g transform="translate(103.6, 386)" fill="#f2ee15">
-         <svg:path d="M-15,-0 h30 v-75 h-30 z"/>
-         <svg:path d="M15,-0 l8,-8 v-75 l-8,8 z"/>
+         <svg:path d="M-15,0 h30 v-75 h-30 z"/>
+         <svg:path d="M15,0 l8,-8 v-75 l-8,8 z"/>
          <svg:path d="M-15,-75 h30 l8,-8 h-30 z"/>
       </svg:g>
+      <svg:g transform="translate(315.6,         212)" fill="#f2ee15">
+         <svg:path d="M-7.5,0 h15 v-16 h-15 z"/>
+         <svg:path d="M7.5,0 l4,-4 v-16 l-4,4 z"/>
+         <svg:path d="M-7.5,-16 h15 l4,-4 h-15 z"/>
+      </svg:g>
       <svg:g transform="translate(153.6, 386)" fill="#21ab03">
-         <svg:path d="M-15,-0 h30 v-37.5 h-30 z"/>
-         <svg:path d="M15,-0 l8,-8 v-37.5 l-8,8 z"/>
+         <svg:path d="M-15,0 h30 v-37.5 h-30 z"/>
+         <svg:path d="M15,0 l8,-8 v-37.5 l-8,8 z"/>
          <svg:path d="M-15,-37.5 h30 l8,-8 h-30 z"/>
       </svg:g>
+      <svg:g transform="translate(315.6,         236)" fill="#21ab03">
+         <svg:path d="M-7.5,0 h15 v-16 h-15 z"/>
+         <svg:path d="M7.5,0 l4,-4 v-16 l-4,4 z"/>
+         <svg:path d="M-7.5,-16 h15 l4,-4 h-15 z"/>
+      </svg:g>
       <svg:g transform="translate(203.6, 386)" fill="#c5a712">
-         <svg:path d="M-15,-0 h30 v-150 h-30 z"/>
-         <svg:path d="M15,-0 l8,-8 v-150 l-8,8 z"/>
+         <svg:path d="M-15,0 h30 v-150 h-30 z"/>
+         <svg:path d="M15,0 l8,-8 v-150 l-8,8 z"/>
          <svg:path d="M-15,-150 h30 l8,-8 h-30 z"/>
       </svg:g>
+      <svg:g transform="translate(315.6,         260)" fill="#c5a712">
+         <svg:path d="M-7.5,0 h15 v-16 h-15 z"/>
+         <svg:path d="M7.5,0 l4,-4 v-16 l-4,4 z"/>
+         <svg:path d="M-7.5,-16 h15 l4,-4 h-15 z"/>
+      </svg:g>
       <svg:g transform="translate(253.6, 386)" fill="#a4005a">
-         <svg:path d="M-15,-0 h30 v-300 h-30 z"/>
-         <svg:path d="M15,-0 l8,-8 v-300 l-8,8 z"/>
+         <svg:path d="M-15,0 h30 v-300 h-30 z"/>
+         <svg:path d="M15,0 l8,-8 v-300 l-8,8 z"/>
          <svg:path d="M-15,-300 h30 l8,-8 h-30 z"/>
+      </svg:g>
+      <svg:g transform="translate(315.6,         284)" fill="#a4005a">
+         <svg:path d="M-7.5,0 h15 v-16 h-15 z"/>
+         <svg:path d="M7.5,0 l4,-4 v-16 l-4,4 z"/>
+         <svg:path d="M-7.5,-16 h15 l4,-4 h-15 z"/>
       </svg:g>
    </svg:g>
    <svg:g stroke="black">
@@ -67,10 +92,15 @@
    </svg:g>
    <svg:g stroke-width="1.5" fill="none" stroke-linecap="round">
       <svg:circle cx="53.6" cy="236" r="4" stroke="#d82914"/>
+      <svg:circle cx="315.6" cy="178" r="4" stroke="#d82914"/>
       <svg:circle cx="103.6" cy="311" r="4" stroke="#f2ee15"/>
+      <svg:circle cx="315.6" cy="202" r="4" stroke="#f2ee15"/>
       <svg:circle cx="153.6" cy="348.5" r="4" stroke="#21ab03"/>
+      <svg:circle cx="315.6" cy="226" r="4" stroke="#21ab03"/>
       <svg:circle cx="203.6" cy="236" r="4" stroke="#c5a712"/>
+      <svg:circle cx="315.6" cy="250" r="4" stroke="#c5a712"/>
       <svg:circle cx="253.6" cy="86" r="4" stroke="#a4005a"/>
+      <svg:circle cx="315.6" cy="274" r="4" stroke="#a4005a"/>
    </svg:g>
    <svg:g text-anchor="middle" font-family="Verdana" font-size="10" fill="black">
       <svg:text x="53.6" y="314.5">21%</svg:text>
@@ -86,6 +116,13 @@
       <svg:text x="207.6" y="224">Duben</svg:text>
       <svg:text x="257.6" y="74">Květen</svg:text>
    </svg:g>
-   <svg:rect x="0.5" y="0.5" width="300.6" height="413" stroke="black" fill="none"
+   <svg:g text-anchor="start" font-family="Verdana" font-size="12" fill="black">
+      <svg:text x="334.6" y="182.2">Leden</svg:text>
+      <svg:text x="334.6" y="206.2">Únor</svg:text>
+      <svg:text x="334.6" y="230.2">Březen</svg:text>
+      <svg:text x="334.6" y="254.2">Duben</svg:text>
+      <svg:text x="334.6" y="278.2">Květen</svg:text>
+   </svg:g>
+   <svg:rect x="0.5" y="0.5" width="392.52" height="413" stroke="black" fill="none"
              stroke-width="1"/>
 </svg:svg>
