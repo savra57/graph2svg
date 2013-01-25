@@ -38,7 +38,6 @@ TODO - shortTerm
     	- try using the project WIKI 
     	- improve documentation for test utilities
     	- schema documentation
-    * fix 3D bar with negative values (e.g. t_sizes_* msgr testing files)
 
     
 TODO
