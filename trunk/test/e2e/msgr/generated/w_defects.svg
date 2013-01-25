@@ -22,32 +22,32 @@
       </svg:g>
    </svg:g>
    <svg:g stroke-width="0.4" fill="#888" stroke="black" stroke-linejoin="round">
-      <svg:g transform="translate(140.45, 458)">
-         <svg:path d="M-10,-110 h20 v-122 h-20 z"/>
+      <svg:g transform="translate(140.45, 348)">
+         <svg:path d="M-10,0 h20 v-122 h-20 z"/>
       </svg:g>
       <svg:g transform="translate(83.1,        508)">
          <svg:path d="M-5,0 h10 v-20 h-10 z"/>
       </svg:g>
    </svg:g>
    <svg:g stroke-width="0.4" fill="#444" stroke="black" stroke-linejoin="round">
-      <svg:g transform="translate(160.45, 458)">
-         <svg:path d="M-10,-232 h20 v-28 h-20 z"/>
+      <svg:g transform="translate(160.45, 226)">
+         <svg:path d="M-10,0 h20 v-28 h-20 z"/>
       </svg:g>
       <svg:g transform="translate(137.2,        508)">
          <svg:path d="M-5,0 h10 v-20 h-10 z"/>
       </svg:g>
    </svg:g>
    <svg:g stroke-width="0.4" fill="#eee" stroke="black" stroke-linejoin="round">
-      <svg:g transform="translate(180.45, 458)">
-         <svg:path d="M-10,-260 h20 v-95 h-20 z"/>
+      <svg:g transform="translate(180.45, 198)">
+         <svg:path d="M-10,0 h20 v-95 h-20 z"/>
       </svg:g>
       <svg:g transform="translate(191.3,        508)">
          <svg:path d="M-5,0 h10 v-20 h-10 z"/>
       </svg:g>
    </svg:g>
    <svg:g stroke-width="0.4" fill="#aaa" stroke="black" stroke-linejoin="round">
-      <svg:g transform="translate(200.45, 458)">
-         <svg:path d="M-10,-355 h20 v-40 h-20 z"/>
+      <svg:g transform="translate(200.45, 103)">
+         <svg:path d="M-10,0 h20 v-40 h-20 z"/>
       </svg:g>
       <svg:g transform="translate(245.4,        508)">
          <svg:path d="M-5,0 h10 v-20 h-10 z"/>

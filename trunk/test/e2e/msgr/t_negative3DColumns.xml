@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE msgr SYSTEM "msgr.dtd">
+<msgr xmlns="http://graph2svg.googlecode.com" 
+	lineType="none" effect="3D" shift="1.5" yAxisStep="100"
+	xAxisDivision="both" xGrid="both" yGrid="major" 
+	legend="left">
+	<title>3D columns with negative values</title>
+	<names>
+		<name>Positive</name>
+		<name>Negative</name>
+	</names>
+
+	<values colType="block">
+		<title>block</title>
+		<value>1300</value>
+		<value>-600</value>
+	</values>
+	<values colType="cylinder">
+		<title>cylinder</title>
+		<value>900</value>
+		<value>-300</value>
+	</values>
+	<values colType="cone">
+		<title>cone</title>
+		<value>1100</value>
+		<value>-500</value>
+	</values>
+	<values colType="pyramid">
+		<title>pyramid</title>
+		<value>600</value>
+		<value>-200</value>
+	</values>
+	<values colType="block" startFrom="last">
+		<title>block last</title>
+		<value>200</value>
+		<value>-500</value>
+	</values>
+	<values colType="cylinder" startFrom="last">
+		<title>cylinder last</title>
+		<value>800</value>
+		<value>-100</value>
+	</values>
+	<values colType="cone" startFrom="last">
+		<title>cone last</title>
+		<value>600</value>
+		<value>-200</value>
+	</values>
+	<values colType="pyramid" startFrom="last">
+		<title>pyramid last</title>
+		<value>1100</value>
+		<value>0</value>
+	</values>
+</msgr>

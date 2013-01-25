@@ -569,7 +569,7 @@ datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
 	<html:b>axis</html:b> is selected, the bar is started from the
 	X axis. If <html:b>last</html:b> is selected, then one set of
 	values is stacked on top of (starting where the previous one
-	ended) the previous one. The default is <html:b>last</html:b>
+	ended) the previous one. The default is <html:b>axis</html:b>
 	</html:p>
       </a:documentation>
 	<a:documentation>

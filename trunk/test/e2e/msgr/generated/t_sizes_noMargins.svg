@@ -19,7 +19,7 @@
       <svg:g transform="translate(180.4, 251)">
          <svg:path d="M-10,0 h20 v37.5 h-20 z"/>
          <svg:path d="M10,0 l8,-8 v37.5 l-8,8 z"/>
-         <svg:path d="M-10,37.5 h20 l8,-8 h-20 z"/>
+         <svg:path d="M-10,0 h20 l8,-8 h-20 z"/>
       </svg:g>
       <svg:g transform="translate(252.4,        160)">
          <svg:path d="M-5,0 h10 v-16 h-10 z"/>

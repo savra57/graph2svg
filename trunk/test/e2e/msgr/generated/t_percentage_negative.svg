@@ -57,30 +57,30 @@
       </svg:g>
    </svg:g>
    <svg:g stroke-width="0.4" fill="#09a317" stroke="black" stroke-linejoin="round">
-      <svg:g transform="translate(69, 300)">
-         <svg:path d="M-10,-100 h20 v50 h-20 z"/>
-         <svg:path d="M10,-100 l8,-8 v50 l-8,8 z"/>
-         <svg:path d="M-10,-50 h20 l8,-8 h-20 z"/>
+      <svg:g transform="translate(69, 200)">
+         <svg:path d="M-10,0 h20 v50 h-20 z"/>
+         <svg:path d="M10,0 l8,-8 v50 l-8,8 z"/>
+         <svg:path d="M-10,0 h20 l8,-8 h-20 z"/>
       </svg:g>
-      <svg:g transform="translate(109, 300)">
-         <svg:path d="M-10,-43.27 h20 v-43.27 h-20 z"/>
-         <svg:path d="M10,-43.27 l8,-8 v-43.27 l-8,8 z"/>
-         <svg:path d="M-10,-86.54 h20 l8,-8 h-20 z"/>
+      <svg:g transform="translate(109, 256.73)">
+         <svg:path d="M-10,0 h20 v-43.27 h-20 z"/>
+         <svg:path d="M10,0 l8,-8 v-43.27 l-8,8 z"/>
+         <svg:path d="M-10,-43.27 h20 l8,-8 h-20 z"/>
       </svg:g>
-      <svg:g transform="translate(149, 300)">
-         <svg:path d="M-10,-51.47 h20 v-24.51 h-20 z"/>
-         <svg:path d="M10,-51.47 l8,-8 v-24.51 l-8,8 z"/>
-         <svg:path d="M-10,-75.98 h20 l8,-8 h-20 z"/>
+      <svg:g transform="translate(149, 248.53)">
+         <svg:path d="M-10,0 h20 v-24.51 h-20 z"/>
+         <svg:path d="M10,0 l8,-8 v-24.51 l-8,8 z"/>
+         <svg:path d="M-10,-24.51 h20 l8,-8 h-20 z"/>
       </svg:g>
-      <svg:g transform="translate(189, 300)">
-         <svg:path d="M-10,-50 h20 v-22.73 h-20 z"/>
-         <svg:path d="M10,-50 l8,-8 v-22.73 l-8,8 z"/>
-         <svg:path d="M-10,-72.73 h20 l8,-8 h-20 z"/>
+      <svg:g transform="translate(189, 250)">
+         <svg:path d="M-10,0 h20 v-22.73 h-20 z"/>
+         <svg:path d="M10,0 l8,-8 v-22.73 l-8,8 z"/>
+         <svg:path d="M-10,-22.73 h20 l8,-8 h-20 z"/>
       </svg:g>
-      <svg:g transform="translate(229, 300)">
-         <svg:path d="M-10,-192.31 h20 v221.15 h-20 z"/>
-         <svg:path d="M10,-192.31 l8,-8 v221.15 l-8,8 z"/>
-         <svg:path d="M-10,28.85 h20 l8,-8 h-20 z"/>
+      <svg:g transform="translate(229, 107.69)">
+         <svg:path d="M-10,0 h20 v221.15 h-20 z"/>
+         <svg:path d="M10,0 l8,-8 v221.15 l-8,8 z"/>
+         <svg:path d="M-10,0 h20 l8,-8 h-20 z"/>
       </svg:g>
       <svg:g transform="translate(150,        75)">
          <svg:path d="M-5,0 h10 v-16 h-10 z"/>
@@ -89,30 +89,30 @@
       </svg:g>
    </svg:g>
    <svg:g stroke-width="0.4" fill="#19009f" stroke="black" stroke-linejoin="round">
-      <svg:g transform="translate(69, 300)">
-         <svg:path d="M-10,-50 h20 v-75 h-20 z"/>
-         <svg:path d="M10,-50 l8,-8 v-75 l-8,8 z"/>
-         <svg:path d="M-10,-125 h20 l8,-8 h-20 z"/>
+      <svg:g transform="translate(69, 250)">
+         <svg:path d="M-10,0 h20 v-75 h-20 z"/>
+         <svg:path d="M10,0 l8,-8 v-75 l-8,8 z"/>
+         <svg:path d="M-10,-75 h20 l8,-8 h-20 z"/>
       </svg:g>
-      <svg:g transform="translate(109, 300)">
-         <svg:path d="M-10,-86.54 h20 v-38.46 h-20 z"/>
-         <svg:path d="M10,-86.54 l8,-8 v-38.46 l-8,8 z"/>
-         <svg:path d="M-10,-125 h20 l8,-8 h-20 z"/>
+      <svg:g transform="translate(109, 213.46)">
+         <svg:path d="M-10,0 h20 v-38.46 h-20 z"/>
+         <svg:path d="M10,0 l8,-8 v-38.46 l-8,8 z"/>
+         <svg:path d="M-10,-38.46 h20 l8,-8 h-20 z"/>
       </svg:g>
-      <svg:g transform="translate(149, 300)">
-         <svg:path d="M-10,-75.98 h20 v-49.02 h-20 z"/>
-         <svg:path d="M10,-75.98 l8,-8 v-49.02 l-8,8 z"/>
-         <svg:path d="M-10,-125 h20 l8,-8 h-20 z"/>
+      <svg:g transform="translate(149, 224.02)">
+         <svg:path d="M-10,0 h20 v-49.02 h-20 z"/>
+         <svg:path d="M10,0 l8,-8 v-49.02 l-8,8 z"/>
+         <svg:path d="M-10,-49.02 h20 l8,-8 h-20 z"/>
       </svg:g>
-      <svg:g transform="translate(189, 300)">
-         <svg:path d="M-10,-72.73 h20 v-52.27 h-20 z"/>
-         <svg:path d="M10,-72.73 l8,-8 v-52.27 l-8,8 z"/>
-         <svg:path d="M-10,-125 h20 l8,-8 h-20 z"/>
+      <svg:g transform="translate(189, 227.27)">
+         <svg:path d="M-10,0 h20 v-52.27 h-20 z"/>
+         <svg:path d="M10,0 l8,-8 v-52.27 l-8,8 z"/>
+         <svg:path d="M-10,-52.27 h20 l8,-8 h-20 z"/>
       </svg:g>
-      <svg:g transform="translate(229, 300)">
-         <svg:path d="M-10,28.85 h20 v-153.85 h-20 z"/>
-         <svg:path d="M10,28.85 l8,-8 v-153.85 l-8,8 z"/>
-         <svg:path d="M-10,-125 h20 l8,-8 h-20 z"/>
+      <svg:g transform="translate(229, 328.85)">
+         <svg:path d="M-10,0 h20 v-153.85 h-20 z"/>
+         <svg:path d="M10,0 l8,-8 v-153.85 l-8,8 z"/>
+         <svg:path d="M-10,-153.85 h20 l8,-8 h-20 z"/>
       </svg:g>
    </svg:g>
    <svg:g stroke="black">

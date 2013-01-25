@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE msgr SYSTEM "msgr.dtd">
+<msgr xmlns="http://graph2svg.googlecode.com"
+stacked="sum" lineType="none" 
+colType="block" effect="3D" 
+yGrid="major" yAxisMarkCount="7">
+  <title>Sum - Different 3D Columns</title>
+  <names>
+    <name>Jan</name>
+    <name>Feb</name>
+    <name>Mar</name>
+    <name>Apr</name>
+    <name>May</name>
+    <name>Jun</name>
+  </names>
+  <values>
+    <title>Block</title>
+    <value>21</value>
+    <value>22</value>
+    <value>15</value>
+    <value>18</value>
+    <value>16</value>
+    <value>14</value>
+  </values>
+  <values colType="pyramid">
+    <title>Pyramid</title>
+    <value>10</value>
+    <value>12</value>
+    <value>-18</value>
+    <value>11</value>
+    <value>15</value>
+    <value>18</value>
+  </values>
+  <values colType="cone">
+    <title>Cone</title>
+    <value>28</value>
+    <value>29</value>
+    <value>32</value>
+    <value>25</value>
+    <value>30</value>
+    <value>25</value>
+  </values>
+</msgr>

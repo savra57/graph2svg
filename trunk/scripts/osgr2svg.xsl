@@ -481,8 +481,6 @@
 				<xsl:with-param name="hg" select="$originY - $yShift - $yKoef * (.)"/>
 				<xsl:with-param name="tW" select="0"/>
 				<xsl:with-param name="bW" select="1"/>
-				<xsl:with-param name="dpX" select="$depthX"/>
-				<xsl:with-param name="dpY" select="$depthY"/>
 				<xsl:with-param name="colW" select="0.5*$colWd"/>
 			</xsl:call-template>
 			</svg:g>
@@ -492,15 +490,10 @@
 							{$legendSY[1+$vn] +0.5*$legendPictureHg})"
 						fill="{if ($gra/ph/@colType = 'cone' or $gra/ph/@colType = 'cylinder') then
 							concat('url(#lg', $vn, ')') else $cc}" >
-				<xsl:call-template name="m:drawCol"> <!-- draw a column-->
+				<xsl:call-template name="m:drawColLegend"> <!-- draw a column-->
 					<xsl:with-param name="type" select="$gra/ph/@colType"/>
 					<xsl:with-param name="effect" select="$gra/ph/@effect"/>
 					<xsl:with-param name="color" select="$cc"/>
-					<xsl:with-param name="hg" select="$legendPictureHg -$depthX*0.5"/>
-					<xsl:with-param name="tW" select="0"/>
-					<xsl:with-param name="bW" select="1"/>
-					<xsl:with-param name="dpX" select="$depthX*0.5"/>
-					<xsl:with-param name="dpY" select="$depthY*0.5"/>
 					<xsl:with-param name="colW" select="0.5*0.5*$colWd"/>
 				</xsl:call-template>
 				</svg:g>
