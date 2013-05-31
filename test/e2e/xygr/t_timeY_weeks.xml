@@ -5,7 +5,7 @@
 		axesPos="left-bottom"
 		yAxisType="dateTime"
 		yAxisLabelsFormat="[D01] [MNn] [Y0001]~de"
-		xAxisLabelsFormat="##.0"> 
+		xAxisLabelsFormat="0.0"> 
 	<title>Test Weeks on Y</title>
 
 	<curve>
