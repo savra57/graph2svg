@@ -27,11 +27,14 @@ when axisType=dateTime
 
 when axisType is a normal number, i.e.: auto, shifted or withZero (not log)
  - see: http://www.w3schools.com/xsl/func_formatnumber.asp
- - default is '#.##############'
- - for msgr graph with stacked="percentage" the default pattern is ' ##%' 
+ - default is '0.##############'
+ - for msgr graph with stacked="percentage" the default pattern is ' #0%'
+ - Note that the format-number function behave differently in saxon8 and saxon9. 
+   For example if using pattern '#.##' numbers 0 or 0.125 in saxon8 would be formatted 
+   to "0" or "0.13", but in saxon9 to "" or ".13"!
 
 examples:
-yAxisLabelsFormat="###.000"
+yAxisLabelsFormat="0.000"
 
 
 *** xAxisMin / xAxisMax / yAxisMin / yAxisMax

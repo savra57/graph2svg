@@ -103,7 +103,7 @@
 					for $a in $gra/ph/values/value return (
 						string-length(
 							if ($labelOut = 'value')  then $a else 
-							if ($labelOut = 'percent') then format-number(. div $pieValSum, '#%') else
+							if ($labelOut = 'percent') then format-number(. div $pieValSum, '0%') else
 							if ($labelOut = 'name') then 
 								$gra/ph/names/name[count($a/preceding-sibling::value)+1] else '')
 						)*$labelOutFontSize*$labelOutFontWd
@@ -118,7 +118,7 @@
 					for $a in $gra/ph/values/value return (
 						string-length(
 							if ($labelOut = 'value')  then $a else 
-							if ($labelOut = 'percent') then format-number(. div $pieValSum, '#%') else
+							if ($labelOut = 'percent') then format-number(. div $pieValSum, '0%') else
 							if ($labelOut = 'name') then 
 								$gra/ph/names/name[count($a/preceding-sibling::value)+1] else '')
 						)*$labelOutFontSize*$labelOutFontWd
@@ -252,7 +252,7 @@
 						<xsl:value-of select="."/>
 					</xsl:when>
 					<xsl:when test="$labelIn = 'percent' ">
-						<xsl:value-of select="format-number(. div $pieValSum, '#%')"/>
+						<xsl:value-of select="format-number(. div $pieValSum, '0%')"/>
 					</xsl:when>
 					<xsl:when test="$labelIn = 'name' ">
 						<xsl:value-of select="$gra/ph/names/name[1+$sn]"/>
@@ -281,7 +281,7 @@
 						<xsl:value-of select="."/>
 					</xsl:when>
 					<xsl:when test="$labelOut = 'percent' ">
-						<xsl:value-of select="format-number(. div $pieValSum, '#%')"/>
+						<xsl:value-of select="format-number(. div $pieValSum, '0%')"/>
 					</xsl:when>
 					<xsl:when test="$labelOut = 'name' ">
 						<xsl:value-of select="$gra/ph/names/name[1+$sn]"/>
@@ -348,12 +348,12 @@
 
 		<!-- norm graph itselves -->
 	<xsl:variable name="yAxisTSpace"  select="$graphMargin + max(($labelFontSize div 2, $depthY))"/>  
-	<xsl:variable name="yAxisBSpace"  select="$graphMargin + 
+	<xsl:variable name="yAxisBSpace"  select="m:R($graphMargin + 
 			max(($labelFontSize div 2, max(($labelFontSize + $majorMarkLen, 
-				m:R($xLabelRotation*math:sin($pi*$labelAngle div 180)) )) - $originYShift))"/>	
-	<xsl:variable name="xAxisLSpace"  select="$graphMargin + $maxYLabelWd "/>	
-	<xsl:variable name="xAxisRSpace"  select="$graphMargin + 
-			max((m:R($xLabelRotation*math:cos($pi*$labelAngle div 180)) -$catWd +$catGap, $depthX))"/>	
+				$xLabelRotation*math:sin($pi*$labelAngle div 180) )) - $originYShift)))"/>	
+	<xsl:variable name="xAxisLSpace"  select="$graphMargin + $maxYLabelWd "/>
+	<xsl:variable name="xAxisRSpace"  select="m:R($graphMargin + 
+			max(($xLabelRotation*math:cos($pi*$labelAngle div 180) -$catWd +$catGap, $depthX)))"/>	
 	<xsl:variable name="graphWd"  select="$xAxisLSpace + $xAxisWd + $xAxisRSpace"/>	
 	<xsl:variable name="graphHg"  select="$yAxisTSpace + $yAxisHg + $yAxisBSpace"/>
 	<xsl:variable name="xAxisLStart"  select="$legendL + $xAxisLSpace + 
@@ -670,7 +670,7 @@
 						<xsl:value-of select="."/>
 					</xsl:when>
 					<xsl:when test="$labelIn = 'percent' ">
-						<xsl:value-of select="format-number(. div $normValSum, '#%')"/>
+						<xsl:value-of select="format-number(. div $normValSum, '0%')"/>
 					</xsl:when>
 					<xsl:when test="$labelIn = 'name' ">
 						<xsl:value-of select="$gra/ph/names/name[1+$vn]"/>
@@ -695,7 +695,7 @@
 						<xsl:value-of select="."/>
 					</xsl:when>
 					<xsl:when test="$labelOut = 'percent' ">
-						<xsl:value-of select="format-number(. div $normValSum, '#%')"/>
+						<xsl:value-of select="format-number(. div $normValSum, '0%')"/>
 					</xsl:when>
 					<xsl:when test="$labelOut = 'name' ">
 						<xsl:value-of select="$gra/ph/names/name[1+$vn]"/>
@@ -749,6 +749,13 @@
 	<!--svg:text x="{$legendX}" y="{$legendY}" font-family="Verdana" font-size="{$labelFontSize}">
 		<xsl:value-of select="m:Round(3999.99, 20)"/>
 	</svg:text-->
+	
+	<!-- print to console -->
+	<!-- 
+	<xsl:message>
+		<xsl:copy-of select="/"/>
+	</xsl:message>
+	 -->
 
 	</svg:svg> 
 </xsl:otherwise>

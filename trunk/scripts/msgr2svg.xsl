@@ -98,8 +98,8 @@
 			max(($labelFontSize div 2, $labelFontSize + $majorMarkLen - $originYShift
 					+ $xLabelRotation*math:sin($pi*$labelAngle div 180)))"/>	
 	<xsl:variable name="xAxisLSpace"  select="$graphMargin + $maxYLabelWd "/>	
-	<xsl:variable name="xAxisRSpace"  select="$graphMargin + 
-		max((m:R($xLabelRotation*math:cos($pi*$labelAngle div 180)) -$catWd +$catGap, $depthX))"/>	
+	<xsl:variable name="xAxisRSpace"  select="m:R($graphMargin + 
+		max(($xLabelRotation*math:cos($pi*$labelAngle div 180) -$catWd +$catGap, $depthX)))"/>	
 	<xsl:variable name="graphWd"  select="$xAxisLSpace + $xAxisWd + $xAxisRSpace"/>	
 	<xsl:variable name="graphHg"  select="$yAxisTSpace + $yAxisHg + $yAxisBSpace"/>
 	<xsl:variable name="xAxisLStart"  select="$legendL + $xAxisLSpace + 

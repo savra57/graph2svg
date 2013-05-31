@@ -742,8 +742,8 @@ numbers:
 			<xsl:variable name="pom" select="round($val * math:power(10, - $rad +1)) * math:power(10, $rad - 1)"/>
 			<xsl:variable name="useFormat" select="
 					if ($axisFormat) then $axisFormat 
-					else if ($stacked='percentage') then ' ##%'
-					else '#.##############'"/>
+					else if ($stacked='percentage') then ' #0%'
+					else '0.##############'"/>
 			<xsl:value-of select="if ($pom != 0 or $stacked='percentage') then format-number($pom, $useFormat) else $pom"/>	
 		</xsl:otherwise>
 	</xsl:choose>
@@ -792,7 +792,9 @@ numbers:
 <!-- rounds the given value on 2 decimal places, used for SVG coordinates -->
 <xsl:function name="m:R"> 
 	<xsl:param name="val"/>
-	<xsl:value-of select="format-number($val, '#.##')"/>
+	<!-- Note that the format-number function behave differently in saxon8 and saxon9 if using pattern #.##.
+	For example 0 or 0.125 in saxon8 would be formatted to "0" or "0.13", but "" or ".13" in saxon9! -->
+	<xsl:value-of select="format-number($val, '0.##')"/>
 </xsl:function>
 
 <!-- returns the main node attribute value or the specified default value if the attribute is undefined -->
