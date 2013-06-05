@@ -1,4 +1,6 @@
  = RELAX-NG Schema Documentation =
+
+<wiki:toc/>
 	    
 
 == Element: osgr ==
@@ -1363,7 +1365,7 @@ dahs-dash-dot-dot
       value in the 'name' list.
       
 
-=== /Last/Content Model/@attribute ===
+=== `/Last/Content Model/@attribute` ===
 	
       
 
@@ -1380,7 +1382,7 @@ dahs-dash-dot-dot
     
 
 
-=== Last/Attributes ===
+=== <code>Last/Attributes ===
     
 <table>
 <th>Attribute</th>
