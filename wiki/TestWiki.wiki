@@ -1,3 +1,4 @@
+
  = RELAX-NG Schema Documentation =
  	
 	<wiki:toc/>
@@ -32,8 +33,9 @@ Link Test:
     
 
 ==== graphType ====
- || Type || Enumeration: pie, norm ||
- || Use || Optional ||
+
+|| Type || Enumeration: pie, norm ||
+|| Use || Optional ||
 	
 	
 	  The type of graph. One of  pie or
@@ -44,8 +46,9 @@ Link Test:
 	
 
 ==== effect ====
- || Type || Enumeration: 2D, 3D ||
- || Use || Optional ||
+
+|| Type || Enumeration: 2D, 3D ||
+|| Use || Optional ||
 	
 	
 	  One from 2D or 3D. Draws either a
@@ -54,8 +57,9 @@ Link Test:
 	
 
 ==== colType ====
- || Type || Enumeration: none, block, cylinder, cone, pyramid, line ||
- || Use || Optional ||
+
+|| Type || Enumeration: none, block, cylinder, cone, pyramid, line ||
+|| Use || Optional ||
 	
 	
       When the graphType is set to norm, selects the
@@ -74,8 +78,9 @@ Link Test:
     
 
 ==== lineType ====
- || Type || Enumeration: none, solid, dot, dash, longDash, dash-dot, longDash-dot, dash-dot-dot, longDash-dash, dash-dash-dot-dot ||
- || Use || Optional ||
+
+|| Type || Enumeration: none, solid, dot, dash, longDash, dash-dot, longDash-dot, dash-dot-dot, longDash-dash, dash-dash-dot-dot ||
+|| Use || Optional ||
 	
 	
       If present, specifies the type of line to be used to
@@ -97,8 +102,9 @@ dahs-dash-dot-dot
     
 
 ==== pointType ====
- || Type || Enumeration: none, point, cross, plus, minus, star, square, circle, triangle, rhomb, pyramid, squareF, circleF, triangleF, rhombF, pyramidF ||
- || Use || Optional ||
+
+|| Type || Enumeration: none, point, cross, plus, minus, star, square, circle, triangle, rhomb, pyramid, squareF, circleF, triangleF, rhombF, pyramidF ||
+|| Use || Optional ||
 	
 	
       @FIXME. No visible effect? Leaves a gap in the top of
@@ -108,8 +114,9 @@ dahs-dash-dot-dot
     
 
 ==== smooth ====
- || Type || Enumeration: yes, no ||
- || Use || Optional ||
+
+|| Type || Enumeration: yes, no ||
+|| Use || Optional ||
 	
 	
       @FIXME. No visible effect on the bar chart? Is this
@@ -117,8 +124,9 @@ dahs-dash-dot-dot
     
 
 ==== yAxisType ====
- || Type || Enumeration: auto, withZero, shifted, log, dateTime ||
- || Use || Optional ||
+
+|| Type || Enumeration: auto, withZero, shifted, log, dateTime ||
+|| Use || Optional ||
 	
 	
       If the Y values do not start at zero, use this property
@@ -132,46 +140,53 @@ dahs-dash-dot-dot
     
 
 ==== yAxisLabelsFormat ====
- || Type || TEXT ||
- || Use || Optional ||
+
+|| Type || TEXT ||
+|| Use || Optional ||
 	
 	
 	
       
 
 ==== yAxisMin ====
- || Type || TEXT ||
- || Use || Optional ||
+
+|| Type || TEXT ||
+|| Use || Optional ||
 	
 	
 
 ==== yAxisMax ====
- || Type || TEXT ||
- || Use || Optional ||
+
+|| Type || TEXT ||
+|| Use || Optional ||
 	
 	
 
 ==== yAxisStep ====
- || Type || TEXT ||
- || Use || Optional ||
+
+|| Type || TEXT ||
+|| Use || Optional ||
 	
 	
 
 ==== yAxisMarkCount ====
- || Type || TEXT ||
- || Use || Optional ||
+
+|| Type || TEXT ||
+|| Use || Optional ||
 	
 	
 
 ==== yAxisMarkDist ====
- || Type || TEXT ||
- || Use || Optional ||
+
+|| Type || TEXT ||
+|| Use || Optional ||
 	
 	
 
 ==== yAxisDivision ====
- || Type || Enumeration: none, 1, 2, 4, 5, 10 ||
- || Use || Optional ||
+
+|| Type || Enumeration: none, 1, 2, 4, 5, 10 ||
+|| Use || Optional ||
 	
 	
       Specify the major Y axis divisions. Numeric values are
@@ -180,8 +195,9 @@ dahs-dash-dot-dot
     
 
 ==== xAxisDivision ====
- || Type || Enumeration: none, major, minor, both ||
- || Use || Optional ||
+
+|| Type || Enumeration: none, major, minor, both ||
+|| Use || Optional ||
 	
 	
       Specifies which type of division are used on the X axis. Select from
@@ -194,14 +210,16 @@ dahs-dash-dot-dot
     
 
 ==== xAxisPos ====
- || Type || Enumeration: bottom, origin ||
- || Use || Optional ||
+
+|| Type || Enumeration: bottom, origin ||
+|| Use || Optional ||
 	
 	
 
 ==== xGrid ====
- || Type || Enumeration: none, major, minor, both ||
- || Use || Optional ||
+
+|| Type || Enumeration: none, major, minor, both ||
+|| Use || Optional ||
 	
 	
       Specifies which grid values are to be used on the X
@@ -211,20 +229,23 @@ dahs-dash-dot-dot
     
 
 ==== categoryGap ====
- || Type || TEXT ||
- || Use || Optional ||
+
+|| Type || TEXT ||
+|| Use || Optional ||
 	
 	
 
 ==== columnWd ====
- || Type || TEXT ||
- || Use || Optional ||
+
+|| Type || TEXT ||
+|| Use || Optional ||
 	
 	
 
 ==== yGrid ====
- || Type || Enumeration: none, major, minor ||
- || Use || Optional ||
+
+|| Type || Enumeration: none, major, minor ||
+|| Use || Optional ||
 	
 	
   Specifies which grid values are to be used on the Y
@@ -234,8 +255,9 @@ dahs-dash-dot-dot
     
 
 ==== colorScheme ====
- || Type || Enumeration: color, warm, cold, grey, black ||
- || Use || Optional ||
+
+|| Type || Enumeration: color, warm, cold, grey, black ||
+|| Use || Optional ||
 	
 	
       Defines an appropriate color scheme for the
@@ -245,8 +267,9 @@ dahs-dash-dot-dot
     
 
 ==== legend ====
- || Type || Enumeration: none, left, right, top, bottom ||
- || Use || Optional ||
+
+|| Type || Enumeration: none, left, right, top, bottom ||
+|| Use || Optional ||
 	
 	
       Specifies the position, on the graph, at which a repeat
@@ -256,74 +279,86 @@ dahs-dash-dot-dot
     
 
 ==== legendMargin ====
- || Type || TEXT ||
- || Use || Optional ||
+
+|| Type || TEXT ||
+|| Use || Optional ||
 	
 	
 
 ==== legendPictureWd ====
- || Type || TEXT ||
- || Use || Optional ||
+
+|| Type || TEXT ||
+|| Use || Optional ||
 	
 	
 
 ==== legendPictureHg ====
- || Type || TEXT ||
- || Use || Optional ||
+
+|| Type || TEXT ||
+|| Use || Optional ||
 	
 	
 
 ==== legendLineHg ====
- || Type || TEXT ||
- || Use || Optional ||
+
+|| Type || TEXT ||
+|| Use || Optional ||
 	
 	
 
 ==== legendGap ====
- || Type || TEXT ||
- || Use || Optional ||
+
+|| Type || TEXT ||
+|| Use || Optional ||
 	
 	
 
 ==== legendFontSize ====
- || Type || TEXT ||
- || Use || Optional ||
+
+|| Type || TEXT ||
+|| Use || Optional ||
 	
 	
 
 ==== graphMargin ====
- || Type || TEXT ||
- || Use || Optional ||
+
+|| Type || TEXT ||
+|| Use || Optional ||
 	
 	
 
 ==== titleMargin ====
- || Type || TEXT ||
- || Use || Optional ||
+
+|| Type || TEXT ||
+|| Use || Optional ||
 	
 	
 
 ==== titleFontSize ====
- || Type || TEXT ||
- || Use || Optional ||
+
+|| Type || TEXT ||
+|| Use || Optional ||
 	
 	
 
 ==== labelAngle ====
- || Type || TEXT ||
- || Use || Optional ||
+
+|| Type || TEXT ||
+|| Use || Optional ||
 	
 	
 
 ==== labelFontSize ====
- || Type || TEXT ||
- || Use || Optional ||
+
+|| Type || TEXT ||
+|| Use || Optional ||
 	
 	
 
 ==== labelIn ====
- || Type || Enumeration: none, value, percent, name ||
- || Use || Optional ||
+
+|| Type || Enumeration: none, value, percent, name ||
+|| Use || Optional ||
 	
 	
       Adds values, names or percentages to the bars or
@@ -333,8 +368,9 @@ dahs-dash-dot-dot
     
 
 ==== labelOut ====
- || Type || Enumeration: none, value, percent, name ||
- || Use || Optional ||
+
+|| Type || Enumeration: none, value, percent, name ||
+|| Use || Optional ||
 	
 	
       Enables the placing of labels 'outside' a pie chart,
@@ -375,8 +411,9 @@ dahs-dash-dot-dot
     
 
 ==== color ====
- || Type || TEXT ||
- || Use || Optional ||
+
+|| Type || TEXT ||
+|| Use || Optional ||
 	
 	
 
@@ -405,14 +442,16 @@ dahs-dash-dot-dot
     
 
 ==== color ====
- || Type || TEXT ||
- || Use || Optional ||
+
+|| Type || TEXT ||
+|| Use || Optional ||
 	
 	
 
 ==== pointType ====
- || Type || Enumeration: none, point, cross, plus, minus, star, square, circle, triangle, rhomb, pyramid, squareF, circleF, triangleF, rhombF, pyramidF ||
- || Use || Optional ||
+
+|| Type || Enumeration: none, point, cross, plus, minus, star, square, circle, triangle, rhomb, pyramid, squareF, circleF, triangleF, rhombF, pyramidF ||
+|| Use || Optional ||
 	
 	
 
@@ -429,160 +468,182 @@ dahs-dash-dot-dot
     
 
 ==== stacked ====
- || Type || Enumeration: none, sum, percentage ||
- || Use || Optional ||
+
+|| Type || Enumeration: none, sum, percentage ||
+|| Use || Optional ||
 	
 	
 	
       
 
 ==== shift ====
- || Type || TEXT ||
- || Use || Optional ||
+
+|| Type || TEXT ||
+|| Use || Optional ||
 	
 	
 
 ==== effect ====
- || Type || Enumeration: 2D, 3D ||
- || Use || Optional ||
+
+|| Type || Enumeration: 2D, 3D ||
+|| Use || Optional ||
 	
 	
 	
       
 
 ==== colType ====
- || Type || Enumeration: none, block, cylinder, cone, pyramid, line ||
- || Use || Optional ||
+
+|| Type || Enumeration: none, block, cylinder, cone, pyramid, line ||
+|| Use || Optional ||
 	
 	
 	
       
 
 ==== lineType ====
- || Type || Enumeration: none, solid, dot, dash, longDash, dash-dot, longDash-dot, dash-dot-dot, longDash-dash, dash-dash-dot-dot ||
- || Use || Optional ||
+
+|| Type || Enumeration: none, solid, dot, dash, longDash, dash-dot, longDash-dot, dash-dot-dot, longDash-dash, dash-dash-dot-dot ||
+|| Use || Optional ||
 	
 	
 	
       
 
 ==== pointType ====
- || Type || Enumeration: none, point, cross, plus, minus, star, square, circle, triangle, rhomb, pyramid, squareF, circleF, triangleF, rhombF, pyramidF ||
- || Use || Optional ||
+
+|| Type || Enumeration: none, point, cross, plus, minus, star, square, circle, triangle, rhomb, pyramid, squareF, circleF, triangleF, rhombF, pyramidF ||
+|| Use || Optional ||
 	
 	
 	
       
 
 ==== fillArea ====
- || Type || Enumeration: yes, no ||
- || Use || Optional ||
+
+|| Type || Enumeration: yes, no ||
+|| Use || Optional ||
 	
 	
 	
       
 
 ==== yAxisType ====
- || Type || Enumeration: auto, withZero, shifted, log, dateTime ||
- || Use || Optional ||
+
+|| Type || Enumeration: auto, withZero, shifted, log, dateTime ||
+|| Use || Optional ||
 	
 	
 	
       
 
 ==== yAxisLabelsFormat ====
- || Type || TEXT ||
- || Use || Optional ||
+
+|| Type || TEXT ||
+|| Use || Optional ||
 	
 	
 	
       
 
 ==== yAxisMin ====
- || Type || TEXT ||
- || Use || Optional ||
+
+|| Type || TEXT ||
+|| Use || Optional ||
 	
 	
 
 ==== yAxisMax ====
- || Type || TEXT ||
- || Use || Optional ||
+
+|| Type || TEXT ||
+|| Use || Optional ||
 	
 	
 
 ==== yAxisStep ====
- || Type || TEXT ||
- || Use || Optional ||
+
+|| Type || TEXT ||
+|| Use || Optional ||
 	
 	
 
 ==== yAxisMarkCount ====
- || Type || TEXT ||
- || Use || Optional ||
+
+|| Type || TEXT ||
+|| Use || Optional ||
 	
 	
 
 ==== yAxisMarkDist ====
- || Type || TEXT ||
- || Use || Optional ||
+
+|| Type || TEXT ||
+|| Use || Optional ||
 	
 	
 
 ==== yAxisDivision ====
- || Type || Enumeration: none, 1, 2, 4, 5, 10 ||
- || Use || Optional ||
+
+|| Type || Enumeration: none, 1, 2, 4, 5, 10 ||
+|| Use || Optional ||
 	
 	
 	
       
 
 ==== xAxisDivision ====
- || Type || Enumeration: none, major, minor, both ||
- || Use || Optional ||
+
+|| Type || Enumeration: none, major, minor, both ||
+|| Use || Optional ||
 	
 	
 	
       
 
 ==== xAxisPos ====
- || Type || Enumeration: bottom, origin ||
- || Use || Optional ||
+
+|| Type || Enumeration: bottom, origin ||
+|| Use || Optional ||
 	
 	
 	
       
 
 ==== xGrid ====
- || Type || Enumeration: none, major, minor, both ||
- || Use || Optional ||
+
+|| Type || Enumeration: none, major, minor, both ||
+|| Use || Optional ||
 	
 	
 	
       
 
 ==== categoryGap ====
- || Type || TEXT ||
- || Use || Optional ||
+
+|| Type || TEXT ||
+|| Use || Optional ||
 	
 	
 
 ==== columnWd ====
- || Type || TEXT ||
- || Use || Optional ||
+
+|| Type || TEXT ||
+|| Use || Optional ||
 	
 	
 
 ==== yGrid ====
- || Type || Enumeration: none, major, minor ||
- || Use || Optional ||
+
+|| Type || Enumeration: none, major, minor ||
+|| Use || Optional ||
 	
 	
 	
       
 
 ==== legend ====
- || Type || Enumeration: none, left, right, top, bottom ||
- || Use || Optional ||
+
+|| Type || Enumeration: none, left, right, top, bottom ||
+|| Use || Optional ||
 	
 	
 	Position on chart at which the explanatory legend is
@@ -590,74 +651,86 @@ dahs-dash-dot-dot
       
 
 ==== legendMargin ====
- || Type || TEXT ||
- || Use || Optional ||
+
+|| Type || TEXT ||
+|| Use || Optional ||
 	
 	
 
 ==== legendPictureWd ====
- || Type || TEXT ||
- || Use || Optional ||
+
+|| Type || TEXT ||
+|| Use || Optional ||
 	
 	
 
 ==== legendPictureHg ====
- || Type || TEXT ||
- || Use || Optional ||
+
+|| Type || TEXT ||
+|| Use || Optional ||
 	
 	
 
 ==== legendLineHg ====
- || Type || TEXT ||
- || Use || Optional ||
+
+|| Type || TEXT ||
+|| Use || Optional ||
 	
 	
 
 ==== legendGap ====
- || Type || TEXT ||
- || Use || Optional ||
+
+|| Type || TEXT ||
+|| Use || Optional ||
 	
 	
 
 ==== legendFontSize ====
- || Type || TEXT ||
- || Use || Optional ||
+
+|| Type || TEXT ||
+|| Use || Optional ||
 	
 	
 
 ==== graphMargin ====
- || Type || TEXT ||
- || Use || Optional ||
+
+|| Type || TEXT ||
+|| Use || Optional ||
 	
 	
 
 ==== titleMargin ====
- || Type || TEXT ||
- || Use || Optional ||
+
+|| Type || TEXT ||
+|| Use || Optional ||
 	
 	
 
 ==== titleFontSize ====
- || Type || TEXT ||
- || Use || Optional ||
+
+|| Type || TEXT ||
+|| Use || Optional ||
 	
 	
 
 ==== labelAngle ====
- || Type || TEXT ||
- || Use || Optional ||
+
+|| Type || TEXT ||
+|| Use || Optional ||
 	
 	
 
 ==== labelFontSize ====
- || Type || TEXT ||
- || Use || Optional ||
+
+|| Type || TEXT ||
+|| Use || Optional ||
 	
 	
 
 ==== colorScheme ====
- || Type || Enumeration: color, warm, cold, grey, black ||
- || Use || Optional ||
+
+|| Type || Enumeration: color, warm, cold, grey, black ||
+|| Use || Optional ||
 	
 	
 	Defines an appropriate color scheme for the
@@ -680,8 +753,9 @@ dahs-dash-dot-dot
     
 
 ==== color ====
- || Type || TEXT ||
- || Use || Optional ||
+
+|| Type || TEXT ||
+|| Use || Optional ||
 	
 	
 	  Specify what color to use for a value. Works well with a
@@ -693,8 +767,9 @@ dahs-dash-dot-dot
       
 
 ==== colType ====
- || Type || Enumeration: none, block, cylinder, cone, pyramid, line ||
- || Use || Optional ||
+
+|| Type || Enumeration: none, block, cylinder, cone, pyramid, line ||
+|| Use || Optional ||
 	
 	
 	 Selects the type of column to be generated. One from
@@ -713,8 +788,9 @@ dahs-dash-dot-dot
       
 
 ==== lineType ====
- || Type || Enumeration: none, solid, dot, dash, longDash, dash-dot, longDash-dot, dash-dot-dot, longDash-dash, dash-dash-dot-dot ||
- || Use || Optional ||
+
+|| Type || Enumeration: none, solid, dot, dash, longDash, dash-dot, longDash-dot, dash-dot-dot, longDash-dash, dash-dash-dot-dot ||
+|| Use || Optional ||
 	
 	
 	  If present, specifies the type of line to be used to
@@ -736,8 +812,9 @@ dahs-dash-dot-dot
       
 
 ==== pointType ====
- || Type || Enumeration: none, point, cross, plus, minus, star, square, circle, triangle, rhomb, pyramid, squareF, circleF, triangleF, rhombF, pyramidF ||
- || Use || Optional ||
+
+|| Type || Enumeration: none, point, cross, plus, minus, star, square, circle, triangle, rhomb, pyramid, squareF, circleF, triangleF, rhombF, pyramidF ||
+|| Use || Optional ||
 	
 	
 	Defines the marker type to be used for extnts. No
@@ -748,8 +825,9 @@ dahs-dash-dot-dot
       
 
 ==== smooth ====
- || Type || Enumeration: yes, no ||
- || Use || Optional ||
+
+|| Type || Enumeration: yes, no ||
+|| Use || Optional ||
 	
 	
 	When values are connected with a line (lineType
@@ -758,8 +836,9 @@ dahs-dash-dot-dot
       
 
 ==== fillArea ====
- || Type || Enumeration: yes, no ||
- || Use || Optional ||
+
+|| Type || Enumeration: yes, no ||
+|| Use || Optional ||
 	
 	
 	For any set of values, the fillArea property joins the
@@ -769,8 +848,9 @@ dahs-dash-dot-dot
       
 
 ==== startFrom ====
- || Type || Enumeration: axis, last ||
- || Use || Optional ||
+
+|| Type || Enumeration: axis, last ||
+|| Use || Optional ||
 	
 	
 	For a stacked graph, specify from what origin the bar
