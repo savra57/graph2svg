@@ -7,7 +7,7 @@
 <!ATTLIST xygr 
 			xmlns CDATA #FIXED "http://graph2svg.googlecode.com"
 			lineType (none|solid|dot|dash|longDash|dash-dot|longDash-dot|dash-dot-dot|longDash-dash|dash-dash-dot-dot) "solid"
-			pointType  (none|point|cross|plus|line|star|square|circle|triangle|rhomb|pyramid|squareF|circleF|triangleF|rhombF|pyramidF) "none"
+			pointType  (none|point|cross|plus|minus|star|square|circle|triangle|rhomb|pyramid|squareF|circleF|triangleF|rhombF|pyramidF) "none"
 			axesPos (left-bottom|origin) "origin"
 			
 			xAxisType  (auto|withZero|shifted|log|dateTime) "auto"
@@ -49,10 +49,10 @@
 			
 			colorScheme  (color|warm|cold|grey|black) "black">
 <!ATTLIST curve 
+			color  CDATA #IMPLIED
+			pointType (none|point|cross|plus|minus|star|square|circle|triangle|rhomb|pyramid|squareF|circleF|triangleF|rhombF|pyramidF) #IMPLIED
 			lineType  (none|solid|dot|dash|longDash|dash-dot|longDash-dot|dash-dot-dot|longDash-dash|dash-dash-dot-dot) #IMPLIED
-			smooth (yes|no) "no"
-			pointType (none|point|cross|plus|line|star|square|circle|triangle|rhomb|pyramid|squareF|circleF|triangleF|rhombF|pyramidF) #IMPLIED
-			color  CDATA #IMPLIED>
+			smooth (yes|no) "no">
 <!ATTLIST name
 			x  CDATA #IMPLIED
 			y  CDATA #IMPLIED
@@ -61,7 +61,6 @@
 <!ATTLIST point
 			x  CDATA #REQUIRED
 			y  CDATA #REQUIRED
-			pointType  (none|point|cross|plus|line|star|square|circle|triangle|rhomb|pyramid|squareF|circleF|triangleF|rhombF|pyramidF) #IMPLIED
-			color  CDATA #IMPLIED>
-
+			color  CDATA #IMPLIED
+			pointType  (none|point|cross|plus|minus|star|square|circle|triangle|rhomb|pyramid|squareF|circleF|triangleF|rhombF|pyramidF) #IMPLIED>
 
