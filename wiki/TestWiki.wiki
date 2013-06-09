@@ -1,6 +1,3 @@
-
- = RELAX-NG Schema Documentation =
- 	
 	<wiki:toc/>
       
 
@@ -21,47 +18,35 @@ Link Test:
     Author: Dave Pawson. 2009-07-26T18:04:34Z.
     Replaced 'botom' with 'bottom' in .rng, .rnc and .xsl 
   
+== /osgr ==
 
-== Element: osgr ==
-	
-
-=== Content Model ===
-	attlist.osgr, title?, names?, (osgr.values)+
-
+ * *Content:* title?, names?, (values)+
 
 === Attributes ===
-    
 
-==== graphType ====
+==== /osgr/@graphType ====
+|| Type || Enumeration: pie, norm||
+|| Use || Optional||
 
-|| Type || Enumeration: pie, norm ||
-|| Use || Optional ||
-	
-	
 	  The type of graph. One of  pie or
 	  norm. Draws either a PIE chart or a bar chart (when
 	  norm is selected. 
 	  @FIXME. What happens to the labels / values when 'pie' is
 	  selected? They aren't shown?
 	
+==== /osgr/@effect ====
+|| *Type* || Enumeration: 2D, 3D||
+|| *Use* || Optional||
 
-==== effect ====
-
-|| Type || Enumeration: 2D, 3D ||
-|| Use || Optional ||
-	
-	
 	  One from 2D or 3D. Draws either a
 	  plain area (2D) or a pseudo three dimensional bar or pie
 	  chart
 	
+==== /osgr/@colType ====
+ * *Type:* Enumeration: none, block, cylinder, cone, pyramid, line
 
-==== colType ====
+ * *Use:* Optional
 
-|| Type || Enumeration: none, block, cylinder, cone, pyramid, line ||
-|| Use || Optional ||
-	
-	
       When the graphType is set to norm, selects the
       type of column to be generated. One from 
       
@@ -76,13 +61,10 @@ Link Test:
       the bar chart. The default value is 'block', a two or three
       dimentional square block
     
+==== /osgr/@lineType ====
+|| Type || Enumeration: none, solid, dot, dash, longDash, dash-dot, longDash-dot, dash-dot-dot, longDash-dash, dash-dash-dot-dot||
+|| Use || Optional||
 
-==== lineType ====
-
-|| Type || Enumeration: none, solid, dot, dash, longDash, dash-dot, longDash-dot, dash-dot-dot, longDash-dash, dash-dash-dot-dot ||
-|| Use || Optional ||
-	
-	
       If present, specifies the type of line to be used to
       connect the peak values of the bar chart. Select, one from
       
@@ -100,35 +82,26 @@ dahs-dash-dot-dot
 
 
     
+==== /osgr/@pointType ====
+|| Type || Enumeration: none, point, cross, plus, minus, star, square, circle, triangle, rhomb, pyramid, squareF, circleF, triangleF, rhombF, pyramidF||
+|| Use || Optional||
 
-==== pointType ====
-
-|| Type || Enumeration: none, point, cross, plus, minus, star, square, circle, triangle, rhomb, pyramid, squareF, circleF, triangleF, rhombF, pyramidF ||
-|| Use || Optional ||
-	
-	
       @FIXME. No visible effect? Leaves a gap in the top of
       the bar chart line? Is this attribute applicable to a bar chart?
       There is code to process it, though it seems not to
       work.
     
+==== /osgr/@smooth ====
+|| Type || Enumeration: yes, no||
+|| Use || Optional||
 
-==== smooth ====
-
-|| Type || Enumeration: yes, no ||
-|| Use || Optional ||
-	
-	
       @FIXME. No visible effect on the bar chart? Is this
       attribute applicable?
     
+==== /osgr/@yAxisType ====
+|| Type || Enumeration: auto, withZero, shifted, log, dateTime||
+|| Use || Optional||
 
-==== yAxisType ====
-
-|| Type || Enumeration: auto, withZero, shifted, log, dateTime ||
-|| Use || Optional ||
-	
-	
       If the Y values do not start at zero, use this property
       to obtain a clearer graph. Select one from 
       
@@ -138,68 +111,44 @@ dahs-dash-dot-dot
 	log - use a log scale
       
     
+==== /osgr/@yAxisLabelsFormat ====
+|| Type || TEXT||
+|| Use || Optional||
 
-==== yAxisLabelsFormat ====
-
-|| Type || TEXT ||
-|| Use || Optional ||
-	
-	
 	
       
-
-==== yAxisMin ====
-
+==== /osgr/@yAxisMin ====
 || Type || TEXT ||
-|| Use || Optional ||
-	
-	
+|| Use || Optional||
 
-==== yAxisMax ====
-
+==== /osgr/@yAxisMax ====
 || Type || TEXT ||
-|| Use || Optional ||
-	
-	
+|| Use || Optional||
 
-==== yAxisStep ====
-
+==== /osgr/@yAxisStep ====
 || Type || TEXT ||
-|| Use || Optional ||
-	
-	
+|| Use || Optional||
 
-==== yAxisMarkCount ====
-
+==== /osgr/@yAxisMarkCount ====
 || Type || TEXT ||
-|| Use || Optional ||
-	
-	
+|| Use || Optional||
 
-==== yAxisMarkDist ====
-
+==== /osgr/@yAxisMarkDist ====
 || Type || TEXT ||
-|| Use || Optional ||
-	
-	
+|| Use || Optional||
 
-==== yAxisDivision ====
+==== /osgr/@yAxisDivision ====
+|| Type || Enumeration: none, 1, 2, 4, 5, 10||
+|| Use || Optional||
 
-|| Type || Enumeration: none, 1, 2, 4, 5, 10 ||
-|| Use || Optional ||
-	
-	
       Specify the major Y axis divisions. Numeric values are
       shown with this interval. Select from [none | 1 | 2 | 3 | 4 | 5
       | 10]. The default value is 1
     
+==== /osgr/@xAxisDivision ====
+|| Type || Enumeration: none, major, minor, both||
+|| Use || Optional||
 
-==== xAxisDivision ====
-
-|| Type || Enumeration: none, major, minor, both ||
-|| Use || Optional ||
-	
-	
       Specifies which type of division are used on the X axis. Select from
       
 	none - no 'tics' on the X axis
@@ -208,556 +157,389 @@ dahs-dash-dot-dot
 	both -  Show both major and minor 'tics'
       
     
+==== /osgr/@xAxisPos ====
+|| Type || Enumeration: bottom, origin||
+|| Use || Optional||
 
-==== xAxisPos ====
+==== /osgr/@xGrid ====
+|| Type || Enumeration: none, major, minor, both||
+|| Use || Optional||
 
-|| Type || Enumeration: bottom, origin ||
-|| Use || Optional ||
-	
-	
-
-==== xGrid ====
-
-|| Type || Enumeration: none, major, minor, both ||
-|| Use || Optional ||
-	
-	
       Specifies which grid values are to be used on the X
       axis. Select from [none | major | minor | both]. Causes
       appropriately dimensioned grid lines along the X axis
        
     
-
-==== categoryGap ====
-
+==== /osgr/@categoryGap ====
 || Type || TEXT ||
-|| Use || Optional ||
-	
-	
+|| Use || Optional||
 
-==== columnWd ====
-
+==== /osgr/@columnWd ====
 || Type || TEXT ||
-|| Use || Optional ||
-	
-	
+|| Use || Optional||
 
-==== yGrid ====
+==== /osgr/@yGrid ====
+|| Type || Enumeration: none, major, minor||
+|| Use || Optional||
 
-|| Type || Enumeration: none, major, minor ||
-|| Use || Optional ||
-	
-	
   Specifies which grid values are to be used on the Y
   axis. Select from [none | major | minor ]. Causes appropriately
   dimensioned grid lines along the Y axis vertically
 
     
+==== /osgr/@colorScheme ====
+|| Type || Enumeration: color, warm, cold, grey, black||
+|| Use || Optional||
 
-==== colorScheme ====
-
-|| Type || Enumeration: color, warm, cold, grey, black ||
-|| Use || Optional ||
-	
-	
       Defines an appropriate color scheme for the
       graph. Select from [ color| warm | cold | grey | black].
       grey is very useful when printing in black and
       white. 
     
+==== /osgr/@legend ====
+|| Type || Enumeration: none, left, right, top, bottom||
+|| Use || Optional||
 
-==== legend ====
-
-|| Type || Enumeration: none, left, right, top, bottom ||
-|| Use || Optional ||
-	
-	
       Specifies the position, on the graph, at which a repeat
       of the values range are repeated. Produces a block of text with
       the 'color' scheme and the appropriate 'names' used against each
       one. Select from [none|left|right|top|bottom]
     
-
-==== legendMargin ====
-
+==== /osgr/@legendMargin ====
 || Type || TEXT ||
-|| Use || Optional ||
-	
-	
+|| Use || Optional||
 
-==== legendPictureWd ====
-
+==== /osgr/@legendPictureWd ====
 || Type || TEXT ||
-|| Use || Optional ||
-	
-	
+|| Use || Optional||
 
-==== legendPictureHg ====
-
+==== /osgr/@legendPictureHg ====
 || Type || TEXT ||
-|| Use || Optional ||
-	
-	
+|| Use || Optional||
 
-==== legendLineHg ====
-
+==== /osgr/@legendLineHg ====
 || Type || TEXT ||
-|| Use || Optional ||
-	
-	
+|| Use || Optional||
 
-==== legendGap ====
-
+==== /osgr/@legendGap ====
 || Type || TEXT ||
-|| Use || Optional ||
-	
-	
+|| Use || Optional||
 
-==== legendFontSize ====
-
+==== /osgr/@legendFontSize ====
 || Type || TEXT ||
-|| Use || Optional ||
-	
-	
+|| Use || Optional||
 
-==== graphMargin ====
-
+==== /osgr/@graphMargin ====
 || Type || TEXT ||
-|| Use || Optional ||
-	
-	
+|| Use || Optional||
 
-==== titleMargin ====
-
+==== /osgr/@titleMargin ====
 || Type || TEXT ||
-|| Use || Optional ||
-	
-	
+|| Use || Optional||
 
-==== titleFontSize ====
-
+==== /osgr/@titleFontSize ====
 || Type || TEXT ||
-|| Use || Optional ||
-	
-	
+|| Use || Optional||
 
-==== labelAngle ====
-
+==== /osgr/@labelAngle ====
 || Type || TEXT ||
-|| Use || Optional ||
-	
-	
+|| Use || Optional||
 
-==== labelFontSize ====
-
+==== /osgr/@labelFontSize ====
 || Type || TEXT ||
-|| Use || Optional ||
-	
-	
+|| Use || Optional||
 
-==== labelIn ====
+==== /osgr/@labelIn ====
+|| Type || Enumeration: none, value, percent, name||
+|| Use || Optional||
 
-|| Type || Enumeration: none, value, percent, name ||
-|| Use || Optional ||
-	
-	
       Adds values, names or percentages to the bars or
       segments of the pie chart. Useful if accurate values are to be
       shown. Select from [none|value|percentage|name]. Names are used
       to label the segments of a pie chart.
     
+==== /osgr/@labelOut ====
+|| Type || Enumeration: none, value, percent, name||
+|| Use || Optional||
 
-==== labelOut ====
-
-|| Type || Enumeration: none, value, percent, name ||
-|| Use || Optional ||
-	
-	
       Enables the placing of labels 'outside' a pie chart,
       opposite each segment. Specifies what kind of labels are
       needed. Select from [none|value|percent|name]. 
 	
+== /osgr/title ==
 
-== Element: names ==
-	
-
-=== Content Model ===
-	(name)+
-
+=== Content ===
+TEXT
 
 === Attributes ===
-    
 
-== Element: values ==
-	
-
-=== Content Model ===
-	(osgr.value)+
-
-
-=== Attributes ===
-    
-
-== Element: title ==
-	
-
-=== Content Model ===
-	
-    TEXT
-    
-
-
-=== Attributes ===
-    
-
-==== color ====
-
+==== /osgr/title/@color ====
 || Type || TEXT ||
-|| Use || Optional ||
-	
-	
+|| Use || Optional||
 
-== Element: name ==
-	
+** End element: /osgr
+== /osgr/names ==
 
-=== Content Model ===
-	
-    TEXT
-    
-
+=== Content ===
+(name)+
 
 === Attributes ===
-    
 
-== Element: value ==
-	
+== /osgr/names/name ==
 
-=== Content Model ===
-	
-    TEXT
-    
-
+=== Content ===
+TEXT
 
 === Attributes ===
-    
 
-==== color ====
+** End element: /osgr/names
+** End element: /osgr
+== /osgr/values ==
 
+=== Content ===
+(value)+
+
+=== Attributes ===
+
+== /osgr/values/value ==
+
+=== Content ===
+TEXT
+
+=== Attributes ===
+
+==== /osgr/values/value/@color ====
 || Type || TEXT ||
-|| Use || Optional ||
-	
-	
+|| Use || Optional||
 
-==== pointType ====
+==== /osgr/values/value/@pointType ====
+|| Type || Enumeration: none, point, cross, plus, minus, star, square, circle, triangle, rhomb, pyramid, squareF, circleF, triangleF, rhombF, pyramidF||
+|| Use || Optional||
 
-|| Type || Enumeration: none, point, cross, plus, minus, star, square, circle, triangle, rhomb, pyramid, squareF, circleF, triangleF, rhombF, pyramidF ||
-|| Use || Optional ||
-	
-	
+** End element: /osgr/values
+** End element: /osgr
+** End element: 
+== /msgr ==
 
-== Element: msgr ==
-	
 	Start (root) element
       
-
-=== Content Model ===
-	attlist.msgr, title?, names?, (msgr.values)+
-
+=== Content ===
+, title?, names?, (values)+
 
 === Attributes ===
-    
 
-==== stacked ====
+==== /msgr/@stacked ====
+|| Type || Enumeration: none, sum, percentage||
+|| Use || Optional||
 
-|| Type || Enumeration: none, sum, percentage ||
-|| Use || Optional ||
-	
-	
 	
       
-
-==== shift ====
-
+==== /msgr/@shift ====
 || Type || TEXT ||
-|| Use || Optional ||
-	
-	
+|| Use || Optional||
 
-==== effect ====
+==== /msgr/@effect ====
+|| Type || Enumeration: 2D, 3D||
+|| Use || Optional||
 
-|| Type || Enumeration: 2D, 3D ||
-|| Use || Optional ||
-	
-	
 	
       
+==== /msgr/@colType ====
+|| Type || Enumeration: none, block, cylinder, cone, pyramid, line||
+|| Use || Optional||
 
-==== colType ====
-
-|| Type || Enumeration: none, block, cylinder, cone, pyramid, line ||
-|| Use || Optional ||
-	
-	
 	
       
+==== /msgr/@lineType ====
+|| Type || Enumeration: none, solid, dot, dash, longDash, dash-dot, longDash-dot, dash-dot-dot, longDash-dash, dash-dash-dot-dot||
+|| Use || Optional||
 
-==== lineType ====
-
-|| Type || Enumeration: none, solid, dot, dash, longDash, dash-dot, longDash-dot, dash-dot-dot, longDash-dash, dash-dash-dot-dot ||
-|| Use || Optional ||
-	
-	
 	
       
+==== /msgr/@pointType ====
+|| Type || Enumeration: none, point, cross, plus, minus, star, square, circle, triangle, rhomb, pyramid, squareF, circleF, triangleF, rhombF, pyramidF||
+|| Use || Optional||
 
-==== pointType ====
-
-|| Type || Enumeration: none, point, cross, plus, minus, star, square, circle, triangle, rhomb, pyramid, squareF, circleF, triangleF, rhombF, pyramidF ||
-|| Use || Optional ||
-	
-	
 	
       
+==== /msgr/@fillArea ====
+|| Type || Enumeration: yes, no||
+|| Use || Optional||
 
-==== fillArea ====
-
-|| Type || Enumeration: yes, no ||
-|| Use || Optional ||
-	
-	
 	
       
+==== /msgr/@yAxisType ====
+|| Type || Enumeration: auto, withZero, shifted, log, dateTime||
+|| Use || Optional||
 
-==== yAxisType ====
-
-|| Type || Enumeration: auto, withZero, shifted, log, dateTime ||
-|| Use || Optional ||
-	
-	
 	
       
+==== /msgr/@yAxisLabelsFormat ====
+|| Type || TEXT||
+|| Use || Optional||
 
-==== yAxisLabelsFormat ====
-
+	
+      
+==== /msgr/@yAxisMin ====
 || Type || TEXT ||
-|| Use || Optional ||
-	
-	
+|| Use || Optional||
+
+==== /msgr/@yAxisMax ====
+|| Type || TEXT ||
+|| Use || Optional||
+
+==== /msgr/@yAxisStep ====
+|| Type || TEXT ||
+|| Use || Optional||
+
+==== /msgr/@yAxisMarkCount ====
+|| Type || TEXT ||
+|| Use || Optional||
+
+==== /msgr/@yAxisMarkDist ====
+|| Type || TEXT ||
+|| Use || Optional||
+
+==== /msgr/@yAxisDivision ====
+|| Type || Enumeration: none, 1, 2, 4, 5, 10||
+|| Use || Optional||
+
 	
       
+==== /msgr/@xAxisDivision ====
+|| Type || Enumeration: none, major, minor, both||
+|| Use || Optional||
 
-==== yAxisMin ====
-
-|| Type || TEXT ||
-|| Use || Optional ||
-	
-	
-
-==== yAxisMax ====
-
-|| Type || TEXT ||
-|| Use || Optional ||
-	
-	
-
-==== yAxisStep ====
-
-|| Type || TEXT ||
-|| Use || Optional ||
-	
-	
-
-==== yAxisMarkCount ====
-
-|| Type || TEXT ||
-|| Use || Optional ||
-	
-	
-
-==== yAxisMarkDist ====
-
-|| Type || TEXT ||
-|| Use || Optional ||
-	
-	
-
-==== yAxisDivision ====
-
-|| Type || Enumeration: none, 1, 2, 4, 5, 10 ||
-|| Use || Optional ||
-	
-	
 	
       
+==== /msgr/@xAxisPos ====
+|| Type || Enumeration: bottom, origin||
+|| Use || Optional||
 
-==== xAxisDivision ====
-
-|| Type || Enumeration: none, major, minor, both ||
-|| Use || Optional ||
-	
-	
 	
       
+==== /msgr/@xGrid ====
+|| Type || Enumeration: none, major, minor, both||
+|| Use || Optional||
 
-==== xAxisPos ====
-
-|| Type || Enumeration: bottom, origin ||
-|| Use || Optional ||
-	
-	
 	
       
-
-==== xGrid ====
-
-|| Type || Enumeration: none, major, minor, both ||
-|| Use || Optional ||
-	
-	
-	
-      
-
-==== categoryGap ====
-
+==== /msgr/@categoryGap ====
 || Type || TEXT ||
-|| Use || Optional ||
-	
-	
+|| Use || Optional||
 
-==== columnWd ====
-
+==== /msgr/@columnWd ====
 || Type || TEXT ||
-|| Use || Optional ||
-	
-	
+|| Use || Optional||
 
-==== yGrid ====
+==== /msgr/@yGrid ====
+|| Type || Enumeration: none, major, minor||
+|| Use || Optional||
 
-|| Type || Enumeration: none, major, minor ||
-|| Use || Optional ||
-	
-	
 	
       
+==== /msgr/@legend ====
+|| Type || Enumeration: none, left, right, top, bottom||
+|| Use || Optional||
 
-==== legend ====
-
-|| Type || Enumeration: none, left, right, top, bottom ||
-|| Use || Optional ||
-	
-	
 	Position on chart at which the explanatory legend is
 	to be shown. Select from [none|left|right|top|bottom]
       
-
-==== legendMargin ====
-
+==== /msgr/@legendMargin ====
 || Type || TEXT ||
-|| Use || Optional ||
-	
-	
+|| Use || Optional||
 
-==== legendPictureWd ====
-
+==== /msgr/@legendPictureWd ====
 || Type || TEXT ||
-|| Use || Optional ||
-	
-	
+|| Use || Optional||
 
-==== legendPictureHg ====
-
+==== /msgr/@legendPictureHg ====
 || Type || TEXT ||
-|| Use || Optional ||
-	
-	
+|| Use || Optional||
 
-==== legendLineHg ====
-
+==== /msgr/@legendLineHg ====
 || Type || TEXT ||
-|| Use || Optional ||
-	
-	
+|| Use || Optional||
 
-==== legendGap ====
-
+==== /msgr/@legendGap ====
 || Type || TEXT ||
-|| Use || Optional ||
-	
-	
+|| Use || Optional||
 
-==== legendFontSize ====
-
+==== /msgr/@legendFontSize ====
 || Type || TEXT ||
-|| Use || Optional ||
-	
-	
+|| Use || Optional||
 
-==== graphMargin ====
-
+==== /msgr/@graphMargin ====
 || Type || TEXT ||
-|| Use || Optional ||
-	
-	
+|| Use || Optional||
 
-==== titleMargin ====
-
+==== /msgr/@titleMargin ====
 || Type || TEXT ||
-|| Use || Optional ||
-	
-	
+|| Use || Optional||
 
-==== titleFontSize ====
-
+==== /msgr/@titleFontSize ====
 || Type || TEXT ||
-|| Use || Optional ||
-	
-	
+|| Use || Optional||
 
-==== labelAngle ====
-
+==== /msgr/@labelAngle ====
 || Type || TEXT ||
-|| Use || Optional ||
-	
-	
+|| Use || Optional||
 
-==== labelFontSize ====
-
+==== /msgr/@labelFontSize ====
 || Type || TEXT ||
-|| Use || Optional ||
-	
-	
+|| Use || Optional||
 
-==== colorScheme ====
+==== /msgr/@colorScheme ====
+|| Type || Enumeration: color, warm, cold, grey, black||
+|| Use || Optional||
 
-|| Type || Enumeration: color, warm, cold, grey, black ||
-|| Use || Optional ||
-	
-	
 	Defines an appropriate color scheme for the
       graph. Select from [ color| warm | cold | grey | black].
       grey is very useful when printing in black and
       white.
       
+== /msgr/title ==
 
-== Element: values ==
-	
+=== Content ===
+TEXT
+
+=== Attributes ===
+
+==== /msgr/title/@color ====
+|| Type || TEXT ||
+|| Use || Optional||
+
+** End element: /msgr
+== /msgr/names ==
+
+=== Content ===
+(name)+
+
+=== Attributes ===
+
+== /msgr/names/name ==
+
+=== Content ===
+TEXT
+
+=== Attributes ===
+
+** End element: /msgr/names
+** End element: /msgr
+== /msgr/values ==
+
 	The extent of each Y value. There must be one for each
       value in the 'name' list.
       
-
-=== Content Model ===
-	title?, (msgr.value)+
-
+=== Content ===
+title?, (value)+
 
 === Attributes ===
-    
 
-==== color ====
-
+==== /msgr/values/@color ====
 || Type || TEXT ||
-|| Use || Optional ||
-	
-	
+|| Use || Optional||
+
 	  Specify what color to use for a value. Works well with a
       grey colorScheme, though be careful when mixing
       colors, if one specific value is to stand out.
@@ -765,13 +547,10 @@ dahs-dash-dot-dot
     for more information. Use either the keywords (See W3C,
     or one of the CSS alternatives, for which see 
       
+==== /msgr/values/@colType ====
+|| Type || Enumeration: none, block, cylinder, cone, pyramid, line||
+|| Use || Optional||
 
-==== colType ====
-
-|| Type || Enumeration: none, block, cylinder, cone, pyramid, line ||
-|| Use || Optional ||
-	
-	
 	 Selects the type of column to be generated. One from
 	 
       
@@ -786,13 +565,10 @@ dahs-dash-dot-dot
       the bar chart. The default value is 'block', a two or three
       dimentional square block
       
+==== /msgr/values/@lineType ====
+|| Type || Enumeration: none, solid, dot, dash, longDash, dash-dot, longDash-dot, dash-dot-dot, longDash-dash, dash-dash-dot-dot||
+|| Use || Optional||
 
-==== lineType ====
-
-|| Type || Enumeration: none, solid, dot, dash, longDash, dash-dot, longDash-dot, dash-dot-dot, longDash-dash, dash-dash-dot-dot ||
-|| Use || Optional ||
-	
-	
 	  If present, specifies the type of line to be used to
       connect the peak values of the bar chart. Select, one from
       
@@ -810,49 +586,37 @@ dahs-dash-dot-dot
       
 
       
+==== /msgr/values/@pointType ====
+|| Type || Enumeration: none, point, cross, plus, minus, star, square, circle, triangle, rhomb, pyramid, squareF, circleF, triangleF, rhombF, pyramidF||
+|| Use || Optional||
 
-==== pointType ====
-
-|| Type || Enumeration: none, point, cross, plus, minus, star, square, circle, triangle, rhomb, pyramid, squareF, circleF, triangleF, rhombF, pyramidF ||
-|| Use || Optional ||
-	
-	
 	Defines the marker type to be used for extnts. No
 	default. Select one from
 	[none|point|cross|plus|minus|star|square|circle|triangle|rhomb|
 	pyramid|squareF|circleF|triangleF|rhombF|pyramidF]. rhomb is a
 	rhombus, those items suffixed 'F' are filled shapes
       
+==== /msgr/values/@smooth ====
+|| Type || Enumeration: yes, no||
+|| Use || Optional||
 
-==== smooth ====
-
-|| Type || Enumeration: yes, no ||
-|| Use || Optional ||
-	
-	
 	When values are connected with a line (lineType
 	property on the values element), the line may be smoothed
 	using this property. Select from [yes|no]. Defaults to no
       
+==== /msgr/values/@fillArea ====
+|| Type || Enumeration: yes, no||
+|| Use || Optional||
 
-==== fillArea ====
-
-|| Type || Enumeration: yes, no ||
-|| Use || Optional ||
-	
-	
 	For any set of values, the fillArea property joins the
 	areas formed with the similar color (or shade of grey). Works
 	best when the effect attribute on
 	msgr is set to 2D. Select from [yes|no]. Defaults to no
       
+==== /msgr/values/@startFrom ====
+|| Type || Enumeration: axis, last||
+|| Use || Optional||
 
-==== startFrom ====
-
-|| Type || Enumeration: axis, last ||
-|| Use || Optional ||
-	
-	
 	For a stacked graph, specify from what origin the bar
 	should start. Select from [axis|last]. If
 	axis is selected, the bar is started from the
@@ -861,18 +625,28 @@ dahs-dash-dot-dot
 	ended) the previous one. The default is axis
 	
       
+== /msgr/values/title ==
 
-== Element: value ==
-	
+=== Content ===
+TEXT
+
+=== Attributes ===
+
+==== /msgr/values/title/@color ====
+|| Type || TEXT ||
+|| Use || Optional||
+
+** End element: /msgr/values
+== /msgr/values/value ==
+
 	A single value specifiying the extent of one 'name'. The
       name is the X axis label, the value is the Y extent.
       
-
-=== Content Model ===
-	
-    TEXT
-    
-
+=== Content ===
+TEXT
 
 === Attributes ===
-    
+
+** End element: /msgr/values
+** End element: /msgr
+** End element: 
