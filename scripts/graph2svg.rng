@@ -1,0 +1,1282 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<grammar ns="http://graph2svg.googlecode.com" xmlns:a="http://relaxng.org/ns/compatibility/annotations/1.0"
+	xmlns="http://relaxng.org/ns/structure/1.0" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:s="http://www.ascc.net/xml/schematron"
+	datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
+
+	<a:documentation>
+<![CDATA[<wiki:toc/>]]>
+	</a:documentation>
+	
+	<start>
+		<choice>
+			<ref name="msgr" />
+				<a:documentation>
+MSGR (Multi-Series GRaph) schema is designed to represent data and graphs with multiple data series. 
+In order to explain some terms imagine a table. First row contains table headers (or column names)
+while other rows contain numbers or date/time values each forming a data series. 
+In such table every column is called a category and the column name will be called
+a category name. Category names are always drawn on the x axis (horizontal axis) and data series 
+are by default drawn as lines. 
+
+Optionally the table can have a header column. The header column names describes
+each data series and are called series titles. Series titles would be used for graph legend.
+Series titles should not be confused with the whole graph title which is only one a typed centred
+on the top of the graph. 
+
+Of course the format of MSGR graph is not a table but an XML file. The root element is 
+[TestWiki#/msgr `msgr`] whose children are 
+ * optional element [TestWiki#/msgr/title title] for the graph title
+ * one element [TestWiki#/msgr/names names] which contains [TestWiki#/msgr/names/name name] elements for category names
+ * and multiple [TestWiki#/msgr/values values] elements each containing [TestWiki#/msgr/values/value value] elements holding the data
+Data series titles can be added as a sub-elements of [TestWiki#/msgr/values values] and should be wrapped in a 
+[TestWiki#/msgr/values/title title] element.
+
+That describes the graph's data however it doesn't say anything about how the data should be displayed.
+By default without defining other attributes the above will be drown as a line graph where each data series 
+is depicted by a line. Category names are on the x axis, the values on y axis and the legend with series titles
+is on the right. That can be changed by configuring additional attributes, usually on the `msgr` element or specifically
+on `values` elements. It is a general principle that attributes of values element overrides the values of root
+element. That allows for wide range of graph types including:
+ * bar chart
+ * area graph
+ * sum or percentage graph
+And many others.
+
+Usually different attribute values can be combined freely. For example if
+the attribute [TestWiki#/msgr/@pointType pointType] is set to `circle` on the msgr element and 
+the first `values` element has attribute [TestWiki#/msgr/values/@lineType lineType] set to `dash` the first
+data series will be drawn as a dashed line with circles around each data point. Other series will be drawn
+as solid lines because default value of the [TestWiki#/msgr/@lineType lineType] attribute is 
+`solid` and they will also have circles.
+				</a:documentation>
+			<ref name="osgr">
+				<a:documentation>
+Represent a graphs with one data series (One-Series GRaph). Compared to MSGR graphs OSGR graph has only one
+data series. There is no need for title series as it would have only one value but it can have name series 
+naming each data value. The legend, if chosen to be displayed, then list the name series rather then category
+names. 
+
+One data series can be displayed as a normal graph (bar or line graph) but also allows for pie chart. 
+That is configured by [TestWiki#/osgr/@graphType graphType] attribute.
+
+In the one series graphs the data names as well as data values can be typed inside or outside the data bars
+or pie chart sections which is set independently by [TestWiki#/osgr/@labelIn labelIn] and 
+[TestWiki#/osgr/@labelOut labelOut] attributes.
+				</a:documentation>
+			</ref>
+			<ref name="xygr" />
+		</choice>
+	</start>
+	
+	<!-- *** msgr definitions *** -->
+	
+	<define name="msgr">
+		<element name="msgr">
+			<a:documentation>
+Root element for MSGR graph.
+			</a:documentation>
+			<ref name="attlist.msgr" />
+			<ref name="attlist.common.msgr.osgr" />
+			<ref name="attlist.common.all" />
+			<optional>
+				<ref name="title" />
+			</optional>
+			<optional>
+				<ref name="names" />
+			</optional>
+			<oneOrMore>
+				<ref name="msgr.values" />
+			</oneOrMore>
+		</element>
+	</define>
+	
+
+	<define name="attlist.msgr" combine="interleave">
+		<optional>
+			<attribute name="stacked" a:defaultValue="none">
+				<a:documentation>
+It can be desired to display the data in each category "stacked" on each other where each
+column starts from the end of previous column of the same category rather then from zero.
+The overall height of the
+column is then sum of all data values within the category. That is typical for area graph.
+
+The percentage option is good for cases where we are not interested in the absolute size 
+of the column but rather in it's percentage of the sum of the category. In such case the
+size of all columns is same and equals to 100%. The y axis shows percents rather then
+absolute values.
+
+With the default `none` option the bars starts from zero. That is suitable if the data
+series are displayed as lines or points. However it may not be desired for bar charts because
+the bars could overlap each other. That can be fixed by setting the [TestWiki#/msgr/@shift shift]
+attribute.
+				</a:documentation>
+				<choice>
+					<value>none</value>
+					<value>sum</value>
+					<value>percentage</value>
+				</choice>
+			</attribute>
+		</optional>
+
+		<optional>
+			<attribute name="shift" a:defaultValue="0" />
+			<a:documentation>
+By default the `shift` attribute is set to 0. That means that all data points within one category
+(regardless if they are displayed as points, lines or bars) has the same x coordinate.
+That is usually not convenient for bar chart where the bars could overlap each other. In such case
+setting the shift attribute to more then zero will move the bars within one category setting them apart.
+
+The shift value is a decimal percentage number relative to the column width. So for instance
+ * 0 - the bars fully overlap
+ * 0.7 - the bars still overlap but only from 30 %
+ * 1 - the bars are just besides each other
+ * 1.5 - there is a gap between the bars a half bar width 
+			</a:documentation>
+		</optional>
+		
+		<optional>
+			<attribute name="fillArea" a:defaultValue="no">
+				<a:documentation>
+If set to `yes` the area between the line connecting the series data points and x axis will be filled 
+with colour configured for the data series. That is typically combined with stacked or percentage type
+of graphs, see [TestWiki#/msgr/@stacked stacked].
+				</a:documentation>
+				<choice>
+					<value>yes</value>
+					<value>no</value>
+				</choice>
+			</attribute>
+		</optional>
+	</define>
+	
+
+	<define name="osgr">
+		<a:documentation>
+Root element for OSGR graphs.
+		</a:documentation>
+		<element name="osgr">
+			<ref name="attlist.osgr" />
+			<ref name="attlist.common.msgr.osgr" />
+			<ref name="attlist.common.all" />
+			<optional>
+				<ref name="title" />
+			</optional>
+			<optional>
+				<ref name="names" />
+			</optional>
+			<oneOrMore>
+				<ref name="osgr.values" />
+			</oneOrMore>
+		</element>
+	</define>
+
+
+	<define name="names">
+		<a:documentation>
+A list of names used to identify (label) the columns. The number of name elements should match the number of
+value elements. In [TestWiki#/osgr osgr] the names can be also displayed in legend and inside or outside
+the bars or pie sections, see [TestWiki#/osgr/@labelIn labelIn] and [TestWiki#/osgr/@labelOut labelOut] attributes.
+		</a:documentation>
+		<element name="names">
+			<oneOrMore>
+				<ref name="name" />
+			</oneOrMore>
+		</element>
+	</define>
+
+
+	<define name="osgr.values">
+		<a:documentation>
+A list of data values. Typically displayed on Y axis or a s proportion of the circle in the pie chart.
+There should be one value for each name in the `names` list. There is only one `values` element in
+OSGR type of graph.
+		</a:documentation>
+		<element name="values">
+			<oneOrMore>
+				<ref name="osgr.value" />
+			</oneOrMore>
+		</element>
+	</define>
+
+
+	<define name="title">
+		<a:documentation>
+The title for the graph. Displayed at the top centre of the output SVG.
+		</a:documentation>
+		<element name="title">
+			<ref name="attlist.title" />
+			<text />
+		</element>
+	</define>
+	
+
+	<define name="name">
+		<a:documentation>
+A single label on the X axis. The name is the X axis label, the value is the Y extent.
+		</a:documentation>
+		<element name="name">
+			<text />
+		</element>
+	</define>
+
+
+	<define name="osgr.value">
+		<a:documentation>
+A single value specifying the extent of one `name`. The
+name is the X axis label, the value is the Y extent.
+		</a:documentation>
+		<element name="value">
+			<ref name="attlist.value" />
+			<text />
+		</element>
+	</define>
+	
+	
+	<define name="attlist.osgr" combine="interleave">
+		<optional>
+			<attribute name="graphType" a:defaultValue="norm">
+				<a:documentation>
+The type of graph. One of `pie` or `norm`. Draws either a PIE chart or a bar or line chart when
+`norm` is selected. When `pie` is selected the names (labels) can be displayed in the legend 
+or besides ([TestWiki#/osgr/@labelOut labelOut]) or inside ([TestWiki#/osgr/@labelIn labelIn]) 
+the pie chart sections.
+				</a:documentation>
+				<choice>
+					<value>pie</value>
+					<value>norm</value>
+				</choice>
+			</attribute>
+		</optional>
+		
+		<optional>
+			<attribute name="smooth" a:defaultValue="no">
+				<a:documentation>
+When the data series is displayed as a line it can be smoothen to a Bézier curve. It won't have
+any effect on other type of OSGR graph.
+				</a:documentation>
+				<choice>
+					<value>yes</value>
+					<value>no</value>
+				</choice>
+			</attribute>
+		</optional>
+		
+		<optional>
+			<attribute name="labelIn" a:defaultValue="none">
+				<a:documentation>
+Adds names, values or percentages to the bars or segments of the pie chart. 
+Useful if accurate values are to be shown.
+Names can be used to label the segments of a pie chart. The percent is calculated
+as proportion of the value to the sum of all values.
+				</a:documentation>
+				<choice>
+					<value>none</value>
+					<value>value</value>
+					<value>percent</value>
+					<value>name</value>
+				</choice>
+			</attribute>
+		</optional>
+		
+		<optional>
+			<attribute name="labelOut" a:defaultValue="none">
+				<a:documentation>
+Enables the placing of labels 'outside' a pie chart, besides each segment. For bar (or other `norm` 
+type of chart) the value is typed on top of the bar.
+
+The label can be the value `name`, the `value` or the value calculated as a `percent` of the
+sum of all values.
+				</a:documentation>
+				<choice>
+					<value>none</value>
+					<value>value</value>
+					<value>percent</value>
+					<value>name</value>
+				</choice>
+			</attribute>
+		</optional>
+	</define>
+	
+	
+	<define name="attlist.common.msgr.osgr" combine="interleave">
+		<optional>
+			<attribute name="effect" a:defaultValue="2D">
+				<a:documentation>
+One from `2D` or `3D`. Draws either a plain area (2D) or a pseudo three dimensional bar or pie
+chart (for OSGR graphs only). All the column types have their 3D version. 
+
+The points as well as
+areas are typically not suitable for 3D effect. However combining them is not forbidden. In such
+case the points are displayed to the front plane (where the axes are) whereas the areas are 
+drown on the 3D background.
+				</a:documentation>
+				<choice>
+					<value>2D</value>
+					<value>3D</value>
+				</choice>
+			</attribute>
+		</optional>
+
+		<optional>
+			<attribute name="colType" a:defaultValue="block">
+				<a:documentation>
+Setting that the value will be drown as a vertical column (or bar) of a particular type. Each column
+type has two variants 2D or 3D depending on the value of the `effect` attribute. For example 
+for the `cone` option the bar is displayed as a triangle with 2D effect but as a cone with 3D effect.
+					
+For the OSGR graphs the default value is `block`. The attribute is ignored for pie type of OSGR graph.
+
+MSGR graphs are not drown with columns by default (the default value is `none`) and the selected option 
+applies to all data series unless it is overwritten on the series level.
+				</a:documentation>
+				<choice>
+					<value>none</value>
+					<value>block</value>
+					<value>cylinder</value>
+					<value>cone</value>
+					<value>pyramid</value>
+					<value>line</value>
+				</choice>
+			</attribute>
+		</optional>
+		
+		<optional>
+			<attribute name="xAxisDivision" a:defaultValue="minor">
+				<a:documentation>
+Specifies which type of division are used on the X axis. Select from
+ * none - no 'tics' on the X axis
+ * major - Show the major axis 'tics', dividing the categories
+ * minor - Show only minor axis 'tics' on the place of X coordinate, when shift attribute is not 0 there will be multiple 'tics' - one per each data value within the category
+ * both - Show both major and minor 'tics'
+				</a:documentation>
+				<choice>
+					<value>none</value>
+					<value>major</value>
+					<value>minor</value>
+					<value>both</value>
+				</choice>
+			</attribute>
+		</optional>
+
+		<optional>
+			<attribute name="xAxisPos" a:defaultValue="origin">
+				<a:documentation>
+When some of the values are negative the position of X axis can be specified. It can either
+intersect the Y axis in the origin or be at the bottom of the graph area.
+
+It makes no difference when all values are positive.
+				</a:documentation>
+				<choice>
+					<value>bottom</value>
+					<value>origin</value>
+				</choice>
+			</attribute>
+		</optional>
+		
+		<optional>
+			<attribute name="xGrid" a:defaultValue="none">
+				<a:documentation>
+Specifies whether and how should be draw the grid for X axis (i.e. vertical grid lines).
+Select from
+ * none - no grid for the X axis
+ * major - draws grid lines dividing the data categories
+ * minor - draws thinner grid lines value
+ * both - draws both major and minor grid lines
+See also the `xAxisDivision` attribute documentation.
+				</a:documentation>
+				<choice>
+					<value>none</value>
+					<value>major</value>
+					<value>minor</value>
+					<value>both</value>
+				</choice>
+			</attribute>
+		</optional>
+
+		<optional>
+			<attribute name="categoryGap">
+				<a:documentation>
+Defines the space around each data category on the on the X axis. In other words the gap between columns of
+neighbouring categories will be a twice the configured size. 
+
+The same value is also used a as spaces between the Y axis and first column as well as the space
+between the last column and end of X axis.
+
+The units are SVG pixels and the default value is 10.
+				</a:documentation>
+			</attribute>
+		</optional>
+		
+		<optional>
+			<attribute name="columnWd">
+				<a:documentation>
+Defines the width of each column. It is the base width of the bars if the data are displaed as bars
+but even if the data series are drown as lines or points only it contributes to the distance between
+categories.
+
+The units are SVG pixels and the default value is 20 for MSGR graphs and 30 for OSGR graphs.
+				</a:documentation>
+			</attribute>
+		</optional>
+	</define>
+
+
+	<define name="attlist.common.all" combine="interleave">
+		
+		<optional>
+			<attribute name="lineType" a:defaultValue="none">
+				<a:documentation>
+If set to anything else then `none` the data series points will be connected with a line
+of a particular type.
+				</a:documentation>
+				<choice>
+					<value>none</value>
+					<value>solid</value>
+					<value>dot</value>
+					<value>dash</value>
+					<value>longDash</value>
+					<value>dash-dot</value>
+					<value>longDash-dot</value>
+					<value>dash-dot-dot</value>
+					<value>longDash-dash</value>
+					<value>dash-dash-dot-dot</value>
+				</choice>
+			</attribute>
+		</optional>
+
+		<optional>
+			<attribute name="pointType" a:defaultValue="none">
+				<a:documentation>
+					@FIXME. No visible effect? Leaves a gap in the top of
+					the bar chart line? Is this attribute applicable to a bar chart?
+					There is code to process it, though it seems not to
+					work.
+				</a:documentation>
+				<choice>
+					<value>none</value>
+					<value>point</value>
+					<value>cross</value>
+					<value>plus</value>
+					<value>minus</value>
+					<value>star</value>
+					<value>square</value>
+					<value>circle</value>
+					<value>triangle</value>
+					<value>rhomb</value>
+					<value>pyramid</value>
+					<value>squareF</value>
+					<value>circleF</value>
+					<value>triangleF</value>
+					<value>rhombF</value>
+					<value>pyramidF</value>
+				</choice>
+			</attribute>
+		</optional>
+
+		<optional>
+			<attribute name="yAxisType" a:defaultValue="auto">
+				<a:documentation>
+					If the Y values do not start at zero, use this property
+					to obtain a clearer graph. Select one from
+
+ * auto - Let the software decide
+ * withZero - Include a zero value
+ * shifted - start at non-zero value as appropriate
+ * log - use a log scale
+
+				</a:documentation>
+				<choice>
+					<value>auto</value>
+					<value>withZero</value>
+					<value>shifted</value>
+					<value>log</value>
+					<value>dateTime</value>
+				</choice>
+			</attribute>
+		</optional>
+
+		<optional>
+			<attribute name="yAxisLabelsFormat" a:defaultValue="auto">
+				<a:documentation>
+
+				</a:documentation>
+				<text />
+			</attribute>
+		</optional>
+
+		<optional>
+			<attribute name="yAxisMin" />
+		</optional>
+
+		<optional>
+			<attribute name="yAxisMax" />
+		</optional>
+
+		<optional>
+			<attribute name="yAxisStep" />
+		</optional>
+
+		<optional>
+			<attribute name="yAxisMarkCount" />
+		</optional>
+
+		<optional>
+			<attribute name="yAxisMarkDist" />
+		</optional>
+
+		<optional>
+			<attribute name="yAxisDivision" a:defaultValue="1">
+				<a:documentation>
+					Specify the major Y axis divisions. Numeric values are
+					shown with this interval. Select from [none | 1 | 2 | 3 | 4 | 5
+					| 10]. The default value is 1
+				</a:documentation>
+				<choice>
+					<value>none</value>
+					<value>1</value>
+					<value>2</value>
+					<value>4</value>
+					<value>5</value>
+					<value>10</value>
+				</choice>
+			</attribute>
+		</optional>
+
+		<optional>
+			<attribute name="yGrid" a:defaultValue="none">
+				<a:documentation>
+					Specifies which grid values are to be used on the Y
+					axis. Select from [none | major | minor ]. Causes appropriately
+					dimensioned grid lines along the Y axis vertically
+
+				</a:documentation>
+				<choice>
+					<value>none</value>
+					<value>major</value>
+					<value>minor</value>
+				</choice>
+			</attribute>
+		</optional>
+		<optional>
+			<attribute name="colorScheme" a:defaultValue="color">
+				<a:documentation>
+					Defines an appropriate color scheme for the
+					graph. Select from [ color| warm | cold | grey | black].
+					`grey` is very useful when printing in black and
+					white.
+				</a:documentation>
+				<choice>
+					<value>color</value>
+					<value>warm</value>
+					<value>cold</value>
+					<value>grey</value>
+					<value>black</value>
+				</choice>
+			</attribute>
+		</optional>
+		<optional>
+			<attribute name="legend" a:defaultValue="none">
+				<a:documentation>
+					Specifies the position, on the graph, at which a repeat
+					of the values range are repeated. Produces a block of text with
+					the 'color' scheme and the appropriate 'names' used against each
+					one. Select from [none|left|right|top|bottom]
+				</a:documentation>
+				<choice>
+					<value>none</value>
+					<value>left</value>
+					<value>right</value>
+					<value>top</value>
+					<value>bottom</value>
+				</choice>
+			</attribute>
+		</optional>
+
+		<optional>
+			<attribute name="legendMargin" />
+		</optional>
+		<optional>
+			<attribute name="legendPictureWd" />
+		</optional>
+		<optional>
+			<attribute name="legendPictureHg" />
+		</optional>
+		<optional>
+			<attribute name="legendLineHg" />
+		</optional>
+		<optional>
+			<attribute name="legendGap" />
+		</optional>
+		<optional>
+			<attribute name="legendFontSize" />
+		</optional>
+
+		<optional>
+			<attribute name="graphMargin" />
+		</optional>
+		<optional>
+			<attribute name="titleMargin" />
+		</optional>
+		<optional>
+			<attribute name="titleFontSize" />
+		</optional>
+
+		<optional>
+			<attribute name="labelAngle" />
+		</optional>
+		<optional>
+			<attribute name="labelFontSize" />
+		</optional>
+	</define>
+
+	<define name="attlist.title" combine="interleave">
+		<a:documentation>
+			The color to be applied to the title text. Use CSS color
+			names or values.
+			See
+			<html:a href="http://www.w3.org/TR/SVG11/types.html#DataTypeColor">W3C</html:a>
+			for more information. Use either the keywords (See
+			<html:a href="http://www.w3.org/TR/SVG11/types.html#ColorKeywords">W3C</html:a>
+			,
+			or one of the CSS alternatives, for which see
+			<html:a href="http://www.w3.org/TR/2008/REC-CSS2-20080411/syndata.html#value-def-color"></html:a>
+		</a:documentation>
+		<optional>
+			<attribute name="color" />
+		</optional>
+	</define>
+
+	<define name="attlist.value" combine="interleave">
+
+		<optional>
+			<a:documentation>
+				Specify what color to use for a value. Works well with a
+				grey `colorScheme`, though be careful when mixing
+				colors, if one specific value is to stand out.
+				See
+				<html:a href="http://www.w3.org/TR/SVG11/types.html#DataTypeColor">W3C</html:a>
+				for more information. Use either the keywords (See
+				<html:a href="http://www.w3.org/TR/SVG11/types.html#ColorKeywords">W3C</html:a>
+				,
+				or one of the CSS alternatives, for which see
+				<html:a href="http://www.w3.org/TR/2008/REC-CSS2-20080411/syndata.html#value-def-color"></html:a>
+
+			</a:documentation>
+			<attribute name="color" />
+		</optional>
+
+		<optional>
+			<a:documentation>
+				Attribute pointType. Specifies the shape to be shown for
+				a single point. This enables a single point to be shown
+				differently from the rest of the points (see
+				<html:a href="#ptype">above</html:a>
+				). The semantics are the same as
+				previously
+				@FIXME. No visible effect? Leaves a gap in the top of
+				the bar chart line? Is this attribute applicable to a bar chart?
+				There is code to process it, though it seems not to
+				work.
+			</a:documentation>
+			<attribute name="pointType">
+
+				<choice>
+					<value>none</value>
+					<value>point</value>
+					<value>cross</value>
+					<value>plus</value>
+					<value>minus</value>
+					<value>star</value>
+					<value>square</value>
+					<value>circle</value>
+					<value>triangle</value>
+					<value>rhomb</value>
+					<value>pyramid</value>
+					<value>squareF</value>
+					<value>circleF</value>
+					<value>triangleF</value>
+					<value>rhombF</value>
+					<value>pyramidF</value>
+				</choice>
+			</attribute>
+		</optional>
+	</define>
+
+
+
+
+	<define name="msgr.values">
+		<element name="values">
+			<a:documentation>
+				The extent of each Y value. There must be one for each
+				value in the 'name' list.
+			</a:documentation>
+
+			<ref name="attlist.msgr.values" />
+			<optional>
+				<ref name="title" />
+			</optional>
+			<oneOrMore>
+				<ref name="msgr.value" />
+			</oneOrMore>
+		</element>
+	</define>
+
+	<define name="msgr.value">
+		<element name="value">
+			<a:documentation>
+				A single value specifiying the extent of one 'name'. The
+				name is the X axis label, the value is the Y extent.
+			</a:documentation>
+			<text />
+		</element>
+	</define>
+
+
+
+
+
+	
+
+	<!-- -->
+	<!-- Attributes on the values element -->
+	<!-- -->
+
+
+	<define name="attlist.msgr.values" combine="interleave">
+		<optional>
+			<attribute name="color">
+				<a:documentation>
+					Specify what color to use for a value. Works well with a
+					grey `colorScheme`, though be careful when mixing
+					colors, if one specific value is to stand out.
+					See
+					<html:a href="http://www.w3.org/TR/SVG11/types.html#DataTypeColor">W3C</html:a>
+					for more information. Use either the keywords (See
+					<html:a href="http://www.w3.org/TR/SVG11/types.html#ColorKeywords">W3C</html:a>
+					,
+					or one of the CSS alternatives, for which see
+					<html:a href="http://www.w3.org/TR/2008/REC-CSS2-20080411/syndata.html#value-def-color"></html:a>
+				</a:documentation>
+			</attribute>
+		</optional>
+
+		<optional>
+			<attribute name="colType">
+				<a:documentation>
+					Selects the type of column to be generated. One from
+
+
+ * none
+ * block
+ * cylinder
+ * cone
+ * pyramid
+ * line
+
+					The named shape is used to draw the vertical columns of
+					the bar chart. The default value is 'block', a two or three
+					dimentional square block
+				</a:documentation>
+				<choice>
+					<value>none</value>
+					<value>block</value>
+					<value>cylinder</value>
+					<value>cone</value>
+					<value>pyramid</value>
+					<value>line</value>
+				</choice>
+			</attribute>
+		</optional>
+
+		<optional>
+			<attribute name="lineType">
+				<a:documentation>
+					If present, specifies the type of line to be used to
+					connect the peak values of the bar chart. Select, one from
+
+
+ * none
+ * solid
+ * dot
+ * dash
+ * longDash
+ * dash-dot
+ * longDash-dot
+ * dash-dot-dot
+ * longDash-dash
+ * dash-dash-dot-dot
+
+
+				</a:documentation>
+				<choice>
+					<value>none</value>
+					<value>solid</value>
+					<value>dot</value>
+					<value>dash</value>
+					<value>longDash</value>
+					<value>dash-dot</value>
+					<value>longDash-dot</value>
+					<value>dash-dot-dot</value>
+					<value>longDash-dash</value>
+					<value>dash-dash-dot-dot</value>
+				</choice>
+			</attribute>
+		</optional>
+
+		<optional>
+			<attribute name="pointType">
+				<a:documentation>
+					Defines the marker type to be used for extnts. No
+					default. Select one from
+					[none|point|cross|plus|minus|star|square|circle|triangle|rhomb|
+					pyramid|squareF|circleF|triangleF|rhombF|pyramidF]. rhomb is a
+					rhombus, those items suffixed 'F' are filled shapes
+				</a:documentation>
+				<choice>
+					<value>none</value>
+					<value>point</value>
+					<value>cross</value>
+					<value>plus</value>
+					<value>minus</value>
+					<value>star</value>
+					<value>square</value>
+					<value>circle</value>
+					<value>triangle</value>
+					<value>rhomb</value>
+					<value>pyramid</value>
+					<value>squareF</value>
+					<value>circleF</value>
+					<value>triangleF</value>
+					<value>rhombF</value>
+					<value>pyramidF</value>
+				</choice>
+			</attribute>
+		</optional>
+		<optional>
+			<attribute name="smooth" a:defaultValue="no">
+				<a:documentation>
+					When values are connected with a line (lineType
+					property on the values element), the line may be smoothed
+					using this property. Select from [yes|no]. Defaults to no
+				</a:documentation>
+				<choice>
+					<value>yes</value>
+					<value>no</value>
+				</choice>
+			</attribute>
+		</optional>
+
+		<optional>
+			<attribute name="fillArea">
+				<a:documentation>
+					For any set of values, the fillArea property joins the
+					areas formed with the similar color (or shade of grey). Works
+					best when the `effect` attribute on
+					`msgr` is set to 2D. Select from [yes|no]. Defaults to no
+				</a:documentation>
+				<choice>
+					<value>yes</value>
+					<value>no</value>
+				</choice>
+			</attribute>
+		</optional>
+
+		<optional>
+			<attribute name="startFrom">
+				<a:documentation>
+					For a stacked graph, specify from what origin the bar
+					should start. Select from [axis|last]. If
+					`axis` is selected, the bar is started from the
+					X axis. If `last` is selected, then one set of
+					values is stacked on top of (starting where the previous one
+					ended) the previous one. The default is `axis`
+
+				</a:documentation>
+				<a:documentation>
+
+				</a:documentation>
+				<choice>
+					<value>axis</value>
+					<value>last</value>
+				</choice>
+			</attribute>
+		</optional>
+	</define>
+
+
+
+	<define name="xygr">
+		<a:documentation>
+			Element xygr. Document root
+		</a:documentation>
+		<element name="xygr">
+			<ref name="attlist.xygr" />
+			<ref name="attlist.common.all" />
+			<optional>
+				<ref name="title" />
+			</optional>
+			<oneOrMore>
+				<ref name="curve" />
+			</oneOrMore>
+		</element>
+	</define>
+
+	<define name="curve">
+		<a:documentation>
+			Element curve. A single (possibly only) graph.  
+		</a:documentation>
+		<element name="curve">
+			<ref name="attlist.curve" />
+			<optional>
+				<ref name="xygr.name" />
+			</optional>
+			<oneOrMore>
+				<ref name="point" />
+			</oneOrMore>
+		</element>
+	</define>
+
+	<define name="xygr.name">
+		<a:documentation>
+			Element name. A label for one curve
+		</a:documentation>
+		<element name="name">
+			<ref name="attlist.name" />
+			<text />
+		</element>
+	</define>
+
+	<define name="point">
+		<a:documentation>
+			Element point. A single point on a graph
+		</a:documentation>
+		<element name="point">
+			<ref name="attlist.point" />
+			<empty />
+		</element>
+	</define>
+
+
+	<define name="attlist.xygr" combine="interleave">
+		<optional>
+			<a:documentation>
+				Attribute axesPos. Where, on the graph, the axes are positioned. Either at the origin (0,0) or at the
+					bottom left of the graph
+				
+			</a:documentation>
+			<attribute name="axesPos" a:defaultValue="origin">
+				<choice>
+					<value>left-bottom</value>
+					<value>origin</value>
+				</choice>
+			</attribute>
+		</optional>
+		
+		<optional>
+			<a:documentation>
+				Attribute xAxisDivision. How the X axis is divided up. Select
+					from one of the values [none, 1 2 4 5 or 10]
+				
+			</a:documentation>
+			<attribute name="xAxisDivision" a:defaultValue="1">
+				<choice>
+					<value>none</value>
+					<value>1</value>
+					<value>2</value>
+					<value>4</value>
+					<value>5</value>
+					<value>10</value>
+				</choice>
+			</attribute>
+		</optional>
+
+
+		
+		<optional>
+			<a:documentation>
+				Attribute xGrid. How the X axis is divided up. None, major
+					or minor. Minor marks interleave with major ones. Default value is none, i.e. no divisions
+				
+			</a:documentation>
+			<attribute name="xGrid" a:defaultValue="none">
+				<choice>
+					<value>none</value>
+					<value>major</value>
+					<value>minor</value>
+				</choice>
+			</attribute>
+		</optional>
+
+		<optional>
+			<a:documentation>
+				Attribute xAxisType. How the X axis is divided. Select
+					from automatic (software decides most appropriately), withZero
+					(i.e. includes a zero value), shifted (zero to first X value is
+					elided), or a logarithmic value
+				
+			</a:documentation>
+			<attribute name="xAxisType" a:defaultValue="auto">
+				<choice>
+					<value>auto</value>
+					<value>withZero</value>
+					<value>shifted</value>
+					<value>log</value>
+					<value>dateTime</value>
+				</choice>
+			</attribute>
+		</optional>
+
+		<optional>
+			<attribute name="xAxisLabelsFormat" a:defaultValue="auto">
+				<a:documentation>
+					
+				</a:documentation>
+				<text />
+			</attribute>
+		</optional>
+
+		<optional>
+			<attribute name="xAxisMin" />
+		</optional>
+
+		<optional>
+			<attribute name="xAxisMax" />
+		</optional>
+
+		<optional>
+			<attribute name="xAxisStep" />
+		</optional>
+
+		<optional>
+			<attribute name="xAxisMarkCount" />
+		</optional>
+
+		<optional>
+			<attribute name="xAxisMarkDist" />
+		</optional>
+
+		<optional>
+			<attribute name="curveFontSize" />
+		</optional>
+
+	</define>
+
+	<define name="attlist.curve" combine="interleave">
+		<a:documentation>
+			Attribute lineType. An attribute of the curve. Defines the
+				user selected type of line for the graph. Select from [none,
+				solid, dot, dash, longDash, dash-dot, longDash-dot, dash-dot-dot,
+				longDash-dash, dash-dash-dot-dot].
+			
+		</a:documentation>
+
+		<optional>
+			<attribute name="lineType">
+				<choice>
+					<value>none</value>
+					<value>solid</value>
+					<value>dot</value>
+					<value>dash</value>
+					<value>longDash</value>
+					<value>dash-dot</value>
+					<value>longDash-dot</value>
+					<value>dash-dot-dot</value>
+					<value>longDash-dash</value>
+					<value>dash-dash-dot-dot</value>
+				</choice>
+			</attribute>
+		</optional>
+
+		<optional>
+			<a:documentation>
+				
+					Attribute smooth, on element curve. Determines if the
+					graph trace is smoothed out or left as segments. A value of
+					<b>yes</b>
+					will cause smoothing to take place
+				
+			</a:documentation>
+			<attribute name="smooth" a:defaultValue="no">
+				<choice>
+					<value>yes</value>
+					<value>no</value>
+				</choice>
+			</attribute>
+		</optional>
+
+
+		<optional>
+			<a:documentation>
+				Attribute pointType, on element curve. Selects one from a
+					list of shapes used to represent individual points. Each is a
+					small shape, those suffixed with 'F' are filled shapes. Those
+					without are hollow shapes. rhomb is a rhombus shape
+				
+			</a:documentation>
+			<attribute name="pointType">
+				<choice>
+					<value>none</value>
+					<value>point</value>
+					<value>cross</value>
+					<value>plus</value>
+					<value>line</value>
+					<value>star</value>
+					<value>square</value>
+					<value>circle</value>
+					<value>triangle</value>
+					<value>rhomb</value>
+					<value>pyramid</value>
+					<value>squareF</value>
+					<value>circleF</value>
+					<value>triangleF</value>
+					<value>rhombF</value>
+					<value>pyramidF</value>
+				</choice>
+			</attribute>
+		</optional>
+
+
+		<optional>
+			<a:documentation>
+				Attribute color. Specifies the color of the curve. Use the
+					color range from CSS [@FIXME, which version]. This value is copied
+					straight to the SVG, so ensure it is valid for SVG
+				
+				
+					See
+					<html:a href="http://www.w3.org/TR/SVG11/types.html#DataTypeColor">W3C</html:a>
+					for more information. Use either the keywords (See
+					<html:a href="http://www.w3.org/TR/SVG11/types.html#ColorKeywords">W3C</html:a>
+					,
+					or one of the CSS alternatives, for which see
+					<html:a href="http://www.w3.org/TR/2008/REC-CSS2-20080411/syndata.html#value-def-color" />
+				
+			</a:documentation>
+
+			<attribute name="color" />
+		</optional>
+	</define>
+
+
+	<define name="attlist.name" combine="interleave">
+		<a:documentation>
+			Attributes for the element name (graph label). Specifies the position,
+				color and visibility of the name
+			
+		</a:documentation>
+
+		<optional>
+			<a:documentation>
+				Attribute x. The X coordinate of the label, with respect
+					to 0,0 being top left of the graph.
+				
+			</a:documentation>
+			<attribute name="x" />
+		</optional>
+		<optional>
+
+			<a:documentation>
+				Attribute y. The Y coordinate of the label, with respect
+					to 0 being top left of the graph.
+				
+			</a:documentation>
+			<attribute name="y" />
+		</optional>
+
+		<optional>
+			<a:documentation>
+				
+					Attribute color. Specifies the color to use for the
+					legend. Same caution as for
+					<html:a href="#color">color</html:a>
+					above
+				
+			</a:documentation>
+			<attribute name="color" />
+		</optional>
+
+
+		<optional>
+			<a:documentation>
+				
+					Attribute visibility. Specifies what is shown and what is
+					not. Select from
+					<b>none</b>
+					( neither the graph or the legend is
+					shown),
+					<b>legend</b>
+					shows the legend but not the graph,
+					<b>graph</b>
+					, shows the graph but not the legend or finally
+					<b>both</b>
+					which shows both the graph and the legend
+				
+			</a:documentation>
+			<attribute name="visibility" a:defaultValue="both">
+				<choice>
+					<value>none</value>
+					<value>legend</value>
+					<value>graph</value>
+					<value>both</value>
+				</choice>
+			</attribute>
+		</optional>
+	</define>
+
+
+	<define name="attlist.point" combine="interleave">
+
+		<a:documentation>
+			Attributes for points on the graph. x and y specify the
+				position of the point.
+			
+		</a:documentation>
+
+		<attribute name="x" />
+		<attribute name="y" />
+		<optional>
+			<a:documentation>
+				
+					Attribute pointType. Specifies the shape to be shown for a
+					single point. This enables a single point to be shown differently
+					from the rest of the points (see
+					<html:a href="#ptype">above</html:a>
+					). The semantics are the same as previously
+				
+			</a:documentation>
+
+			<attribute name="pointType">
+				<choice>
+					<value>none</value>
+					<value>point</value>
+					<value>cross</value>
+					<value>plus</value>
+					<value>line</value>
+					<value>star</value>
+					<value>square</value>
+					<value>circle</value>
+					<value>triangle</value>
+					<value>rhomb</value>
+					<value>pyramid</value>
+					<value>squareF</value>
+					<value>circleF</value>
+					<value>triangleF</value>
+					<value>rhombF</value>
+					<value>pyramidF</value>
+				</choice>
+			</attribute>
+		</optional>
+		<optional>
+			<a:documentation>
+				
+					Attribute color. Specifies the color of an individual
+					point, when visible. Semantics and values as
+					<html:a href="#color">above </html:a>
+				
+			</a:documentation>
+
+			<attribute name="color" />
+		</optional>
+	</define>
+</grammar>
