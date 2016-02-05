@@ -1,0 +1,8 @@
+Three types of XML schemas (DTD) are defined for different types of graphs or charts. The graphs are divided systematically into three types not according to their visual form but according to the number of data series which they are formed with. The aim of proposed schemas is to separate information about the graph appearance from their data and so to enable the easy change of appearance by means of small changes in a XML file.
+The main asset is the set of three scripts (each script for one XML
+schema) which transform information about data and the ways of their representation into the graphic appearance in the SVG format. The scripts make use XSLT 2.0 language and XPath 2.0 query language.
+They are proposed to calculate the size of graphs, the layout of graph parts and limits of data axis automatically. The final appearance of a graph can be changed by means of the setting of several attributes. The data series can be depicted as several types of columns with the optional 3D effect, as various marks or as pointed or smooth lines of many types with the possibility of the filling of surrounded areas. The series can be colour-coded and it is possible to set their individual appearance as well. It enables the great
+variability of depicting? Besides the graphs with one measurable
+data series (OSGR) can be depicted as a pie chart. Graphs with more series (MSGR) can be transformed into a stacked or 100%-stacked graph. Graphs
+with pairs of measurable data series (XYGR) can be used efficiently for the drawing of function graphs, curves or measurement results.
+Archive also include several examples.
